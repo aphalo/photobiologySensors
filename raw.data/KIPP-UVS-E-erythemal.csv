@@ -1,3 +1,18 @@
+#' @name KIPP_UVS_E_erythemal
+#' @note
+#' UVS-E-T Radiometer
+#' The detection system includes optical filters and a phosphor
+#' that determine the spectral response. The phosphor is very
+#' sensitive to low levels of ultraviolet radiation and is stimulated
+#' by the UV to emit green light, which is detected by a photodiode.
+#' The system is temperature stabilised at +25 °C to prevent
+#' changes in spectral response and sensitivity with variations in
+#' the ambient conditions.
+#' 
+#' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
+#' @url http://www.kippzonnen.com/
+#' @reference Brochure 'Broadband UV Radiometers'
+#'
 w.length,s.e.response
 280.004,0.730961
 280.017,0.731399

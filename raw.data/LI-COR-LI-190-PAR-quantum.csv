@@ -1,3 +1,13 @@
+#' @name LI_COR_LI_190_PAR_quantum
+#' @note
+#' LI-190SA quantum sensor
+#' Colored glass filters are used to tailor the silicon photodiode response 
+#' to the desired quantum response
+#' 
+#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
+#' @url http://www.licor.com/
+#' @reference Brochure 'LI-190SA quantum sensor'
+#'
 w.length,s.q.response
 365.614,0.00180832
 378.287,0.00361664

@@ -1,9 +1,13 @@
-#'' @note,,
-#'' TOCON_E2 (TOCON_ERYCA),,
-#'' Pre-amplified SiC UV-Index Photodetector,,
-#'' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
-#'' @url http://www.sglux.de/,,
-#'' @reference Datasheet TOCON_E2 Rev. 1.2,,
+#' @name TOCON_E2_erythemal
+#' @note
+#' TOCON_E2 (TOCON_ERYCA)
+#' Pre-amplified SiC UV-Index Photodetector
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
+#' @url http://www.sglux.de/
+#' @reference Datasheet TOCON_E2 Rev. 1.2
+#'
+#'
+#'
 w.length,s.e.response,
 298.989,0.747167,
 300,0.645842,

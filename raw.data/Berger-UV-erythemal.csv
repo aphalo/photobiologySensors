@@ -1,3 +1,13 @@
+#' @name Berger-UV-erythemal
+#' @note
+#' 'Berger' UV-Biometer (Fig. 1 in Berger, 1994)
+#'  
+#' @reference
+#' Berger, Daniel (n.d., ca. 1994) A comparison of Spectroradiometers to Radiometers for
+#' UV Radiation Measurements. Solar Light Co., Inc., Philadelphia.
+#'
+#'
+#'
 w.length,s.e.response
 279.872,0.747022
 285.156,0.912011

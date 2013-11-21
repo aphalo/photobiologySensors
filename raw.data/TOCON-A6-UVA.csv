@@ -1,3 +1,13 @@
+#' @name TOCON_A6_UVA
+#' @note
+#' TOCON_A6
+#' UVA pre-amplified SiC UV Photodetector
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
+#' @url http://www.sglux.de/
+#' @reference Datasheet TOCON_A6 Rev. 1.2
+#'
+#'
+#'
 w.length,s.e.response
 259.091,1.04E-06
 261.157,1.41E-06

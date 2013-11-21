@@ -1,3 +1,13 @@
+#' @name KIPP_PQS1_PAR_quantum
+#' @note
+#' PQS 1 PAR Quantum Sensor
+#'
+#'
+#' 
+#' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
+#' @url http://www.kippzonnen.com/
+#' @reference Brochure 'PQS 1 PAR Quantum Sensor'
+#'
 w.length,s.e.response
 391.431,0.029574
 392.561,0.0521499

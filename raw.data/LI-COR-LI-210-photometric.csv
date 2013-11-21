@@ -1,3 +1,13 @@
+#' @name LI_COR_LI_210_photometric
+#' @note
+#' LI-210SA PHOTOMETRIIC SENSOR
+#' The LI-210SA Photometric Sensor utilizes a filtered silicon photodiode to provide
+#' a spectral response that matches the CIE curve within ± 5% with most light sources.
+#' 
+#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
+#' @url http://www.licor.com/
+#' @reference Brochure 'LI-210SA PHOTOMETRIIC SENSOR'
+#'
 w.length,s.e.response
 382.387,0.00335008
 387.014,0.00670017

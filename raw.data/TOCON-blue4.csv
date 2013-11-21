@@ -1,3 +1,13 @@
+#' @name TOCON_blue4
+#' @note
+#' TOCON_blue4
+#' pre-amplified GaP blue light detector
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
+#' @url http://www.sglux.de/
+#' @reference Datasheet TOCON_blue4 Rev. 1.2
+#'
+#'
+#'
 w.length,s.e.response
 340,-1.78E-15
 345.172,-1.78E-15
