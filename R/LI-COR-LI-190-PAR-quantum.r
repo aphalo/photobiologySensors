@@ -31,4 +31,4 @@
 #' @url http://www.licor.com/
 #' @reference Brochure 'LI-190SA quantum sensor'
 #'
-NULL/n
+NULL

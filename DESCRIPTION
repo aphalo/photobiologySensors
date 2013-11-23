@@ -5,8 +5,7 @@ Version: 0.1.0
 Date: 2013-11-21
 Author: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>, Tähti Pohjanmies
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
-Description: This package provides data for UV and VIS radiation sensors. Data was digitized
-from manufacturers' brochures and manuals.
+Description: This package provides data for UV and VIS radiation sensors. Data was digitized from manufacturers' brochures and manuals.
 License: GPL (>= 3)
 VignetteBuilder: knitr
 Depends: R (>= 3.0.0), photobiology (>= 0.2.0)

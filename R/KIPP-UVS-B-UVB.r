@@ -36,4 +36,4 @@
 #' @url http://www.kippzonnen.com/
 #' @reference Brochure 'Broadband UV Radiometers'
 #'
-NULL/n
+NULL

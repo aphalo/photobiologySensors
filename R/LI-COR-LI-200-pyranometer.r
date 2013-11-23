@@ -31,4 +31,4 @@
 #' @url http://www.licor.com/
 #' @reference Brochure 'LI-200SA pyranometer'
 #'
-NULL/n
+NULL

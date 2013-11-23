@@ -31,4 +31,4 @@
 #' @url http://www.licor.com/
 #' @reference Brochure 'LI-210SA PHOTOMETRIIC SENSOR'
 #'
-NULL/n
+NULL

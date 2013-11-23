@@ -19,7 +19,9 @@ for (file.name in file.list) {
   r.file.name <- sub(".csv", ".r", file.name, fixed=TRUE)
   system(paste('cp sensor.data.template.r', r.file.name))
   system(paste("grep -U ^#", file.name, '>>', r.file.name))
-  system(paste('echo "NULL/n" >>', r.file.name))
+  system(paste('echo @aliases', df.name))
+  system(paste('echo "NULL" >>', r.file.name))
+  system(paste('cp', r.file.name, '../r/'))
 }
 setwd("./..")
 

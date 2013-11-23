@@ -31,4 +31,4 @@
 #' @url http://www.kippzonnen.com/
 #' @reference Brochure 'PQS 1 PAR Quantum Sensor'
 #'
-NULL/n
+NULL
