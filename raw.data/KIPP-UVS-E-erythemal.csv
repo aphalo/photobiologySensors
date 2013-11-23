@@ -1,4 +1,4 @@
-#' @name KIPP_UVS_E_erythemal
+#' @name KIPP_UVS_E_erythemal.data
 #' @note
 #' UVS-E-T Radiometer
 #' The detection system includes optical filters and a phosphor
@@ -10,8 +10,9 @@
 #' the ambient conditions.
 #' 
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
-#' @url http://www.kippzonnen.com/
-#' @reference Brochure 'Broadband UV Radiometers'
+#' \url{http://www.kippzonen.com/}
+#'
+#' @references Brochure 'Broadband UV Radiometers'
 #'
 w.length,s.e.response
 280.004,0.730961

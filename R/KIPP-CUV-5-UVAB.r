@@ -17,18 +17,18 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_CUV_5_UVAB
+#' @name KIPP_CUV_5_UVAB.data
 #' @note
 #' CUV 5 Broadband UV Radiometer
 #' Detection system includes optical filters and a photodiode
 #' 
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
-#' @url http://www.kippzonnen.com/
-#' @reference Brochure 'Broadband UV Radiometers'
-#'
+#' \url{http://www.kippzonen.com/}
+#' 
+#' @references Brochure 'Broadband UV Radiometers'
 #'
 NULL

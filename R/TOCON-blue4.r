@@ -17,18 +17,17 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_blue4
+#' @name TOCON_blue4.data
 #' @note
 #' TOCON_blue4
 #' pre-amplified GaP blue light detector
 #' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
-#' @url http://www.sglux.de/
-#' @reference Datasheet TOCON_blue4 Rev. 1.2
+#' \url{http://www.sglux.de/}
 #'
-#'
+#' @references Datasheet TOCON_A6 Rev. 1.2
 #'
 NULL

@@ -17,7 +17,7 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'

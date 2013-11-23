@@ -17,11 +17,11 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_A_UVA
+#' @name KIPP_UVS_A_UVA.data
 #' @note
 #' UVS-A-T Radiometer
 #' The detection system includes optical filters and a phosphor
@@ -33,7 +33,8 @@
 #' the ambient conditions.
 #' 
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
-#' @url http://www.kippzonnen.com/
-#' @reference Brochure 'Broadband UV Radiometers'
+#' \url{http://www.kippzonen.com/}
+#'
+#' @references Brochure 'Broadband UV Radiometers'
 #'
 NULL

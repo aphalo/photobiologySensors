@@ -6,7 +6,7 @@
 #' @docType package
 #' @keywords misc
 #' @name photobiologySensors-package
-#' @author Pedro J. Apahalo
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi}
 #' @author Tähti Pohjanmies (digitizing data)
 #' @details
 #' \tabular{ll}{

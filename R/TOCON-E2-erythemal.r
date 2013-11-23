@@ -17,19 +17,17 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_E2_erythemal
+#' @name TOCON_E2_erythemal.data
 #' @note
 #' TOCON_E2 (TOCON_ERYCA)
 #' Pre-amplified SiC UV-Index Photodetector
 #' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
-#' @url http://www.sglux.de/
-#' @reference Datasheet TOCON_E2 Rev. 1.2
+#' \url{http://www.sglux.de/}
 #'
-#'
+#' @references Datasheet TOCON_A6 Rev. 1.2
 #'
 NULL
-

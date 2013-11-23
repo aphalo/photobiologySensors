@@ -17,15 +17,15 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Berger-UV-erythemal
+#' @name Berger_UV_erythemal.data
 #' @note
 #' 'Berger' UV-Biometer (Fig. 1 in Berger, 1994)
 #'  
-#' @reference
+#' @references
 #' Berger, Daniel (n.d., ca. 1994) A comparison of Spectroradiometers to Radiometers for
 #' UV Radiation Measurements. Solar Light Co., Inc., Philadelphia.
 #'

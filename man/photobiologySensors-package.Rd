@@ -13,7 +13,7 @@
   2013-11-21\cr License: \tab GPL (>2.0)\cr }
 }
 \author{
-  Pedro J. Apahalo
+  Pedro J. Aphalo \email{pedro.aphalo@helsinki.fi}
 
   Tähti Pohjanmies (digitizing data)
 }

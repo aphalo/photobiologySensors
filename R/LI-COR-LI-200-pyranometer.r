@@ -17,18 +17,19 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_200_pyranometer
+#' @name LI_COR_LI_200_pyranometer.data
 #' @note
 #' LI-200SA pyranometer
 #' The LI-200SA features a silicon photovoltaic detector 
 #' This is not a true 'pyranometer' and should be used in sunlight
 #' 
 #' Manufacturer: LI-COR Inc., Lincoln, Nebraska
-#' @url http://www.licor.com/
-#' @reference Brochure 'LI-200SA pyranometer'
+#' \url{http://www.licor.com/}
+#'
+#' @references Brochure 'LI-190SA quantum sensor'
 #'
 NULL

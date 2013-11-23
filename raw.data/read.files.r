@@ -18,10 +18,10 @@ for (file.name in file.list) {
   # .r file with Roxygen2 doccumentation
   r.file.name <- sub(".csv", ".r", file.name, fixed=TRUE)
   system(paste('cp sensor.data.template.r', r.file.name))
+  # the line below does not work under Windows
   system(paste("grep -U ^#", file.name, '>>', r.file.name))
-  system(paste('echo @aliases', df.name))
   system(paste('echo "NULL" >>', r.file.name))
-  system(paste('cp', r.file.name, '../r/'))
+  system(paste('mv', r.file.name, './../R'))
 }
 setwd("./..")
 

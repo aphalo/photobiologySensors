@@ -17,18 +17,17 @@
 #' }
 #' 
 #' @author Tähti Pohjanmies
-#' @author Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_PQS1_PAR_quantum
+#' @name KIPP_PQS1_PAR_quantum.data
 #' @note
 #' PQS 1 PAR Quantum Sensor
 #'
-#'
-#' 
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
-#' @url http://www.kippzonnen.com/
-#' @reference Brochure 'PQS 1 PAR Quantum Sensor'
+#' \url{http://www.kippzonen.com/}
+#'
+#' @references Brochure 'PQS 1 PAR Quantum Sensor'
 #'
 NULL
