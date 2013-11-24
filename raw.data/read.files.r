@@ -1,11 +1,15 @@
-# read all available filter data
-# assumes that all files with ".txt" are filter-data files
-# assumes that all files with exactly four columns have two replicate measurements that need
-# to be averaged
+# read all available sensor data
+# assumes that all files with ".csv" are sensor-data files
+# uses column names from .csv file
 # STEPS
-# 1) clear the workspace
-# 2) read .txt files
-# 3) save all the data.frames created into a single Rda file in data folder
+# 1) clear the workspace and set wd to raw.data
+# 2) get list of names of .csv files
+# 3) loop
+# 3a) read one file and generate data.frame and save it to data directory
+# 3b) read top of csv fila and append it to a copy of the roxygen template
+# 3c) move .r file to R directory
+# 4) set wd to package home
+#
 rm(list = ls())
 setwd("raw.data")
 file.list <- system('ls *.csv', intern=TRUE)
@@ -17,11 +21,11 @@ for (file.name in file.list) {
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation
   r.file.name <- sub(".csv", ".r", file.name, fixed=TRUE)
-  system(paste('cp sensor.data.template.r', r.file.name))
-  # the line below does not work under Windows
-  system(paste("grep -U ^#", file.name, '>>', r.file.name))
-  system(paste('echo "NULL" >>', r.file.name))
-  system(paste('mv', r.file.name, './../R'))
+  shell(paste('cp sensor.data.template.r', r.file.name))
+  # the line below does not work under Windows if one uses system instead of shell
+  shell(paste("grep -U ^#", file.name, '>>', r.file.name))
+  shell(paste('echo "NULL" >>', r.file.name))
+  shell(paste('mv', r.file.name, './../R'))
 }
 setwd("./..")
 

@@ -31,4 +31,4 @@
 #' 
 #' @references Brochure 'Broadband UV Radiometers'
 #'
-NULL
+"NULL" 

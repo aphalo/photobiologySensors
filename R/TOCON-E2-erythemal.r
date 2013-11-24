@@ -30,4 +30,4 @@
 #'
 #' @references Datasheet TOCON_A6 Rev. 1.2
 #'
-NULL
+"NULL" 
