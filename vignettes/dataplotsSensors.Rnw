@@ -1,0 +1,79 @@
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{UV-radiation quantification with R: Catalogue of BSWFs}
+%\VignetteDepends{knitr, photobiology, photobiologySensors}
+%\VignetteKeyword{misc}
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{abbrev}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{breakurl}
+
+\newcommand{\PB}{\textsf{photobiology}\xspace}
+\newcommand{\PBVIS}{\textsf{photobiologyVIS}\xspace}
+\newcommand{\PBUV}{\textsf{photobiologyUV}\xspace}
+\newcommand{\PBPHY}{\textsf{photobiologyPhy}\xspace}
+\newcommand{\PBCRY}{\textsf{photobiologyCry}\xspace}
+\newcommand{\PBFil}{\textsf{photobiologyFilters}\xspace}
+\newcommand{\PBLam}{\textsf{photobiologyLamps}\xspace}
+\newcommand{\PBSen}{\textsf{photobiologySensors}\xspace}
+ 
+\begin{document}
+
+\title{\PBSen Version 0.1.0\\ Catalogue of Sensors}
+\author{Pedro J. Aphalo}
+
+\maketitle
+
+\section{Introduction}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
+@
+
+<<example-0, eval=TRUE>>=
+library(ggplot2)
+library(photobiologySensors)
+@
+
+<<setup-function>>=
+sensor.plotter <- function(sensor_name, w.low=280, w.high=800, 
+                           ylab=paste("Spectral response of", sensor_name), ...){
+  spectrum.data <- data.frame(w.length=seq(w.low, w.high, length.out=300))
+spectrum.data$response <- calc_sensor_multipliers(spectrum.data$w.length, sensor_name, ...)
+fig_linear <- ggplot(aes(x=w.length, y=response), data=spectrum.data) +
+  labs(x="Wavelength (nm)", y=ylab) + 
+  geom_line()
+# fig_log <- fig_linear + scale_y_log10(limits=c(1e-5,30))
+print(fig_linear)
+# print(fig_log)
+}
+@
+
+\newpage
+\section{Flat responses}
+
+<<plot-e_flat>>=
+sensor.plotter("e.flat")
+sensor.plotter("e.flat", unit.out="photon")
+@
+
+\section{Quantum PAR sensors}
+
+<<plot-acetate>>=
+par.sensors <- c("LI_COR_LI_190_PAR_quantum")
+for (sensor in par.sensors) {
+  sensor.plotter(sensor, w.low=370, w.high=730, unit.out="photon", scaled="area")
+}
+@
+
+
+
+\end{document}
