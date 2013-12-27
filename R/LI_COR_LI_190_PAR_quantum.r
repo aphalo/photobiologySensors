@@ -21,13 +21,15 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_E2_erythemal.data
+#' @name LI_COR_LI_190_PAR_quantum.data
 #' @note
-#' TOCON_E2 (TOCON_ERYCA)
-#' Pre-amplified SiC UV-Index Photodetector
-#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
-#' \url{http://www.sglux.de/}
+#' LI-190SA quantum sensor
+#' Colored glass filters are used to tailor the silicon photodiode response 
+#' to the desired quantum response
+#' 
+#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
+#' \url{http://www.licor.com/}
 #'
-#' @references Datasheet TOCON_A6 Rev. 1.2
+#' @references Brochure 'LI-190SA quantum sensor'
 #'
-"NULL" 
+NULL 

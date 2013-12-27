@@ -21,15 +21,14 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_190_PAR_quantum.data
+#' @name Solarmeter_SM60.data
 #' @note
-#' LI-190SA quantum sensor
-#' Colored glass filters are used to tailor the silicon photodiode response 
-#' to the desired quantum response
+#' SOLARMETER MODEL 6.0 UV METER
+#' Silicon Carbide (SIC) Photodiode packaged in hermetically sealed UV glass window cap
+#' Interference filter coating (Metal Oxide) blocks most UVA
+#' Manufacturer: Solartech, Inc., 26101 Harbour Pointe Dr N., Harrison Twp, MI 48045
+#' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013
 #' 
-#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
-#' \url{http://www.licor.com/}
+#' @references digitized from SM60graph.gif
 #'
-#' @references Brochure 'LI-190SA quantum sensor'
-#'
-"NULL" 
+NULL 

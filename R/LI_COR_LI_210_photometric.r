@@ -21,14 +21,15 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Solarmeter_SM60.data
+#' @name LI_COR_LI_210_photometric.data
 #' @note
-#' SOLARMETER MODEL 6.0 UV METER
-#' Silicon Carbide (SIC) Photodiode packaged in hermetically sealed UV glass window cap
-#' Interference filter coating (Metal Oxide) blocks most UVA
-#' Manufacturer: Solartech, Inc., 26101 Harbour Pointe Dr N., Harrison Twp, MI 48045
-#' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013
+#' LI-210SA PHOTOMETRIIC SENSOR
+#' The LI-210SA Photometric Sensor utilizes a filtered silicon photodiode to provide
+#' a spectral response that matches the CIE curve within ± 5% with most light sources.
 #' 
-#' @references digitized from SM60graph.gif
+#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
+#' \url{http://www.licor.com/}
 #'
-"NULL" 
+#' @references Brochure 'LI-190SA quantum sensor'
+#'
+NULL 

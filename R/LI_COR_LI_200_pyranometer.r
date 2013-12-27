@@ -32,4 +32,4 @@
 #'
 #' @references Brochure 'LI-190SA quantum sensor'
 #'
-"NULL" 
+NULL 

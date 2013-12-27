@@ -21,20 +21,14 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_E_erythemal.data
+#' @name KIPP_CUV_5_UVAB.data
 #' @note
-#' UVS-E-T Radiometer
-#' The detection system includes optical filters and a phosphor
-#' that determine the spectral response. The phosphor is very
-#' sensitive to low levels of ultraviolet radiation and is stimulated
-#' by the UV to emit green light, which is detected by a photodiode.
-#' The system is temperature stabilised at +25 °C to prevent
-#' changes in spectral response and sensitivity with variations in
-#' the ambient conditions.
+#' CUV 5 Broadband UV Radiometer
+#' Detection system includes optical filters and a photodiode
 #' 
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
 #' \url{http://www.kippzonen.com/}
-#'
+#' 
 #' @references Brochure 'Broadband UV Radiometers'
 #'
-"NULL" 
+NULL 

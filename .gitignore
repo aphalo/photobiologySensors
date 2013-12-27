@@ -5,3 +5,4 @@ man
 NAMESPACE
 *.pdf
 *.tex
+*.synctex.gz

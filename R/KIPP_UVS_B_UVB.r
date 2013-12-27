@@ -21,9 +21,9 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_A_UVA.data
+#' @name KIPP_UVS_B_UVB.data
 #' @note
-#' UVS-A-T Radiometer
+#' UVS-B-T Radiometer
 #' The detection system includes optical filters and a phosphor
 #' that determine the spectral response. The phosphor is very
 #' sensitive to low levels of ultraviolet radiation and is stimulated
@@ -37,4 +37,4 @@
 #'
 #' @references Brochure 'Broadband UV Radiometers'
 #'
-"NULL" 
+NULL 

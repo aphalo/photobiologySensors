@@ -21,15 +21,13 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_210_photometric.data
+#' @name TOCON_E2_erythemal.data
 #' @note
-#' LI-210SA PHOTOMETRIIC SENSOR
-#' The LI-210SA Photometric Sensor utilizes a filtered silicon photodiode to provide
-#' a spectral response that matches the CIE curve within ± 5% with most light sources.
-#' 
-#' Manufacturer: LI-COR Inc., Lincoln, Nebraska
-#' \url{http://www.licor.com/}
+#' TOCON_E2 (TOCON_ERYCA)
+#' Pre-amplified SiC UV-Index Photodetector
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
+#' \url{http://www.sglux.de/}
 #'
-#' @references Brochure 'LI-190SA quantum sensor'
+#' @references Datasheet TOCON_A6 Rev. 1.2
 #'
-"NULL" 
+NULL 

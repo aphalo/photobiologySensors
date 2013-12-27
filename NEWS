@@ -1,3 +1,8 @@
+photobiologySensors 0.1.2
+=========================
+
+Calc_sensor_multipliers bug fixed. Sensor data files cleaned. Vignette now builds correctly.
+
 photobiologySensors 0.1.1
 =========================
 

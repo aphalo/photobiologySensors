@@ -1,5 +1,5 @@
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{UV-radiation quantification with R: Catalogue of BSWFs}
+%\VignetteIndexEntry{UV-radiation quantification with R: Catalogue of Sensors}
 %\VignetteDepends{knitr, photobiology, photobiologySensors}
 %\VignetteKeyword{misc}
 
@@ -26,12 +26,14 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.0\\ Catalogue of Sensors}
+\title{\PBSen Version 0.1.2\\ Catalogue of Sensors}
 \author{Pedro J. Aphalo}
 
 \maketitle
 
 \section{Introduction}
+
+We will plot the spectral response of the different sensors for which data is provided in the pacakge. We plot side-by-side the response to energy (i.e. the electrical output that would be expected at each wavelengths with a source emitting equal spectral energy irradiance at all wavelengths) and the response to photons (i.e. as above but with a source emitting equal spectral photon irradiance at all wavelengths). All responses are normalized to an area of one under the whole curve.
 
 <<setup, include=FALSE, cache=FALSE>>=
 library(knitr)
@@ -40,20 +42,27 @@ opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size
 
 <<example-0, eval=TRUE>>=
 library(ggplot2)
+library(photobiology)
 library(photobiologySensors)
 @
 
+We define a function to do the actual plotting so as to not repeat code, and to make changes easier in the future.
+
 <<setup-function>>=
-sensor.plotter <- function(sensor_name, w.low=280, w.high=800, 
-                           ylab=paste("Spectral response of", sensor_name), ...){
-  spectrum.data <- data.frame(w.length=seq(w.low, w.high, length.out=300))
-spectrum.data$response <- calc_sensor_multipliers(spectrum.data$w.length, sensor_name, ...)
-fig_linear <- ggplot(aes(x=w.length, y=response), data=spectrum.data) +
-  labs(x="Wavelength (nm)", y=ylab) + 
+sensor.plotter <- function(sensor.name, w.low=250.0, w.high=900.0, scaled="area"){
+w.length.out <- seq(from=w.low, to=w.high, length.out=300)
+e.spectrum.data <- calc_sensor_multipliers(w.length.out=w.length.out, sensor.name=sensor.name, unit.out="energy", scaled=scaled)
+q.spectrum.data <- calc_sensor_multipliers(w.length.out=w.length.out, sensor.name=sensor.name, unit.out="photon", scaled=scaled)
+e.spectrum.data <- na.omit(e.spectrum.data)
+q.spectrum.data <- na.omit(q.spectrum.data)
+fig_energy <- ggplot(aes(x=w.length, y=response), data=e.spectrum.data) + xlim(w.low, w.high) +
+  labs(x="Wavelength (nm)", y="Spectral response (energy)", title=sensor.name) + 
   geom_line()
-# fig_log <- fig_linear + scale_y_log10(limits=c(1e-5,30))
-print(fig_linear)
-# print(fig_log)
+fig_photon <- ggplot(aes(x=w.length, y=response), data=q.spectrum.data) + xlim(w.low, w.high) +
+  labs(x="Wavelength (nm)", y="Spectral response (photon)", title=sensor.name) + 
+  geom_line()
+print(fig_energy)
+print(fig_photon)
 }
 @
 
@@ -62,18 +71,70 @@ print(fig_linear)
 
 <<plot-e_flat>>=
 sensor.plotter("e.flat")
-sensor.plotter("e.flat", unit.out="photon")
+sensor.plotter("q.flat")
 @
 
 \section{Quantum PAR sensors}
 
-<<plot-acetate>>=
-par.sensors <- c("LI_COR_LI_190_PAR_quantum")
+<<plot-PAR-quantum>>=
+par.sensors <- c("LI_COR_LI_190_PAR_quantum", "KIPP_PQS1_PAR_quantum")
 for (sensor in par.sensors) {
-  sensor.plotter(sensor, w.low=370, w.high=730, unit.out="photon", scaled="area")
+  sensor.plotter(sensor.name=sensor, w.low=370.0, w.high=730.0)
 }
 @
 
+\section{Other sensors}
 
+<<plot-other>>=
+other.sensors <- c("LI_COR_LI_200_pyranometer", "LI_COR_LI_210_photometric")
+for (sensor in other.sensors) {
+  sensor.plotter(sensor.name=sensor, w.low=300.0, w.high=1200.0)
+}
+@
+
+\section{UVB sensors}
+
+<<plot-UVB>>=
+uvb.sensors <- c("Solarmeter_SM60", "KIPP_UVS_B_UVB")
+for (sensor in uvb.sensors) {
+  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+}
+@
+
+\section{Erythemal UV sensors}
+
+<<plot-ery>>=
+uv_ery.sensors <- c("Berger_UV_erythemal", "TOCON_E2_erythemal", "KIPP_UVS_E_erythemal")
+for (sensor in uv_ery.sensors) {
+  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+}
+@
+
+\section{UVA sensors}
+
+<<plot-UVA>>=
+uva.sensors <- c("TOCON_A6_UVA", "KIPP_UVS_A_UVA")
+for (sensor in uva.sensors) {
+  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+}
+@
+
+\section{UVA + UVB sensors}
+
+<<plot-UVAB>>=
+uvab.sensors <- c("KIPP_CUV_5_UVAB")
+for (sensor in uvab.sensors) {
+  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+}
+@
+
+\section{Blue sensors}
+
+<<plot-Blue>>=
+b.sensors <- c("TOCON_blue4")
+for (sensor in b.sensors) {
+  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+}
+@
 
 \end{document}

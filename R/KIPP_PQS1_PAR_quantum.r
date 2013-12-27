@@ -30,4 +30,4 @@
 #'
 #' @references Brochure 'PQS 1 PAR Quantum Sensor'
 #'
-"NULL" 
+NULL 

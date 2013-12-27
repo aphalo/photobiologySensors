@@ -21,20 +21,13 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_B_UVB.data
+#' @name TOCON_A6_UVA.data
 #' @note
-#' UVS-B-T Radiometer
-#' The detection system includes optical filters and a phosphor
-#' that determine the spectral response. The phosphor is very
-#' sensitive to low levels of ultraviolet radiation and is stimulated
-#' by the UV to emit green light, which is detected by a photodiode.
-#' The system is temperature stabilised at +25 °C to prevent
-#' changes in spectral response and sensitivity with variations in
-#' the ambient conditions.
-#' 
-#' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
-#' \url{http://www.kippzonen.com/}
+#' TOCON_A6
+#' UVA pre-amplified SiC UV Photodetector
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
+#' \url{http://www.sglux.de/}
 #'
-#' @references Brochure 'Broadband UV Radiometers'
+#' @references Datasheet TOCON_A6 Rev. 1.2
 #'
-"NULL" 
+NULL 

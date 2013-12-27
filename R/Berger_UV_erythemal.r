@@ -21,13 +21,14 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_blue4.data
+#' @name Berger_UV_erythemal.data
 #' @note
-#' TOCON_blue4
-#' pre-amplified GaP blue light detector
-#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin
-#' \url{http://www.sglux.de/}
+#' 'Berger' UV-Biometer (Fig. 1 in Berger, 1994)
+#'  
+#' @references
+#' Berger, Daniel (n.d., ca. 1994) A comparison of Spectroradiometers to Radiometers for
+#' UV Radiation Measurements. Solar Light Co., Inc., Philadelphia.
 #'
-#' @references Datasheet TOCON_A6 Rev. 1.2
 #'
-"NULL" 
+#'
+NULL 
