@@ -1,12 +1,17 @@
 #' @name Solarmeter_SM60.data
 #' @note
-#' SOLARMETER MODEL 6.0 UV METER
-#' Silicon Carbide (SIC) Photodiode packaged in hermetically sealed UV glass window cap
-#' Interference filter coating (Metal Oxide) blocks most UVA
+#' SOLARMETER MODEL 6.0 UV METER.
+#' Silicon Carbide (SIC) Photodiode packaged in hermetically sealed UV glass window cap.
+#' Interference filter coating (Metal Oxide) blocks most UVA.
 #' Manufacturer: Solartech, Inc., 26101 Harbour Pointe Dr N., Harrison Twp, MI 48045
-#' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013
+#' Digitized with 'enguage' from manufacturers brochures. This are approximate
+#' data, both because of the digitizing process, and because they are
+#' either typical values or for a particular sensor unit. Individual sensor units
+#' are expected to differ to some degree in spectral response.
 #' 
-#' @references digitized from SM60graph.gif
+#' @references 
+#' digitized from SM60graph.gif from 
+#' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013.
 #'
 w.length,s.e.response
 249.784,0.338063

@@ -1,13 +1,8 @@
 #' Spectral data for sensors
 #'
-#' Datasets containing the wavelengths (nm) at irregular intervals and
+#' Datasets containing the wavelengths (nm) at either regular or irregular intervals and
 #' tabulated values of spectral responsiveness for different sensors. 
 #' Spectral response values are in arbitrary units.
-#' 
-#' Digitized with 'enguage' from manufacturers brochures. This are approximate
-#' data, both because of the digitizing process, and because they are
-#' either typical values or for a particular sensor unit. Individual sensor units
-#' are spected to differ to some degree in spectral response.
 #' 
 #' The variables are as follows:
 #' \itemize{

@@ -26,7 +26,7 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.2\\ Catalogue of Sensors}
+\title{\PBSen Version 0.1.3\\ Catalogue of Sensors}
 \author{Pedro J. Aphalo}
 
 \maketitle
@@ -104,7 +104,9 @@ for (sensor in uvb.sensors) {
 \section{Erythemal UV sensors}
 
 <<plot-ery>>=
-uv_ery.sensors <- c("Berger_UV_erythemal", "TOCON_E2_erythemal", "KIPP_UVS_E_erythemal")
+uv_ery.sensors <- c("Berger_UV_erythemal", "TOCON_E2_erythemal", "KIPP_UVS_E_erythemal", 
+                    "Solar_Light_501_typical", "Solar_Light_501_high_UVA", "Solar_Light_501_low_UVA",
+                    "Vital_BW_20")
 for (sensor in uv_ery.sensors) {
   sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
 }

@@ -1,7 +1,7 @@
 Package: photobiologySensors
 Type: Package
 Title: Spectral response data for sensors
-Version: 0.1.2
+Version: 0.1.3
 Date: 2013-12-27
 Author: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>, Tähti Pohjanmies
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
