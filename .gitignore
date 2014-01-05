@@ -3,6 +3,8 @@
 .RData
 man
 NAMESPACE
-*.pdf
+vignettes/*.pdf
 *.tex
 *.synctex.gz
+vignettes/figure/
+
