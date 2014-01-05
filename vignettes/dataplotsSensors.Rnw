@@ -97,7 +97,7 @@ for (sensor in other.sensors) {
 <<plot-UVB>>=
 uvb.sensors <- c("Solarmeter_SM60", "KIPP_UVS_B_UVB")
 for (sensor in uvb.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500, scaled="area")
+  sensor.plotter(sensor, w.low=200, w.high=500)
 }
 @
 
