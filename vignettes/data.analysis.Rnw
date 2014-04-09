@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{abbrev}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{breakurl}
+
+\begin{document}
+
+\section{Setup}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
+@
+
+<<>>=
+library(wle)
+library(ggplot2)
+@
+
+<<>>=
+print(R.Version()$version.string)
+print(packageVersion("ggplot2"))
+print(packageVersion("wle"))
+@
+
+\section{Reading the data}
+
+<<>>=
+third.raw.data <- read.csv2("Third.csv")
+first_second.raw.data <- read.csv2("First and second round_Checked.csv")
+names(third.raw.data)
+names(first_second.raw.data)
+@
+
+We need to meaning of Time, as it is different in the two files. For the third block the time encode both time of day and day (that is why there are 15 different values) while in first\_second.raw.data, these two pieces of information are encoded separatelly. SO we need to fix this by re-encoding third.raw.data. We add 6 to days within the 
+
+<<>>=
+days <- c(1,1,1,3,2,2,1,3,3,2,2,3,3,2,1)
+hours <- c(7,14,9,8,9,13,8,13,14,7,8,9,7,14,13)
+third.raw.data$day <- with(third.raw.data, days[Time])
+third.raw.data$time.of.day <- with(third.raw.data, hours[Time])
+@
+
+Now we re-encode the other dataframe:
+
+<<>>=
+hours <- c(7,8,9,13,14)
+first_second.raw.data$day <- first_second.raw.data$Day
+first_second.raw.data$time.of.day <- with(first_second.raw.data, hours[Time])
+@
+
+Now we merge the data, values for non-matched variables are filled with NA.
+
+<<>>=
+all.raw.data <- merge(first_second.raw.data, third.raw.data, all=TRUE)
+@
+
+We extract the genotype from the name of the image file.
+
+<<>>=
+all.raw.data$Genotype <- with(all.raw.data, sub("_.*", "", Picture.name))
+@
+
+\end{document}
