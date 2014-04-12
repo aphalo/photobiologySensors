@@ -26,7 +26,7 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.4\\ Catalogue of Sensors}
+\title{\PBSen Version 0.1.5\\ Catalogue of Sensors}
 \author{Pedro J. Aphalo}
 
 \maketitle
@@ -58,10 +58,10 @@ e.spectrum.data <- na.omit(e.spectrum.data)
 q.spectrum.data <- na.omit(q.spectrum.data)
 fig_energy <- ggplot(aes(x=w.length, y=response), data=e.spectrum.data) + xlim(w.low, w.high) + ylim(0.0, 1.2) +
   labs(x="Wavelength (nm)", y="Spectral response (energy)", title=sensor.name) + 
-  geom_line() + stat_peaks(hjust=-0.5, angle=90)
+  geom_line() + stat_peaks(hjust=-0.5, angle=90, span=5, ignore_threshold=0.1)
 fig_photon <- ggplot(aes(x=w.length, y=response), data=q.spectrum.data) + xlim(w.low, w.high) + ylim(0.0, 1.2) +
   labs(x="Wavelength (nm)", y="Spectral response (photon)", title=sensor.name) + 
-  geom_line() + stat_peaks(hjust=-0.5, angle=90)
+  geom_line() + stat_peaks(hjust=-0.5, angle=90, span=5, ignore_threshold=0.1)
 print(fig_energy)
 print(fig_photon)
 }
@@ -97,45 +97,45 @@ for (sensor in other.sensors) {
 <<plot-UVB>>=
 uvb.sensors <- c("Solarmeter_SM60", "KIPP_UVS_B_UVB")
 for (sensor in uvb.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500)
+  sensor.plotter(sensor, w.low=200, w.high=600)
 }
 @
 
 \section{Erythemal UV sensors}
 
 <<plot-ery>>=
-uv_ery.sensors <- c("Berger_UV_erythemal", "TOCON_E2_erythemal", "KIPP_UVS_E_erythemal", 
+uv_ery.sensors <- c("Berger_UV_erythemal", "TOCON_E2_erythemal", "TOCON_E", "KIPP_UVS_E_erythemal", 
                     "Solar_Light_501_typical", "Solar_Light_501_high_UVA", "Solar_Light_501_low_UVA",
                     "Vital_BW_20")
 for (sensor in uv_ery.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500)
+  sensor.plotter(sensor, w.low=200, w.high=600)
 }
 @
 
 \section{UVA sensors}
 
 <<plot-UVA>>=
-uva.sensors <- c("TOCON_A6_UVA", "KIPP_UVS_A_UVA")
+uva.sensors <- c("TOCON_A6_UVA", "TOCON_UVA", "KIPP_UVS_A_UVA")
 for (sensor in uva.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500)
+  sensor.plotter(sensor, w.low=200, w.high=600)
 }
 @
 
-\section{UVA + UVB sensors}
+\section{Broadband UV sensors}
 
 <<plot-UVAB>>=
-uvab.sensors <- c("KIPP_CUV_5_UVAB")
+uvab.sensors <- c("KIPP_CUV_5_UVAB", "TOCON_UV", "TOCON_GaP")
 for (sensor in uvab.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500)
+  sensor.plotter(sensor, w.low=200, w.high=600)
 }
 @
 
 \section{Blue sensors}
 
 <<plot-Blue>>=
-b.sensors <- c("TOCON_blue4")
+b.sensors <- c("TOCON_blue4", "TOCON_Blue")
 for (sensor in b.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=500)
+  sensor.plotter(sensor, w.low=200, w.high=600)
 }
 @
 

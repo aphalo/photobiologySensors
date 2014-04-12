@@ -9,7 +9,7 @@
 #' are expected to differ to some degree in spectral response.
 #'
 #' @references 
-#' TOCON selection guide Rev. 2.1
+#' sglux TOCON selection guide Ver 5.0 
 #' \url{http://www.sglux.de/}
 #'
 w.length,s.e.response

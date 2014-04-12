@@ -12,8 +12,8 @@
 #' \tabular{ll}{
 #' Package: \tab photobiologySensors\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.1.4\cr
-#' Date: \tab 2014-01-05\cr
+#' Version: \tab 0.1.5\cr
+#' Date: \tab 2014-04-11\cr
 #' License: \tab GPL (>2.0)\cr
 #' }
 #' @references
@@ -24,5 +24,7 @@
 #' Division of Plant Biology. ISBN 978-952-10-8363-1 (PDF), 
 #' 978-952-10-8362-4 (paperback). Open access PDF download available at 
 #' http://hdl.handle.net/10138/37558
+#' 
+#' @import photobiology
 #' 
 NULL

@@ -1,7 +1,7 @@
-#' Spectral data for sensors
+#' Spectral response data for sensors
 #'
 #' Datasets containing the wavelengths (nm) at either regular or irregular intervals and
-#' tabulated values of spectral responsiveness for different sensors. 
+#' tabulated values of spectral responsiveness for sglux sensors. 
 #' Spectral response values are in arbitrary units.
 #' 
 #' The variables are as follows:
@@ -11,23 +11,22 @@
 #'   \item s.q.respone (a.u.) 
 #' }
 #' 
-#' @author Tähti Pohjanmies
 #' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_A6_UVA.data
+#' @name TOCON_UV.data
 #' @note
-#' TOCON_A6.
-#' UVA pre-amplified SiC UV Photodetector.
+#' TOCON_UV (TOCON_ABC).
+#' Pre-amplified SiC UV-broadband Photodetector.
 #' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin.
-#' Digitized with 'enguage' from manufacturers brochures. These are approximate
+#' Digitized with 'enguage' from manufacturers brochures. This are approximate
 #' data, both because of the digitizing process, and because they are
 #' either typical values or for a particular sensor unit. Individual sensor units
 #' are expected to differ to some degree in spectral response.
 #'
 #' @references 
-#' Datasheet TOCON_A6 Rev. 1.2
+#' sglux TOCON selection guide Ver 5.0 
 #' \url{http://www.sglux.de/}
 #'
 NULL 

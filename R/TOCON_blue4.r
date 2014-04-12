@@ -27,7 +27,7 @@
 #' are expected to differ to some degree in spectral response.
 #'
 #' @references 
-#' Datasheet TOCON_A6 Rev. 1.2
+#' Datasheet TOCON_Blue4 Rev. ??
 #' \url{http://www.sglux.de/}
 #'
 NULL 

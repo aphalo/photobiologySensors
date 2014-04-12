@@ -4,7 +4,7 @@
 #' spectral irradiance. Response will be in absolute or relative units depending on the
 #' sensor response data used.
 #'
-#' @usage sensor_response(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", theoretical.response=1.0,
+#' @usage sensor_response(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", reference.irrad=1.0,
 #' check.spectrum=TRUE)
 #' 
 #' @param w.length numeric array of wavelength (nm)
@@ -12,10 +12,10 @@
 #' @param sensor.name character string giving the name of one of the predefined sensors (default is "e.flat").
 #' @param unit.in character string with allowed values "energy", and "photon", or its alias "quantum"
 #' @param check.spectrum logical indicating whether to sanity check input data, default is TRUE
-#' @param theoretical.response numeric value indicating the known value of the quntity beung measured (defaults to 1.0)
+#' @param reference.irrad numeric value indicating the known value of the quantity being measured (defaults to 1.0)
 #' 
 #' @return a single numeric value with no change in scale factor (in the units used in the description of the
-#' spectral response of the sensor). If the theoretical response is supplied, then the returned value is the
+#' spectral response of the sensor). If the reference irradiance is supplied, then the returned value is the
 #' calibration factor needed to convert the reading of the sensor into the quantity given. Of course one should be
 #' careful to also take into account electrical amplification, and the actual electrical signal measured, to get an
 #' absolute calibration factor to use in real measurements.
@@ -33,7 +33,7 @@
 #' at least once for your spectrum before using any of the other functions. 
 
 sensor_response <- 
-  function(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", theoretical.response=1.0, 
+  function(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", reference.irrad=1.0, 
            check.spectrum=TRUE){
     # make code a bit simpler further down
     if (unit.in=="quantum") {unit.in <- "photon"}
@@ -48,7 +48,7 @@ sensor_response <-
                                     scaled=NULL, fill=0.0)$response
     
     # calculate sensor-weighted irradiance presumably an electrical voltage or current value
-    response <- integrate_irradianceC(w.length, s.irrad * mult) / theoretical.response
+    response <- integrate_irradiance(w.length, s.irrad * mult) / reference.irrad
     
     return(response)
   }

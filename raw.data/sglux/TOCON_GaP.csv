@@ -1,3 +1,18 @@
+#' @name TOCON_GaP.data
+#' @note
+#' TOCON_GaP.
+#' pre-amplified GaP light detector.
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin.
+#' Digitized with 'enguage' from manufacturers brochures. This are approximate
+#' data, both because of the digitizing process, and because they are
+#' either typical values or for a particular sensor unit. Individual sensor units
+#' are expected to differ to some degree in spectral response.
+#'
+#' @references 
+#' sglux TOCON selection guide Ver 5.0 
+#' \url{http://www.sglux.de/}
+#'
+w.length,s.e.response
 2.012232737765E2,1.446526618903E-1
 2.015918201323E2,1.450018104735E-1
 2.018239069090E2,1.453683838265E-1
