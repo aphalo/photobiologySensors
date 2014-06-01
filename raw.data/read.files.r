@@ -10,17 +10,19 @@
 # 3c) move .r file to R directory
 # 4) set wd to package home
 #
+library(data.table)
 rm(list = ls())
 setwd("raw.data")
 file.list <- system('ls *.csv', intern=TRUE)
 for (file.name in file.list) {
   # data object
-  df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "data", sep=".")
+  df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "dt", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
-  assign(df.name, read.csv(file.name, header=TRUE, comment.char="#"))
+  temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
+  assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation
-  r.file.name <- sub(".data", ".r", df.name, fixed=TRUE)
+  r.file.name <- sub(".dt", ".r", df.name, fixed=TRUE)
   shell(paste('cp sensor.data.template.r', r.file.name))
   # the line below does not work under Windows if one uses system instead of shell
   shell(paste("grep -U ^#", file.name, '>>', r.file.name))
