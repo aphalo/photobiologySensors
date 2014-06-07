@@ -1,3 +1,8 @@
+photobiologySensors 0.1.6
+=========================
+
+Fixed a bug that surfaced after trim_tails was modified to allow extrapolation. Cleaned the vignettes.
+
 photobiologySensors 0.1.5
 =========================
 

@@ -26,7 +26,7 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.5\\ User Guide}
+\title{\PBSen Version 0.1.6\\ User Guide}
 \author{Pedro J. Aphalo}
 
 \maketitle
@@ -54,22 +54,28 @@ library(photobiologySensors)
 In a way very similar to how we calculate energy irradiance with the function \texttt{energy\_irradiance}, we can calculate the sensor response with the function \texttt{sensor\_response}. Both functions expect by default spectral energy irradiance as input, but will accept spectral photon irradiance as input if the parameter \texttt{unit.in} is set to ``photon''.
 
 <<calc-sensor-response-sun>>=
-sun.known.irrad <- with(sun.data, energy_irradiance(w.length, s.e.irrad, CIE()))
-sun.BW20.response <- with(sun.data, sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
-sun.TOCONery.response <- with(sun.data, sensor_response(w.length, s.e.irrad, "TOCON_E"))
+sun.known.irrad <- 
+  with(sun.data, 
+       energy_irradiance(w.length, s.e.irrad, CIE()))
+sun.BW20.response <- 
+  with(sun.data, 
+       sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
 @
 
-The effective UV energy irradiance according to CIE erythemal action spectrum for this solar spectrum is \Sexpr{signif(sun.known.irrad, 4)} \watt and the BW-20 sensor response is \Sexpr{signif(sun.BW20.response, 4)}, and that of the sglux TOCON erythemal sensor is \Sexpr{signif(sun.TOCONery.response, 4)}. 
+The effective UV energy irradiance according to CIE erythemal action spectrum for this solar spectrum is \Sexpr{signif(sun.known.irrad, 4)} \watt and the BW-20 sensor response is \Sexpr{signif(sun.BW20.response, 4)}. 
 
 % As the sensor spectral response data have been scaled using the factory (manufacturer provided) calibration, most probably based on an artificial ligh source, we can see that the two calibrations disagree. The error is \Sexpr{signif((sun.sensor.response - sun.known.irrad) / sun.known.irrad * 100, 3)} \%. 
 
 <<calc-sensor-response-tl12>>=
-tl12.known.irrad <- with(philips.tl12.bentham.data, energy_irradiance(w.length, s.e.irrad, CIE()))
-tl12.BW20.response <- with(philips.tl12.bentham.data, sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
-tl12.TOCONery.response <- with(philips.tl12.bentham.data, sensor_response(w.length, s.e.irrad, "TOCON_E"))
+tl12.known.irrad <- 
+  with(philips.tl12.bentham.data, 
+       energy_irradiance(w.length, s.e.irrad, CIE()))
+tl12.BW20.response <- 
+  with(philips.tl12.bentham.data, 
+       sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
 @
 
-The effective UV energy irradiance according to CIE erythemal action spectrum for this emission spectrum for a Philips 40W/TL12 UV-B lamp (not filtered) is \Sexpr{signif(tl12.known.irrad, 4)} \watt and the BW-20 sensor response is \Sexpr{signif(tl12.BW20.response, 4)},  and the TOCON erythemal sensor response is \Sexpr{signif(tl12.TOCONery.response, 4)}.
+The effective UV energy irradiance according to CIE erythemal action spectrum for this emission spectrum for a Philips 40W/TL12 UV-B lamp (not filtered) is \Sexpr{signif(tl12.known.irrad, 4)} \watt and the BW-20 sensor response is \Sexpr{signif(tl12.BW20.response, 4)}.
 
 \section{Assessing errors caused by spectral mismatch}
 
@@ -78,28 +84,41 @@ The spectral response of broad band sensors differs to smaller or greater degree
 We will now estimate the error involved in the use of a Vital BW-20 sensor calibrated for sunlight, to measure Q-Panel UVB-313 lamps.
 
 <<calc-calibration-factor-sun>>=
-sun.BW20.calibration.factor <- with(sun.data, sensor_response(w.length, s.e.irrad, "Vital_BW_20", reference.irrad=sun.known.irrad))
-sun.TOCONery.calibration.factor <- with(sun.data, sensor_response(w.length, s.e.irrad, "TOCON_E", reference.irrad=sun.known.irrad))
+sun.BW20.calibration.factor <- 
+  with(sun.data, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Vital_BW_20", 
+                       reference.irrad=sun.known.irrad))
 @
 
 <<calc-calibration-factor-tl12>>=
-tl12.BW20.calibration.factor <- with(philips.tl12.bentham.data, sensor_response(w.length, s.e.irrad, "Vital_BW_20", reference.irrad=tl12.known.irrad))
-tl12.TOCONery.calibration.factor <- with(philips.tl12.bentham.data, sensor_response(w.length, s.e.irrad, "TOCON_E", reference.irrad=tl12.known.irrad))
+tl12.BW20.calibration.factor <- 
+  with(philips.tl12.bentham.data, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Vital_BW_20", 
+                       reference.irrad=tl12.known.irrad))
 @
 
-The BW-20 calibration factor for solar radiation is \Sexpr{signif(sun.BW20.calibration.factor, 4)} while that for an unfiltered Philips 40W/TL12 UV-B lamps is \Sexpr{signif(tl12.BW20.calibration.factor, 4)}, and the TOCON calibration factor for solar radiation is \Sexpr{signif(sun.TOCONery.calibration.factor, 4)} while that for an unfiltered Philips 40W/TL12 UV-B lamps is \Sexpr{signif(tl12.TOCONery.calibration.factor, 4)}. In other words measurements of TL12 lamps with the BW-20 sensor calibrated for sunlight are \Sexpr{signif(sun.BW20.calibration.factor/tl12.BW20.calibration.factor * 100, 3)} \% of the true value, and those with a TOCON erythemal sensor are \Sexpr{signif(sun.TOCONery.calibration.factor/tl12.TOCONery.calibration.factor * 100, 3)} \% of the true value.
+The BW-20 calibration factor for solar radiation is \Sexpr{signif(sun.BW20.calibration.factor, 4)} while that for an unfiltered Philips 40W/TL12 UV-B lamps is \Sexpr{signif(tl12.BW20.calibration.factor, 4)}. In other words measurements of TL12 lamps with the BW-20 sensor calibrated for sunlight are \Sexpr{signif(sun.BW20.calibration.factor/tl12.BW20.calibration.factor * 100, 3)} \% of the true value.
 
 Now we check a more realistic example, a TL12 lamp filtered with cellulose diacetate. We still consider the same BW-20 sensor calibrated for sunlight.
 
 <<calc-calibration-factor-tl12-acetate>>=
-acetate.s.e.irrad <-  with(philips.tl12.bentham.data, s.e.irrad * calc_filter_multipliers(w.length, "acetate.115um.new"))
-tl12.act.known.irrad <- with(philips.tl12.bentham.data, energy_irradiance(w.length, acetate.s.e.irrad, CIE()))
-tl12.act.BW20.calibration.factor <- with(philips.tl12.bentham.data, sensor_response(w.length, acetate.s.e.irrad, "Vital_BW_20", reference.irrad=tl12.act.known.irrad))
-tl12.act.TOCONery.calibration.factor <- with(philips.tl12.bentham.data, sensor_response(w.length, acetate.s.e.irrad, "TOCON_E", reference.irrad=tl12.act.known.irrad))
+acetate.s.e.irrad <-  
+  with(philips.tl12.bentham.data, 
+       s.e.irrad * 
+         calc_filter_multipliers(w.length, "acetate.115um.new"))
+tl12.act.known.irrad <- 
+  with(philips.tl12.bentham.data, 
+       energy_irradiance(w.length, acetate.s.e.irrad, CIE()))
+tl12.act.BW20.calibration.factor <- 
+  with(philips.tl12.bentham.data, 
+       sensor_response(w.length, acetate.s.e.irrad, 
+                       "Vital_BW_20", 
+                       reference.irrad=tl12.act.known.irrad))
 @
 
 
 In this case, measurements of a diacetate-filtered TL12 lamp with the BW-20 sensor calibrated for sunlight are \Sexpr{signif(sun.BW20.calibration.factor/tl12.act.BW20.calibration.factor * 100, 3)} \% of the true value.
-Measurements of a diacetate-filtered TL12 lamp with the TOCON erythemal sensor calibrated for sunlight are \Sexpr{signif(sun.TOCONery.calibration.factor/tl12.act.TOCONery.calibration.factor * 100, 3)} \% of the true value.
 
 \end{document}

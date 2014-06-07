@@ -19,6 +19,7 @@ for (file.name in file.list) {
   df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "dt", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
   temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
+  setDT(temp.dt)
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation

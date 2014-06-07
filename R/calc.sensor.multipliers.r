@@ -111,12 +111,16 @@ calc_sensor_multipliers <- function(w.length.out,
     response.out <- spline(w.length.in, s.response, xout=w.length.out)$y
   } else {
     # linear interpolation
-    response.out <- approx(w.length.in, s.response, xout=w.length.out, ties="ordered")$y
+    response.out <- approx(w.length.in, s.response, xout=w.length.out, ties="ordered", rule=2)$y
   }
 
   # we trim the tails as it makes no sense to extrapolate
   
-  out.data <- trim_tails(w.length.out, response.out, w.length.in[1], w.length.in[length(w.length.in)], use.hinges=FALSE, fill=fill)
+  out.data <- trim_tails(w.length.out, response.out, 
+                         max(w.length.in[1], w.length.out[1]), 
+                         min(w.length.in[length(w.length.in)], w.length.out[length(w.length.out)]),
+                         use.hinges=FALSE, 
+                         fill=fill)
   names(out.data)[2] <- "response"
   if (!is.null(scaled)) {
     if (scaled=="peak") {
