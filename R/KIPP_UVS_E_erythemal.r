@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_E_erythemal.data
+#' @name KIPP_UVS_E_erythemal.dt
 #' @note
 #' UVS-E-T Radiometer.
 #' The detection system includes optical filters and a phosphor

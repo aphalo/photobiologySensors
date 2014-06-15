@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Berger_UV_erythemal.data
+#' @name Berger_UV_erythemal.dt
 #' @note
 #' 'Berger' UV-Biometer (Fig. 1 in Berger, 1994).
 #' Digitized with 'enguage' from manufacturers brochures. This are approximate

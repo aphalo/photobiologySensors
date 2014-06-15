@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_210_photometric.data
+#' @name LI_COR_LI_210_photometric.dt
 #' @note
 #' LI-210SA PHOTOMETRIIC SENSOR.
 #' The LI-210SA Photometric Sensor utilizes a filtered silicon photodiode to provide

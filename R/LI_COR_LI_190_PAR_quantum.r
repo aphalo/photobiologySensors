@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_190_PAR_quantum.data
+#' @name LI_COR_LI_190_PAR_quantum.dt
 #' @note
 #' LI-190SA quantum sensor.
 #' Colored glass filters are used to tailor the silicon photodiode response 

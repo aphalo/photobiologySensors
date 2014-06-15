@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Solar_Light_501_high_UVA.data
+#' @name Solar_Light_501_high_UVA.dt
 #' @note
 #' UVB Biometer model 501 radiometer
 #' Manufacturer: Solar Light Company, Glenside, PA, U.S.A.

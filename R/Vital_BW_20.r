@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Vital_BW_20.data
+#' @name Vital_BW_20.dt
 #' @note
 #' Vital BW-20 UV-B "erythemal" radiometer
 #' Manufacturer: Vital Technologies, Canada. No longer in bussiness.

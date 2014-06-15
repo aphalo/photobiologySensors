@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_CUV_5_UVAB.data
+#' @name KIPP_CUV_5_UVAB.dt
 #' @note
 #' CUV 5 Broadband UV Radiometer.
 #' Detection system includes optical filters and a photodiode.

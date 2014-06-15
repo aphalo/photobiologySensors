@@ -1,4 +1,4 @@
-#' @name KIPP_UVS_B_UVB.dt
+#' @name KIPP_UVS_B_UVB.data
 #' @note
 #' UVS-B-T Radiometer.
 #' The detection system includes optical filters and a phosphor
