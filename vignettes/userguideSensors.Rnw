@@ -1,5 +1,5 @@
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{UV-radiation quantification with R: Catalogue of Sensors}
+%\VignetteIndexEntry{User guide}
 %\VignetteDepends{knitr, photobiology, photobiologySensors, photobiologyLamps, photobiologyUV, photobiologyFilters}
 %\VignetteKeyword{misc}
 
