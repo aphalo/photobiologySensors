@@ -10,16 +10,16 @@
 # 3c) move .r file to R directory
 # 4) set wd to package home
 #
-library(data.table)
+library(photobiology)
 rm(list = ls())
 setwd("raw.data")
 file.list <- system('ls *.csv', intern=TRUE)
 for (file.name in file.list) {
   # data object
-  df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "dt", sep=".")
+  df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "spct", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
   temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
-  setDT(temp.dt)
+  setResponseSpct(temp.dt)
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation
