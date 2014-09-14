@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Solarmeter_SM60.dt
+#' @name Solarmeter_SM60.spct
 #' @note
 #' SOLARMETER MODEL 6.0 UV METER.
 #' Silicon Carbide (SIC) Photodiode packaged in hermetically sealed UV glass window cap.

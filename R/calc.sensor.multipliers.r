@@ -59,12 +59,15 @@ calc_sensor_multipliers <- function(w.length.out,
       div <- 1.0
     } 
     else {
-      sensor.object.name <- paste(sensor.name, "dt", sep=".")
+      sensor.object.name <- paste(sensor.name, "spct", sep=".")
       if (!exists(sensor.object.name)) {
-        sensor.object.name <- paste(sensor.name, "data", sep=".")
+        sensor.object.name <- paste(sensor.name, "dt", sep=".")
         if (!exists(sensor.object.name)) {
-        warning("No data for sensor with name: ", sensor.object.name)
-        return(NA)
+          sensor.object.name <- paste(sensor.name, "data", sep=".")
+          if (!exists(sensor.object.name)) {
+          warning("No data for sensor with name: ", sensor.object.name)
+          return(NA)
+          }
         }
       }
       sensor.object <- get(sensor.object.name)

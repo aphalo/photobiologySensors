@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_PQS1_PAR_quantum.dt
+#' @name KIPP_PQS1_PAR_quantum.spct
 #' @note
 #' PQS 1 PAR Quantum Sensor.
 #' Digitized with 'enguage' from manufacturers brochures. This are approximate

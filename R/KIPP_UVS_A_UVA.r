@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name KIPP_UVS_A_UVA.dt
+#' @name KIPP_UVS_A_UVA.spct
 #' @note
 #' UVS-A-T Radiometer.
 #' The detection system includes optical filters and a phosphor

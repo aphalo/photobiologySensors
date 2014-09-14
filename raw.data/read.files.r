@@ -23,7 +23,7 @@ for (file.name in file.list) {
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation
-  r.file.name <- sub(".dt", ".r", df.name, fixed=TRUE)
+  r.file.name <- sub(".spct", ".r", df.name, fixed=TRUE)
   shell(paste('cp sensor.data.template.r', r.file.name))
   # the line below does not work under Windows if one uses system instead of shell
   shell(paste("grep -U ^#", file.name, '>>', r.file.name))

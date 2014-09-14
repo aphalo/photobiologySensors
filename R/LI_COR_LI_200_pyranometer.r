@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name LI_COR_LI_200_pyranometer.dt
+#' @name LI_COR_LI_200_pyranometer.spct
 #' @note
 #' LI-200SA pyranometer.
 #' The LI-200SA features a silicon photovoltaic detector. 

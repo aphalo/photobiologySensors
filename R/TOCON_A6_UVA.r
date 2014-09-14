@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_A6_UVA.dt
+#' @name TOCON_A6_UVA.spct
 #' @note
 #' TOCON_A6.
 #' UVA pre-amplified SiC UV Photodetector.

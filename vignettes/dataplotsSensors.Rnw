@@ -26,7 +26,23 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.6\\ Catalogue of Sensors}
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
+@
+
+<<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
+library(ggplot2)
+library(photobiologygg)
+library(photobiology)
+library(photobiologySensors)
+@
+
+<<own-set-up, echo=FALSE, include=FALSE>>=
+my_version <- packageVersion("photobiologySensors")
+@
+
+\title{\PBSen Version \Sexpr{my_version}\\ Catalogue of Sensors}
 \author{Pedro J. Aphalo}
 
 \maketitle
@@ -35,12 +51,7 @@
 
 We will plot the spectral response of the different sensors for which data is provided in the pacakge. We plot side-by-side the response to energy (i.e. the electrical output that would be expected at each wavelengths with a source emitting equal spectral energy irradiance at all wavelengths) and the response to photons (i.e. as above but with a source emitting equal spectral photon irradiance at all wavelengths). All responses are normalized to an area of one under the whole curve.
 
-<<setup, include=FALSE, cache=FALSE>>=
-library(knitr)
-opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
-@
-
-<<example-0, eval=TRUE>>=
+<<example-0, eval=FALSE>>=
 library(ggplot2)
 library(photobiologygg)
 library(photobiology)
@@ -126,7 +137,7 @@ for (sensor in uvb.sensors) {
 <<plot-ery>>=
 uv_ery.sensors <- c("Berger_UV_erythemal", "KIPP_UVS_E_erythemal", 
                     "Solar_Light_501_typical", "Solar_Light_501_high_UVA", "Solar_Light_501_low_UVA",
-                    "Vital_BW_20")
+                    "Vital_BW_20", "Thies_E1c")
 for (sensor in uv_ery.sensors) {
   sensor.plotter(sensor, w.low=200, w.high=600)
 }

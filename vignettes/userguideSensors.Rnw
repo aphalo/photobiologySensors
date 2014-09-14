@@ -26,7 +26,24 @@
  
 \begin{document}
 
-\title{\PBSen Version 0.1.6\\ User Guide}
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
+@
+
+<<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
+library(photobiology)
+library(photobiologyUV)
+library(photobiologyLamps)
+library(photobiologyFilters)
+library(photobiologySensors)
+@
+
+<<own-set-up, echo=FALSE, include=FALSE>>=
+my_version <- packageVersion("photobiologySensors")
+@
+
+\title{\PBSen Version \Sexpr{my_version}\\ User Guide}
 \author{Pedro J. Aphalo}
 
 \maketitle
@@ -35,13 +52,7 @@
 
 Here we give some examples of how one can \emph{approximately} assess the errors involved in using a broadband sensor calibrated under a different light source, and how to \emph{approximately}  correct for this discrepancy when the spectral response of the sensor, and the spectrum of both the radiation source used for calibartion and the radiation source being measured are known.
 
-
-<<setup, include=FALSE, cache=FALSE>>=
-library(knitr)
-opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
-@
-
-<<example-0, eval=TRUE>>=
+<<example-0, eval=FALSE>>=
 library(photobiology)
 library(photobiologyUV)
 library(photobiologyLamps)
@@ -55,10 +66,10 @@ In a way very similar to how we calculate energy irradiance with the function \t
 
 <<calc-sensor-response-sun>>=
 sun.known.irrad <- 
-  with(sun.data, 
+  with(sun.spct, 
        energy_irradiance(w.length, s.e.irrad, CIE()))
 sun.BW20.response <- 
-  with(sun.data, 
+  with(sun.spct, 
        sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
 @
 
@@ -68,10 +79,10 @@ The effective UV energy irradiance according to CIE erythemal action spectrum fo
 
 <<calc-sensor-response-tl12>>=
 tl12.known.irrad <- 
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        energy_irradiance(w.length, s.e.irrad, CIE()))
 tl12.BW20.response <- 
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        sensor_response(w.length, s.e.irrad, "Vital_BW_20"))
 @
 
@@ -81,11 +92,13 @@ The effective UV energy irradiance according to CIE erythemal action spectrum fo
 
 The spectral response of broad band sensors differs to smaller or greater degree from that of the theoretical response based on the BSWF of interest. Differences in spectral response between individual sensors of the same model or type are quite frequent. Consequently, all the data included in this package should be considered only as approximate. Any precise calculation will require the characterization of the spectral response of the actual individual sensor unit of interest.
 
+\subsection{Vital BW-20}
+
 We will now estimate the error involved in the use of a Vital BW-20 sensor calibrated for sunlight, to measure Q-Panel UVB-313 lamps.
 
 <<calc-calibration-factor-sun>>=
 sun.BW20.calibration.factor <- 
-  with(sun.data, 
+  with(sun.spct, 
        sensor_response(w.length, s.e.irrad, 
                        "Vital_BW_20", 
                        reference.irrad=sun.known.irrad))
@@ -93,7 +106,7 @@ sun.BW20.calibration.factor <-
 
 <<calc-calibration-factor-tl12>>=
 tl12.BW20.calibration.factor <- 
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        sensor_response(w.length, s.e.irrad, 
                        "Vital_BW_20", 
                        reference.irrad=tl12.known.irrad))
@@ -105,14 +118,14 @@ Now we check a more realistic example, a TL12 lamp filtered with cellulose diace
 
 <<calc-calibration-factor-tl12-acetate>>=
 acetate.s.e.irrad <-  
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        s.e.irrad * 
          calc_filter_multipliers(w.length, "acetate.115um.new"))
 tl12.act.known.irrad <- 
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        energy_irradiance(w.length, acetate.s.e.irrad, CIE()))
 tl12.act.BW20.calibration.factor <- 
-  with(philips.tl12.bentham.data, 
+  with(philips.tl12.bentham.spct, 
        sensor_response(w.length, acetate.s.e.irrad, 
                        "Vital_BW_20", 
                        reference.irrad=tl12.act.known.irrad))
@@ -120,5 +133,89 @@ tl12.act.BW20.calibration.factor <-
 
 
 In this case, measurements of a diacetate-filtered TL12 lamp with the BW-20 sensor calibrated for sunlight are \Sexpr{signif(sun.BW20.calibration.factor/tl12.act.BW20.calibration.factor * 100, 3)} \% of the true value.
+
+\subsection{Thies Clima E1c}
+
+We will now estimate the error involved in the use of a Thies Clima E1c sensor calibrated for sunlight, to measure Q-Panel UVB-313 lamps.
+
+<<calc-calibration-factor-sun-E1c>>=
+sun.E1c.calibration.factor <- 
+  with(sun.spct, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Thies_E1c", 
+                       reference.irrad=sun.known.irrad))
+@
+
+<<calc-calibration-factor-tl12-E1c>>=
+tl12.E1c.calibration.factor <- 
+  with(philips.tl12.bentham.spct, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Thies_E1c", 
+                       reference.irrad=tl12.known.irrad))
+@
+
+The BW-20 calibration factor for solar radiation is \Sexpr{signif(sun.E1c.calibration.factor, 4)} while that for an unfiltered Philips 40W/TL12 UV-B lamps is \Sexpr{signif(tl12.E1c.calibration.factor, 4)}. In other words measurements of TL12 lamps with the E1c sensor calibrated for sunlight are \Sexpr{signif(sun.E1c.calibration.factor/tl12.E1c.calibration.factor * 100, 3)} \% of the true value.
+
+Now we check a more realistic example, a TL12 lamp filtered with cellulose diacetate. We still consider the same E1c sensor calibrated for sunlight.
+
+<<calc-calibration-factor-tl12-acetate-E1c>>=
+acetate.s.e.irrad <-  
+  with(philips.tl12.bentham.spct, 
+       s.e.irrad * 
+         calc_filter_multipliers(w.length, "acetate.115um.new"))
+tl12.act.known.irrad <- 
+  with(philips.tl12.bentham.spct, 
+       energy_irradiance(w.length, acetate.s.e.irrad, CIE()))
+tl12.act.E1c.calibration.factor <- 
+  with(philips.tl12.bentham.spct, 
+       sensor_response(w.length, acetate.s.e.irrad, 
+                       "Thies_E1c", 
+                       reference.irrad=tl12.act.known.irrad))
+@
+
+
+In this case, measurements of a diacetate-filtered TL12 lamp with the E1c sensor calibrated for sunlight are \Sexpr{signif(sun.E1c.calibration.factor/tl12.act.E1c.calibration.factor * 100, 3)} \% of the true value.
+
+\subsection{Solar Light 501}
+
+We will now estimate the error involved in the use of a Thies Clima E1c sensor calibrated for sunlight, to measure Q-Panel UVB-313 lamps.
+
+<<calc-calibration-factor-sun-SL501>>=
+sun.SL501.calibration.factor <- 
+  with(sun.spct, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Solar_Light_501_typical", 
+                       reference.irrad=sun.known.irrad))
+@
+
+<<calc-calibration-factor-tl12-SL501>>=
+tl12.SL501.calibration.factor <- 
+  with(philips.tl12.bentham.spct, 
+       sensor_response(w.length, s.e.irrad, 
+                       "Solar_Light_501_typical", 
+                       reference.irrad=tl12.known.irrad))
+@
+
+The BW-20 calibration factor for solar radiation is \Sexpr{signif(sun.SL501.calibration.factor, 4)} while that for an unfiltered Philips 40W/TL12 UV-B lamps is \Sexpr{signif(tl12.SL501.calibration.factor, 4)}. In other words measurements of TL12 lamps with the SL501 sensor calibrated for sunlight are \Sexpr{signif(sun.SL501.calibration.factor/tl12.SL501.calibration.factor * 100, 3)} \% of the true value.
+
+Now we check a more realistic example, a TL12 lamp filtered with cellulose diacetate. We still consider the same SL501 sensor calibrated for sunlight.
+
+<<calc-calibration-factor-tl12-acetate-SL501>>=
+acetate.s.e.irrad <-  
+  with(philips.tl12.bentham.spct, 
+       s.e.irrad * 
+         calc_filter_multipliers(w.length, "acetate.115um.new"))
+tl12.act.known.irrad <- 
+  with(philips.tl12.bentham.spct, 
+       energy_irradiance(w.length, acetate.s.e.irrad, CIE()))
+tl12.act.SL501.calibration.factor <- 
+  with(philips.tl12.bentham.spct, 
+       sensor_response(w.length, acetate.s.e.irrad, 
+                       "Solar_Light_501_typical", 
+                       reference.irrad=tl12.act.known.irrad))
+@
+
+
+In this case, measurements of a diacetate-filtered TL12 lamp with the SL501 sensor calibrated for sunlight are \Sexpr{signif(sun.SL501.calibration.factor/tl12.act.SL501.calibration.factor * 100, 3)} \% of the true value.
 
 \end{document}
