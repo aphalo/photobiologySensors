@@ -1,3 +1,14 @@
+photobiologySensors 0.1.8
+=========================
+
+Rebuilt data object and data .r files and fixed one example in docs.
+Fixed bugs that rendered data for some sensors inaccessible.
+
+photobiologySensors 0.1.7
+=========================
+
+Added data for Thies sensor and modified automatic data objects build to use response.spct objects.
+
 photobiologySensors 0.1.6
 =========================
 
@@ -7,7 +18,7 @@ photobiologySensors 0.1.5
 =========================
 
 Added more spectra for sglux TOCON sensors.
-Vignette of spectra updated to include the new data and ploting adjusted a little.
+Vignette of spectra updated to include the new data and plotting adjusted a little.
 
 photobiologySensors 0.1.4
 =========================

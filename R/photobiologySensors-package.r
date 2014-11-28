@@ -12,8 +12,8 @@
 #' \tabular{ll}{
 #' Package: \tab photobiologySensors\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.1.7\cr
-#' Date: \tab 2014-09-08\cr
+#' Version: \tab 0.1.8\cr
+#' Date: \tab 2014-11-28\cr
 #' License: \tab GPL (>2.0)\cr
 #' }
 #' @references

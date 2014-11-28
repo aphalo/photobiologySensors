@@ -16,7 +16,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name TOCON_blue4.dt
+#' @name TOCON_blue4.spct
 #' @note
 #' TOCON_blue4.
 #' pre-amplified GaP blue light detector.
