@@ -4,7 +4,7 @@
 #' tabulated values of spectral responsiveness for different sensors. 
 #' Spectral response values are in arbitrary units.
 #' 
-#' The variables are as follows:
+#' The variables are as follows, but only one of s.e.response or s.q.response is included:
 #' \itemize{
 #'   \item w.length (nm)  
 #'   \item s.e.response (a.u.)

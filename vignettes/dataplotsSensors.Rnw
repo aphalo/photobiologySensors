@@ -28,7 +28,7 @@
 
 <<setup, include=FALSE, cache=FALSE>>=
 library(knitr)
-opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=4, fig.height=4, out.width='.47\\textwidth', dev='cairo_pdf')
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=10, fig.height=6, out.width='.95\\textwidth', dev='cairo_pdf')
 @
 
 <<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
@@ -60,91 +60,90 @@ We define a function to do the actual plotting so as to not repeat code, and to 
 
 <<setup-function>>=
 plotter <- 
-  function(spct, annotations = c("segments","labels","summaries"), label.qty = "contribution", wb.trim=TRUE, range=spct){
-    plot(spct, unit.out="energy", annotations = annotations, label.qty = label.qty, wb.trim = wb.trim, range = range)
-    plot(spct, unit.out="photon", annotations = annotations, label.qty = label.qty, wb.trim = wb.trim, range = range)
+  function(spct, 
+           annotations = c("boxes", "labels", "summaries", "colour.guide"), 
+           label.qty = "contribution", 
+           wb.trim=TRUE){
+    print(plot(spct, 
+               unit.out="energy", 
+               annotations = annotations, 
+               label.qty = label.qty, 
+               wb.trim = wb.trim) +
+            labs(title=deparse(substitute(spct))))
+    print(plot(spct, 
+               unit.out="photon", 
+               annotations = annotations, 
+               label.qty = label.qty, 
+               wb.trim = wb.trim) +
+            labs(title=deparse(substitute(spct))))
   }
 @
 
 \section{Flat responses}
 
 <<plot-e_flat>>=
-plotter(e.flat.spct)
-plotter(q.flat.spct)
+plotter(flat_e.spct, annotations = "colour.guide")
+plotter(flat_q.spct, annotations = "colour.guide")
 @
 
 \section{Quantum PAR sensors}
 
 <<plot-PAR-quantum>>=
-par.sensors <- list(LI_COR_LI_190_PAR_quantum.spct, KIPP_PQS1_PAR_quantum.spct)
-for (sensor in par.sensors) {
-  plotter(sensor)
-}
+plotter(LI_COR_LI_190_PAR_quantum.spct)
+plotter(KIPP_PQS1_PAR_quantum.spct)
 @
 
 \section{Other sensors}
 
 <<plot-other>>=
-other.sensors <- list(LI_COR_LI_200_pyranometer.spct, LI_COR_LI_210_photometric.spct)
-for (sensor in other.sensors) {
-  plotter(sensor)
-}
+plotter(LI_COR_LI_200_pyranometer.spct)
+plotter(LI_COR_LI_210_photometric.spct)
 @
 
 \section{UVC sensors}
 
 <<plot-UVC>>=
-uvb.sensors <- c(sglux_SG01D_C.spct)
-for (sensor in uvb.sensors) {
-  plotter(sensor)
-}
+plotter(sglux_SG01D_C.spct)
 @
 
 \section{UVB sensors}
 
 <<plot-UVB>>=
-uvb.sensors <- c(Solarmeter_SM60.spct, sglux_SG01D_B.spct, KIPP_UVS_B_UVB.spct)
-for (sensor in uvb.sensors) {
-  plotter(sensor)
-}
+plotter(Solarmeter_SM60.spct)
+plotter(sglux_SG01D_B.spct)
+plotter(KIPP_UVS_B_UVB.spct)
 @
 
 \section{Erythemal UV sensors}
 
 <<plot-ery>>=
-uv_ery.sensors <- c(Berger_UV_erythemal.spct, KIPP_UVS_E_erythemal.spct, 
-                    Solar_Light_501_typical.spct, Solar_Light_501_high_UVA.spct, 
-                    Solar_Light_501_low_UVA.spct, Vital_BW_20.spct, Thies_E1cs.spct)
-for (sensor in uv_ery.sensors) {
-  plotter(sensor)
-}
+plotter(Berger_UV_erythemal.spct)
+plotter(KIPP_UVS_E_erythemal.spct)
+plotter(Solar_Light_501_typical.spct)
+plotter(Solar_Light_501_high_UVA.spct)
+plotter(Solar_Light_501_low_UVA.spct)
+plotter(Vital_BW_20.spct)
+plotter(Thies_E1c.spct)
 @
 
 \section{UVA sensors}
 
 <<plot-UVA>>=
-uva.sensors <- c(sglux_SG01D_A.spct, KIPP_UVS_A_UVA.spct)
-for (sensor in uva.sensors) {
-  plotter(sensor)
-}
+plotter(sglux_SG01D_A.spct)
+plotter(KIPP_UVS_A_UVA.spct)
 @
 
 \section{Broadband UV sensors}
 
 <<plot-UVAB>>=
-uvab.sensors <- c(sglux_SG01L.spct, KIPP_CUV_5_UVAB.spct)
-for (sensor in uvab.sensors) {
-  plotter(sensor)
-}
+plotter(sglux_SG01L.spct)
+plotter(KIPP_CUV_5_UVAB.spct)
 @
 
 \section{Blue sensors}
 
 <<plot-Blue>>=
-b.sensors <- c(TOCON_blue4.spct)
-for (sensor in b.sensors) {
-  plotter(sensor)
-}
+plotter(TOCON_blue4.spct)
 @
 
 \end{document}

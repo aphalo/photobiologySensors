@@ -1,0 +1,9 @@
+#' @name flat_q.spct
+#'
+#' @note
+#' Flat response to spectral energy irradiance
+#'
+#'
+w.length,s.q.response
+100,1.0
+5000,1.0

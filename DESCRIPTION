@@ -1,8 +1,8 @@
 Package: photobiologySensors
 Type: Package
 Title: Spectral response data for sensors
-Version: 0.1.8
-Date: 2014-11-28
+Version: 0.1.9
+Date: 2015-01-22
 Author: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>, Tähti Pohjanmies
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: This package provides data for UV and VIS radiation sensors. Data was digitized from manufacturers' brochures and manuals, or supplied by researchers.

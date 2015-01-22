@@ -15,16 +15,10 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name sglux_SG01L.spct
-#' @note
-#' SiC broadband sensor (not filtered).
-#' Original data supplied by the manufacturer as a computer readable file. 
-#' This is typical measured data. Individual sensor units
-#' are expected to differ to a small degree in spectral response.
-#' 
-#' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
-#' \url{http://www.sglux.com/}
+#' @name flat_q.spct
 #'
-#' @references personal communication from Dr.\ Stefan Langer
+#' @note
+#' Flat response to spectral energy irradiance
+#'
 #'
 NULL 
