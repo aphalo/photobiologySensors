@@ -15,15 +15,16 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Thies_E1c.spct
+#' @name sglux_SG01D_B.spct
 #' @note
-#' Thies Clima E1.c broadband UVB sensor.
-#' Digitized with 'DigitizeIt' from manufacturers manual. This are approximate
-#' data, both because of the digitizing process, and because they are
-#' either typical values or for a particular sensor unit. Individual sensor units
-#' are expected to differ to some degree in spectral response.
+#' UV-B broadband sensor (filtered SiC sensor, VIS-blind).
+#' Original data supplied by the manufacturer as a computer readable file. 
+#' This is typical measured data. Individual sensor units
+#' are expected to differ to a small degree in spectral response.
 #' 
-#' Manufacturer: Thies Clima, Göttingen, DE
-#'  \url{http://www.thiesclima.com/}
+#' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
+#' \url{http://www.sglux.com/}
+#'
+#' @references personal communication from Dr.\ Stefan Langer
 #'
 NULL 

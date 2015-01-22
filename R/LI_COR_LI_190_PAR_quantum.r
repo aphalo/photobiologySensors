@@ -11,7 +11,6 @@
 #'   \item s.q.respone (a.u.) 
 #' }
 #' 
-#' @author Tähti Pohjanmies
 #' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
 #' @docType data
 #' @keywords datasets

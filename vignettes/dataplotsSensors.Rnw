@@ -32,7 +32,6 @@ opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size
 @
 
 <<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
-library(ggplot2)
 library(photobiologygg)
 library(photobiology)
 library(photobiologySensors)
@@ -52,7 +51,6 @@ my_version <- packageVersion("photobiologySensors")
 We will plot the spectral response of the different sensors for which data is provided in the pacakge. We plot side-by-side the response to energy (i.e. the electrical output that would be expected at each wavelengths with a source emitting equal spectral energy irradiance at all wavelengths) and the response to photons (i.e. as above but with a source emitting equal spectral photon irradiance at all wavelengths). All responses are normalized to an area of one under the whole curve.
 
 <<example-0, eval=FALSE>>=
-library(ggplot2)
 library(photobiologygg)
 library(photobiology)
 library(photobiologySensors)
@@ -61,112 +59,91 @@ library(photobiologySensors)
 We define a function to do the actual plotting so as to not repeat code, and to make changes easier in the future.
 
 <<setup-function>>=
-sensor.plotter <- 
-  function(sensor.name, w.low=250.0, w.high=900.0, scaled="peak"){
-    w.length.out <- 
-      seq(from=w.low, to=w.high, length.out=300)
-    e.spectrum.data <- 
-      calc_sensor_multipliers(w.length.out=w.length.out, 
-                              sensor.name=sensor.name, 
-                              unit.out="energy", scaled=scaled)
-    q.spectrum.data <- 
-      calc_sensor_multipliers(w.length.out=w.length.out, 
-                              sensor.name=sensor.name, 
-                              unit.out="photon", scaled=scaled)
-    e.spectrum.data <- 
-      na.omit(e.spectrum.data)
-    q.spectrum.data <- 
-      na.omit(q.spectrum.data)
-    fig_energy <- 
-      ggplot(aes(x=w.length, y=response), data=e.spectrum.data) + 
-      xlim(w.low, w.high) + ylim(0.0, 1.2) +
-      labs(x="Wavelength (nm)", y="Spectral response (energy)", 
-           title=sensor.name) + 
-      geom_line() + 
-      stat_peaks(hjust=-0.5, angle=90, span=5, 
-                 ignore_threshold=0.1)
-    fig_photon <- 
-      ggplot(aes(x=w.length, y=response), data=q.spectrum.data) + 
-      xlim(w.low, w.high) + ylim(0.0, 1.2) +
-      labs(x="Wavelength (nm)", y="Spectral response (photon)", 
-           title=sensor.name) + 
-      geom_line() + 
-      stat_peaks(hjust=-0.5, angle=90, span=5, 
-                 ignore_threshold=0.1)
-    print(fig_energy)
-    print(fig_photon)
+plotter <- 
+  function(spct, annotations = c("segments","labels","summaries"), label.qty = "contribution", wb.trim=TRUE, range=spct){
+    plot(spct, unit.out="energy", annotations = annotations, label.qty = label.qty, wb.trim = wb.trim, range = range)
+    plot(spct, unit.out="photon", annotations = annotations, label.qty = label.qty, wb.trim = wb.trim, range = range)
   }
 @
 
 \section{Flat responses}
 
 <<plot-e_flat>>=
-sensor.plotter("e.flat")
-sensor.plotter("q.flat")
+plotter(e.flat.spct)
+plotter(q.flat.spct)
 @
 
 \section{Quantum PAR sensors}
 
 <<plot-PAR-quantum>>=
-par.sensors <- c("LI_COR_LI_190_PAR_quantum", "KIPP_PQS1_PAR_quantum")
+par.sensors <- list(LI_COR_LI_190_PAR_quantum.spct, KIPP_PQS1_PAR_quantum.spct)
 for (sensor in par.sensors) {
-  sensor.plotter(sensor.name=sensor, w.low=370.0, w.high=730.0)
+  plotter(sensor)
 }
 @
 
 \section{Other sensors}
 
 <<plot-other>>=
-other.sensors <- c("LI_COR_LI_200_pyranometer", "LI_COR_LI_210_photometric")
+other.sensors <- list(LI_COR_LI_200_pyranometer.spct, LI_COR_LI_210_photometric.spct)
 for (sensor in other.sensors) {
-  sensor.plotter(sensor.name=sensor, w.low=300.0, w.high=1200.0)
+  plotter(sensor)
+}
+@
+
+\section{UVC sensors}
+
+<<plot-UVC>>=
+uvb.sensors <- c(sglux_SG01D_C.spct)
+for (sensor in uvb.sensors) {
+  plotter(sensor)
 }
 @
 
 \section{UVB sensors}
 
 <<plot-UVB>>=
-uvb.sensors <- c("Solarmeter_SM60", "KIPP_UVS_B_UVB")
+uvb.sensors <- c(Solarmeter_SM60.spct, sglux_SG01D_B.spct, KIPP_UVS_B_UVB.spct)
 for (sensor in uvb.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=600)
+  plotter(sensor)
 }
 @
 
 \section{Erythemal UV sensors}
 
 <<plot-ery>>=
-uv_ery.sensors <- c("Berger_UV_erythemal", "KIPP_UVS_E_erythemal", 
-                    "Solar_Light_501_typical", "Solar_Light_501_high_UVA", "Solar_Light_501_low_UVA",
-                    "Vital_BW_20", "Thies_E1c")
+uv_ery.sensors <- c(Berger_UV_erythemal.spct, KIPP_UVS_E_erythemal.spct, 
+                    Solar_Light_501_typical.spct, Solar_Light_501_high_UVA.spct, 
+                    Solar_Light_501_low_UVA.spct, Vital_BW_20.spct, Thies_E1cs.spct)
 for (sensor in uv_ery.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=600)
+  plotter(sensor)
 }
 @
 
 \section{UVA sensors}
 
 <<plot-UVA>>=
-uva.sensors <- c("TOCON_A6_UVA", "KIPP_UVS_A_UVA")
+uva.sensors <- c(sglux_SG01D_A.spct, KIPP_UVS_A_UVA.spct)
 for (sensor in uva.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=600)
+  plotter(sensor)
 }
 @
 
 \section{Broadband UV sensors}
 
 <<plot-UVAB>>=
-uvab.sensors <- c("KIPP_CUV_5_UVAB")
+uvab.sensors <- c(sglux_SG01L.spct, KIPP_CUV_5_UVAB.spct)
 for (sensor in uvab.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=600)
+  plotter(sensor)
 }
 @
 
 \section{Blue sensors}
 
 <<plot-Blue>>=
-b.sensors <- c("TOCON_blue4")
+b.sensors <- c(TOCON_blue4.spct)
 for (sensor in b.sensors) {
-  sensor.plotter(sensor, w.low=200, w.high=600)
+  plotter(sensor)
 }
 @
 

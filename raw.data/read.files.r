@@ -19,6 +19,9 @@ for (file.name in file.list) {
   df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "spct", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
   temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
+  if (ncol(temp.dt) > 2) {
+    temp.dt <- temp.dt[ , 1:2]
+  }
   setResponseSpct(temp.dt)
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
@@ -31,3 +34,4 @@ for (file.name in file.list) {
   shell(paste('mv', r.file.name, './../R'))
 }
 setwd("./..")
+
