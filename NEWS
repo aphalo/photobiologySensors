@@ -1,9 +1,11 @@
-photobiologySensors 0.1.9
+photobiologySensors 0.2.0
 =========================
 
 Added the spectral data generously supplied as a file by sglux for their sensors.
-Rebuilt all data objects and data .r files.
-Editted the vignettes.
+Rebuilt all data objects and data .r files with photobiology 0.5.7 which is now required.
+Editted the vignettes to use the high level functions currently available in the suite.
+As a result the code for the example calculations is now much simpler, and
+consequently, hopefully, also much easier to understand for the user.
 
 photobiologySensors 0.1.8
 =========================

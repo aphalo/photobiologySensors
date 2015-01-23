@@ -1,15 +1,15 @@
 Package: photobiologySensors
 Type: Package
 Title: Spectral response data for sensors
-Version: 0.1.9
-Date: 2015-01-22
+Version: 0.2.0
+Date: 2015-01-23
 Author: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>, Tähti Pohjanmies
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
-Description: This package provides data for UV and VIS radiation sensors. Data was digitized from manufacturers' brochures and manuals, or supplied by researchers.
+Description: This package provides data for UV and VIS radiation sensors. Data was digitized from manufacturers' brochures and manuals, or directly supplied by researchers and manufacturers.
 License: GPL (>= 3)
 VignetteBuilder: knitr
-Depends: R (>= 3.0.0), photobiology (>= 0.4.8)
-Suggests: knitr, ggplot2, photobiologyLamps, photobiologyUV, photobiologyFilters, photobiologygg
+Depends: R (>= 3.1.0), photobiology (>= 0.5.7)
+Suggests: knitr, ggplot2, photobiologyLamps, photobiologyWavebands, photobiologyFilters, photobiologygg
 LazyLoad: yes
 LazyData: yes
 ByteCompile: true

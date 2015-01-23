@@ -28,7 +28,7 @@
 
 <<setup, include=FALSE, cache=FALSE>>=
 library(knitr)
-opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=10, fig.height=6, out.width='.95\\textwidth', dev='cairo_pdf')
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=10, fig.height=6, out.width='.95\\textwidth')
 @
 
 <<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=

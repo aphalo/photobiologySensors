@@ -25,9 +25,11 @@
 #' @keywords manip misc
 #' @export
 #' @examples
-#' with(Berger_UV_erythemal.spct, calc_sensor_multipliers(290:450, w.length.in=w.length, response.in=s.e.response))
-#' with(Berger_UV_erythemal.spct, calc_sensor_multipliers(290:450, w.length.in=w.length, 
-#'                                                        response.in=s.e.response, unit.out="photon"))
+#' with(Berger_UV_erythemal.spct, 
+#'      calc_sensor_multipliers(290:450, w.length.in=w.length, response.in=s.e.response))
+#' with(Berger_UV_erythemal.spct, 
+#'      calc_sensor_multipliers(290:450, w.length.in=w.length, 
+#'                              response.in=s.e.response, unit.out="photon"))
 #' calc_sensor_multipliers(290:450, w.length.in=Berger_UV_erythemal.spct$w.length, 
 #'                         response.in=Berger_UV_erythemal.spct$s.e.response)
 #' calc_sensor_multipliers(290:450, "Berger_UV_erythemal")

@@ -4,8 +4,12 @@
 #' spectral irradiance. Response will be in absolute or relative units depending on the
 #' sensor response data used.
 #'
-#' @usage sensor_response(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", reference.irrad=1.0,
-#' check.spectrum=TRUE)
+#' @usage sensor_response(w.length, 
+#'                        s.irrad, 
+#'                        sensor.name="e.flat", 
+#'                        unit.in="energy", 
+#'                        reference.irrad=1.0,
+#'                        check.spectrum=TRUE)
 #' 
 #' @param w.length numeric array of wavelength (nm)
 #' @param s.irrad numeric array of spectral (energy) irradiances (W m-2 nm-1)
@@ -33,7 +37,11 @@
 #' at least once for your spectrum before using any of the other functions. 
 
 sensor_response <- 
-  function(w.length, s.irrad, sensor.name="e.flat", unit.in="energy", reference.irrad=1.0, 
+  function(w.length, 
+           s.irrad, 
+           sensor.name="e.flat", 
+           unit.in="energy", 
+           reference.irrad=1.0, 
            check.spectrum=TRUE){
     # make code a bit simpler further down
     if (unit.in=="quantum") {unit.in <- "photon"}
