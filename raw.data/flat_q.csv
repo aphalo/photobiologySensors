@@ -1,7 +1,9 @@
 #' @name flat_q.spct
 #'
+#' @title Flat spectral photon response
+#'
 #' @note
-#' Flat response to spectral energy irradiance
+#' Flat response to photon irradiance
 #'
 #'
 w.length,s.q.response

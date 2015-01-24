@@ -16,13 +16,16 @@ setwd("raw.data")
 file.list <- system('ls *.csv', intern=TRUE)
 for (file.name in file.list) {
   # data object
+  cat(file.name, "\n")
   df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "spct", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
   temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
   if (ncol(temp.dt) > 2) {
     temp.dt <- temp.dt[ , 1:2]
   }
+  cat(names(temp.dt), "\n")
   setResponseSpct(temp.dt)
+  cat(class(temp.dt), "\n\n")
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
   # .r file with Roxygen2 doccumentation

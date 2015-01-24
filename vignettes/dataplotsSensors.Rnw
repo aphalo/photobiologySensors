@@ -23,12 +23,12 @@
 \newcommand{\PBFil}{\textsf{photobiologyFilters}\xspace}
 \newcommand{\PBLam}{\textsf{photobiologyLamps}\xspace}
 \newcommand{\PBSen}{\textsf{photobiologySensors}\xspace}
- 
+
 \begin{document}
 
 <<setup, include=FALSE, cache=FALSE>>=
 library(knitr)
-opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=10, fig.height=6, out.width='.95\\textwidth')
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="footnotesize",            fig.width=10, fig.height=6, out.width='.95\\textwidth', warning=FALSE)
 @
 
 <<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
@@ -59,21 +59,21 @@ library(photobiologySensors)
 We define a function to do the actual plotting so as to not repeat code, and to make changes easier in the future.
 
 <<setup-function>>=
-plotter <- 
-  function(spct, 
-           annotations = c("boxes", "labels", "summaries", "colour.guide"), 
-           label.qty = "contribution", 
+plotter <-
+  function(spct,
+           annotations = c("boxes", "labels", "summaries", "colour.guide"),
+           label.qty = "contribution",
            wb.trim=TRUE){
-    print(plot(spct, 
-               unit.out="energy", 
-               annotations = annotations, 
-               label.qty = label.qty, 
+    print(plot(spct,
+               unit.out="energy",
+               annotations = annotations,
+               label.qty = label.qty,
                wb.trim = wb.trim) +
             labs(title=deparse(substitute(spct))))
-    print(plot(spct, 
-               unit.out="photon", 
-               annotations = annotations, 
-               label.qty = label.qty, 
+    print(plot(spct,
+               unit.out="photon",
+               annotations = annotations,
+               label.qty = label.qty,
                wb.trim = wb.trim) +
             labs(title=deparse(substitute(spct))))
   }
@@ -91,13 +91,18 @@ plotter(flat_q.spct, annotations = "colour.guide")
 <<plot-PAR-quantum>>=
 plotter(LI_COR_LI_190_PAR_quantum.spct)
 plotter(KIPP_PQS1_PAR_quantum.spct)
+plotter(Skye_SKP210.spct)
+plotter(Skye_SKP215.spct)
+plotter(Skye_SKE510.spct)
 @
 
 \section{Other sensors}
 
 <<plot-other>>=
 plotter(LI_COR_LI_200_pyranometer.spct)
+plotter(Skye_SKS1110.spct)
 plotter(LI_COR_LI_210_photometric.spct)
+plotter(Skye_SKL310.spct)
 @
 
 \section{UVC sensors}
@@ -112,6 +117,7 @@ plotter(sglux_SG01D_C.spct)
 plotter(Solarmeter_SM60.spct)
 plotter(sglux_SG01D_B.spct)
 plotter(KIPP_UVS_B_UVB.spct)
+plotter(Skye_SKU430a.spct)
 @
 
 \section{Erythemal UV sensors}
@@ -124,6 +130,7 @@ plotter(Solar_Light_501_high_UVA.spct)
 plotter(Solar_Light_501_low_UVA.spct)
 plotter(Vital_BW_20.spct)
 plotter(Thies_E1c.spct)
+plotter(Skye_SKU440a.spct)
 @
 
 \section{UVA sensors}
@@ -131,6 +138,8 @@ plotter(Thies_E1c.spct)
 <<plot-UVA>>=
 plotter(sglux_SG01D_A.spct)
 plotter(KIPP_UVS_A_UVA.spct)
+plotter(Skye_SKU421a.spct)
+plotter(Skye_SKU421.spct)
 @
 
 \section{Broadband UV sensors}
@@ -144,6 +153,13 @@ plotter(KIPP_CUV_5_UVAB.spct)
 
 <<plot-Blue>>=
 plotter(TOCON_blue4.spct)
+@
+
+\section{Red and far-red sensors}
+
+<<>>=
+plotter(Skye_SKR110_R.spct)
+plotter(Skye_SKR110_FR.spct)
 @
 
 \end{document}

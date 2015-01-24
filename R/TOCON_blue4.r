@@ -1,21 +1,21 @@
-#' Spectral data for sensors
-#'
+#' @description
 #' Datasets containing the wavelengths (nm) at either regular or irregular intervals and
-#' tabulated values of spectral responsiveness for different sensors. 
-#' Spectral response values are in arbitrary units.
-#' 
+#' tabulated values of spectral responsiveness for different sensors.
+#' Spectral response values are in relative energy or photon spectral responsivity units.
+#'
 #' The variables are as follows, but only one of s.e.response or s.q.response is included:
 #' \itemize{
-#'   \item w.length (nm)  
+#'   \item w.length (nm)
 #'   \item s.e.response (a.u.)
-#'   \item s.q.respone (a.u.) 
+#'   \item s.q.respone (a.u.)
 #' }
-#' 
-#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi} 
+#'
+#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi}
 #' @docType data
 #' @keywords datasets
 #'
 #' @name TOCON_blue4.spct
+#' @title sglux TOCON blue 4 GaP blue light broadband sensor
 #' @note
 #' TOCON_blue4.
 #' pre-amplified GaP blue light detector.
@@ -25,8 +25,11 @@
 #' either typical values or for a particular sensor unit. Individual sensor units
 #' are expected to differ to some degree in spectral response.
 #'
-#' @references 
+#' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
+#' \url{http://www.sglux.com/}
+#'
+#' @references
 #' Datasheet TOCON_Blue4 Rev. ??
-#' \url{http://www.sglux.de/}
+#' \url{http://www.sglux.com/}
 #'
 NULL 

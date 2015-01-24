@@ -1,7 +1,9 @@
 #' @name flat_e.spct
 #'
+#' @title Flat spectral energy response
+#'
 #' @note
-#' Flat response to spectral energy irradiance
+#' Flat response to energy irradiance
 #'
 #'
 w.length,s.e.response

@@ -1,10 +1,11 @@
 #' @name sglux_SG01D_C.spct
+#' @title sglux SG01D-C UV-C broadband sensor
 #' @note
 #' UV-C broadband sensor (filtered SiC sensor, "solar-blind").
-#' Original data supplied by the manufacturer as a computer readable file. 
+#' Original data supplied by the manufacturer as a computer readable file.
 #' This is typical measured data. Individual sensor units
 #' are expected to differ to a small degree in spectral response.
-#' 
+#'
 #' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
 #' \url{http://www.sglux.com/}
 #'

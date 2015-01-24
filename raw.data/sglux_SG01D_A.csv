@@ -1,10 +1,11 @@
 #' @name sglux_SG01D_A.spct
+#' @title sglux SG01D-A UV-A broadband sensor
 #' @note
 #' UV-A broadband sensor (filtered SiC sensor, VIS-blind, "erythemal").
-#' Original data supplied by the manufacturer as a computer readable file. 
+#' Original data supplied by the manufacturer as a computer readable file.
 #' This is typical measured data. Individual sensor units
 #' are expected to differ to a small degree in spectral response.
-#' 
+#'
 #' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
 #' \url{http://www.sglux.com/}
 #'

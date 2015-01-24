@@ -1,3 +1,9 @@
+photobiologySensors 0.2.1
+=========================
+
+Added data for sensors made by Skye Instruments. Data digitised from brochures and manuals.
+Added plots of the newly added spectra to the vignette.
+
 photobiologySensors 0.2.0
 =========================
 

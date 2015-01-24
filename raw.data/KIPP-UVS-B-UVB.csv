@@ -1,4 +1,5 @@
 #' @name KIPP_UVS_B_UVB.spct
+#' @title Kipp UVS-B-T UVB Radiometer
 #' @note
 #' UVS-B-T Radiometer.
 #' The detection system includes optical filters and a phosphor
@@ -12,7 +13,7 @@
 #' data, both because of the digitizing process, and because they are
 #' either typical values or for a particular sensor unit. Individual sensor units
 #' are expected to differ to some degree in spectral response.
-#' 
+#'
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft
 #' \url{http://www.kippzonen.com/}
 #'

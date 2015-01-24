@@ -1,4 +1,5 @@
 #' @name TOCON_blue4.spct
+#' @title sglux TOCON blue 4 GaP blue light broadband sensor
 #' @note
 #' TOCON_blue4.
 #' pre-amplified GaP blue light detector.
@@ -8,9 +9,12 @@
 #' either typical values or for a particular sensor unit. Individual sensor units
 #' are expected to differ to some degree in spectral response.
 #'
-#' @references 
+#' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
+#' \url{http://www.sglux.com/}
+#'
+#' @references
 #' Datasheet TOCON_Blue4 Rev. ??
-#' \url{http://www.sglux.de/}
+#' \url{http://www.sglux.com/}
 #'
 w.length,s.e.response
 340,0.0

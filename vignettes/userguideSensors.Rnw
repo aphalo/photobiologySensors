@@ -23,7 +23,7 @@
 \newcommand{\PBFil}{\textsf{photobiologyFilters}\xspace}
 \newcommand{\PBLam}{\textsf{photobiologyLamps}\xspace}
 \newcommand{\PBSen}{\textsf{photobiologySensors}\xspace}
- 
+
 \begin{document}
 
 <<setup, include=FALSE, cache=FALSE>>=
@@ -71,9 +71,9 @@ sun.CIE98.known.irrad <- e_irrad(sun.spct, CIE())
 sun.BW20.response <- e_response(sun.spct * Vital_BW_20.spct)
 @
 
-The effective UV energy irradiance according to CIE erythemal action spectrum for this solar spectrum is \Sexpr{signif(sun.CIE98.known.irrad, 3)} \watt and the BW-20 sensor response is \Sexpr{signif(sun.BW20.response, 3)}. 
+The effective UV energy irradiance according to CIE erythemal action spectrum for this solar spectrum is \Sexpr{signif(sun.CIE98.known.irrad, 3)} \watt and the BW-20 sensor response is \Sexpr{signif(sun.BW20.response, 3)}.
 
-% As the sensor spectral response data have been scaled using the factory (manufacturer provided) calibration, most probably based on an artificial ligh source, we can see that the two calibrations disagree. The error is \Sexpr{signif((sun.sensor.response - sun.CIE98.known.irrad) / sun.CIE98.known.irrad * 100, 3)} \%. 
+% As the sensor spectral response data have been scaled using the factory (manufacturer provided) calibration, most probably based on an artificial ligh source, we can see that the two calibrations disagree. The error is \Sexpr{signif((sun.sensor.response - sun.CIE98.known.irrad) / sun.CIE98.known.irrad * 100, 3)} \%.
 
 <<calc-sensor-response-tl12>>=
 tl12.spct <- philips.tl12.bentham.spct
@@ -107,7 +107,7 @@ Now we check a more realistic example, a TL12 lamp filtered with cellulose diace
 <<calc-calibration-factor-tl12-acetate>>=
 filtered.tl12.spct <- tl12.spct * acetate.115um.new.spct
 ca.CIE98.known.irrad <- e_irrad(filtered.tl12.spct, CIE())
-ca.BW20.calibration.factor <- 
+ca.BW20.calibration.factor <-
   e_response(filtered.tl12.spct * Vital_BW_20.spct) / ca.CIE98.known.irrad
 @
 
@@ -119,12 +119,12 @@ In this case, measurements of a diacetate-filtered TL12 lamp with the BW-20 sens
 We will now estimate the error involved in the use of a Thies Clima E1c sensor calibrated for sunlight, to measure Q-Panel UVB-313 lamps.
 
 <<calc-calibration-factor-sun-E1c>>=
-sun.E1c.calibration.factor <- 
+sun.E1c.calibration.factor <-
   e_response(sun.spct * Thies_E1c.spct) / sun.CIE98.known.irrad
 @
 
 <<calc-calibration-factor-tl12-E1c>>=
-tl12.E1c.calibration.factor <- 
+tl12.E1c.calibration.factor <-
   e_response(tl12.spct * Thies_E1c.spct) / tl12.CIE98.known.irrad
 @
 
@@ -133,7 +133,7 @@ The E1c calibration factor for solar radiation is \Sexpr{signif(sun.E1c.calibrat
 Now we check a more realistic example, a TL12 lamp filtered with cellulose diacetate. We still consider the same E1c sensor calibrated for sunlight.
 
 <<calc-calibration-factor-tl12-acetate-E1c>>=
-ca.E1c.calibration.factor <- 
+ca.E1c.calibration.factor <-
   e_response(filtered.tl12.spct * Thies_E1c.spct) / ca.CIE98.known.irrad
 @
 
@@ -157,12 +157,12 @@ ca.GEN.known.irrad <- e_irrad(filtered.tl12.spct, GEN.G())
 @
 
 <<calc-calibration-factor-sun-E1c-GEN>>=
-sun.E1c.GEN.calibration.factor <- 
+sun.E1c.GEN.calibration.factor <-
   e_response(sun.spct * Thies_E1c.spct) / sun.GEN.known.irrad
 @
 
 <<calc-calibration-factor-tl12-acetate-E1c-GEN>>=
-ca.E1c.GEN.calibration.factor <- 
+ca.E1c.GEN.calibration.factor <-
   e_response(filtered.tl12.spct * Thies_E1c.spct) / ca.GEN.known.irrad
 @
 

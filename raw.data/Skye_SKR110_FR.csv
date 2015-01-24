@@ -1,0 +1,29 @@
+#' @name Skye_SKR110_FR.spct
+#'
+#' @title Skye 660/730 Sensor (Red/Far Red) Sensor SKR110 (far-red channel)
+#'
+#' @note
+#' Spectral data digitized from figure in manufacturer's manual.
+#' This is typical measured data, and for specific sensor units the
+#' calibration data supplied with the sensor must be used as individual
+#' may differ in their spectral response. Furthermore, the digigitizing
+#' process from figures with a linear scale is prone to errors, which
+#' are specially noticeable in regions of low responsivity.
+#'
+#' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
+#' \url{http://www.skyeinstruments.com/}
+#'
+#' @references
+#' Manufacturer's brochure dated 2007-10-09
+#'
+w.length,s.q.response
+5.996946547683E2,-8.993782281419E-15
+6.909917522985E2,3.008382909681E-1
+7.001487290427E2,1.936012709573E0
+7.104865242473E2,2.349411844240E1
+7.189505588606E2,6.553711465657E1
+7.402875428159E2,8.374374661979E1
+7.499019740400E2,1.065440778799E1
+7.612222823148E2,-4.470321795565E-1
+7.996957815035E2,-5.535086533261E-1
+7.304860735533E2,9.871552190373E1
