@@ -61,7 +61,7 @@ We define a function to do the actual plotting so as to not repeat code, and to 
 <<setup-function>>=
 plotter <-
   function(spct,
-           annotations = c("boxes", "labels", "summaries", "colour.guide"),
+           annotations = c("boxes", "labels", "summaries", "colour.guide", "title"),
            label.qty = "contribution",
            wb.trim=TRUE){
     print(plot(spct,

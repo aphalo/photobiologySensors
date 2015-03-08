@@ -12,10 +12,14 @@
 #' \tabular{ll}{
 #' Package: \tab photobiologySensors\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.2.1\cr
-#' Date: \tab 2015-01-24\cr
-#' License: \tab GPL (>2.0)\cr
+#' Version: \tab 0.2.2\cr
+#' Date: \tab 2015-03-08\cr
+#' License: \tab GPL (>= 3.0)\cr
+#' URL: \tab \url{http://www.r4photobiology.info},\cr
+#' \tab \url{https://bitbucket.org/aphalo/photobiologySensors}\cr
+#' BugReports: \tab \url{https://bitbucket.org/aphalo/photobiologySensors}\cr
 #' }
+#'
 #' @references
 #' Aphalo, P. J., Albert, A., Björn, L. O., McLeod, A. R., Robson, T. M.,
 #' Rosenqvist, E. (Eds.). (2012). Beyond the Visible: A handbook of best
