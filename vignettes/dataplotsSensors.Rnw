@@ -151,6 +151,10 @@ plotter(KIPP_CUV_5_UVAB.spct)
 
 \section{Blue sensors}
 
+<<>>=
+options(photobiology.plot.bands = Plant_bands("sensory"))
+@
+
 <<plot-Blue>>=
 plotter(TOCON_blue4.spct)
 @

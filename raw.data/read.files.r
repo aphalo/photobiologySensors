@@ -24,6 +24,11 @@ for (file.name in file.list) {
     temp.dt <- temp.dt[ , 1:2]
   }
   cat(names(temp.dt), "\n")
+  setGenericSpct(temp.dt)
+  # This loop reduces the number of rows by
+  while (max(diff(temp.dt$w.length)) < 0.3 || min(diff(temp.dt$w.length)) < 0.03) {
+    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length), by = 2), ]
+  }
   setResponseSpct(temp.dt)
   cat(class(temp.dt), "\n\n")
   assign(df.name, temp.dt)
