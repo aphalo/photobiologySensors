@@ -1,4 +1,4 @@
-# README for phootbiologySensors #
+# README for photobiologySensors #
 
 `photobiologySensors` is an R package containing spectral emission data for different broadband sensors. It complements other packages in the ___photobiology__ R suite.
 
