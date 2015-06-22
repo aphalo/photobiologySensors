@@ -103,6 +103,7 @@ plotter(LI_COR_LI_200_pyranometer.spct)
 plotter(Skye_SKS1110.spct)
 plotter(LI_COR_LI_210_photometric.spct)
 plotter(Skye_SKL310.spct)
+plotter(DeltaT_BF5.spct)
 @
 
 \section{UVC sensors}

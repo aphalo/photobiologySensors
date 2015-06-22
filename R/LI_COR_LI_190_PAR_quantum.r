@@ -1,16 +1,15 @@
-#' @description
-#' Datasets containing the wavelengths (nm) at either regular or irregular intervals and
-#' tabulated values of spectral responsiveness for different sensors.
-#' Spectral response values are in relative energy or photon spectral responsivity units.
+#' @description Datasets containing the wavelengths (nm) at either regular or
+#' irregular intervals and tabulated values of spectral responsiveness for
+#' different sensors (in most cases spectral data are normalized to one at the
+#' wavelength of maximum energy responsivity).
 #'
-#' The variables are as follows, but only one of s.e.response or s.q.response is included:
+#' The variables are as follows, but only one of s.e.response or s.q.response is
+#' included:
 #' \itemize{
-#'   \item w.length (nm)
-#'   \item s.e.response (a.u.)
-#'   \item s.q.respone (a.u.)
+#'    \item w.length (nm)
+#'    \item s.e.response (a.u.)
 #' }
 #'
-#' @author Pedro J. Aphalo \email{pedro.aphalo@@helsinki.fi}
 #' @docType data
 #' @keywords datasets
 #'

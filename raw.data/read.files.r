@@ -25,11 +25,22 @@ for (file.name in file.list) {
   }
   cat(names(temp.dt), "\n")
   setGenericSpct(temp.dt)
-  # This loop reduces the number of rows by
-  while (max(diff(temp.dt$w.length)) < 0.3 || min(diff(temp.dt$w.length)) < 0.03) {
-    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length), by = 2), ]
+  # This loop reduces the number of rows by deleting individual observations
+  # This needs to be improved by making the test local to each pair of succesive
+  # spectral observations and also take into account steepness of slope. We never
+  # remove first or last observation.
+  while (length(temp.dt$w.length) > 300) {
+         # && max(diff(temp.dt$w.length)) < 5 || min(diff(temp.dt$w.length) < 0.03))
+#    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length) - 1, by = 2), ]
+    selector <- seq(2, length(temp.dt$w.length) - 1, by = 2)
+#    selector <- selector[c(diff(temp.dt$w.length[-selector]) < 3, TRUE)]
+    if (length(selector) < 1) {
+      break()
+    }
+    temp.dt <- temp.dt[-selector]
   }
   setResponseSpct(temp.dt)
+  normalize(temp.dt)
   cat(class(temp.dt), "\n\n")
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))

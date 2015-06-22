@@ -13,22 +13,22 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @name Skye_SKU421.spct
+#' @name DeltaT_BF5.spct
 #'
-#' @title Skye UV-A Sensor Sensor SKU421
+#' @title Delta-T Sunshine Sensor type BF5
 #'
 #' @note
 #' Spectral data digitized from figure in manufacturer's manual.
 #' This is typical measured data, and for specific sensor units the
 #' calibration data supplied with the sensor must be used as individual
-#' may differ in their spectral response. Furthermore, the digigitizing
+#' units may differ in their spectral response. Furthermore, the digigitizing
 #' process from figures with a linear scale is prone to errors, which
 #' are specially noticeable in regions of low responsivity.
 #'
-#' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
-#' \url{http://www.skyeinstruments.com/}
+#' Manufacturer: Delta-T Devices Ltd, CAMBRIDGE CB25 0EJ, UK
+#' \url{http://www.delta-t.co.uk/}
 #'
 #' @references
-#' Manufacturer's 'UV-A, UV-B & UV-I Sensors' Manual, Iss. 1.1
+#' Manufacturer's User Manual Version: 1.0 dated Nov 2010
 #'
 NULL 

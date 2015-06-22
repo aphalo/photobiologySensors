@@ -1,3 +1,17 @@
+photobiologySensors 0.3.1
+=========================
+
+Added data for Delta-T BF5 sunshine sensor.
+Digitized again data for lux sensor Skye SKL 310.
+
+All data rebuilt with photobiology 0.6.8, and now
+all spectral data is normalized to one at the wavelength
+of maximum energy responisvity.
+
+Fixed the "thinning" algorithm of the spectral response data
+because it was deleting the observations at the longest wavelength
+values.
+
 photobiologySensors 0.3.0
 =========================
 
