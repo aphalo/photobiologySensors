@@ -31,13 +31,10 @@ for (file.name in file.list) {
     temp.dt <- summarize(temp.df, s.q.response = mean(s.q.response))
   }
   cat(names(temp.dt), "\n")
-  # This loop reduces the number of rows by
-#  while (max(diff(temp.dt$w.length)) < 0.3 || min(diff(temp.dt$w.length)) < 0.03) {
-#    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length), by = 2), ]
-#  }
   setResponseSpct(temp.dt)
-  if (stepsize(temp.dt)[1] < 2) {
-    temp.dt <- interpolate_spct(temp.dt, length.out = spread(temp.dt) / 2)
+  #
+  if (stepsize(temp.dt)[1] < 0.5) {
+    temp.dt <- interpolate_spct(temp.dt, length.out = spread(temp.dt) * 2)
   }
   cat(class(temp.dt), "\n\n")
   assign(df.name, temp.dt)

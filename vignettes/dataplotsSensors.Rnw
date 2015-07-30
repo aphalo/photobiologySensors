@@ -48,7 +48,7 @@ my_version <- packageVersion("photobiologySensors")
 
 \section{Introduction}
 
-We will plot the spectral response of the different sensors for which data is provided in the pacakge. We plot side-by-side the response to energy (i.e. the electrical output that would be expected at each wavelengths with a source emitting equal spectral energy irradiance at all wavelengths) and the response to photons (i.e. as above but with a source emitting equal spectral photon irradiance at all wavelengths). All responses are normalized to an area of one under the whole curve.
+We will plot the spectral response of the different sensors for which data is provided in the pacakge. We plot side-by-side the response to energy (i.e.\ the electrical output that would be expected at each wavelengths with a source emitting equal spectral energy irradiance at all wavelengths) and the response to photons (i.e.\ as above but with a source emitting equal spectral photon irradiance at all wavelengths). All responses are normalized to an area of one under the whole curve.
 
 <<example-00, eval=FALSE>>=
 @

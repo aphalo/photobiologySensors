@@ -1,3 +1,10 @@
+photobiologySensors 0.3.2
+=========================
+
+Rebuild all data and the package with photobiology 0.8.0.
+Inprove the "thinning" algorithm used with the digitized
+spectral data.
+
 photobiologySensors 0.3.1
 =========================
 
