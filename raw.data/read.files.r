@@ -11,6 +11,7 @@
 # 4) set wd to package home
 #
 library(photobiology)
+library(dplyr)
 rm(list = ls())
 setwd("raw.data")
 file.list <- system('ls *.csv', intern=TRUE)
@@ -19,28 +20,25 @@ for (file.name in file.list) {
   cat(file.name, "\n")
   df.name <- paste(sub(pattern=".csv", replacement="", x=file.name), "spct", sep=".")
   df.name <- gsub(pattern="-", replacement="_", x=df.name)
-  temp.dt <- read.csv(file.name, header=TRUE, comment.char="#")
-  if (ncol(temp.dt) > 2) {
-    temp.dt <- temp.dt[ , 1:2]
+  temp.df <- read.csv(file.name, header=TRUE, comment.char="#")
+  if (ncol(temp.df) > 2) {
+    temp.df <- temp.df[ , 1:2]
+  }
+  temp.df <- group_by(temp.df, w.length)
+  if (exists("s.e.response", temp.df, inherits = FALSE)) {
+    temp.dt <- summarize(temp.df, s.e.response = mean(s.e.response))
+  } else {
+    temp.dt <- summarize(temp.df, s.q.response = mean(s.q.response))
   }
   cat(names(temp.dt), "\n")
-  setGenericSpct(temp.dt)
-  # This loop reduces the number of rows by deleting individual observations
-  # This needs to be improved by making the test local to each pair of succesive
-  # spectral observations and also take into account steepness of slope. We never
-  # remove first or last observation.
-  while (length(temp.dt$w.length) > 300) {
-         # && max(diff(temp.dt$w.length)) < 5 || min(diff(temp.dt$w.length) < 0.03))
-#    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length) - 1, by = 2), ]
-    selector <- seq(2, length(temp.dt$w.length) - 1, by = 2)
-#    selector <- selector[c(diff(temp.dt$w.length[-selector]) < 3, TRUE)]
-    if (length(selector) < 1) {
-      break()
-    }
-    temp.dt <- temp.dt[-selector]
-  }
+  # This loop reduces the number of rows by
+#  while (max(diff(temp.dt$w.length)) < 0.3 || min(diff(temp.dt$w.length)) < 0.03) {
+#    temp.dt <- temp.dt[-seq(2, length(temp.dt$w.length), by = 2), ]
+#  }
   setResponseSpct(temp.dt)
-  normalize(temp.dt)
+  if (stepsize(temp.dt)[1] < 2) {
+    temp.dt <- interpolate_spct(temp.dt, length.out = spread(temp.dt) / 2)
+  }
   cat(class(temp.dt), "\n\n")
   assign(df.name, temp.dt)
   save(list=df.name, file=paste("../data/", df.name, ".rda", sep=""))
