@@ -13,16 +13,14 @@
  {hyperref}
 \usepackage{listings}
 \usepackage{booktabs}
-\usepackage{breakurl}
 
 \newcommand{\PB}{\textsf{photobiology}\xspace}
-\newcommand{\PBVIS}{\textsf{photobiologyVIS}\xspace}
-\newcommand{\PBUV}{\textsf{photobiologyUV}\xspace}
-\newcommand{\PBPHY}{\textsf{photobiologyPhy}\xspace}
-\newcommand{\PBCRY}{\textsf{photobiologyCry}\xspace}
+\newcommand{\PBwb}{\textsf{photobiologyWavebands}\xspace}
+\newcommand{\PBPlant}{\textsf{photobiologyPlants}\xspace}
 \newcommand{\PBFil}{\textsf{photobiologyFilters}\xspace}
 \newcommand{\PBLam}{\textsf{photobiologyLamps}\xspace}
 \newcommand{\PBSen}{\textsf{photobiologySensors}\xspace}
+\newcommand{\PBSun}{\textsf{photobiologySun}\xspace}
 
 \begin{document}
 
@@ -53,13 +51,7 @@ my_version <- packageVersion("photobiologySensors")
 
 Here we give some examples of how one can \emph{approximately} assess the errors involved in using a broadband sensor calibrated under a different light source, and how to \emph{approximately}  correct for this discrepancy when the spectral response of the sensor, and the spectrum of both the radiation source used for calibartion and the radiation source being measured are known.
 
-<<example-0, eval=FALSE>>=
-library(photobiology)
-library(photobiologygg)
-library(photobiologyWavebands)
-library(photobiologyLamps)
-library(photobiologyFilters)
-library(photobiologySensors)
+<<example-00, eval=FALSE>>=
 @
 
 \section{Calculating sensor response}
@@ -148,7 +140,7 @@ Furthermore, it is not necessary to use the CIE98 BSWF as we did above, as say i
 
 \begin{framed}
 \noindent
-This example will be expanded once package \PBS is updated to include the necessary solar spectral irradiance data. At the moment we do the calcualtions for a single solar elevation.
+This example will be expanded once package \PBSun is updated to include the necessary solar spectral irradiance data. At the moment we do the calcualtions for a single solar elevation.
 \end{framed}
 
 <<calc-sensor-response-sun-GEN>>=
