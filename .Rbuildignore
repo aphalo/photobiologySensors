@@ -1,5 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^raw\.data/*
+^raw\.data
 ^\.git/*
-vignette/figure/*
+vignettes/figure

@@ -1,3 +1,9 @@
+photobiologySensors 0.3.3
+=========================
+
+Update for ggplot2 2.0.0, ggspectra 0.1.0, and photobiology 0.9.1.
+Removed the User Guide as it was not specificc to the data in this pacakge.
+
 photobiologySensors 0.3.2
 =========================
 

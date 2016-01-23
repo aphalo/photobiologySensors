@@ -1,6 +1,6 @@
 %\VignetteEngine{knitr}
 %\VignetteIndexEntry{Catalogue of sensor's spectral responsiveness}
-%\VignetteDepends{knitr, photobiology, photobiologySensors, photobiologygg, ggplot2}
+%\VignetteDepends{knitr, photobiology, photobiologyWavebands, photobiologySensors, ggspectra, ggplot2}
 %\VignetteKeyword{misc}
 
 \documentclass{article}
@@ -32,8 +32,10 @@ opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size
 @
 
 <<example-00, echo=FALSE, include=FALSE, eval=TRUE>>=
-library(photobiologygg)
+library(ggplot2)
+library(ggspectra)
 library(photobiology)
+library(photobiologyWavebands)
 library(photobiologySensors)
 @
 

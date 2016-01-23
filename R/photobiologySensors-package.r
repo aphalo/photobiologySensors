@@ -12,8 +12,8 @@
 #' \tabular{ll}{
 #' Package: \tab photobiologySensors\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.3.2\cr
-#' Date: \tab 2015-07-30\cr
+#' Version: \tab 0.3.3\cr
+#' Date: \tab 2015-12-21\cr
 #' License: \tab GPL (>= 3.0)\cr
 #' URL: \tab \url{http://www.r4photobiology.info},\cr
 #' \tab \url{https://bitbucket.org/aphalo/photobiologySensors}\cr
