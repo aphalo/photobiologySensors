@@ -113,10 +113,10 @@ calc_sensor_multipliers <- function(w.length.out,
   # we interpolate uisng a spline
   if (length(w.length.out) < 25) {
     # cubic spline
-    response.out <- spline(w.length.in, s.response, xout=w.length.out)$y
+    response.out <- stats::spline(w.length.in, s.response, xout=w.length.out)$y
   } else {
     # linear interpolation
-    response.out <- approx(w.length.in, s.response, xout=w.length.out, ties="ordered", rule=2)$y
+    response.out <- stats::approx(w.length.in, s.response, xout=w.length.out, ties="ordered", rule=2)$y
   }
 
   # we trim the tails as it makes no sense to extrapolate
@@ -132,7 +132,7 @@ calc_sensor_multipliers <- function(w.length.out,
       div <- with(out.data, max(response, na.rm=TRUE))
     }
     else if (scaled=="area") {
-      div <- with(na.omit(out.data), integrate_xy(w.length, response))
+      div <- with(stats::na.omit(out.data), integrate_xy(w.length, response))
     }
     else {
       warning("Ignoring unsupported scaled argument: ", scaled)
