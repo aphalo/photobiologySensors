@@ -1,32 +1,29 @@
 Package: photobiologySensors
 Type: Package
-Title: Spectral response data for sensors
+Title: Spectral Response Data for Light Sensors
 Version: 0.3.3.9000
-Date: 2017-12-27
+Date: 2018-02-11
 Authors@R:
    c(
     person("Pedro J.", "Aphalo", email = "pedro.aphalo@helsinki.fi", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-3385-972X"))
     )
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
-Description: This package provides data for UV and VIS radiation sensors. Data
-    was digitized from manufacturers' brochures and manuals, or directly supplied by
-    researchers and manufacturers.
+Description: This package provides response data for UV and VIS radiation sensors.
 License: GPL (>= 2)
 VignetteBuilder: knitr
 Depends:
     R (>= 3.3.0),
     photobiology (>= 0.9.18)
 Suggests:
-    knitr (>= 0.1.17),
-    ggplot2 (>= 2.2.1),
-    photobiologyLamps (>= 0.4.1),
+    knitr (>= 1.19),
     photobiologyWavebands (>= 0.4.2),
-    ggspectra(>= 0.2.3)
+    ggspectra (>= 0.2.2),
+    ggplot2 (>= 2.2.1)
 LazyLoad: yes
 LazyData: yes
 ByteCompile: true
 Encoding: UTF-8
-URL: http://uv4growth.dyndns.org, http://openinstruments.dyndns.org, https://
-    bitbucket.org/aphalo/photobiology
-BugReports: https://bitbucket.org/aphalo/photobiology
+URL: http://www.r4photobiology.info, https://bitbucket.org/aphalo/photobiologysensors
+BugReports: https://bitbucket.org/aphalo/photobiologysensors/issues
+Roxygen: list(wrap = FALSE)
 RoxygenNote: 6.0.1

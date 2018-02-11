@@ -1,3 +1,11 @@
+photobiologySensors 0.4.0
+=========================
+
+Reorganise data storage into a single collection of spectra. Add character
+vectors of names for use in subsetting the collection.
+This is a code-breaking update, that will require revision to match the new
+data structure and naming scheme.
+
 photobiologySensors 0.3.3
 =========================
 
