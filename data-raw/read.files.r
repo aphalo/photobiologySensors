@@ -5,15 +5,13 @@
 # 1) clear the workspace and set wd to data-raw
 # 2) get list of names of .csv files
 # 3) loop
-# 3a) read one file and generate data.frame and save it to data directory
-# 3b) read top of csv fila and append it to a copy of the roxygen template
-# 3c) move .r file to R directory
-# 4) set wd to package home
+#    read one file and generate a response.spct and add it to a list
+# 4) generate the indexing vectors
+# 5) save all objects to a single .rda file in ./data
 #
 library(photobiology)
 library(dplyr)
 rm(list = ls())
-# setwd("data-raw")
 file.list <- list.files("./data-raw", "*.csv", full.names = TRUE)
 sensors.mspct <- list()
 for (file.name in file.list) {
@@ -56,14 +54,6 @@ for (file.name in file.list) {
   }
   cat(class(temp.dt), "\n\n")
   sensors.mspct[[df.name]] <- temp.dt
-#  save(list = df.name, file=paste("../data/", df.name, ".rda", sep=""))
-  # .r file with Roxygen2 doccumentation
-  # r.file.name <- sub(".spct", ".r", df.name, fixed=TRUE)
-  # shell(paste('cp sensor.data.template.r', r.file.name))
-  # # the line below does not work under Windows if one uses system instead of shell
-  # shell(paste("grep -U ^#", file.name, '>>', r.file.name))
-  # shell(paste('echo NULL >>', r.file.name))
-  # shell(paste('mv', r.file.name, './../R'))
 }
 
 all_sensors <- names(sensors.mspct)
@@ -73,17 +63,39 @@ sglux_sensors <- grep("^SG|^TOCON", all_sensors, value = TRUE)
 LICOR_sensors <- grep("LI_", all_sensors, value = TRUE)
 KIPP_sensors <- grep("^CUV|^PQS|^UVS", all_sensors, value = TRUE)
 SolarLight_sensors <- grep("^SL_", all_sensors, value = TRUE)
-DeltaT_sensors <- grep("DeltaT", all_sensors, value = TRUE)
+DeltaT_sensors <- grep("BF5", all_sensors, value = TRUE)
 VitalTech_sensors <- grep("^BW", all_sensors, value = TRUE)
 ThiesClima_sensors <- grep("^E1c", all_sensors, value = TRUE)
 ideal_sensors <- grep("flat", all_sensors, value = TRUE)
 Berger_sensors <- grep("Berger", all_sensors, value = TRUE)
 Solarmeter_sensors <- grep("^SM", all_sensors, value = TRUE)
 
+uvc_sensors <- c("SG01D_C")
+uvb_sensors <- c("SG01D_B", "SM60", "SKU430a", "UVS_B")
+erythemal_sensors <- c("UVS_E", "E1c", "SKU440a", "SL_501_high_UVA", "SL_501_low_UVA",  "SL_501_typical", "BW_20", "Berger_UV_Biometer")
+uva_sensors <- c("SG01D_A", "SKU421", "SKU421a", "UVS_A")
+uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "SG01L", "CUV_5"))
+par_sensors <- c("SKP215", "SKE510", "SKP210", "PQS1", "LI_190", "BF5")
+photometric_sensors <- vis_sensors <- c("SKL310", "LI_210")
+pyranometer_sensors <- shortwave_sensors <- c("SKS1110", "LI_200")
+red_sensors <- c("SKR110_R")
+far_red_sensors <- c("SKR110_FR")
+blue_sensors <- c("TOCON_blue4")
+multichannel_sensors <- c("SKR110_R", "SKR110_FR")
+
 save(sensors.mspct,
      Skye_sensors, sglux_sensors, LICOR_sensors, KIPP_sensors,
      SolarLight_sensors, Solarmeter_sensors, DeltaT_sensors,
      VitalTech_sensors, ThiesClima_sensors, ideal_sensors,
      Berger_sensors,
+     uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
+     par_sensors,
+     vis_sensors, photometric_sensors,
+     shortwave_sensors, pyranometer_sensors,
+     red_sensors, far_red_sensors, blue_sensors,
+     multichannel_sensors,
      file = "./data/sensors.mspct.rda")
+
+tools::resaveRdaFiles("data", compress="auto")
+print(tools::checkRdaFiles("data"))
 
