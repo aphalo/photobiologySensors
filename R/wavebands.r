@@ -1,15 +1,15 @@
 #' Sensors responsive to different wavebands
-#' 
-#' Names of datasets containing the wavelengths and tabulated values spectral emittance 
-#' for broadband sensors from various suppliers. 
-#' 
+#'
+#' Names of datasets containing the wavelengths and tabulated values spectral emittance
+#' for broadband sensors from various suppliers.
+#'
 #' @docType data
 #' @keywords datasets
 #' @format A vector of character strings.
-#' 
-#' @aliases 'sensors by waveband' 
-#' 
-#' @examples 
+#'
+#' @aliases 'sensors by waveband'
+#'
+#' @examples
 #' uvc_sensors
 #' uvb_sensors
 #' uva_sensors
@@ -20,12 +20,12 @@
 #' far_red_sensors
 #' blue_sensors
 #' multichannel_sensors
-#' 
+#'
 #' # select PAR sensors
-#' leds.mspct[par_sensors]
-#' 
+#' sensors.mspct[par_sensors]
+#'
 #' @seealso \code{\link{sensors.mspct}}
-#' 
+#'
 "uv_sensors"
 
 #' @rdname uv_sensors
@@ -51,6 +51,9 @@
 
 #' @rdname uv_sensors
 "shortwave_sensors"
+
+#' @rdname uv_sensors
+"pyranometer_sensors"
 
 #' @rdname uv_sensors
 "red_sensors"
