@@ -20,6 +20,6 @@
 #' UV Radiation Measurements. Solar Light Co., Inc., Philadelphia.
 #'
 #' @examples
-#' Berger_sensors
+#' berger_sensors
 #'
-"Berger_sensors"
+"berger_sensors"

@@ -38,4 +38,8 @@
 #' Brochure 'PQS 1 PAR Quantum Sensor',
 #' Brochure 'Broadband UV Radiometers'.
 #'
-"KIPP_sensors"
+#' @examples
+#'
+#' kipp_sensors
+#'
+"kipp_sensors"

@@ -33,6 +33,6 @@
 #' Brochure from manufacturer.
 #'
 #' @examples
-#' LICOR_sensors
+#' licor_sensors
 #'
-"LICOR_sensors"
+"licor_sensors"

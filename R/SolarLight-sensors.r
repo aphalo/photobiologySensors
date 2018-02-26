@@ -33,6 +33,6 @@
 #'
 #' @examples
 #'
-#' SolarLight_sensors
+#' solarlight_sensors
 #'
-"SolarLight_sensors"
+"solarlight_sensors"

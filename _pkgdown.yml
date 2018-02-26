@@ -1,0 +1,28 @@
+reference:
+  - title: Package overview
+    contents:
+    - "photobiologySensors-package"
+  - title: Spectra
+    contents:
+    - sensors.mspct
+  - title: Indexing vectors by waveband
+    contents:
+    - uv_sensors
+  - title: Indexing vectors by manufacturer or supplier
+    contents:
+    - ideal_sensors
+    - berger_sensors
+    - deltat_sensors
+    - kipp_sensors
+    - licor_sensors
+    - sglux_sensors
+    - skye_sensors
+    - solarlight_sensors
+    - solarmeter_sensors
+    - thiesclima_sensors
+    - vitaltech_sensors
+
+articles:
+  - title: Vignettes
+    contents:
+    - '`user-guide`'

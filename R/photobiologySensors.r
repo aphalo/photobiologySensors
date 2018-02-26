@@ -34,9 +34,9 @@
 #'
 #' names(sensors.mspct)
 #'
-#' LICOR_sensors
+#' licor_sensors
 #' par_sensors
-#' intersect(par_sensors, LICOR_sensors)
+#' intersect(par_sensors, licor_sensors)
 #'
 #' photon_as_default()
 #'

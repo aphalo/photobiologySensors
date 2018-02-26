@@ -3,4 +3,5 @@
 ^data-raw
 ^not-used
 ^\.git/*
-vignettes
+^docs$
+^_pkgdown\.yml$

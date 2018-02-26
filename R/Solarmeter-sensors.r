@@ -25,4 +25,8 @@
 #' digitized from SM60graph.gif from
 #' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013.
 #'
-"Solarmeter_sensors"
+#' @examples
+#'
+#' solarmeter_sensors
+#'
+"solarmeter_sensors"

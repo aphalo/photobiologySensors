@@ -33,4 +33,8 @@
 #'
 #' @references personal communication from Dr.\ Stefan Langer.
 #'
+#' @examples
+#'
+#' sglux_sensors
+#'
 "sglux_sensors"

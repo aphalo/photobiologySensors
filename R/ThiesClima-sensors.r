@@ -20,5 +20,7 @@
 #' are expected to differ to some degree in spectral response.
 #'
 #' @examples
-#' ThiesClima_sensors
-"ThiesClima_sensors"
+#'
+#' thiesclima_sensors
+#'
+"thiesclima_sensors"

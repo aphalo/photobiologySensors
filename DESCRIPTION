@@ -1,14 +1,20 @@
 Package: photobiologySensors
 Type: Package
 Title: Spectral Response Data for Light Sensors
-Version: 0.3.3.9000
-Date: 2018-02-11
+Version: 0.4.0
+Date: 2018-02-26
 Authors@R:
    c(
     person("Pedro J.", "Aphalo", email = "pedro.aphalo@helsinki.fi", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-3385-972X"))
     )
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
-Description: This package provides response data for UV and VIS radiation sensors.
+Description: Spectral response data for broadband 
+    ultraviolet and visible radiation sensors. These data are complemented by 
+    data for the temperature response of one ultraviolet radiation sensor.
+    Different data sources were used, author-supplied data from scientific 
+    research papers, sensor-manufacturer supplied data, and published sensor
+    specifications. Part of the 'r4photobiology' suite 
+    <Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>>.
 License: GPL (>= 2)
 VignetteBuilder: knitr
 Depends:

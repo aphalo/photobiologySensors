@@ -1,0 +1,189 @@
+---
+title: "User Guide"
+subtitle: "Package 'photobiologySensors' `r packageVersion('photobiologySensors')` "
+author: "Pedro J. Aphalo"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: yes
+vignette: >
+  %\VignetteIndexEntry{User Guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=8, fig.height=4)
+```
+
+
+## Introduction
+
+This package, is a data only package, part of a suite, which has package 
+'photobiology' at its core. Please visit (http://www.r4photobiology.info/) 
+for more details. For more details on plotting spectra, please consult the 
+documentation for package 'ggspectra', and for information on the calculation 
+of summaries and maths operations between spectra, please, consult the 
+documentation for package 'photobiology'.
+
+```{r, message=FALSE}
+library(photobiology)
+library(photobiologyWavebands)
+library(photobiologySensors)
+library(ggplot2)
+library(ggspectra)
+```
+
+In this brief User Guide we describe how to re-scale the normalized
+spectra, and how to access individual spectra or subsets of spectra.
+
+Spectra in the package are contained in one collection: `sensors.mspct` contains
+spectral data for various types of broadband sensors. 
+<!-- In addition it contains contains data on the effect of temperature on the -->
+<!-- sensitivity of an ultraviolet sensor. -->
+
+In addtion to the objects containing the data itself, several character vectors 
+of names of spectra are provide to facilitate the retrieval of subsets of spectra.
+
+## Accessing individual spectra
+
+The `response_spct` member objects in `sensors.mspct` can be accessed through their
+names or through a numeric index. As the numeric indexes are likely to change 
+with updates to the package, their use is discouraged. Names as character
+strings should be used instead. They can also be retrieved with method `names()`.
+
+```{r}
+names(sensors.mspct)
+```
+
+We can use a character string as index to extract an individual `response_spct`
+object.
+
+```{r}
+sensors.mspct$li.190
+```
+
+```{r}
+sensors.mspct[["li.190"]]
+```
+
+Be aware that according to R's rules, using single square brackets will return
+a `response_mspct` object possibly of length one. This statement is not equivalent
+to the one in the chunk immediately above.
+
+```{r}
+sensors.mspct["li.190"]
+```
+
+## Accessing subsets of spectra
+
+We can subset `sensors.mspct` object by indexing with vectors of character
+strings. The package provides some predefined ones, and users can easily
+define their own, either as constants or through computation. Here we use
+a vector defined by the package.
+
+```{r}
+sensors.mspct[berger_sensors]
+```
+
+More generaly one can search for matching names within the collection of spectra.
+
+```{r}
+sensors.mspct[grep("berger", names(sensors.mspct), ignore.case = TRUE)]
+```
+
+Set algebra operations can be used with the indexing vectors as each vector
+describes a single property: color, brand, type, etc.
+
+```{r}
+sensors.mspct[intersect(licor_sensors, par_sensors)]
+```
+
+## Calculating summaries from the normalized data
+
+The spectra are normalized, and consequently, several summaries expressed in
+absolute units are undefined, and trigger errors. Summaries like ratios which
+are not affected by normalization are allowed and valid. The data have been
+normalized as the measuring conditions used are not all the same, and in many
+cases not well characterized (e.g. distance to nearby reflecting walls, or exact 
+alignment of the spectrometer input optics with respect to light sources).
+
+What we will do in this section is to rescale the spectral data so that after 
+conversion a given target value for a summary quantity will be true. As an 
+example, we will rescale one spectrum so that it yields an energy irradiance of
+100 W m-2 for the range 400 to 700 nm.
+
+```{r}
+my.spct <- fscale(sensors.mspct$LI_190,
+                  range = PAR(),
+                  q_response,
+                  target = 1
+                  )
+q_response(my.spct, PAR())
+q_response(my.spct, UVA())
+```
+
+If we want to treat the rescaled spectral data, as if they were true readings
+with no scaling we can reset the attribute with method `setScaled()`. With 
+method `getScaled()` we can test if a spectrun has been scaled.
+
+```{r}
+getScaled(my.spct)
+```
+
+If for some obscure reason we want to simply "pretend" that the spectral data
+have not been normalized, we can permanently override the attribute on a copy 
+of the data. Most of the time this is a very bad idea!
+
+```{r}
+my2nd.spct <- sensors.mspct$LI_190
+setNormalized(my2nd.spct)
+q_response(my2nd.spct)
+```
+
+## Plotting the spectra
+
+Using `plot()` methods for spectra defined in package 'ggspectra' annotated plotting is automatic. The defaults can be easily changed, please see the documentation
+in package 'ggspectra'.
+
+```{r}
+plot(sensors.mspct$LI_190)
+```
+
+Using the `ggplot()` method for spectra from package 'ggspectra' plus _geometries_
+and _statistics_ from package 'ggplot2' we gain additional control on the design.
+
+```{r}
+ggplot(sensors.mspct$LI_190, unit.out = "photon") +
+  geom_hline(yintercept = 1, colour = "red") +
+  geom_line(linetype = "dashed") +
+  scale_y_continuous(breaks = c(0, 0.5, 1)) +
+  theme_classic()
+```
+
+## Using the data in other contexts
+
+As `source_spct` is a class derived from `list`, and `source_spct` is derived from
+`tibble::tible` which is a compatible reimplementation of `data.frame` the
+data can be used very easily with any R function.
+
+```{r}
+head(as.data.frame(sensors.mspct$LI_190))
+```
+
+Of course `attach` and `with` also work as expected.
+```{r}
+attach(sensors.mspct)
+q_response(LI_190, Red())
+detach(sensors.mspct)
+```
+
+```{r}
+attach(sensors.mspct)
+with(LI_190, max(w.length))
+detach(sensors.mspct)
+```
+
+```{r}
+with(sensors.mspct, q_response(LI_190, Red()))
+```

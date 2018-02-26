@@ -58,17 +58,17 @@ for (file.name in file.list) {
 
 all_sensors <- names(sensors.mspct)
 
-Skye_sensors <- grep("^SK", all_sensors, value = TRUE)
+skye_sensors <- grep("^SK", all_sensors, value = TRUE)
 sglux_sensors <- grep("^SG|^TOCON", all_sensors, value = TRUE)
-LICOR_sensors <- grep("LI_", all_sensors, value = TRUE)
-KIPP_sensors <- grep("^CUV|^PQS|^UVS", all_sensors, value = TRUE)
-SolarLight_sensors <- grep("^SL_", all_sensors, value = TRUE)
-DeltaT_sensors <- grep("BF5", all_sensors, value = TRUE)
-VitalTech_sensors <- grep("^BW", all_sensors, value = TRUE)
-ThiesClima_sensors <- grep("^E1c", all_sensors, value = TRUE)
+licor_sensors <- grep("LI_", all_sensors, value = TRUE)
+kipp_sensors <- grep("^CUV|^PQS|^UVS", all_sensors, value = TRUE)
+solarlight_sensors <- grep("^SL_", all_sensors, value = TRUE)
+deltat_sensors <- grep("BF5", all_sensors, value = TRUE)
+vitaltech_sensors <- grep("^BW", all_sensors, value = TRUE)
+thiesclima_sensors <- grep("^E1c", all_sensors, value = TRUE)
 ideal_sensors <- grep("flat", all_sensors, value = TRUE)
-Berger_sensors <- grep("Berger", all_sensors, value = TRUE)
-Solarmeter_sensors <- grep("^SM", all_sensors, value = TRUE)
+berger_sensors <- grep("Berger", all_sensors, value = TRUE)
+solarmeter_sensors <- grep("^SM", all_sensors, value = TRUE)
 
 uvc_sensors <- c("SG01D_C")
 uvb_sensors <- c("SG01D_B", "SM60", "SKU430a", "UVS_B")
@@ -84,10 +84,10 @@ blue_sensors <- c("TOCON_blue4")
 multichannel_sensors <- c("SKR110_R", "SKR110_FR")
 
 save(sensors.mspct,
-     Skye_sensors, sglux_sensors, LICOR_sensors, KIPP_sensors,
-     SolarLight_sensors, Solarmeter_sensors, DeltaT_sensors,
-     VitalTech_sensors, ThiesClima_sensors, ideal_sensors,
-     Berger_sensors,
+     skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
+     solarlight_sensors, solarmeter_sensors, deltat_sensors,
+     vitaltech_sensors, thiesclima_sensors, ideal_sensors,
+     berger_sensors,
      uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
      par_sensors,
      vis_sensors, photometric_sensors,

@@ -44,7 +44,7 @@
 #' Vol 9, pp 191-216
 #'
 #' @examples
-#' Skye_sensors
+#' skye_sensors
 #'
-"Skye_sensors"
+"skye_sensors"
 

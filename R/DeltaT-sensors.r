@@ -23,6 +23,6 @@
 #' Manufacturer's User Manual Version: 1.0 dated Nov 2010
 #'
 #' @examples
-#' DeltaT_sensors
+#' deltat_sensors
 #'
-"DeltaT_sensors"
+"deltat_sensors"

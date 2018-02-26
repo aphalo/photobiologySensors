@@ -10,6 +10,7 @@
 #' @aliases 'sensors by waveband'
 #'
 #' @examples
+#' uv_sensors
 #' uvc_sensors
 #' uvb_sensors
 #' uva_sensors

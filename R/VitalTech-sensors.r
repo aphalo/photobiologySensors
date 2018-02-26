@@ -25,6 +25,7 @@
 #' UV monitoring: results from the WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
 #'
 #' @examples
-#' VitalTech_sensors
 #'
-"VitalTech_sensors"
+#' vitaltech_sensors
+#'
+"vitaltech_sensors"
