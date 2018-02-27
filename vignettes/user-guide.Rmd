@@ -42,7 +42,7 @@ spectral data for various types of broadband sensors.
 <!-- In addition it contains contains data on the effect of temperature on the -->
 <!-- sensitivity of an ultraviolet sensor. -->
 
-In addtion to the objects containing the data itself, several character vectors 
+In addition to the objects containing the data itself, several character vectors 
 of names of spectra are provide to facilitate the retrieval of subsets of spectra.
 
 ## Accessing individual spectra
@@ -86,7 +86,7 @@ a vector defined by the package.
 sensors.mspct[berger_sensors]
 ```
 
-More generaly one can search for matching names within the collection of spectra.
+More generally one can search for matching names within the collection of spectra.
 
 ```{r}
 sensors.mspct[grep("berger", names(sensors.mspct), ignore.case = TRUE)]
@@ -125,7 +125,7 @@ q_response(my.spct, UVA())
 
 If we want to treat the rescaled spectral data, as if they were true readings
 with no scaling we can reset the attribute with method `setScaled()`. With 
-method `getScaled()` we can test if a spectrun has been scaled.
+method `getScaled()` we can test if a spectrum has been scaled.
 
 ```{r}
 getScaled(my.spct)
@@ -163,8 +163,8 @@ ggplot(sensors.mspct$LI_190, unit.out = "photon") +
 
 ## Using the data in other contexts
 
-As `source_spct` is a class derived from `list`, and `source_spct` is derived from
-`tibble::tible` which is a compatible reimplementation of `data.frame` the
+As `response_mspct` is a class derived from `list`, and `response_spct` is derived from
+`tibble::tible` which is a (mostly) compatible reimplementation of `data.frame` the
 data can be used very easily with any R function.
 
 ```{r}

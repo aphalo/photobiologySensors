@@ -12,7 +12,7 @@
 
 <meta name="author" content="Pedro J. Aphalo" />
 
-<meta name="date" content="2018-02-26" />
+<meta name="date" content="2018-02-27" />
 
 <title>User Guide</title>
 
@@ -71,7 +71,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 class="title toc-ignore">User Guide</h1>
 <h3 class="subtitle"><em>Package ‘photobiologySensors’ 0.4.0</em></h3>
 <h4 class="author"><em>Pedro J. Aphalo</em></h4>
-<h4 class="date"><em>2018-02-26</em></h4>
+<h4 class="date"><em>2018-02-27</em></h4>
 
 
 <div id="TOC">
@@ -95,7 +95,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">library</span>(ggspectra)</code></pre></div>
 <p>In this brief User Guide we describe how to re-scale the normalized spectra, and how to access individual spectra or subsets of spectra.</p>
 <p>Spectra in the package are contained in one collection: <code>sensors.mspct</code> contains spectral data for various types of broadband sensors. <!-- In addition it contains contains data on the effect of temperature on the --> <!-- sensitivity of an ultraviolet sensor. --></p>
-<p>In addtion to the objects containing the data itself, several character vectors of names of spectra are provide to facilitate the retrieval of subsets of spectra.</p>
+<p>In addition to the objects containing the data itself, several character vectors of names of spectra are provide to facilitate the retrieval of subsets of spectra.</p>
 </div>
 <div id="accessing-individual-spectra" class="section level2">
 <h2>Accessing individual spectra</h2>
@@ -135,18 +135,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## # A tibble: 21 x 2
 ##    w.length s.e.response
 ##       &lt;dbl&gt;        &lt;dbl&gt;
-##  1      280      0.747  
-##  2      285      0.912  
-##  3      290      1.00   
-##  4      295      0.985  
-##  5      300      0.770  
-##  6      305      0.471  
-##  7      310      0.215  
-##  8      315      0.0782 
-##  9      320      0.0263 
-## 10      325      0.00845
+##  1     280.      0.747  
+##  2     285.      0.912  
+##  3     290.      1.00   
+##  4     295.      0.985  
+##  5     300.      0.770  
+##  6     305.      0.471  
+##  7     310.      0.215  
+##  8     315.      0.0782 
+##  9     320.      0.0263 
+## 10     325.      0.00845
 ## # ... with 11 more rows</code></pre>
-<p>More generaly one can search for matching names within the collection of spectra.</p>
+<p>More generally one can search for matching names within the collection of spectra.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sensors.mspct[<span class="kw">grep</span>(<span class="st">&quot;berger&quot;</span>, <span class="kw">names</span>(sensors.mspct), <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)]</code></pre></div>
 <pre><code>## $Berger_UV_Biometer
 ## Object: response_spct [21 x 2]
@@ -156,16 +156,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## # A tibble: 21 x 2
 ##    w.length s.e.response
 ##       &lt;dbl&gt;        &lt;dbl&gt;
-##  1      280      0.747  
-##  2      285      0.912  
-##  3      290      1.00   
-##  4      295      0.985  
-##  5      300      0.770  
-##  6      305      0.471  
-##  7      310      0.215  
-##  8      315      0.0782 
-##  9      320      0.0263 
-## 10      325      0.00845
+##  1     280.      0.747  
+##  2     285.      0.912  
+##  3     290.      1.00   
+##  4     295.      0.985  
+##  5     300.      0.770  
+##  6     305.      0.471  
+##  7     310.      0.215  
+##  8     315.      0.0782 
+##  9     320.      0.0263 
+## 10     325.      0.00845
 ## # ... with 11 more rows</code></pre>
 <p>Set algebra operations can be used with the indexing vectors as each vector describes a single property: color, brand, type, etc.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sensors.mspct[<span class="kw">intersect</span>(licor_sensors, par_sensors)]</code></pre></div>
@@ -177,16 +177,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## # A tibble: 755 x 2
 ##    w.length s.q.response
 ##       &lt;dbl&gt;        &lt;dbl&gt;
-##  1      366      0.00181
-##  2      366      0.00188
-##  3      367      0.00195
-##  4      367      0.00202
-##  5      368      0.00209
-##  6      368      0.00217
-##  7      369      0.00224
-##  8      369      0.00231
-##  9      370      0.00238
-## 10      370      0.00245
+##  1     366.      0.00181
+##  2     366.      0.00188
+##  3     367.      0.00195
+##  4     367.      0.00202
+##  5     368.      0.00209
+##  6     368.      0.00217
+##  7     369.      0.00224
+##  8     369.      0.00231
+##  9     370.      0.00238
+## 10     370.      0.00245
 ## # ... with 745 more rows</code></pre>
 </div>
 <div id="calculating-summaries-from-the-normalized-data" class="section level2">
@@ -216,7 +216,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [1] &quot;second&quot;
 ## attr(,&quot;radiation.unit&quot;)
 ## [1] &quot;photon response total&quot;</code></pre>
-<p>If we want to treat the rescaled spectral data, as if they were true readings with no scaling we can reset the attribute with method <code>setScaled()</code>. With method <code>getScaled()</code> we can test if a spectrun has been scaled.</p>
+<p>If we want to treat the rescaled spectral data, as if they were true readings with no scaling we can reset the attribute with method <code>setScaled()</code>. With method <code>getScaled()</code> we can test if a spectrum has been scaled.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getScaled</span>(my.spct)</code></pre></div>
 <pre><code>## $multiplier
 ## [1] 0.003358371
@@ -258,7 +258,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="using-the-data-in-other-contexts" class="section level2">
 <h2>Using the data in other contexts</h2>
-<p>As <code>source_spct</code> is a class derived from <code>list</code>, and <code>source_spct</code> is derived from <code>tibble::tible</code> which is a compatible reimplementation of <code>data.frame</code> the data can be used very easily with any R function.</p>
+<p>As <code>response_mspct</code> is a class derived from <code>list</code>, and <code>response_spct</code> is derived from <code>tibble::tible</code> which is a (mostly) compatible reimplementation of <code>data.frame</code> the data can be used very easily with any R function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">as.data.frame</span>(sensors.mspct<span class="op">$</span>LI_<span class="dv">190</span>))</code></pre></div>
 <pre><code>##   w.length s.q.response
 ## 1 365.6140  0.001808320

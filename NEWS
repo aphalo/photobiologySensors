@@ -1,7 +1,5 @@
 TODO
-write new User Guide in R markdown.
-ensure that removed functions have functional equivalents in 'photobiology'.
-Add additonal spectra for different Solarmeters.
+Ensure that removed functions have functional equivalents in 'photobiology'.
 
 photobiologySensors 0.4.0
 =========================
