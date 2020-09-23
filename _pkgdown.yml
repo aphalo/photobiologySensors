@@ -11,9 +11,12 @@ reference:
   - title: Package overview
     contents:
     - "photobiologySensors-package"
-  - title: Spectra
+  - title: Spectral response
     contents:
     - sensors.mspct
+  - title: Angular response
+    contents:
+    - diffusers.lst
   - title: Indexing vectors by waveband
     contents:
     - uv_sensors

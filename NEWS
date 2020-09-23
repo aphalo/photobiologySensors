@@ -1,17 +1,21 @@
 TODO
 Ensure that removed functions have functional equivalents in 'photobiology'.
 
-photobiologySensors 0.4.1 (2020-09-xx)
+photobiologySensors 0.5.0 (2020-09-xx)
 ======================================
 
-Rename member spectra by prepending suppliers' names and rebuild sensors.mspct
+* Rename member spectra by prepending suppliers' names and rebuild sensors.mspct
 with photobioloy (0.10.5) which is now required.
+* Add data for angular responses  saved in a list of data frames
+named diffusers.lst.
 
 TODO:
-Add metadata to spectra!
-Add data for cosine responses of some sensors, saved in a list of data frames
-named sensors-angular.lst.
-Add spectral data for additional sensors.
+* Add metadata to spectra!
+* Add spectral data for additional sensors.
+
+*************************************************************************
+Code breaking because of renaming of members of the collection of spectra
+*************************************************************************
 
 photobiologySensors 0.4.0 (2018-02-26)
 ======================================
