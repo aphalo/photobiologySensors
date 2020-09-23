@@ -1,15 +1,13 @@
-#' @title Idealised sensors
+#' @title Idealized sensors
 #'
-#' @description A vector of indeces for stracting subsets of spectra from the
+#' @description A vector of indexes for extracting subsets of spectra from the
 #' \code{\link{sensors.mspct}} object.
 #'
-#' @format A character vector of members of the collection of spctra.
+#' @format A character vector of members of the collection of spectra.
 #'
 #'
 #' @docType data
 #' @keywords datasets
-#'
-#' @title Flat spectral energy response
 #'
 #' @note
 #' Flat response to spectral energy irradiance and to spectral photon

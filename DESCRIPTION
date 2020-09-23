@@ -1,8 +1,8 @@
 Package: photobiologySensors
 Type: Package
 Title: Spectral Response Data for Light Sensors
-Version: 0.4.0.9000
-Date: 2018-02-26
+Version: 0.4.0.9001
+Date: 2020-09-22
 Authors@R:
    c(
     person("Pedro J.", "Aphalo", email = "pedro.aphalo@helsinki.fi", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-3385-972X"))
@@ -16,18 +16,17 @@ Description: Spectral response data for broadband ultraviolet and visible
 License: GPL (>= 2)
 VignetteBuilder: knitr
 Depends:
-    R (>= 3.3.0),
-    photobiology (>= 0.9.18)
+    R (>= 3.6.0),
+    photobiology (>= 0.10.5)
 Suggests:
-    knitr (>= 1.19),
-    photobiologyWavebands (>= 0.4.2),
-    ggspectra (>= 0.2.2),
-    ggplot2 (>= 2.2.1)
+    knitr (>= 1.29),
+    photobiologyWavebands (>= 0.4.4),
+    ggspectra (>= 0.3.6),
+    ggplot2 (>= 3.3.2)
 LazyLoad: yes
 LazyData: yes
 ByteCompile: true
 Encoding: UTF-8
 URL: http://www.r4photobiology.info, https://bitbucket.org/aphalo/photobiologysensors
 BugReports: https://bitbucket.org/aphalo/photobiologysensors/issues
-Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1

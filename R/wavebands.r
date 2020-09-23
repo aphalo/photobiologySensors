@@ -1,6 +1,6 @@
 #' Sensors responsive to different wavebands
 #'
-#' Names of datasets containing the wavelengths and tabulated values spectral emittance
+#' Names of datasets containing the wavelengths and tabulated values spectral responsivity
 #' for broadband sensors from various suppliers.
 #'
 #' @docType data

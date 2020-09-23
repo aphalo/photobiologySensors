@@ -1,8 +1,20 @@
 TODO
 Ensure that removed functions have functional equivalents in 'photobiology'.
 
-photobiologySensors 0.4.0
-=========================
+photobiologySensors 0.4.1 (2020-09-xx)
+======================================
+
+Rename member spectra by prepending suppliers' names and rebuild sensors.mspct
+with photobioloy (0.10.5) which is now required.
+
+TODO:
+Add metadata to spectra!
+Add data for cosine responses of some sensors, saved in a list of data frames
+named sensors-angular.lst.
+Add spectral data for additional sensors.
+
+photobiologySensors 0.4.0 (2018-02-26)
+======================================
 
 Reorganise data storage into a single collection of spectra. Add character
 vectors of names for use in subsetting the collection.
@@ -10,8 +22,8 @@ This is a code-breaking update, that will require revision to match the new
 data structure and naming scheme.
 First CRAN version.
 
-photobiologySensors 0.3.3
-=========================
+photobiologySensors 0.3.3 (2015-04-13)
+======================================
 
 Update for ggplot2 2.0.0, ggspectra 0.1.0, and photobiology 0.9.1.
 Removed the User Guide as it was not specificc to the data in this pacakge.

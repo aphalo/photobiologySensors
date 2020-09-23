@@ -23,16 +23,17 @@ for (file.name in file.list) {
                    "spct", sep=".")
   df.name <- sub(".spct", "", df.name, fixed=TRUE)
   df.name <- gsub(pattern = "-", replacement = "_", x = df.name)
-  df.name <- sub("LI_COR_LI", "LI", df.name, fixed=TRUE)
-  df.name <- sub("Skye_SK", "SK", df.name, fixed=TRUE)
-  df.name <- sub("sglux_SG", "SG", df.name, fixed=TRUE)
-  df.name <- sub("sglux_TOCON", "TOCON", df.name, fixed=TRUE)
-  df.name <- sub("Solar_Light_", "SL_", df.name, fixed=TRUE)
-  df.name <- sub("DeltaT_", "", df.name, fixed=TRUE)
-  df.name <- sub("KIPP_", "", df.name, fixed=TRUE)
-  df.name <- sub("Solarmeter_", "", df.name, fixed=TRUE)
-  df.name <- sub("Thies_", "", df.name, fixed=TRUE)
-  df.name <- sub("Vital_", "", df.name, fixed=TRUE)
+  df.name <- sub("Solar_Light_501", "SolarLight_501_Biometer", df.name, fixed=TRUE)
+  df.name <- sub("LI_COR", "LICOR", df.name, fixed=TRUE)
+  # df.name <- sub("Skye_SK", "SK", df.name, fixed=TRUE)
+  # df.name <- sub("sglux_SG", "SG", df.name, fixed=TRUE)
+  # df.name <- sub("sglux_TOCON", "TOCON", df.name, fixed=TRUE)
+  # df.name <- sub("Solar_Light_", "SL_", df.name, fixed=TRUE)
+  # df.name <- sub("DeltaT_", "", df.name, fixed=TRUE)
+  # df.name <- sub("KIPP_", "", df.name, fixed=TRUE)
+  # df.name <- sub("Solarmeter_", "", df.name, fixed=TRUE)
+  # df.name <- sub("Thies_", "", df.name, fixed=TRUE)
+  # df.name <- sub("Vital_", "", df.name, fixed=TRUE)
   if (grepl(".old", df.name)) {
     next()
   }
@@ -50,7 +51,7 @@ for (file.name in file.list) {
   setResponseSpct(temp.dt)
   #
   if (stepsize(temp.dt)[1] < 0.5) {
-    temp.dt <- interpolate_spct(temp.dt, length.out = spread(temp.dt) * 2)
+    temp.dt <- interpolate_spct(temp.dt, length.out = expanse(temp.dt) * 2)
   }
   cat(class(temp.dt), "\n\n")
   sensors.mspct[[df.name]] <- temp.dt
@@ -58,30 +59,49 @@ for (file.name in file.list) {
 
 all_sensors <- names(sensors.mspct)
 
-skye_sensors <- grep("^SK", all_sensors, value = TRUE)
-sglux_sensors <- grep("^SG|^TOCON", all_sensors, value = TRUE)
-licor_sensors <- grep("LI_", all_sensors, value = TRUE)
-kipp_sensors <- grep("^CUV|^PQS|^UVS", all_sensors, value = TRUE)
+skye_sensors <- grep("Skye_", all_sensors, value = TRUE)
+sglux_sensors <- grep("sglux_", all_sensors, value = TRUE)
+licor_sensors <- grep("LICOR_", all_sensors, value = TRUE)
+kipp_sensors <- grep("KIPP_", all_sensors, value = TRUE)
 solarlight_sensors <- grep("^SL_", all_sensors, value = TRUE)
-deltat_sensors <- grep("BF5", all_sensors, value = TRUE)
-vitaltech_sensors <- grep("^BW", all_sensors, value = TRUE)
-thiesclima_sensors <- grep("^E1c", all_sensors, value = TRUE)
+deltat_sensors <- grep("DeltaT", all_sensors, value = TRUE)
+vitaltech_sensors <- grep("Vital_", all_sensors, value = TRUE)
+thiesclima_sensors <- grep("Thies_", all_sensors, value = TRUE)
 ideal_sensors <- grep("flat", all_sensors, value = TRUE)
 berger_sensors <- grep("Berger", all_sensors, value = TRUE)
-solarmeter_sensors <- grep("^SM", all_sensors, value = TRUE)
+solarmeter_sensors <- grep("Solarmeter_", all_sensors, value = TRUE)
+solarlight_sensors <- grep("SolarLight_", all_sensors, value = TRUE)
 
-uvc_sensors <- c("SG01D_C")
-uvb_sensors <- c("SG01D_B", "SM60", "SKU430a", "UVS_B")
-erythemal_sensors <- c("UVS_E", "E1c", "SKU440a", "SL_501_high_UVA", "SL_501_low_UVA",  "SL_501_typical", "BW_20", "Berger_UV_Biometer")
-uva_sensors <- c("SG01D_A", "SKU421", "SKU421a", "UVS_A")
-uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "SG01L", "CUV_5"))
-par_sensors <- c("SKP215", "SKE510", "SKP210", "PQS1", "LI_190", "BF5")
-photometric_sensors <- vis_sensors <- c("SKL310", "LI_210")
-pyranometer_sensors <- shortwave_sensors <- c("SKS1110", "LI_200")
-red_sensors <- c("SKR110_R")
-far_red_sensors <- c("SKR110_FR")
-blue_sensors <- c("TOCON_blue4")
-multichannel_sensors <- c("SKR110_R", "SKR110_FR")
+uvc_sensors <- c("sglux_SG01D_C")
+uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B")
+erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a", "SolarLight_501_Biometer_high_UVA", "SolarLight_501_Biometer_low_UVA",  "SolarLight_501_Biometer_typical", "Vital_BW_20", "Berger_UV_Biometer")
+uva_sensors <- c("sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A")
+uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "sglux_SG01L", "KIPP_CUV_5"))
+par_sensors <- c("Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5")
+photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
+pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200")
+red_sensors <- c("Skye_SKR110_R")
+far_red_sensors <- c("Skye_SKR110_FR")
+blue_sensors <- c("sglux_TOCON_blue4")
+multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR")
+
+collected_names <- unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
+                               solarlight_sensors, solarmeter_sensors, deltat_sensors,
+                               vitaltech_sensors, thiesclima_sensors, ideal_sensors,
+                               berger_sensors,
+                               uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
+                               par_sensors,
+                               vis_sensors, photometric_sensors,
+                               shortwave_sensors, pyranometer_sensors,
+                               red_sensors, far_red_sensors, blue_sensors,
+                               multichannel_sensors))
+
+length(collected_names) == length(names(sensors.mspct))
+
+length(collected_names)
+length(names(sensors.mspct))
+
+setdiff(collected_names, names(sensors.mspct))
 
 save(sensors.mspct,
      skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,

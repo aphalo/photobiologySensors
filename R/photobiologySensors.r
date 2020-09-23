@@ -5,12 +5,15 @@
 #'
 #' In addition to the spectra the package provides character vectors of names
 #' to be used as indexes to subset groups of spectra. In many cases spectral
-#' data are normalized to spectral energy responsieness equal to one at the
+#' data are normalized to spectral energy responsiveness equal to one at the
 #' wavelength of maximum spectral energy response (peak sensitivity).
+#'
+#' A list of data frames contains angular response data for some of the same
+#' broadband sensors and some cosine diffusers used with spectrometers.
 #'
 #' The data in this package are not original. Some have been provided by
 #' authors of scientific publications and manufacturers. However, most of
-#' the spectra have been digitised from manufacturer's brochures and manuals
+#' the spectra have been digitized from manufacturer's brochures and manuals
 #' available on web sites.
 #'
 #' @section Warning!:
@@ -30,7 +33,7 @@
 #' @references
 #'
 #' Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
-#' 21-29. \url{http://doi.org/10.19232/uv4pb.2015.1.14}.
+#' 21-29. \url{https://doi.org/10.19232/uv4pb.2015.1.14}.
 #'
 #' @examples
 #' library(photobiology)
@@ -45,8 +48,8 @@
 #'
 #' photon_as_default()
 #'
-#' response(sensors.mspct$LI_190, w.band = PAR(), quantity = "contribution.pc")
+#' response(sensors.mspct$LICOR_LI_190, w.band = PAR(), quantity = "contribution.pc")
 #'
-#' plot(sensors.mspct$LI_190, w.band = PAR(), label.qty = "contribution.pc")
+#' plot(sensors.mspct$LICOR_LI_190, w.band = PAR(), label.qty = "contribution.pc")
 #'
 "_PACKAGE"

@@ -1,9 +1,9 @@
 #' @title sglux broadband sensors
 #'
-#' @description A vector of indeces for stracting subsets of spectra from the
+#' @description A vector of indexes for extracting subsets of spectra from the
 #' \code{\link{sensors.mspct}} object.
 #'
-#' @format A character vector of members of the collection of spctra.
+#' @format A character vector of members of the collection of spectra.
 #'
 #' @docType data
 #' @keywords datasets
@@ -21,7 +21,9 @@
 #'
 #' TOCON preamplified sensors with similar spectral response as the diodes are
 #' also available from sglux. The blue light sensor is only available as
-#' preamplified TOCON.
+#' preamplified TOCON. Sensors are available in different configurations with
+#' different sensitivity and with different angular responses, and encased
+#' to resist different environmental conditions.
 #'
 #' Manufacturer: sglux GmbH, Richard-Willstätter-Str. 8, 12489 Berlin, Germany.
 #' \url{http://www.sglux.com/}
