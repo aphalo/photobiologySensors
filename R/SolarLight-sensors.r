@@ -29,7 +29,7 @@
 #' Erythemally weighted radiometers in solar UV monitoring: results from the
 #' WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
 #'
-#' \url{http://solarlight.com/product/uvb-biometer-model-501-radiometer/}
+#' \url{https://solarlight.com/product/uvb-biometer-model-501-radiometer/}
 #'
 #' @examples
 #'

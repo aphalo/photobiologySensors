@@ -22,8 +22,8 @@
 #' are expected to differ to some degree in spectral response.
 #'
 #' @references
-#' digitized from SM60graph.gif from
-#' \url{https://www.solarmeter.com/images/SM60graph.gif} on 20 December 2013.
+#' digitized from SM60graph.gif obtained from
+#' \url{https://www.solarmeter.com/} on 20 December 2013.
 #'
 #' @examples
 #'

@@ -20,6 +20,7 @@ Depends:
     photobiology (>= 0.10.5)
 Suggests:
     knitr (>= 1.29),
+    rmarkdown (>= 2.4),
     photobiologyWavebands (>= 0.4.4),
     ggspectra (>= 0.3.6),
     ggplot2 (>= 3.3.2)
@@ -27,6 +28,6 @@ LazyLoad: yes
 LazyData: yes
 ByteCompile: true
 Encoding: UTF-8
-URL: http://www.r4photobiology.info, https://bitbucket.org/aphalo/photobiologysensors
+URL: https://www.r4photobiology.info, https://bitbucket.org/aphalo/photobiologysensors
 BugReports: https://bitbucket.org/aphalo/photobiologysensors/issues
 RoxygenNote: 7.1.1

@@ -11,7 +11,7 @@
 #' @details Thies Clima E1.c broadband UVB sensor
 #'
 #' Manufacturer: Thies Clima, Göttingen, DE
-#'  \url{http://www.thiesclima.com/}
+#'  \url{https://www.thiesclima.com/}
 #'
 #' @source
 #' Digitized with 'DigitizeIt' from manufacturers manual. These are approximate

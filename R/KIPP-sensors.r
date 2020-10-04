@@ -25,7 +25,7 @@
 #' the ambient conditions.
 #'
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft, Nederlands.
-#' \url{http://www.kippzonen.com/}
+#' \url{https://www.kippzonen.com/}
 #'
 #' @note
 #' Digitized with 'enguage' from manufacturers brochures. These are approximate

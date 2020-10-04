@@ -17,7 +17,7 @@
 #' are specially noticeable in regions of low responsivity.
 #'
 #' Manufacturer: Delta-T Devices Ltd, CAMBRIDGE CB25 0EJ, UK
-#' \url{http://www.delta-t.co.uk/}
+#' \url{https://www.delta-t.co.uk/}
 #'
 #' @references
 #' Manufacturer's User Manual Version: 1.0 dated Nov 2010

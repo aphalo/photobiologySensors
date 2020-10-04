@@ -26,7 +26,7 @@
 #' to resist different environmental conditions.
 #'
 #' Manufacturer: sglux GmbH, Richard-Willstätter-Str. 8, 12489 Berlin, Germany.
-#' \url{http://www.sglux.com/}
+#' \url{https://sglux.de/en/}
 #'
 #' @note
 #' Original data supplied by the manufacturer as a computer readable file.
