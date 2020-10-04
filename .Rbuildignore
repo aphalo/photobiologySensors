@@ -3,6 +3,5 @@
 ^data-raw
 ^not-used
 ^\.git/*
-^docs$
 ^_pkgdown\.yml$
 README.Rmd
