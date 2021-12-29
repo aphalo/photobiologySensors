@@ -1,0 +1,42 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.1.1
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "photobiologySensors" in publications use:'
+type: software
+license: GPL-2.0-or-later
+title: 'photobiologySensors: Spectral Response Data for Light Sensors'
+version: 0.5.0
+doi: 10.19232/uv4pb.2015.1.14
+abstract: 'Spectral response data for broadband ultraviolet and visible radiation
+  sensors. Different data sources were used: author-supplied data from scientific
+  research papers, sensor-manufacturer supplied data, and published sensor specifications.
+  Part of the ''r4photobiology'' suite Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.'
+authors:
+- family-names: Aphalo
+  given-names: Pedro J.
+  email: pedro.aphalo@helsinki.fi
+  orcid: https://orcid.org/0000-0003-3385-972X
+preferred-citation:
+  type: article
+  title: The r4photobiology suite
+  authors:
+  - family-names: Aphalo
+    given-names: Pedro J.
+  journal: UV4Plants Bulletin
+  volume: '2015'
+  number: '1'
+  pages: 21-29
+  year: '2015'
+  doi: 10.19232/uv4pb.2015.1.14
+repository: https://CRAN.R-project.org/package=photobiologySensors
+repository-code: https://bitbucket.org/aphalo/photobiologysensors
+url: https://www.r4photobiology.info
+date-released: '2020-10-04'
+contact:
+- family-names: Aphalo
+  given-names: Pedro J.
+  email: pedro.aphalo@helsinki.fi
+  orcid: https://orcid.org/0000-0003-3385-972X
