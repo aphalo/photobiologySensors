@@ -6,8 +6,8 @@ photobiologySensors 0.5.0 (2020-10-04)
 ======================================
 
 * Rename member spectra by prepending suppliers' names and rebuild sensors.mspct
-with photobioloy (0.10.5) which is now required.
-* Add data for angular responses  saved in a list of data frames
+with photobiology (0.10.5) which is now required.
+* Add data for angular responsivity saved in a list of data frames
 named diffusers.lst.
 
 *************************************************************************
