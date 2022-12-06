@@ -5,14 +5,14 @@
 \alias{berger_sensors}
 \title{'Berger' UV-Biometer}
 \format{
-A character vector of members of the collection of spctra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 berger_sensors
 }
 \description{
-A vector of indeces for stracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \note{
 'Berger' UV-Biometer (Fig. 1 in Berger, 1994).

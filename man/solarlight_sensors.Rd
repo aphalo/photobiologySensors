@@ -5,7 +5,7 @@
 \alias{solarlight_sensors}
 \title{Solar Light sensors}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \source{
 Data kindly made available by Lasse Ylianttila. These are the responses from
@@ -17,8 +17,8 @@ intercomparison.
 solarlight_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 Solar Light UVB biometer model 501 (units with high and low UV-A sensitivity,

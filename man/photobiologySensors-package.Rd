@@ -6,11 +6,9 @@
 \alias{photobiologySensors-package}
 \title{photobiologySensors: Spectral Response Data for Light Sensors}
 \description{
-Spectral response data for broadband ultraviolet and visible
-    radiation sensors. Different data sources were used: author-supplied data
-    from scientific research papers, sensor-manufacturer supplied data, and
-    published sensor specifications. Part of the 'r4photobiology' suite
-    Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
+Spectral response data for broadband ultraviolet and visible radiation sensors. Different data sources were used: author-supplied data from scientific research papers, sensor-manufacturer supplied data, and published sensor specifications. Part of the 'r4photobiology' suite Aphalo P. J. (2015) \doi{10.19232/uv4pb.2015.1.14}.
 }
 \details{
 Data for response spectra for different types of broadband sensors.
@@ -64,7 +62,7 @@ plot(sensors.mspct$LICOR_LI_190, w.band = PAR(), label.qty = "contribution.pc")
 }
 \references{
 Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
-21-29. \url{https://doi.org/10.19232/uv4pb.2015.1.14}.
+21-29. \doi{10.19232/uv4pb.2015.1.14}.
 }
 \seealso{
 Useful links:

@@ -2,8 +2,13 @@ TODO:
 * Add metadata to spectra!
 * Add spectral data for additional sensors.
 
-photobiologySensors 0.5.0 (2020-10-04)
-======================================
+photobiologySensors 0.5.1
+=========================
+
+* Add data for Analytik-Jena UV sensors.
+
+photobiologySensors 0.5.0
+=========================
 
 * Rename member spectra by prepending suppliers' names and rebuild sensors.mspct
 with photobiology (0.10.5) which is now required.
@@ -14,8 +19,8 @@ named diffusers.lst.
 Code breaking because of renaming of members of the collection of spectra
 *************************************************************************
 
-photobiologySensors 0.4.0 (2018-02-26)
-======================================
+photobiologySensors 0.4.0
+=========================
 
 Reorganise data storage into a single collection of spectra. Add character
 vectors of names for use in subsetting the collection.
@@ -23,8 +28,8 @@ This is a code-breaking update, that will require revision to match the new
 data structure and naming scheme.
 First CRAN version.
 
-photobiologySensors 0.3.3 (2015-04-13)
-======================================
+photobiologySensors 0.3.3
+=========================
 
 Update for ggplot2 2.0.0, ggspectra 0.1.0, and photobiology 0.9.1.
 Removed the User Guide as it was not specificc to the data in this pacakge.

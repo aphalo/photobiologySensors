@@ -41,6 +41,9 @@ for (file.name in file.list) {
   if (ncol(temp.df) > 2) {
     temp.df <- temp.df[ , 1:2]
   }
+  if (grepl("Analytik", df.name)) {
+    temp.df$s.e.response <- 10^temp.df$s.e.response
+  }
   temp.df <- group_by(temp.df, w.length)
   if (exists("s.e.response", temp.df, inherits = FALSE)) {
     temp.dt <- summarize(temp.df, s.e.response = mean(s.e.response))
@@ -71,11 +74,12 @@ ideal_sensors <- grep("flat", all_sensors, value = TRUE)
 berger_sensors <- grep("Berger", all_sensors, value = TRUE)
 solarmeter_sensors <- grep("Solarmeter_", all_sensors, value = TRUE)
 solarlight_sensors <- grep("SolarLight_", all_sensors, value = TRUE)
+analytik_sensors <- grep("Analytik_", all_sensors, value = TRUE)
 
-uvc_sensors <- c("sglux_SG01D_C")
-uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B")
+uvc_sensors <- c("sglux_SG01D_C", "Analytik_Jena_UVX25")
+uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B", "Analytik_Jena_UVX31")
 erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a", "SolarLight_501_Biometer_high_UVA", "SolarLight_501_Biometer_low_UVA",  "SolarLight_501_Biometer_typical", "Vital_BW_20", "Berger_UV_Biometer")
-uva_sensors <- c("sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A")
+uva_sensors <- c("sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "sglux_SG01L", "KIPP_CUV_5"))
 par_sensors <- c("Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5")
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
@@ -88,7 +92,7 @@ multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR")
 collected_names <- unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
                                solarlight_sensors, solarmeter_sensors, deltat_sensors,
                                vitaltech_sensors, thiesclima_sensors, ideal_sensors,
-                               berger_sensors,
+                               berger_sensors, analytik_sensors,
                                uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
                                par_sensors,
                                vis_sensors, photometric_sensors,
@@ -107,7 +111,7 @@ save(sensors.mspct,
      skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
      solarlight_sensors, solarmeter_sensors, deltat_sensors,
      vitaltech_sensors, thiesclima_sensors, ideal_sensors,
-     berger_sensors,
+     berger_sensors, analytik_sensors,
      uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
      par_sensors,
      vis_sensors, photometric_sensors,

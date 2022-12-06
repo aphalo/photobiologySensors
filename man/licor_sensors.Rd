@@ -5,14 +5,14 @@
 \alias{licor_sensors}
 \title{LI-COR sensors}
 \format{
-A character vector of members of the collection of spctra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 licor_sensors
 }
 \description{
-A vector of indeces for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 In the LI-190 PAR quantum sensor (PAR = photosynthetically active radiation)

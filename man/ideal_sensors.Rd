@@ -5,17 +5,17 @@
 \alias{ideal_sensors}
 \title{Idealized sensors}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 ideal_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \note{
-Flat response to spectral energy irradiance and to spectral photon
+Flat spectral response to spectral energy irradiance and to spectral photon
 irradiance.
 }
 \examples{

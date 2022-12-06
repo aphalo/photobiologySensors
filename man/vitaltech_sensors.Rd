@@ -5,7 +5,7 @@
 \alias{vitaltech_sensors}
 \title{Vital Technologies sensors}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \source{
 Data kindly made available by Lasse Ylianttila.
@@ -14,8 +14,8 @@ Data kindly made available by Lasse Ylianttila.
 vitaltech_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 Vital "Blue Wave" BW-20 UV-B "erythemal" radiometer. Data for a specific

@@ -23,13 +23,13 @@
 \format{
 A vector of character strings.
 
-An object of class \code{character} of length 1.
+An object of class \code{character} of length 2.
 
-An object of class \code{character} of length 4.
+An object of class \code{character} of length 5.
 
 An object of class \code{character} of length 8.
 
-An object of class \code{character} of length 4.
+An object of class \code{character} of length 5.
 
 An object of class \code{character} of length 6.
 

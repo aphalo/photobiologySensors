@@ -5,14 +5,14 @@
 \alias{solarmeter_sensors}
 \title{Solarmeter devices}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 solarmeter_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 SOLARMETER MODEL 6.0 UV METER: Silicon Carbide (SIC) Photodiode packaged

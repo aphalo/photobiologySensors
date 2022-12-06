@@ -5,7 +5,7 @@
 \alias{thiesclima_sensors}
 \title{Thies Clima sensors}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \source{
 Digitized with 'DigitizeIt' from manufacturers manual. These are approximate
@@ -17,8 +17,8 @@ are expected to differ to some degree in spectral response.
 thiesclima_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 Thies Clima E1.c broadband UVB sensor

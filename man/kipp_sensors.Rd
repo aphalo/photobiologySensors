@@ -5,14 +5,14 @@
 \alias{kipp_sensors}
 \title{Kipp Radiometers.}
 \format{
-A character vector of members of the collection of spctra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 kipp_sensors
 }
 \description{
-A vector of indeces for stracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 Kipp CUV 5 Broadband UV Radiometer:

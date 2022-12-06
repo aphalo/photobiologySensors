@@ -24,12 +24,12 @@ sensors used for measuring ultraviolet and visible radiation and of cosine
 diffusers used with spectrometers. Each data frame in the
 collection contains three variables, angle.deg (degrees) at either regular or
 irregular intervals, response relative to the maximum (as a fraction of one)
-and response relative to a perfect cosine response(as a fraction of one).
+and response relative to a perfect cosine response (as a fraction of one).
 Data are either from manufacturer specifications or independent measurements
 reported in the scientific literature.
 }
 \note{
-Values are only good as reference, as individual sensors and diffuser
+Values are only good as reference, as individual sensors and diffusers
   deviate to a smaller or lager extent from typical or mean responses.
 }
 \examples{

@@ -5,14 +5,14 @@
 \alias{skye_sensors}
 \title{Skye-Instruments Sensors}
 \format{
-A character vector of members of the collection of spectra.
+A character vector of names of members of the collection of spectra.
 }
 \usage{
 skye_sensors
 }
 \description{
-A vector of indexes for extracting subsets of spectra from the
-\code{\link{sensors.mspct}} object.
+A vector of names useful for extracting subsets of spectra from
+  the \code{\link{sensors.mspct}} object.
 }
 \details{
 Skye PAR quantum Sensor SKP215, Skye PAR energy sensor SKE510, Skye Lux
