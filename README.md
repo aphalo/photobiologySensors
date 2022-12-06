@@ -1,10 +1,13 @@
 
-# phootbiologySensors
+# phootbiologySensors <img src="man/figures/logo.png" align="right" width="120" />
+
+<!-- badges: start -->
 
 [![CRAN
 version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors)
 [![cran
-checks](https://cranchecks.info/badges/worst/photobiologySensors)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)
+checks](https://cranchecks.info/badges/worst/photobiologySensors)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)[![R-CMD-check](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 Package **photobiologySensors** is a collection of spectral
 responsiveness data for different broadband sensors and of angular
@@ -33,7 +36,7 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 34
+#> [1] 37
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -42,10 +45,10 @@ output.
 ``` r
 # list names of the first 10 filters
 head(names(sensors.mspct), 10)
-#>  [1] "Berger_UV_Biometer" "DeltaT_BF5"         "flat_e"            
-#>  [4] "flat_q"             "KIPP_CUV_5"         "KIPP_PQS1"         
-#>  [7] "KIPP_UVS_A"         "KIPP_UVS_B"         "KIPP_UVS_E"        
-#> [10] "LICOR_LI_190"
+#>  [1] "Analitik_Jena_UVX36" "Analytik_Jena_UVX25" "Analytik_Jena_UVX31"
+#>  [4] "Berger_UV_Biometer"  "DeltaT_BF5"          "flat_e"             
+#>  [7] "flat_q"              "KIPP_CUV_5"          "KIPP_PQS1"          
+#> [10] "KIPP_UVS_A"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -63,10 +66,10 @@ We can use the vector to extract all these spectra as a collection.
 sensors.mspct[licor_sensors]
 #> $LICOR_LI_190
 #> Object: response_spct [755 x 2]
-#> Wavelength range 365.614 to 742.99 nm, step 0.5004987 nm 
+#> Wavelength range 365.614-742.99 nm, step 0.5004987 nm 
 #> Time unit 1s
 #> 
-#> # A tibble: 755 x 2
+#> # A tibble: 755 × 2
 #>    w.length s.q.response
 #>       <dbl>        <dbl>
 #>  1     366.      0.00181
@@ -79,14 +82,14 @@ sensors.mspct[licor_sensors]
 #>  8     369.      0.00231
 #>  9     370.      0.00238
 #> 10     370.      0.00245
-#> # ... with 745 more rows
+#> # … with 745 more rows
 #> 
 #> $LICOR_LI_200
 #> Object: response_spct [64 x 2]
-#> Wavelength range 376.154 to 1106.97 nm, step 2.68 to 51.052 nm 
+#> Wavelength range 376.154-1106.97 nm, step 2.68-51.052 nm 
 #> Time unit 1s
 #> 
-#> # A tibble: 64 x 2
+#> # A tibble: 64 × 2
 #>    w.length s.e.response
 #>       <dbl>        <dbl>
 #>  1     376.       0.0272
@@ -99,14 +102,14 @@ sensors.mspct[licor_sensors]
 #>  8     425.       0.209 
 #>  9     435.       0.234 
 #> 10     451.       0.255 
-#> # ... with 54 more rows
+#> # … with 54 more rows
 #> 
 #> $LICOR_LI_210
 #> Object: response_spct [78 x 2]
-#> Wavelength range 382.387 to 715.931 nm, step 1.683 to 10.516 nm 
+#> Wavelength range 382.387-715.931 nm, step 1.683-10.516 nm 
 #> Time unit 1s
 #> 
-#> # A tibble: 78 x 2
+#> # A tibble: 78 × 2
 #>    w.length s.e.response
 #>       <dbl>        <dbl>
 #>  1     382.      0.00335
@@ -119,7 +122,7 @@ sensors.mspct[licor_sensors]
 #>  8     417.      0.0134 
 #>  9     420.      0.0151 
 #> 10     424.      0.0168 
-#> # ... with 68 more rows
+#> # … with 68 more rows
 ```
 
 Please, see the *User Guide* or help pages for the names of other
