@@ -1,5 +1,5 @@
 ---
-title: "User Guide"
+title: "User Guide: 1 Using the Data"
 subtitle: "Package 'photobiologySensors' `r packageVersion('photobiologySensors')` "
 author: "Pedro J. Aphalo"
 date: "`r Sys.Date()`"
@@ -7,7 +7,7 @@ output:
   rmarkdown::html_vignette:
     toc: yes
 vignette: >
-  %\VignetteIndexEntry{User Guide}
+  %\VignetteIndexEntry{User Guide: 1 Using the Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

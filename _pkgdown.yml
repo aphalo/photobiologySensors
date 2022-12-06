@@ -23,6 +23,7 @@ reference:
   - title: Indexing vectors by manufacturer or supplier
     contents:
     - ideal_sensors
+    - analytik_sensors
     - berger_sensors
     - deltat_sensors
     - kipp_sensors
