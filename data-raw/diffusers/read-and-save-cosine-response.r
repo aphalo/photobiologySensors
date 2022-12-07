@@ -73,10 +73,23 @@ read.csv2("data-raw/diffusers/D7-web.csv") %>%
             response.over.cosine = Line.14.y,
             cosine = cos(angle.rad),
             response = response.over.cosine * cosine) %>%
+  subset(angle.deg > -90 & angle.deg < 90) %>%
   select(angle.deg, response, response.over.cosine) -> Bentham_D7_cosine.df
 comment(Bentham_D7_cosine.df) <-
   paste("Angular response of diffuser D7 from Bentham Instruments, Reading, UK",
         "Digitized from figure in website, last visited 2022-12-07",
+        sep = "\n")
+
+read.csv("data-raw/diffusers/D7-custom-dome-calibration.csv",
+          header = FALSE, col.names = c("angle.deg", "response"))  %>%
+  mutate(angle.rad = angle.deg * pi / 180,
+            cosine = cos(angle.rad),
+            response.over.cosine = response / cosine) %>%
+  subset(angle.deg > -85 & angle.deg < 85) %>%
+  select(angle.deg, response, response.over.cosine)-> Bentham_D7_dome.df
+comment(Bentham_D7_dome.df) <-
+  paste("Angular response of diffuser D7 'customized dome' prototype from Bentham Instruments, Reading, UK",
+        "Digitized from figure in calibration certificate for s/n 35702, a prototype made to order for P. J. Aphalo, dated 2021-11-12",
         sep = "\n")
 
 read.csv2("data-raw/diffusers/J1002-manual-Fig3.csv") %>%
@@ -129,6 +142,7 @@ comment(VitalBW20_cosine.df) <-
 
 diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
                       bentham.D7 = Bentham_D7_cosine.df,
+                      bentham.D7.dome = Bentham_D7_dome.df,
                       ocean.optics.4mm = OO4mm_cosine.df,
                       sglux.uvi.cosine = sglux_cosine_enh.df,
                       sglux.uv.cosine = sglux_cosine.df,
@@ -138,7 +152,12 @@ diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
                       Solarlight.501 = SL501_cosine.df,
                       vital.BW20 = VitalBW20_cosine.df)
 
-save(diffusers.lst, file = "data/diffusers-lst.rda")
+all_diffusers <- names(diffusers.lst)
+dome_diffusers <- grep("dome", all_diffusers, value = TRUE)
+cosine_diffusers <- setdiff(all_diffusers, dome_diffusers)
+
+save(all_diffusers, dome_diffusers, cosine_diffusers,
+     diffusers.lst, file = "data/diffusers-lst.rda")
 
 for (name in names(diffusers.lst)) {
   diffusers.lst[[name]][["diffuser"]] <- name
@@ -148,8 +167,29 @@ diffusers.df <- bind_rows(diffusers.lst)
 
 ggplot(diffusers.df,
        aes(angle.deg, response.over.cosine, color = diffuser)) +
-  geom_line()
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
+
+ggplot(subset(diffusers.df, diffuser %in%
+                c("analytik.jena.cosine", "bentham.D7", "sglux.uvi.cosine")),
+aes(angle.deg, response.over.cosine, color = diffuser)) +
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
+
+ggplot(subset(diffusers.df, diffuser %in% dome_diffusers),
+       aes(angle.deg, response, color = diffuser)) +
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
 
 ggplot(diffusers.df,
        aes(angle.deg, response, color = diffuser)) +
-  geom_line()
+  geom_line() +
+  geom_hline(yintercept = 1) +
+  expand_limits(y = 0) +
+  theme_bw()

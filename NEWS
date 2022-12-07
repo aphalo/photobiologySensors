@@ -5,7 +5,10 @@ TODO:
 photobiologySensors 0.5.1
 =========================
 
-* Add data for Analytik-Jena UV sensors.
+* Add data for Analytik-Jena UV sensors UVX-25, UVX-31 and UVX-36.
+* Add data for a protype "custom-made dome-shaped" D7 diffuser variant from
+Bentham.
+* Rebuild all data objects with 'photobiology' (== 0.10.15).
 * Git repository moved from Bitbucket to GitHub.
 * Continuous integration (CI) for checks added to GitHub repository.
 
