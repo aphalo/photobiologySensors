@@ -6,6 +6,8 @@ photobiologySensors 0.5.1
 =========================
 
 * Add data for Analytik-Jena UV sensors.
+* Git repository moved from Bitbucket to GitHub.
+* Continuous integration (CI) for checks added to GitHub repository.
 
 photobiologySensors 0.5.0
 =========================

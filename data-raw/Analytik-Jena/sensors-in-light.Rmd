@@ -1,0 +1,147 @@
+---
+title: "Analytik Jena sensors"
+subtitle: "Use case simulations and comparisons"
+author: "Pedro J. Aphalo"
+date: "2022-12-07"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Setup
+
+All packages used can be installed from CRAN. However, the version of 
+'photobiologySensors' that includes data for the Analytik Jena is at the
+moment under development and available from GitHub. I will submit the updated
+version to CRAN in a few days. I will let you know when it has been accepted.
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align = 'center', 
+               fig.show = 'hold', fig.width = 8, fig.height = 8,
+               cache = FALSE)
+```
+
+We load the packages and set photon units as the default.
+
+```{r}
+library(photobiologySensors)
+library(photobiologyLamps)
+library(photobiologyFilters)
+
+library(ggspectra)
+
+photon_as_default()
+```
+
+## Sensors on their own
+
+The numbers in the bars at the top of the plots indicate the proportion of
+photons being sensed from UV-B and UV-A in each condition. The square brackets
+next to the name of a waveband indicate that the spectral data do not cover
+the whole range of the waveband. In this case this should make little difference
+as we can assume that the sensors are not responding much to photons from
+outside the range shown in the figures in the manual of the instrument and
+sensors.
+
+Digitized from manual assuming that energy response is shown in the figures, and
+plotted as photon response normalized to the wavelength of maximum sensitivity.
+
+```{r}
+autoplot(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+         facets = 1) +
+  ggtitle("Spectral photon response")
+
+```
+
+## Sensors in sunlight
+
+By combining the sensor response with a photon irradiance spectrum of sunlight
+for mid morning in Helsinki, we see that UVX-36 might work with a sunlight
+specific calibration but the UVX-31 could be calibrated for an approximate
+measurement of UV-A but is useless for UV-B in sunlight.
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")], sun.spct),
+         facets = 1) +
+  ggtitle("Response to sunlight")
+```
+
+## Sensors with broad-band UV-B lamps
+
+As we can expect that the spectrum of the radiation from the lamps varies little or not a all, the sensors could be calibrated to be useful. Anyway, they would require separate calibrations for bare lamps, lamps filtered with cellulose diacetate and lamps filtered with polyester.
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       lamps.mspct$Philips.FT.TL.40W.12.uv),
+         facets = 1) +
+  ggtitle("Response to Philips TL 12 (UV-B broad)")
+```
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       (lamps.mspct$Philips.FT.TL.40W.12.uv * filters.mspct$Courtaulds_CA_115um)),
+         facets = 1) +
+  ggtitle("Response to Philips TL 12 (UV-B broad) + acetate")
+```
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       (lamps.mspct$Philips.FT.TL.40W.12.uv * polyester.spct)),
+         facets = 1) +
+  ggtitle("Response to Philips TL 12 (UV-B broad) + PET")
+
+```
+
+## Sensors with narrow-band UV-B lamps
+
+As we can expect that the spectrum of the radiation from the lamps varies little or not a all, the sensors could be calibrated to be useful. Anyway, they would require separate calibrations for bare lamps and lamps filtered with polyester.
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       lamps.mspct$Philips.FT.TL.40W.01.uv),
+         facets = 1) +
+  ggtitle("Response to Philips TL 01 (UV-B narrow)")
+
+```
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       (lamps.mspct$Philips.FT.TL.40W.01.uv * filters.mspct$Courtaulds_CA_115um)),
+         facets = 1) +
+  ggtitle("Response to Philips TL 01 (UV-B narrow) + acetate")
+
+```
+
+```{r}
+autoplot(convolve_each(sensors.mspct[c("Analytik_Jena_UVX31", "Analytik_Jena_UVX36")],
+                       (lamps.mspct$Philips.FT.TL.40W.01.uv * polyester.spct)),
+         facets = 1) +
+  ggtitle("Response to Philips TL 01 (UV-B narrow) + PET")
+
+```
+
+## Comparison with sglux and Kipp UV-B sensors
+
+Sensors from different suppliers are very different!
+
+```{r, fig.height = 12}
+autoplot(sensors.mspct[c("KIPP_UVS_B", "sglux_SG01D_B", "Analytik_Jena_UVX31")],
+         facets = 1) +
+  ggtitle("UV-B sensors")
+```
+
+## Comparison with sglux and Kipp UV-A sensors
+
+Sensors from different suppliers are rather different, but I think they can be
+calibrated to work in sunlight. The sglux one, would not be good for UV-A
+LEDs or lamps emitting strongly in UV-A1, but on the other hand it is the
+only sensor I know that can be used to measure UV-A2, and used in combination
+with their Blue and UV-B sensors used to measure UV-B, UV-A1, UV-A2 and 
+Blue light separately in sunlight.
+
+```{r, fig.height = 12}
+autoplot(sensors.mspct[c("KIPP_UVS_A", "sglux_SG01D_A", "Analytik_Jena_UVX36")],
+         facets = 1) +
+  ggtitle("UV-A sensors")
+```

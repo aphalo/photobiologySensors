@@ -13,7 +13,7 @@ library(photobiology)
 library(dplyr)
 rm(list = ls())
 file.list <- list.files("./data-raw", "*.csv", full.names = TRUE)
-sensors.mspct <- list()
+sensors.mspct <- response_mspct()
 for (file.name in file.list) {
   # data object
   cat(basename(file.name), "\n")
