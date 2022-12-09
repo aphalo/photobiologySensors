@@ -10,7 +10,7 @@
 A character vector of names of members of the list of data
   frames.
 
-An object of class \code{character} of length 10.
+An object of class \code{character} of length 11.
 
 An object of class \code{character} of length 1.
 }
@@ -32,12 +32,13 @@ cosine corrected. In practice no real diffusers achieve this over 180
 degrees, and only the best approach the expected response over an angle
 of 160 to 170 degrees.
 
-Hemispherical radiant flux (or scalar irradiance) requires an entrance
-optics with a response invariant with the angle of incidence. Such sensors
-or diffusers are seldom available off-the-shelf.
+Hemispherical scalar irradiance (or hemispherical fluence rate) requires an
+entrance optics with a response invariant with the angle of incidence over
+180 degrees in 3D. Such sensors or diffusers are seldom available
+off-the-shelf.
 
-Radiant flux measurements require a diffuser with response invariant over
-360 degrees in 3D.
+Scalar irradiance (or fluence rate) measurements require a diffuser with
+response invariant over 360 degrees in 3D.
 }
 \examples{
 all_diffusers

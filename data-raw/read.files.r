@@ -12,6 +12,9 @@
 library(photobiology)
 library(dplyr)
 rm(list = ls())
+
+energy_as_default()
+
 file.list <- list.files("./data-raw", "*.csv", full.names = TRUE)
 sensors.mspct <- response_mspct()
 for (file.name in file.list) {
@@ -52,6 +55,12 @@ for (file.name in file.list) {
   }
   cat(names(temp.dt), "\n")
   setResponseSpct(temp.dt)
+  if (is_energy_based(temp.dt))
+    cat("energy based\n")
+  else if (is_photon_based(temp.dt))
+    cat("photon based\n")
+  else
+    cat("wrong base\n")
   #
   if (stepsize(temp.dt)[1] < 0.5) {
     temp.dt <- interpolate_spct(temp.dt, length.out = expanse(temp.dt) * 2)

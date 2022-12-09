@@ -11,10 +11,10 @@ checks](https://cranchecks.info/badges/worst/photobiologySensors)](https://cran.
 
 Package **photobiologySensors** is a collection of spectral
 responsiveness data for different broadband sensors and of angular
-response data for some of the same sensors and for cosine diffusers used
-with spectrometers. It complements other packages in the suite of R
-packages for photobiology ‘r4photobiology’. This package contains only
-data.
+response data for some of the same sensors and for cosine diffusers and
+other entrance optics used with spectrometers. It complements other
+packages in the suite of R packages for photobiology ‘r4photobiology’.
+This package contains only data.
 
 ## Code breaking renaming of data objects
 
@@ -36,7 +36,7 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 37
+#> [1] 40
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -45,7 +45,7 @@ output.
 ``` r
 # list names of the first 10 filters
 head(names(sensors.mspct), 10)
-#>  [1] "Analitik_Jena_UVX36" "Analytik_Jena_UVX25" "Analytik_Jena_UVX31"
+#>  [1] "Analytik_Jena_UVX25" "Analytik_Jena_UVX31" "Analytik_Jena_UVX36"
 #>  [4] "Berger_UV_Biometer"  "DeltaT_BF5"          "flat_e"             
 #>  [7] "flat_q"              "KIPP_CUV_5"          "KIPP_PQS1"          
 #> [10] "KIPP_UVS_A"
@@ -57,14 +57,16 @@ names of the spectra for sensors from LI-COR.
 
 ``` r
 licor_sensors
-#> [1] "LICOR_LI_190" "LICOR_LI_200" "LICOR_LI_210"
+#> [1] "LICOR_LI_190SA" "LICOR_LI_200"   "LICOR_LI_210"   "LICOR_LI_190"  
+#> [5] "LICOR_LI_190R"  "LICOR_LI_210R"
 ```
 
 We can use the vector to extract all these spectra as a collection.
 
 ``` r
 sensors.mspct[licor_sensors]
-#> $LICOR_LI_190
+#> Object: response_mspct [6 x 1]
+#> --- Member: LICOR_LI_190SA ---
 #> Object: response_spct [755 x 2]
 #> Wavelength range 365.614-742.99 nm, step 0.5004987 nm 
 #> Time unit 1s
@@ -83,8 +85,7 @@ sensors.mspct[licor_sensors]
 #>  9     370.      0.00238
 #> 10     370.      0.00245
 #> # … with 745 more rows
-#> 
-#> $LICOR_LI_200
+#> --- Member: LICOR_LI_200 ---
 #> Object: response_spct [64 x 2]
 #> Wavelength range 376.154-1106.97 nm, step 2.68-51.052 nm 
 #> Time unit 1s
@@ -103,8 +104,7 @@ sensors.mspct[licor_sensors]
 #>  9     435.       0.234 
 #> 10     451.       0.255 
 #> # … with 54 more rows
-#> 
-#> $LICOR_LI_210
+#> --- Member: LICOR_LI_210 ---
 #> Object: response_spct [78 x 2]
 #> Wavelength range 382.387-715.931 nm, step 1.683-10.516 nm 
 #> Time unit 1s
@@ -123,11 +123,69 @@ sensors.mspct[licor_sensors]
 #>  9     420.      0.0151 
 #> 10     424.      0.0168 
 #> # … with 68 more rows
+#> --- Member: LICOR_LI_190 ---
+#> Object: response_spct [834 x 2]
+#> Wavelength range 381.85375-798.83668 nm, step 0.5005798 nm 
+#> Time unit 1s
+#> 
+#> # A tibble: 834 × 2
+#>    w.length s.e.response
+#>       <dbl>        <dbl>
+#>  1     382.       0.0281
+#>  2     382.       0.0298
+#>  3     383.       0.0314
+#>  4     383.       0.0331
+#>  5     384.       0.0347
+#>  6     384.       0.0363
+#>  7     385.       0.0379
+#>  8     385.       0.0391
+#>  9     386.       0.0403
+#> 10     386.       0.0415
+#> # … with 824 more rows
+#> --- Member: LICOR_LI_190R ---
+#> Object: response_spct [834 x 2]
+#> Wavelength range 380.76093-797.90271 nm, step 0.5007704 nm 
+#> Time unit 1s
+#> 
+#> # A tibble: 834 × 2
+#>    w.length s.q.response
+#>       <dbl>        <dbl>
+#>  1     381.      0.00469
+#>  2     381.      0.00469
+#>  3     382.      0.00468
+#>  4     382.      0.00468
+#>  5     383.      0.00468
+#>  6     383.      0.00467
+#>  7     384.      0.00467
+#>  8     384.      0.00467
+#>  9     385.      0.00466
+#> 10     385.      0.00509
+#> # … with 824 more rows
+#> --- Member: LICOR_LI_210R ---
+#> Object: response_spct [637 x 2]
+#> Wavelength range 403.05175-721.67386 nm, step 0.5009782 nm 
+#> Time unit 1s
+#> 
+#> # A tibble: 637 × 2
+#>    w.length s.e.response
+#>       <dbl>        <dbl>
+#>  1     403.     0.00111 
+#>  2     404.     0.00111 
+#>  3     404.     0.00111 
+#>  4     405.     0.00110 
+#>  5     405.     0.00110 
+#>  6     406.     0.00110 
+#>  7     406.     0.00109 
+#>  8     407.     0.000988
+#>  9     407.     0.000171
+#> 10     408.     0.000406
+#> # … with 627 more rows
+#> 
+#> --- END ---
 ```
 
 Please, see the *User Guide* or help pages for the names of other
 vectors of names for materials, suppliers, and regions of the spectrum.
-
 Summary calculations can be easily done with methods from package
 ‘photobiology’. Here we calculate mean photon response for two regions
 of the spectrum given by wavelengths in nanometres.
@@ -136,7 +194,7 @@ of the spectrum given by wavelengths in nanometres.
 q_response(sensors.mspct[["LICOR_LI_190"]], 
            waveband(c(500,600)))
 #> R[/q]_range.500.600 
-#>            98.91598 
+#>            16581880 
 #> attr(,"time.unit")
 #> [1] "second"
 #> attr(,"radiation.unit")
@@ -161,7 +219,7 @@ Installation of the current unstable version from Bitbucket:
 
 ``` r
 # install.packages("devtools")
-devtools::install_bitbucket("aphalo/photobiologySensors")
+remotes::install_github("aphalo/photobiologySensors")
 ```
 
 ## Documentation
@@ -191,10 +249,22 @@ Division of Plant Biology. ISBN 978-952-10-8363-1 (PDF),
 978-952-10-8362-4 (paperback). PDF file available from
 (<https://hdl.handle.net/10138/37558>).
 
+## Support
+
+Use (<https://stackoverflow.com/questions/tagged/r4photobiology>) to
+access existing questions and answers.
+
+(<https://stackoverflow.com/>) using tag \[r4photobiology\] plus any
+other relevant tag to ask new questions.
+
+## Bug reports and suggestions for enhancements
+
+(<https://github.com/aphalo/photobiologySensors/issues>)
+
 ## Contributing
 
 Pull requests, bug reports, and feature requests are welcome at
-(<https://bitbucket.org/aphalo/photobiologysensors>).
+(<https://github.com/aphalo/photobiologySensors>).
 
 ## Citation
 
@@ -225,6 +295,6 @@ citation("photobiologySensors")
 
 ## License
 
-© 2012-2020 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
+© 2012-2022 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
 the GPL, version 2 or greater. This software carries no warranty of any
 kind.

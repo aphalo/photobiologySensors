@@ -57,7 +57,7 @@ photon_as_default()
 
 response(sensors.mspct$LICOR_LI_190, w.band = PAR(), quantity = "contribution.pc")
 
-plot(sensors.mspct$LICOR_LI_190, w.band = PAR(), label.qty = "contribution.pc")
+autoplot(sensors.mspct$LICOR_LI_190, w.band = PAR(), label.qty = "contribution.pc")
 
 }
 \references{

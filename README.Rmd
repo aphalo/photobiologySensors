@@ -22,17 +22,18 @@ knitr::opts_chunk$set(
 
 Package **photobiologySensors** is a collection of spectral responsiveness data
 for different broadband sensors and of angular response data for some of the
-same sensors and for cosine diffusers used with spectrometers. It complements
-other packages in the suite of R packages for photobiology 'r4photobiology'.
-This package contains only data.
+same sensors and for cosine diffusers and other entrance optics used with
+spectrometers. It complements other packages in the suite of R packages for
+photobiology 'r4photobiology'. This package contains only data.
 
 ## Code breaking renaming of data objects
 
-In the update to version 0.5.0 several members of the collection of filter spectra were
-renamed to ensure consistency and clarity. As of version 0.5.0 all member names
-start with the name of the manufacturer or supplier. In addition, several of the vectors
-of names of member spectra were renamed to include the word "sensors" to avoid possible
-name clashes with other packages and also to improve naming consistency.
+In the update to version 0.5.0 several members of the collection of filter
+spectra were renamed to ensure consistency and clarity. As of version 0.5.0 all
+member names start with the name of the manufacturer or supplier. In addition,
+several of the vectors of names of member spectra were renamed to include the
+word "sensors" to avoid possible name clashes with other packages and also to
+improve naming consistency.
 
 ## Examples
 
@@ -65,19 +66,21 @@ We can use the vector to extract all these spectra as a collection.
 sensors.mspct[licor_sensors]
 ```
 
-Please, see the _User Guide_ or help pages
-for the names of other vectors of names for materials, suppliers, and regions of
-the spectrum.
-
-Summary calculations can be easily done with methods from package 'photobiology'. Here we calculate mean photon response for two regions of the spectrum given by wavelengths in nanometres.
+Please, see the _User Guide_ or help pages for the names of other vectors of
+names for materials, suppliers, and regions of the spectrum.
+Summary calculations can be easily done with methods from package
+'photobiology'. Here we calculate mean photon response for two regions of the
+spectrum given by wavelengths in nanometres.
 
 ```{r example-06}
 q_response(sensors.mspct[["LICOR_LI_190"]], 
            waveband(c(500,600)))
 ```
 
-The `autoplot()` methods from package 'ggspectra' can be used for plotting one or more spectra at a time. The classes of the objects used to store the spectral data are derived from `"data.frame"` making direct use of the data easy with functions and methods 
-from base R and various packages.
+The `autoplot()` methods from package 'ggspectra' can be used for plotting one
+or more spectra at a time. The classes of the objects used to store the spectral
+data are derived from `"data.frame"` making direct use of the data easy with
+functions and methods from base R and various packages.
 
 ## Installation
 

@@ -30,7 +30,9 @@ reported in the scientific literature.
 }
 \note{
 Values are only good as reference, as individual sensors and diffusers
-  deviate to a smaller or lager extent from typical or mean responses.
+  deviate to a smaller or larger extent from typical or mean responses for
+  their type. Variability is also reflected in some cases as an asymmetry in
+  opposite angles away from the vertical.
 }
 \examples{
 names(diffusers.lst)
