@@ -1,11 +1,8 @@
 destination: ../photobiologySensors-docs
 url: https://docs.r4photobiology.info/photobiologySensors/
 
-home:
-  strip_header: true
-  links:
-  - text: Photobiology packages
-    href: https://www.r4photobiology.info/
+template:
+  bootstrap: 5
 
 reference:
   - title: Package overview
@@ -14,14 +11,9 @@ reference:
   - title: Spectral response
     contents:
     - sensors.mspct
-  - title: Angular response
-    contents:
-    - diffusers.lst
-  - title: Indexing vectors by waveband
+  - title: Indexing vectors for `sensors.mspct`
     contents:
     - uv_sensors
-  - title: Indexing vectors by manufacturer or supplier
-    contents:
     - ideal_sensors
     - analytik_sensors
     - berger_sensors
@@ -34,8 +26,42 @@ reference:
     - solarmeter_sensors
     - thiesclima_sensors
     - vitaltech_sensors
-
-articles:
-  - title: Vignettes
+  - title: Angular response
     contents:
-    - '`user-guide`'
+    - diffusers.lst
+  - title: Indexing vectors for `diffusers.lst`
+    contents:
+    - all_diffusers
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github]
+  components:
+    intro:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    articles:
+      text: User Guide
+      menu:
+      - text: '0 The R for Photobiology Suite'
+        href: articles/userguide-0-r4p-introduction.html
+      - text: '1 Using the Data'
+        href: articles/userguide-1.html
+    tutorials:
+      text: Resources
+      menu:
+      - text: R for Photobiology web site
+        href: https://www.r4photobiology.info/
+      - text: A handbook of methods
+        href: https://doi.org/10.31885/9789521083631
+      - text: Photobiological Sciences Online
+        href: http://photobiology.info/
+
+

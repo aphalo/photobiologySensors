@@ -1,4 +1,11 @@
-TODO:
+---
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# TODO:
+
 * Add metadata to spectra!
 * Add spectral data for additional sensors.
 
@@ -23,9 +30,11 @@ with photobiology (0.10.5) which is now required.
 * Add data for angular responsivity saved in a list of data frames
 named diffusers.lst.
 
-*************************************************************************
+---
+
 Code breaking because of renaming of members of the collection of spectra
-*************************************************************************
+
+---
 
 photobiologySensors 0.4.0
 =========================

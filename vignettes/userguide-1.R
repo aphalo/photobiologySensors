@@ -3,9 +3,9 @@ knitr::opts_chunk$set(fig.width=8, fig.height=4)
 
 ## ---- message=FALSE-----------------------------------------------------------
 library(photobiology)
-library(photobiologyWavebands)
 library(photobiologySensors)
-library(ggplot2)
+library(photobiologyWavebands)
+eval_ggspectra <- TRUE
 library(ggspectra)
 
 ## -----------------------------------------------------------------------------
@@ -46,10 +46,10 @@ my2nd.spct <- sensors.mspct$LICOR_LI_190
 setNormalized(my2nd.spct)
 q_response(my2nd.spct)
 
-## -----------------------------------------------------------------------------
+## ---- eval=eval_ggspectra-----------------------------------------------------
 autoplot(sensors.mspct$LICOR_LI_190)
 
-## -----------------------------------------------------------------------------
+## ---- eval=eval_ggspectra-----------------------------------------------------
 ggplot(sensors.mspct$LICOR_LI_190, unit.out = "photon") +
   geom_hline(yintercept = 1, colour = "red") +
   geom_hline(yintercept = c(0.9, 1.1), colour = "red", linetype = "dotted") +
@@ -58,7 +58,7 @@ ggplot(sensors.mspct$LICOR_LI_190, unit.out = "photon") +
   scale_x_wl_continuous() +
   theme_classic()
 
-## -----------------------------------------------------------------------------
+## ---- eval=eval_ggspectra-----------------------------------------------------
 ggplot(diffusers.lst$bentham.D7, aes(angle.deg, response)) +
   geom_line() +
   geom_line(aes(y = cos(angle.deg * pi / 180)), linetype = "dotted", color = "red") +

@@ -16,7 +16,6 @@ vignette: >
 knitr::opts_chunk$set(fig.width=8, fig.height=4)
 ```
 
-
 ## Introduction
 
 This package, is a data only package, part of a suite, which has package 
@@ -28,9 +27,9 @@ documentation for package 'photobiology'.
 
 ```{r, message=FALSE}
 library(photobiology)
-library(photobiologyWavebands)
 library(photobiologySensors)
-library(ggplot2)
+library(photobiologyWavebands)
+eval_ggspectra <- TRUE
 library(ggspectra)
 ```
 
@@ -147,7 +146,7 @@ Using `autoplot()` methods for spectra defined in package 'ggspectra' annotated
 plotting is automatic. The defaults can be easily changed, please see the
 documentation in package 'ggspectra'.
 
-```{r}
+```{r, eval=eval_ggspectra}
 autoplot(sensors.mspct$LICOR_LI_190)
 ```
 
@@ -155,7 +154,7 @@ Using the `ggplot()` method for spectra from package 'ggspectra' plus
 _geometries_ and _statistics_ from package 'ggplot2' we gain additional control
 on the design.
 
-```{r}
+```{r, eval=eval_ggspectra}
 ggplot(sensors.mspct$LICOR_LI_190, unit.out = "photon") +
   geom_hline(yintercept = 1, colour = "red") +
   geom_hline(yintercept = c(0.9, 1.1), colour = "red", linetype = "dotted") +
@@ -167,7 +166,7 @@ ggplot(sensors.mspct$LICOR_LI_190, unit.out = "photon") +
 
 ## Angular response
 
-```{r}
+```{r, eval=eval_ggspectra}
 ggplot(diffusers.lst$bentham.D7, aes(angle.deg, response)) +
   geom_line() +
   geom_line(aes(y = cos(angle.deg * pi / 180)), linetype = "dotted", color = "red") +

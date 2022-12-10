@@ -1,15 +1,15 @@
 #' @details
-#' Data for response spectra for different types of broadband sensors.
-#' The package contains one collection of spectra for different broadband
-#' sensors.
-#'
+#' Data for spectral response for different types of broadband sensors are
+#' stored as objects of class \code{sensor_spct} as collection members in
+#' an object of class \code{sensor_mspct}.
 #' In addition to the spectra the package provides character vectors of names
-#' to be used as indexes to subset groups of spectra. In many cases spectral
-#' data are normalized to spectral energy responsiveness equal to one at the
-#' wavelength of maximum spectral energy response (peak sensitivity).
+#' to be used as indexes to extract spectra from the collection.
 #'
-#' A list of data frames contains angular response data for some of the same
-#' broadband sensors and some cosine diffusers used with spectrometers.
+#' Data for angular response for different types of broadband sensors and some
+#' diffusers used as entrance optics for spectrometers are stored as objects
+#' of class \code{data.frame} as members of a \code{list}.
+#' In addition to the list of data frames, the package provides character vectors of names
+#' to be used as indexes to extract the data frames from the named list.
 #'
 #' The data in this package are not original. Some have been provided by
 #' authors of scientific publications and manufacturers. However, most of
@@ -48,8 +48,12 @@
 #'
 #' photon_as_default()
 #'
-#' response(sensors.mspct$LICOR_LI_190, w.band = PAR(), quantity = "contribution.pc")
+#' response(sensors.mspct$LICOR_LI_190R, w.band = PAR(), quantity = "contribution.pc")
 #'
-#' autoplot(sensors.mspct$LICOR_LI_190, w.band = PAR(), label.qty = "contribution.pc")
+#' autoplot(sensors.mspct$LICOR_LI_190R, w.band = PAR(), label.qty = "contribution.pc")
+#'
+#' names(diffusers.lst)
+#'
+#' cosine_diffusers
 #'
 "_PACKAGE"

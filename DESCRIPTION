@@ -1,6 +1,6 @@
 Package: photobiologySensors
 Type: Package
-Title: Spectral Response Data for Light Sensors
+Title: Response Data for Light Sensors
 Version: 0.5.0.9000
 Date: 2022-12-06
 Authors@R:
@@ -9,10 +9,12 @@ Authors@R:
     )
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: Spectral response data for broadband ultraviolet and visible
-    radiation sensors. Different data sources were used: author-supplied data
-    from scientific research papers, sensor-manufacturer supplied data, and
-    published sensor specifications. Part of the 'r4photobiology' suite
-    Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
+    radiation sensors. Angular response data for broadband ultraviolet and visible
+    radiation sensors and diffusers used as entrance optics. Data obtained from
+    multiple sources were used: author-supplied data from scientific research 
+    papers, sensor-manufacturer supplied data, and published sensor 
+    specifications. Part of the 'r4photobiology' suite Aphalo P. J. (2015) 
+    <doi:10.19232/uv4pb.2015.1.14>.
 License: GPL (>= 2)
 VignetteBuilder: knitr
 Depends:
@@ -23,11 +25,11 @@ Suggests:
     rmarkdown (>= 2.16),
     photobiologyWavebands (>= 0.5.0),
     ggspectra (>= 0.3.9),
-    ggplot2 (>= 3.3.2)
+    ggplot2 (>= 3.3.5)
 LazyLoad: yes
 LazyData: yes
 ByteCompile: true
 Encoding: UTF-8
-URL: https://www.r4photobiology.info, https://bitbucket.org/aphalo/photobiologysensors
-BugReports: https://bitbucket.org/aphalo/photobiologysensors/issues
+URL: https://www.r4photobiology.info, https://github.com/aphalo/photobiologysensors
+BugReports: https://github.com/aphalo/photobiologysensors/issues
 RoxygenNote: 7.2.2

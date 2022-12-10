@@ -1,5 +1,5 @@
 
-# phootbiologySensors <img src="man/figures/logo.png" align="right" width="120" />
+# photobiologySensors <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 
@@ -29,6 +29,8 @@ name clashes with other packages and also to improve naming consistency.
 
 ``` r
 library(photobiologySensors)
+eval_ggspectra <- requireNamespace("ggspectra", quietly = TRUE)
+if (eval_ggspectra) library(ggspectra)
 ```
 
 How many spectra are included in the current version of
@@ -43,7 +45,7 @@ What are the names of available spectra? We use `head()` to limit the
 output.
 
 ``` r
-# list names of the first 10 filters
+# list names of the first 10 sensors
 head(names(sensors.mspct), 10)
 #>  [1] "Analytik_Jena_UVX25" "Analytik_Jena_UVX31" "Analytik_Jena_UVX36"
 #>  [4] "Berger_UV_Biometer"  "DeltaT_BF5"          "flat_e"             
@@ -56,149 +58,56 @@ vectors of filter names. For example, vector `licor_sensors` lists the
 names of the spectra for sensors from LI-COR.
 
 ``` r
-licor_sensors
-#> [1] "LICOR_LI_190SA" "LICOR_LI_200"   "LICOR_LI_210"   "LICOR_LI_190"  
-#> [5] "LICOR_LI_190R"  "LICOR_LI_210R"
+kipp_sensors
+#> [1] "KIPP_CUV_5" "KIPP_PQS1"  "KIPP_UVS_A" "KIPP_UVS_B" "KIPP_UVS_E"
 ```
 
-We can use the vector to extract all these spectra as a collection.
+We can use the vector to extract all these spectra as a collection, or
+as show below, extract data for PAR sensors from Kipp.
 
 ``` r
-sensors.mspct[licor_sensors]
-#> Object: response_mspct [6 x 1]
-#> --- Member: LICOR_LI_190SA ---
-#> Object: response_spct [755 x 2]
-#> Wavelength range 365.614-742.99 nm, step 0.5004987 nm 
+sensors.mspct[intersect(kipp_sensors, par_sensors)]
+#> Object: response_mspct [1 x 1]
+#> --- Member: KIPP_PQS1 ---
+#> Object: response_spct [652 x 2]
+#> Wavelength range 391.431-717.608 nm, step 0.5010399 nm 
 #> Time unit 1s
 #> 
-#> # A tibble: 755 × 2
-#>    w.length s.q.response
-#>       <dbl>        <dbl>
-#>  1     366.      0.00181
-#>  2     366.      0.00188
-#>  3     367.      0.00195
-#>  4     367.      0.00202
-#>  5     368.      0.00209
-#>  6     368.      0.00217
-#>  7     369.      0.00224
-#>  8     369.      0.00231
-#>  9     370.      0.00238
-#> 10     370.      0.00245
-#> # … with 745 more rows
-#> --- Member: LICOR_LI_200 ---
-#> Object: response_spct [64 x 2]
-#> Wavelength range 376.154-1106.97 nm, step 2.68-51.052 nm 
-#> Time unit 1s
-#> 
-#> # A tibble: 64 × 2
+#> # A tibble: 652 × 2
 #>    w.length s.e.response
 #>       <dbl>        <dbl>
-#>  1     376.       0.0272
-#>  2     382.       0.0543
-#>  3     392.       0.0788
-#>  4     395.       0.106 
-#>  5     400.       0.133 
-#>  6     406.       0.160 
-#>  7     414.       0.185 
-#>  8     425.       0.209 
-#>  9     435.       0.234 
-#> 10     451.       0.255 
-#> # … with 54 more rows
-#> --- Member: LICOR_LI_210 ---
-#> Object: response_spct [78 x 2]
-#> Wavelength range 382.387-715.931 nm, step 1.683-10.516 nm 
-#> Time unit 1s
-#> 
-#> # A tibble: 78 × 2
-#>    w.length s.e.response
-#>       <dbl>        <dbl>
-#>  1     382.      0.00335
-#>  2     387.      0.00670
-#>  3     390.      0.00838
-#>  4     395.      0.0101 
-#>  5     403.      0.0101 
-#>  6     411.      0.0117 
-#>  7     414.      0.0117 
-#>  8     417.      0.0134 
-#>  9     420.      0.0151 
-#> 10     424.      0.0168 
-#> # … with 68 more rows
-#> --- Member: LICOR_LI_190 ---
-#> Object: response_spct [834 x 2]
-#> Wavelength range 381.85375-798.83668 nm, step 0.5005798 nm 
-#> Time unit 1s
-#> 
-#> # A tibble: 834 × 2
-#>    w.length s.e.response
-#>       <dbl>        <dbl>
-#>  1     382.       0.0281
-#>  2     382.       0.0298
-#>  3     383.       0.0314
-#>  4     383.       0.0331
-#>  5     384.       0.0347
-#>  6     384.       0.0363
-#>  7     385.       0.0379
-#>  8     385.       0.0391
-#>  9     386.       0.0403
-#> 10     386.       0.0415
-#> # … with 824 more rows
-#> --- Member: LICOR_LI_190R ---
-#> Object: response_spct [834 x 2]
-#> Wavelength range 380.76093-797.90271 nm, step 0.5007704 nm 
-#> Time unit 1s
-#> 
-#> # A tibble: 834 × 2
-#>    w.length s.q.response
-#>       <dbl>        <dbl>
-#>  1     381.      0.00469
-#>  2     381.      0.00469
-#>  3     382.      0.00468
-#>  4     382.      0.00468
-#>  5     383.      0.00468
-#>  6     383.      0.00467
-#>  7     384.      0.00467
-#>  8     384.      0.00467
-#>  9     385.      0.00466
-#> 10     385.      0.00509
-#> # … with 824 more rows
-#> --- Member: LICOR_LI_210R ---
-#> Object: response_spct [637 x 2]
-#> Wavelength range 403.05175-721.67386 nm, step 0.5009782 nm 
-#> Time unit 1s
-#> 
-#> # A tibble: 637 × 2
-#>    w.length s.e.response
-#>       <dbl>        <dbl>
-#>  1     403.     0.00111 
-#>  2     404.     0.00111 
-#>  3     404.     0.00111 
-#>  4     405.     0.00110 
-#>  5     405.     0.00110 
-#>  6     406.     0.00110 
-#>  7     406.     0.00109 
-#>  8     407.     0.000988
-#>  9     407.     0.000171
-#> 10     408.     0.000406
-#> # … with 627 more rows
+#>  1     391.       0.0296
+#>  2     392.       0.0396
+#>  3     392.       0.0496
+#>  4     393.       0.0589
+#>  5     393.       0.0679
+#>  6     394.       0.0786
+#>  7     394.       0.0911
+#>  8     395.       0.104 
+#>  9     395.       0.116 
+#> 10     396.       0.129 
+#> # … with 642 more rows
 #> 
 #> --- END ---
 ```
 
 Please, see the *User Guide* or help pages for the names of other
-vectors of names for materials, suppliers, and regions of the spectrum.
+vectors of names by supplier, wavelength region and of the spectrum.
 Summary calculations can be easily done with methods from package
 ‘photobiology’. Here we calculate mean photon response for two regions
-of the spectrum given by wavelengths in nanometres.
+of the spectrum delimited by wavelengths in nanometres. Roughly 99% of
+the photons sensed by this sensor are within PAR.
 
 ``` r
-q_response(sensors.mspct[["LICOR_LI_190"]], 
-           waveband(c(500,600)))
-#> R[/q]_range.500.600 
-#>            16581880 
+q_response(sensors.mspct[["LICOR_LI_190R"]], 
+           list(waveband(c(400, 700)), waveband(c(700, 800))),
+           quantity = "contribution")
+#>  R/Rtot[/q]_range.400.700 R/Rtot[/q]_range.700.800[ 
+#>               0.988945352               0.008465702 
 #> attr(,"time.unit")
 #> [1] "second"
 #> attr(,"radiation.unit")
-#> [1] "total photon response"
+#> [1] "contribution photon response"
 ```
 
 The `autoplot()` methods from package ‘ggspectra’ can be used for
@@ -206,6 +115,12 @@ plotting one or more spectra at a time. The classes of the objects used
 to store the spectral data are derived from `"data.frame"` making direct
 use of the data easy with functions and methods from base R and various
 packages.
+
+``` r
+autoplot(sensors.mspct[["LICOR_LI_190R"]])
+```
+
+![](man/figures/README-example-07-1.png)<!-- -->
 
 ## Installation
 

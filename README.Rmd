@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# phootbiologySensors <img src="man/figures/logo.png" align="right" width="120" />
+# photobiologySensors <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 [![CRAN version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors) 
@@ -39,6 +39,8 @@ improve naming consistency.
 
 ```{r example-02, message=FALSE}
 library(photobiologySensors)
+eval_ggspectra <- requireNamespace("ggspectra", quietly = TRUE)
+if (eval_ggspectra) library(ggspectra)
 ```
 
 How many spectra are included in the current version of 'photobiologyFilters'?
@@ -50,37 +52,44 @@ length(sensors.mspct)
 What are the names of available spectra? We use `head()` to limit the output.
 
 ```{r example-04}
-# list names of the first 10 filters
+# list names of the first 10 sensors
 head(names(sensors.mspct), 10)
 ```
 
 To subset based on different criteria we can use predefined character vectors of filter names. For example, vector `licor_sensors` lists the names of the spectra for sensors from LI-COR. 
 
 ```{r example-05}
-licor_sensors
+kipp_sensors
 ```
 
-We can use the vector to extract all these spectra as a collection.
+We can use the vector to extract all these spectra as a collection, or as show
+below, extract data for PAR sensors from Kipp.
 
 ```{r example-05a}
-sensors.mspct[licor_sensors]
+sensors.mspct[intersect(kipp_sensors, par_sensors)]
 ```
 
 Please, see the _User Guide_ or help pages for the names of other vectors of
-names for materials, suppliers, and regions of the spectrum.
+names by supplier, wavelength region and  of the spectrum.
 Summary calculations can be easily done with methods from package
 'photobiology'. Here we calculate mean photon response for two regions of the
-spectrum given by wavelengths in nanometres.
+spectrum delimited by wavelengths in nanometres. Roughly 99% of the photons
+sensed by this sensor are within PAR.
 
 ```{r example-06}
-q_response(sensors.mspct[["LICOR_LI_190"]], 
-           waveband(c(500,600)))
+q_response(sensors.mspct[["LICOR_LI_190R"]], 
+           list(waveband(c(400, 700)), waveband(c(700, 800))),
+           quantity = "contribution")
 ```
 
 The `autoplot()` methods from package 'ggspectra' can be used for plotting one
 or more spectra at a time. The classes of the objects used to store the spectral
 data are derived from `"data.frame"` making direct use of the data easy with
 functions and methods from base R and various packages.
+
+```{r example-07, eval=eval_ggspectra}
+autoplot(sensors.mspct[["LICOR_LI_190R"]])
+```
 
 ## Installation
 
