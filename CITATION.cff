@@ -38,7 +38,7 @@ preferred-citation:
 repository: https://CRAN.R-project.org/package=photobiologySensors
 repository-code: https://github.com/aphalo/photobiologysensors
 url: https://www.r4photobiology.info
-date-released: '2022-12-06'
+date-released: '2022-12-18'
 contact:
 - family-names: Aphalo
   given-names: Pedro J.
