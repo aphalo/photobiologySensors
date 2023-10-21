@@ -4,6 +4,7 @@
 ^not-used
 ^\.git/*
 ^_pkgdown\.yml$
+pkgdown
 README.Rmd
 ^CITATION\.cff$
 ^\.github$

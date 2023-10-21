@@ -1,4 +1,4 @@
-destination: ../photobiologySensors-docs
+destination: ../docs/photobiologySensors
 url: https://docs.r4photobiology.info/photobiologySensors/
 
 template:
@@ -51,7 +51,7 @@ navbar:
       text: User Guide
       menu:
       - text: '0 The R for Photobiology Suite'
-        href: articles/userguide-0-r4p-introduction.html
+        href: articles/r4p-introduction.html
       - text: '1 Using the Data'
         href: articles/userguide-1.html
     tutorials:
