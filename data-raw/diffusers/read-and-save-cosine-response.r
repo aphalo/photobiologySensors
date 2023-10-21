@@ -208,17 +208,17 @@ comment(VitalBW20_cosine.df) <-
         sep = "\n")
 
 diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
-                            bentham.D7 = Bentham_D7_cosine.df,
-                            bentham.D7.dome = Bentham_D7_dome.df,
-                            licor.R = LICOR_R_cosine.df,
-                            ocean.optics.4mm = OO4mm_cosine.df,
-                            sglux.uvi.cosine = sglux_cosine_enh.df,
-                            sglux.uv.cosine = sglux_cosine.df,
-                            sglux.TOCON = TOCON_cosine.df,
-                            schreder.J1002 = Schreder_J1002_cosine.df,
-                            Scintec = Scintec_cosine.df,
-                            Solarlight.501 = SL501_cosine.df,
-                            vital.BW20 = VitalBW20_cosine.df)
+                      bentham.D7 = Bentham_D7_cosine.df,
+                      bentham.D7.dome = Bentham_D7_dome.df,
+                      licor.R = LICOR_R_cosine.df,
+                      ocean.optics.4mm = OO4mm_cosine.df,
+                      sglux.uvi.cosine = sglux_cosine_enh.df,
+                      sglux.uv.cosine = sglux_cosine.df,
+                      sglux.TOCON = TOCON_cosine.df,
+                      schreder.J1002 = Schreder_J1002_cosine.df,
+                      Scintec = Scintec_cosine.df,
+                      Solarlight.501 = SL501_cosine.df,
+                      vital.BW20 = VitalBW20_cosine.df)
 
 all_diffusers <- names(diffusers.lst)
 dome_diffusers <- grep("dome", all_diffusers, value = TRUE)
@@ -227,6 +227,7 @@ cosine_diffusers <- setdiff(all_diffusers, dome_diffusers)
 for (d in all_diffusers) {
   print(d)
   diffusers.lst[[d]] <- thin_angles(diffusers.lst[[d]], step = 1, span = 0.2)
+  print(diffusers.lst[[d]])
 }
 save(all_diffusers, dome_diffusers, cosine_diffusers,
      diffusers.lst, file = "data/diffusers-lst.rda")

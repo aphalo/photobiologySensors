@@ -13,10 +13,10 @@ photobiologySensors 0.5.1
 =========================
 
 * Add data for Analytik-Jena UV sensors UVX-25, UVX-31 and UVX-36.
-* Add data for a protype "custom-made dome-shaped" D7 diffuser variant from
+* Add data for a prototype "custom-made dome-shaped" D7 diffuser variant from
 Bentham.
-* Add data for the newer R type of LI-COR sensors.
-* Rebuild all spectral data objects with 'photobiology' (== 0.10.15).
+* Add data for the newer R-type of LI-COR sensors.
+* Rebuild all spectral data objects with 'photobiology' (== 0.11.0).
 * Rebuild all angular response data data frames using loess to re-express all
 data at 1 degree intervals, and slightly smooth the digitized data.
 * Move Git repository from Bitbucket to GitHub.
