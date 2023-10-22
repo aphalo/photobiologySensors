@@ -55,6 +55,27 @@ for (file.name in file.list) {
   }
   cat(names(temp.dt), "\n")
   setResponseSpct(temp.dt)
+  if (nrow(temp.df) > 200) {
+    temp.dt <- smooth_spct(temp.dt, method = "supsmu")
+  }
+  if (nrow(temp.dt) > 10) {
+    temp.dt <- normalize(temp.dt)
+    temp.df <- setNormalised(temp.dt)
+  } else {
+    temp.dt <- interpolate_spct(temp.dt, length.out = 50)
+  }
+  print(nrow(temp.dt))
+  if (nrow(temp.dt) > 200) {
+    temp.dt <- thin_wl(temp.dt, max.wl.step = 5, max.slope.delta = 0.0001)
+  }
+  print(nrow(temp.dt))
+  what_measured(temp.dt) <- paste(gsub("_", " ", df.name), "light sensor")
+  how_measured(temp.dt) <- "Digitized from plots in suppliers' literature"
+  comment(temp.dt) <-
+    "Data are approximate, not specifications. Provided as examples only"
+  if (stepsize(temp.dt)[1] < 0.5) {
+    temp.dt <- interpolate_spct(temp.dt, length.out = expanse(temp.dt) * 2)
+  }
   if (is_energy_based(temp.dt))
     cat("energy based\n")
   else if (is_photon_based(temp.dt))
@@ -62,10 +83,8 @@ for (file.name in file.list) {
   else
     cat("wrong base\n")
   #
-  if (stepsize(temp.dt)[1] < 0.5) {
-    temp.dt <- interpolate_spct(temp.dt, length.out = expanse(temp.dt) * 2)
-  }
-  cat(class(temp.dt), "\n\n")
+  cat(class(temp.dt)[1], "\n\n")
+#  print(autoplot(temp.dt, annotations = c("+", "title:what:how")))
   sensors.mspct[[df.name]] <- temp.dt
 }
 
@@ -84,30 +103,38 @@ berger_sensors <- grep("Berger", all_sensors, value = TRUE)
 solarmeter_sensors <- grep("Solarmeter_", all_sensors, value = TRUE)
 solarlight_sensors <- grep("SolarLight_", all_sensors, value = TRUE)
 analytik_sensors <- grep("Analytik_", all_sensors, value = TRUE)
+apogee_sensors <- grep("apogee_", all_sensors, value = TRUE)
+specmeters_sensors <- grep("Specmeters_", all_sensors, value = TRUE)
+ams_sensors <- grep("ams_", all_sensors, value = TRUE)
 
 uvc_sensors <- c("sglux_SG01D_C", "Analytik_Jena_UVX25")
 uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B", "Analytik_Jena_UVX31")
 erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a", "SolarLight_501_Biometer_high_UVA", "SolarLight_501_Biometer_low_UVA",  "SolarLight_501_Biometer_typical", "Vital_BW_20", "Berger_UV_Biometer")
-uva_sensors <- c("sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
+uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "sglux_SG01L", "KIPP_CUV_5"))
-par_sensors <- c("Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5")
+par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F")
+epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
 pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200")
-red_sensors <- c("Skye_SKR110_R")
-far_red_sensors <- c("Skye_SKR110_FR")
+red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
+far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
-multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR")
+multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR", "apogee_s2_131_R", "apogee_s2_131_FR")
+electronic_components <- grep("TSL|TOCON", all_sensors, value = TRUE)
 
-collected_names <- unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
-                               solarlight_sensors, solarmeter_sensors, deltat_sensors,
-                               vitaltech_sensors, thiesclima_sensors, ideal_sensors,
-                               berger_sensors, analytik_sensors,
-                               uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
-                               par_sensors,
-                               vis_sensors, photometric_sensors,
-                               shortwave_sensors, pyranometer_sensors,
-                               red_sensors, far_red_sensors, blue_sensors,
-                               multichannel_sensors))
+collected_names <-
+  unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
+           solarlight_sensors, solarmeter_sensors, deltat_sensors,
+           vitaltech_sensors, thiesclima_sensors, ideal_sensors,
+           berger_sensors, analytik_sensors, apogee_sensors,
+           specmeters_sensors, ams_sensors,
+           electronic_components,
+           uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
+           par_sensors, epar_sensors,
+           vis_sensors, photometric_sensors,
+           shortwave_sensors, pyranometer_sensors,
+           red_sensors, far_red_sensors, blue_sensors,
+           multichannel_sensors))
 
 length(collected_names) == length(names(sensors.mspct))
 
@@ -120,9 +147,11 @@ save(sensors.mspct,
      skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
      solarlight_sensors, solarmeter_sensors, deltat_sensors,
      vitaltech_sensors, thiesclima_sensors, ideal_sensors,
-     berger_sensors, analytik_sensors,
+     berger_sensors, analytik_sensors, apogee_sensors,
+     specmeters_sensors, ams_sensors,
+     electronic_components,
      uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
-     par_sensors,
+     par_sensors, epar_sensors,
      vis_sensors, photometric_sensors,
      shortwave_sensors, pyranometer_sensors,
      red_sensors, far_red_sensors, blue_sensors,

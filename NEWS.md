@@ -4,19 +4,18 @@ editor_options:
     wrap: 72
 ---
 
-# TODO:
-
-* Add metadata to spectra!
-* Add spectral data for additional sensors.
-
 photobiologySensors 0.5.1
 =========================
 
 * Add data for Analytik-Jena UV sensors UVX-25, UVX-31 and UVX-36.
+* Add data for Apogee sensors for PAR, ePAR, red+far-red, and UVA.
+* Add data for Specmeters sensor for PAR.
+* Add data for ams-OSRAM TSL-series Si light-to-voltage IC sensors.
+* Add data for the newer R-type of LI-COR sensors.
 * Add data for a prototype "custom-made dome-shaped" D7 diffuser variant from
 Bentham.
-* Add data for the newer R-type of LI-COR sensors.
-* Rebuild all spectral data objects with 'photobiology' (== 0.11.0).
+* Rebuild all spectral data objects with 'photobiology' (== 0.11.0) adding
+metadta, using smoothing of digitized curves and thinning of wavelengths.
 * Rebuild all angular response data data frames using loess to re-express all
 data at 1 degree intervals, and slightly smooth the digitized data.
 * Move Git repository from Bitbucket to GitHub.

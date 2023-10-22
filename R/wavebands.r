@@ -10,17 +10,19 @@
 #' @aliases 'sensors by waveband'
 #'
 #' @examples
-#' uv_sensors
-#' uvc_sensors
-#' uvb_sensors
-#' uva_sensors
-#' par_sensors
-#' vis_sensors
+#' uv_sensors # ultraviolet
+#' uvc_sensors # ultraviolet-C
+#' uvb_sensors # ultraviolet-B
+#' uva_sensors # ultraviolet-A
+#' epar_sensors # extended photosynthetically active radiation
+#' par_sensors # photosynthetically active radiation
+#' vis_sensors # "visual" light sensors
 #' shortwave_sensors
 #' red_sensors
 #' far_red_sensors
 #' blue_sensors
 #' multichannel_sensors
+#' electronic_components # native spectral response, sold as parts
 #'
 #' # select PAR sensors
 #' sensors.mspct[par_sensors]
@@ -43,6 +45,9 @@
 
 #' @rdname uv_sensors
 "par_sensors"
+
+#' @rdname uv_sensors
+"epar_sensors"
 
 #' @rdname uv_sensors
 "vis_sensors"
@@ -68,4 +73,6 @@
 #' @rdname uv_sensors
 "multichannel_sensors"
 
+#' @rdname uv_sensors
+"electronic_components"
 

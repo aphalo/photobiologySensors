@@ -59,11 +59,11 @@ We can use a character string as index to extract an individual `response_spct`
 object.
 
 ```{r}
-sensors.mspct$LICOR_LI_190
+sensors.mspct$LICOR_LI_190R
 ```
 
 ```{r}
-sensors.mspct[["LICOR_LI_190"]]
+sensors.mspct[["LICOR_LI_190R"]]
 ```
 
 Be aware that according to R's rules, using single square brackets will return
@@ -71,7 +71,7 @@ a `response_mspct` object possibly of length one. This statement is not equivale
 to the one in the chunk immediately above.
 
 ```{r}
-sensors.mspct["LICOR_LI_190"]
+sensors.mspct["LICOR_LI_190R"]
 ```
 
 ## Accessing subsets of spectra
@@ -109,16 +109,16 @@ alignment of the spectrometer input optics with respect to light sources).
 
 What we will do in this section is to rescale the spectral data so that after 
 conversion a given target value for a summary quantity will be true. As an 
-example, we will rescale one spectrum so that it yields an energy irradiance of
-100 W m-2 for the range 400 to 700 nm.
+example, we will rescale one spectrum so that it yields a response of
+100 mol<sup>-1</sup> m<sup>2</sup>for the range 400 to 700 nm.
 
 ```{r}
-my.spct <- fscale(sensors.mspct$LICOR_LI_190,
-                  range = PAR(),
+my.spct <- fscale(sensors.mspct$LICOR_LI_190R,
+                  range = PhR(),
                   q_response,
-                  target = 1
-                  )
-q_response(my.spct, PAR())
+                  target = 100,
+                  set.scaled = FALSE)
+q_response(my.spct, PhR())
 q_response(my.spct, UVA())
 ```
 
@@ -147,7 +147,8 @@ plotting is automatic. The defaults can be easily changed, please see the
 documentation in package 'ggspectra'.
 
 ```{r, eval=eval_ggspectra}
-autoplot(sensors.mspct$LICOR_LI_190)
+autoplot(sensors.mspct$LICOR_LI_190R, 
+         annotations = c("+", "title:what:how:comment"))
 ```
 
 Using the `ggplot()` method for spectra from package 'ggspectra' plus
@@ -155,7 +156,7 @@ _geometries_ and _statistics_ from package 'ggplot2' we gain additional control
 on the design.
 
 ```{r, eval=eval_ggspectra}
-ggplot(sensors.mspct$LICOR_LI_190, unit.out = "photon") +
+ggplot(sensors.mspct$LICOR_LI_190R, unit.out = "photon") +
   geom_hline(yintercept = 1, colour = "red") +
   geom_hline(yintercept = c(0.9, 1.1), colour = "red", linetype = "dotted") +
   geom_line(linetype = "dashed") +
@@ -183,13 +184,14 @@ As `response_mspct` is a class derived from `list`, and `response_spct` is deriv
 data can be used very easily with any R function.
 
 ```{r}
-head(as.data.frame(sensors.mspct$LICOR_LI_190))
+head(as.data.frame(sensors.mspct$LICOR_LI_190R))
 ```
 
 Of course `attach` and `with` also work as expected.
+
 ```{r}
 attach(sensors.mspct)
-q_response(LICOR_LI_190, Red())
+head(LICOR_LI_190R)
 detach(sensors.mspct)
 ```
 
@@ -200,5 +202,5 @@ detach(sensors.mspct)
 ```
 
 ```{r}
-with(sensors.mspct, q_response(LICOR_LI_190, Red()))
+with(sensors.mspct, wl_range(LICOR_LI_190))
 ```

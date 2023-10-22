@@ -1,4 +1,17 @@
-Line 7 x,Line 7 y
+#' @name apogee-sq-500.csv
+#' @title apogee SQ-500-SS: Full-Spectrum Quantum Sensor
+#' @note
+#' Digitized with 'DigitizeIt' from manufacturers product on-line specifications.
+#' This are approximate data, both because of the digitizing process, and because they are
+#' either typical values or for a particular sensor unit. Individual sensor units
+#' are expected to differ to some degree in spectral response.
+#'
+#' Manufacturer: Apogee Instruments, Inc., Logan, UT, USA.
+#'
+#' @references \url{https://www.apogeeinstruments.com/quantum/}
+#' visited on 2023-10-10.
+#'
+w.length,s.q.response
 3.004507537530E2,4.383032819791E-3
 3.017353483574E2,2.224055102446E-3
 3.030177960071E2,2.220619974813E-3

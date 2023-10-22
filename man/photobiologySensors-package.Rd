@@ -42,6 +42,14 @@ of sensors or the need or not of a transfer calibration, the data are good
 enough. They can be especially useful in teaching.
 }
 
+\section{Data and their units of expression}{
+ Data are normalized to one at
+  the wavelength of maximum response to energy. Wavelengths are expressed in
+  nanometres as required by the classes from package 'photobiology' used to
+  store the data. The User Guide shows how to re-scale and normalize the data
+  using other criteria.
+}
+
 \examples{
 library(photobiology)
 library(photobiologyWavebands)

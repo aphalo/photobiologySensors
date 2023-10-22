@@ -1,4 +1,17 @@
-Line 2 x,Line 2 y
+#' @name apogee-su_200.csv
+#' @title apogee SU-200-SS: UV-A Sensor
+#' @note
+#' Digitized with 'DigitizeIt' from manufacturers product on-line specifications.
+#' This are approximate data, both because of the digitizing process, and because they are
+#' either typical values or for a particular sensor unit. Individual sensor units
+#' are expected to differ to some degree in spectral response.
+#'
+#' Manufacturer: Apogee Instruments, Inc., Logan, UT, USA.
+#'
+#' @references \url{https://www.apogeeinstruments.com/uv/}
+#' visited on 2023-10-10.
+#'
+w.length,s.e.response
 2.807052602283E2,3.146019075543E-1
 2.812602964675E2,3.190922161975E-1
 2.819308190996E2,3.257809455958E-1

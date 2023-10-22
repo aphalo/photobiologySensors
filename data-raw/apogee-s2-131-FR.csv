@@ -1,4 +1,17 @@
-Line 10 x,Line 10 y
+#' @name apogee-s2-131-FR.csv
+#' @title apogee S2-131-SS Red and Far-Red Sensor, Far-Red channel
+#' @note
+#' Digitized with 'DigitizeIt' from manufacturers product on-line specifications.
+#' This are approximate data, both because of the digitizing process, and because they are
+#' either typical values or for a particular sensor unit. Individual sensor units
+#' are expected to differ to some degree in spectral response.
+#'
+#' Manufacturer: Apogee Instruments, Inc., Logan, UT, USA.
+#'
+#' @references \url{https://www.apogeeinstruments.com/s2-131-ss-red-far-red-sensor/}
+#' visited on 2023-10-10.
+#'
+w.length,s.q.response
 6.962272002965E2,3.738270826069E-3
 6.971674859721E2,8.147006374157E-3
 6.975901399475E2,8.149952631273E-3
