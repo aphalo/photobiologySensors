@@ -36,3 +36,19 @@
 #' @rdname all_diffusers
 #'
 "dome_diffusers"
+
+#' @rdname all_diffusers
+#'
+"entrance_optics"
+
+#' @rdname all_diffusers
+#'
+"sensor_optics"
+
+#' @rdname all_diffusers
+#'
+"ic_optics"
+
+#' @rdname all_diffusers
+#'
+"ideal_optics"

@@ -14,26 +14,29 @@ thin_angles <- function(df,
   stopifnot(ncol(df) == 2L)
 
   df <- na.omit(df)
-  stopifnot(nrow(df) > 20L)
+  if (nrow(df) > 24L) {
 
-  # s <- supsmu(x = df$angle.deg, y = df$response, bass = bass)
-  # stopifnot(sum(is.na(df$y)) < 5L)
-  # stopifnot(sum(is.na(df$x)) == 0L)
-  # s <- na.omit(s)
+    # s <- supsmu(x = df$angle.deg, y = df$response, bass = bass)
+    # stopifnot(sum(is.na(df$y)) < 5L)
+    # stopifnot(sum(is.na(df$x)) == 0L)
+    # s <- na.omit(s)
 
-  # z.loess <-
-  #   loess(y ~ x, data = s, na.action = na.omit)
+    # z.loess <-
+    #   loess(y ~ x, data = s, na.action = na.omit)
 
-  z.loess <-
-    loess(response ~ angle.deg, data = df, na.action = na.omit, span = span)
+    z.loess <-
+      loess(response ~ angle.deg, data = df, na.action = na.omit, span = span)
 
-  # z <- data.frame(x = target.angles)
-  z <- data.frame(angle.deg = target.angles)
-  z.pred <- predict(z.loess, newdata = z, se = FALSE)
-  # names(z)[1] <- "angle.deg"
-  z$response <- z.pred
-  if (min(z$response, na.rm = TRUE) < 0) {
-    z$response <- z$response - min(z$response, na.rm = TRUE)
+    # z <- data.frame(x = target.angles)
+    z <- data.frame(angle.deg = target.angles)
+    z.pred <- predict(z.loess, newdata = z, se = FALSE)
+    # names(z)[1] <- "angle.deg"
+    z$response <- z.pred
+    if (min(z$response, na.rm = TRUE) < 0) {
+      z$response <- z$response - min(z$response, na.rm = TRUE)
+    }
+  } else {
+    z <- df
   }
   z$response <- z$response / max(z$response, na.rm = TRUE)
   z$response.over.cosine <- z$response / cos(z$angle.deg * pi / 180)
@@ -113,6 +116,45 @@ read.csv2("data-raw/diffusers/TOCON-cosine.csv") %>%
 comment(sglux_cosine.df) <-
   paste("Angular response of miniature sensors in the TOCON series from sglux, Berlin",
         "Digitized from data sheet, PDF version downloaded from website in 2020",
+        sep = "\n")
+
+read.csv("data-raw/diffusers/Vishay-VEML6075-angle.csv", header = TRUE) %>%
+  transmute(angle.deg = angle,
+            angle.rad = angle.deg * pi / 180,
+            response = response / max(response),
+            cosine = cos(angle.rad),
+            response.over.cosine = response / cosine) %>%
+  filter(angle.deg > -85 & angle.deg < 85) %>%
+  select(angle.deg, response, response.over.cosine) -> Vishay_VEML6075.df
+comment(Vishay_VEML6075.df) <-
+  paste("Angular response of sensors in the UVB and UVA channels. ",
+        "Digitized from data sheet from Vishay",
+        sep = "\n")
+
+read.csv("data-raw/diffusers/ams-TSL254R-angle.csv", header = TRUE) %>%
+  transmute(angle.deg = angle,
+            angle.rad = angle.deg * pi / 180,
+            response = response / max(response),
+            cosine = cos(angle.rad),
+            response.over.cosine = response / cosine) %>%
+  filter(angle.deg > -85 & angle.deg < 85) %>%
+  select(angle.deg, response, response.over.cosine) -> ams_TSL254R.df
+comment(ams_TSL254R.df) <-
+  paste("Angular response of sensors TSL250 and TSL254R from ams-OSRAM.",
+        "Digitized from data sheet from TAOS",
+        sep = "\n")
+
+read.csv("data-raw/diffusers/ams-TSL257-angle.csv", header = TRUE) %>%
+  transmute(angle.deg = angle,
+            angle.rad = angle.deg * pi / 180,
+            response = response / max(response),
+            cosine = cos(angle.rad),
+            response.over.cosine = response / cosine) %>%
+  filter(angle.deg > -85 & angle.deg < 85) %>%
+  select(angle.deg, response, response.over.cosine) -> ams_TSL257.df
+comment(ams_TSL257.df) <-
+  paste("Angular response of sensor TSL257 from ams-OSRAM.",
+        "Digitized from data sheet from ams",
         sep = "\n")
 
 read.csv2("data-raw/diffusers/OO4mm-Ylianttila2005.csv") %>%
@@ -207,6 +249,41 @@ comment(VitalBW20_cosine.df) <-
         "From Ylianttila et al. (2005)",
         sep = "\n")
 
+# theorethical responses
+
+ideal_sphere <- data.frame(angle.deg = -90:90,
+                           response = 1,
+                           response.over.cosine = 1 / cos((-90:90) / 180 * pi)) |>
+  mutate(response.over.cosine = ifelse(response.over.cosine > 1e15,
+                                       Inf,
+                                       response.over.cosine))
+
+comment(ideal_sphere) <- "Theorical angular response of a sphere."
+
+# Wrong!!!
+#
+# ideal_dome <- data.frame(angle.deg = -90:90) |>
+#   mutate(response = 1 - abs(angle.deg)/90 * 0.5,
+#          response.over.cosine = response / cos(angle.deg / 180 * pi),
+#          response.over.cosine = ifelse(response.over.cosine > 1e15,
+#                                        Inf,
+#                                        response.over.cosine))
+
+ideal_dome <- data.frame(angle.deg = c(-90, 0, 90),
+                         response = c(0.5, 1, 0.5),
+                         response.over.cosine = 1 / cos((c(-90, 0, 90)) / 180 * pi)) |>
+  mutate(response.over.cosine = ifelse(response.over.cosine > 1e15,
+                                       Inf,
+                                       response.over.cosine))
+comment(ideal_dome) <- "Theorical angular response of a dome."
+
+ideal_cosine <- data.frame(angle.deg = -90:90,
+                           response = cos(-90:90 / 180 * pi),
+                           response.over.cosine = 1)
+
+comment(ideal_cosine) <- "Theorical angular response of a flat surface"
+
+
 diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
                       bentham.D7 = Bentham_D7_cosine.df,
                       bentham.D7.dome = Bentham_D7_dome.df,
@@ -218,10 +295,24 @@ diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
                       schreder.J1002 = Schreder_J1002_cosine.df,
                       Scintec = Scintec_cosine.df,
                       Solarlight.501 = SL501_cosine.df,
-                      vital.BW20 = VitalBW20_cosine.df)
+                      vishay.VEML6075 = Vishay_VEML6075.df,
+                      vital.BW20 = VitalBW20_cosine.df,
+                      ams.TSL254R = ams_TSL254R.df,
+                      ams.TSL257 = ams_TSL257.df,
+                      ideal.cosine = ideal_cosine,
+                      ideal.dome = ideal_dome,
+                      ideal.sphere = ideal_sphere)
+
+diffusers.lst <- diffusers.lst[sort(names(diffusers.lst))]
 
 all_diffusers <- names(diffusers.lst)
 dome_diffusers <- grep("dome", all_diffusers, value = TRUE)
+entrance_optics <- grep("benthan", all_diffusers, value = TRUE)
+ic_optics <- grep("^ams|^vishay", all_diffusers, value = TRUE)
+ideal_optics <- grep("^ideal", all_diffusers, value = TRUE)
+sensor_optics <- setdiff(all_diffusers,
+                         c(entrance_optics, ic_optics, ideal_optics))
+
 cosine_diffusers <- setdiff(all_diffusers, dome_diffusers)
 
 for (d in all_diffusers) {
@@ -229,7 +320,8 @@ for (d in all_diffusers) {
   diffusers.lst[[d]] <- thin_angles(diffusers.lst[[d]], step = 1, span = 0.2)
   print(diffusers.lst[[d]])
 }
-save(all_diffusers, dome_diffusers, cosine_diffusers,
+save(all_diffusers, dome_diffusers, cosine_diffusers, entrance_optics,
+     sensor_optics, ic_optics, ideal_optics,
      diffusers.lst, file = "data/diffusers-lst.rda")
 
 for (name in names(diffusers.lst)) {
@@ -240,6 +332,13 @@ diffusers.df <- bind_rows(diffusers.lst)
 
 ggplot(diffusers.df,
        aes(angle.deg, response.over.cosine, color = diffuser)) +
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
+
+ggplot(diffusers.df,
+       aes(angle.deg, response, color = diffuser)) +
   geom_hline(yintercept = 1) +
   geom_line() +
   expand_limits(y = 0) +
@@ -258,6 +357,7 @@ ggplot(subset(diffusers.df, diffuser %in% dome_diffusers),
   geom_hline(yintercept = 1) +
   geom_line() +
   expand_limits(y = 0) +
+  scale_x_continuous(breaks = c(-90, -60, -45, -30, 0, 30, 45, 60, 90)) +
   theme_bw()
 
 ggplot(subset(diffusers.df, grepl("D7", diffuser)),
@@ -268,6 +368,20 @@ ggplot(subset(diffusers.df, grepl("D7", diffuser)),
   theme_bw()
 
 ggplot(subset(diffusers.df, grepl("D7", diffuser)),
+       aes(angle.deg, response.over.cosine, color = diffuser)) +
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
+
+ggplot(subset(diffusers.df, grepl("ams", diffuser)),
+       aes(angle.deg, response.over.cosine, color = diffuser)) +
+  geom_hline(yintercept = 1) +
+  geom_line() +
+  expand_limits(y = 0) +
+  theme_bw()
+
+ggplot(subset(diffusers.df, grepl("vishay", diffuser)),
        aes(angle.deg, response.over.cosine, color = diffuser)) +
   geom_hline(yintercept = 1) +
   geom_line() +

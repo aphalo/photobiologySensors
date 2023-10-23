@@ -10,10 +10,14 @@
 # 5) save all objects to a single .rda file in ./data
 #
 library(photobiology)
+library(ggspectra)
+
 library(dplyr)
 rm(list = ls())
 
 energy_as_default()
+
+plotting <- FALSE
 
 file.list <- list.files("./data-raw", "*.csv", full.names = TRUE)
 sensors.mspct <- response_mspct()
@@ -64,11 +68,6 @@ for (file.name in file.list) {
   } else {
     temp.dt <- interpolate_spct(temp.dt, length.out = 50)
   }
-  print(nrow(temp.dt))
-  if (nrow(temp.dt) > 200) {
-    temp.dt <- thin_wl(temp.dt, max.wl.step = 5, max.slope.delta = 0.0001)
-  }
-  print(nrow(temp.dt))
   what_measured(temp.dt) <- paste(gsub("_", " ", df.name), "light sensor")
   how_measured(temp.dt) <- "Digitized from plots in suppliers' literature"
   comment(temp.dt) <-
@@ -84,7 +83,19 @@ for (file.name in file.list) {
     cat("wrong base\n")
   #
   cat(class(temp.dt)[1], "\n\n")
-#  print(autoplot(temp.dt, annotations = c("+", "title:what:how")))
+  if (plotting) {
+    print(autoplot(temp.dt, annotations = c("+", "title:what:how")))
+    readline("Next: ")
+  }
+  print(nrow(temp.dt))
+  if (nrow(temp.dt) > 200) {
+    temp.dt <- thin_wl(temp.dt, max.wl.step = 5, max.slope.delta = 0.002)
+    if (plotting) {
+      print(autoplot(temp.dt) + ggtitle(df.name, "Thinned"))
+      readline("Next: ")
+    }
+  }
+  print(nrow(temp.dt))
   sensors.mspct[[df.name]] <- temp.dt
 }
 
@@ -106,12 +117,21 @@ analytik_sensors <- grep("Analytik_", all_sensors, value = TRUE)
 apogee_sensors <- grep("apogee_", all_sensors, value = TRUE)
 specmeters_sensors <- grep("Specmeters_", all_sensors, value = TRUE)
 ams_sensors <- grep("ams_", all_sensors, value = TRUE)
+vishay_sensors <- grep("Vishay_", all_sensors, value = TRUE)
 
 uvc_sensors <- c("sglux_SG01D_C", "Analytik_Jena_UVX25")
-uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B", "Analytik_Jena_UVX31")
-erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a", "SolarLight_501_Biometer_high_UVA", "SolarLight_501_Biometer_low_UVA",  "SolarLight_501_Biometer_typical", "Vital_BW_20", "Berger_UV_Biometer")
-uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421", "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
-uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors, "sglux_SG01L", "KIPP_CUV_5"))
+uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B",
+                 "Analytik_Jena_UVX31", "Vishay_VEML6075_UVB")
+erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
+                       "SolarLight_501_Biometer_high_UVA",
+                       "SolarLight_501_Biometer_low_UVA",
+                       "SolarLight_501_Biometer_typical",
+                       "Vital_BW_20", "Berger_UV_Biometer",
+                       "Vishay_VEML6075_UVA")
+uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421",
+                 "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
+uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
+                       "sglux_SG01L", "KIPP_CUV_5"))
 par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F")
 epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
@@ -119,15 +139,17 @@ pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200")
 red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
 far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
-multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR", "apogee_s2_131_R", "apogee_s2_131_FR")
-electronic_components <- grep("TSL|TOCON", all_sensors, value = TRUE)
+multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR", "apogee_s2_131_R",
+                          "apogee_s2_131_FR", "Vishay_VEML6075_UVA",
+                          "Vishay_VEML6075_UVB")
+electronic_components <- grep("TSL|TOCON|VEML", all_sensors, value = TRUE)
 
 collected_names <-
   unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
            solarlight_sensors, solarmeter_sensors, deltat_sensors,
            vitaltech_sensors, thiesclima_sensors, ideal_sensors,
            berger_sensors, analytik_sensors, apogee_sensors,
-           specmeters_sensors, ams_sensors,
+           specmeters_sensors, ams_sensors, vishay_sensors,
            electronic_components,
            uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
            par_sensors, epar_sensors,
@@ -148,7 +170,7 @@ save(sensors.mspct,
      solarlight_sensors, solarmeter_sensors, deltat_sensors,
      vitaltech_sensors, thiesclima_sensors, ideal_sensors,
      berger_sensors, analytik_sensors, apogee_sensors,
-     specmeters_sensors, ams_sensors,
+     specmeters_sensors, ams_sensors, vishay_sensors,
      electronic_components,
      uvc_sensors, uvb_sensors, erythemal_sensors, uva_sensors, uv_sensors,
      par_sensors, epar_sensors,

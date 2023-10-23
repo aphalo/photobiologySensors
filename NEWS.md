@@ -7,6 +7,13 @@ editor_options:
 photobiologySensors 0.5.1
 =========================
 
+** Data have changed, with vectors in many cases being shorter and wavelength
+steps of irregular size, but with minimal change in the information.**
+
+* Rebuild all spectral data objects with 'photobiology' (== 0.11.0) adding
+metadta, using smoothing of digitized curves and thinning of wavelengths.
+* Rebuild all angular response data data frames using loess to re-express 
+data at 1 degree intervals when possible, and slightly smooth the digitized data.
 * Add data for Analytik-Jena UV sensors UVX-25, UVX-31 and UVX-36.
 * Add data for Apogee sensors for PAR, ePAR, red+far-red, and UVA.
 * Add data for Specmeters sensor for PAR.
@@ -14,10 +21,6 @@ photobiologySensors 0.5.1
 * Add data for the newer R-type of LI-COR sensors.
 * Add data for a prototype "custom-made dome-shaped" D7 diffuser variant from
 Bentham.
-* Rebuild all spectral data objects with 'photobiology' (== 0.11.0) adding
-metadta, using smoothing of digitized curves and thinning of wavelengths.
-* Rebuild all angular response data data frames using loess to re-express all
-data at 1 degree intervals, and slightly smooth the digitized data.
 * Move Git repository from Bitbucket to GitHub.
 * Set up continuous integration (CI) for checks in GitHub repository.
 

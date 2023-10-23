@@ -5,14 +5,26 @@
 \alias{all_diffusers}
 \alias{cosine_diffusers}
 \alias{dome_diffusers}
+\alias{entrance_optics}
+\alias{sensor_optics}
+\alias{ic_optics}
+\alias{ideal_optics}
 \title{Entrance optics}
 \format{
 A character vector of names of members of the list of data
   frames.
 
-An object of class \code{character} of length 11.
+An object of class \code{character} of length 16.
 
-An object of class \code{character} of length 1.
+An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 0.
+
+An object of class \code{character} of length 12.
+
+An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 3.
 }
 \usage{
 all_diffusers
@@ -20,6 +32,14 @@ all_diffusers
 cosine_diffusers
 
 dome_diffusers
+
+entrance_optics
+
+sensor_optics
+
+ic_optics
+
+ideal_optics
 }
 \description{
 A vector of names useful for extracting subsets of angular
