@@ -6,7 +6,9 @@
 [![CRAN
 version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors)
 [![cran
-checks](https://cranchecks.info/badges/worst/photobiologySensors)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)[![R-CMD-check](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml)
+checks](https://badges.cranchecks.info/worst/photobiologySensors.svg)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)
+[![R build
+status](https://github.com/aphalo/photobiologySensors/workflows/R-CMD-check/badge.svg)](https://github.com/aphalo/photobiologySensors/actions)
 <!-- badges: end -->
 
 Package **photobiologySensors** is a collection of spectral
@@ -38,7 +40,7 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 40
+#> [1] 51
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -47,10 +49,10 @@ output.
 ``` r
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
-#>  [1] "Analytik_Jena_UVX25" "Analytik_Jena_UVX31" "Analytik_Jena_UVX36"
-#>  [4] "Berger_UV_Biometer"  "DeltaT_BF5"          "flat_e"             
-#>  [7] "flat_q"              "KIPP_CUV_5"          "KIPP_PQS1"          
-#> [10] "KIPP_UVS_A"
+#>  [1] "ams_TSL254R"         "ams_TSL257"          "Analytik_Jena_UVX25"
+#>  [4] "Analytik_Jena_UVX31" "Analytik_Jena_UVX36" "apogee_s2_131_FR"   
+#>  [7] "apogee_s2_131_R"     "apogee_sq_100X"      "apogee_sq_500"      
+#> [10] "apogee_sq_610"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -69,24 +71,25 @@ as show below, extract data for PAR sensors from Kipp.
 sensors.mspct[intersect(kipp_sensors, par_sensors)]
 #> Object: response_mspct [1 x 1]
 #> --- Member: KIPP_PQS1 ---
-#> Object: response_spct [652 x 2]
-#> Wavelength range 391.431-717.608 nm, step 0.5010399 nm 
+#> Object: response_spct [202 x 2]
+#> Wavelength range 391.431-717.608 nm, step 0.5010399-4.00832 nm 
+#> Label: KIPP PQS1 light sensor 
 #> Time unit 1s
 #> 
-#> # A tibble: 652 × 2
+#> # A tibble: 202 × 2
 #>    w.length s.e.response
 #>       <dbl>        <dbl>
-#>  1     391.       0.0296
-#>  2     392.       0.0396
-#>  3     392.       0.0496
-#>  4     393.       0.0589
-#>  5     393.       0.0679
-#>  6     394.       0.0786
-#>  7     394.       0.0911
-#>  8     395.       0.104 
-#>  9     395.       0.116 
-#> 10     396.       0.129 
-#> # … with 642 more rows
+#>  1     391.       0.0245
+#>  2     392.       0.0327
+#>  3     392.       0.0410
+#>  4     393.       0.0561
+#>  5     394.       0.0650
+#>  6     394.       0.0753
+#>  7     395.       0.0960
+#>  8     396.       0.119 
+#>  9     397.       0.134 
+#> 10     397.       0.153 
+#> # ℹ 192 more rows
 #> 
 #> --- END ---
 ```
@@ -103,7 +106,7 @@ q_response(sensors.mspct[["LICOR_LI_190R"]],
            list(waveband(c(400, 700)), waveband(c(700, 800))),
            quantity = "contribution")
 #>  R/Rtot[/q]_range.400.700 R/Rtot[/q]_range.700.800[ 
-#>               0.988945352               0.008465702 
+#>               0.988216111               0.008700788 
 #> attr(,"time.unit")
 #> [1] "second"
 #> attr(,"radiation.unit")
@@ -188,7 +191,6 @@ publications, please cite according to:
 
 ``` r
 citation("photobiologySensors")
-#> 
 #> To cite package 'photobiologySensors' in publications, please use:
 #> 
 #>   Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin,
@@ -210,6 +212,6 @@ citation("photobiologySensors")
 
 ## License
 
-© 2012-2022 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
+© 2012-2023 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
 the GPL, version 2 or greater. This software carries no warranty of any
 kind.

@@ -1,5 +1,5 @@
 ---
-title: "User Guide: 0 The R for Photobiology Suite"
+title: "The R for Photobiology Suite"
 subtitle: "Photobiology-related computations in R"
 author: "Pedro J. Aphalo"
 date: "Built: `r Sys.Date()`"
@@ -7,7 +7,7 @@ output:
   rmarkdown::html_vignette:
     toc: yes
 vignette: >
-  %\VignetteIndexEntry{User Guide: 0 The R for Photobiology Suite}
+  %\VignetteIndexEntry{The R for Photobiology Suite}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -115,10 +115,10 @@ implements facilities for plotting spectral data by extending package
 
 For additional information on these and other packages by the author
 please visit (<https://www.r4photobiology.info>) for news, and
-(<https://www.r4photobiology.info/package-status/>) for current status
-and links to on-line documentation and public Git repositories. Each
-package has its own public Git repository at my Bitbucket or GitHub accounts
-(<https://bitbucket.org/aphalo/>, <https://github.com/aphalo/>) from
+(<https://docs.r4photobiology.info/>) for current status
+and on-line documentation and public Git repositories. Each
+package has its own public Git repository at my GitHub account
+(<https://github.com/aphalo/>) from
 where the source code of the current and earlier versions can be cloned
 or forked.
 

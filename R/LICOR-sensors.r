@@ -36,7 +36,7 @@
 #' some degree in spectral response.
 #'
 #' Manufacturer: LI-COR Inc., Lincoln, Nebraska
-#' \url{https://www.licor.com/}
+#' \url{https://www.licor.com/env/}
 #'
 #' @references
 #' LI-COR (2005) Instruction Manual 'LI-COR Terrestrial Radiation Sensors'.

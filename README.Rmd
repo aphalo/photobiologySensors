@@ -16,10 +16,9 @@ knitr::opts_chunk$set(
 # photobiologySensors <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
-[![CRAN version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors) 
-[![cran checks](https://cranchecks.info/badges/worst/photobiologySensors)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)[![R-CMD-check](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aphalo/photobiologySensors/actions/workflows/R-CMD-check.yaml)
+ [![CRAN version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors) [![cran checks](https://badges.cranchecks.info/worst/photobiologySensors.svg)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html) [![R build status](https://github.com/aphalo/photobiologySensors/workflows/R-CMD-check/badge.svg)](https://github.com/aphalo/photobiologySensors/actions)
 <!-- badges: end -->
-
+  
 Package **photobiologySensors** is a collection of spectral responsiveness data
 for different broadband sensors and of angular response data for some of the
 same sensors and for cosine diffusers and other entrance optics used with
@@ -144,5 +143,5 @@ citation("photobiologySensors")
 
 ## License
 
-© 2012-2022 Pedro J. Aphalo (pedro.aphalo@helsinki.fi). Released under the GPL, version 2 or greater. This software carries no warranty of any kind.
+© 2012-2023 Pedro J. Aphalo (pedro.aphalo@helsinki.fi). Released under the GPL, version 2 or greater. This software carries no warranty of any kind.
 

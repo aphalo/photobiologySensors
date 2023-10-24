@@ -42,7 +42,7 @@ particular sensor unit. Individual sensor units are expected to differ to
 some degree in spectral response.
 
 Manufacturer: LI-COR Inc., Lincoln, Nebraska
-\url{https://www.licor.com/}
+\url{https://www.licor.com/env/}
 }
 \examples{
 licor_sensors

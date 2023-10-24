@@ -39,7 +39,7 @@ ams_sensors
 
 }
 \references{
-Data sheet for TSL254R (TAOS, TAOS071C − SEPTEMBER 2007)
+Data sheet for TSL254R (TAOS, TAOS071C - SEPTEMBER 2007)
 
 Data sheet for TSL257 ([v1-00] 2016-Jul-25)
 }

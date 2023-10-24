@@ -23,7 +23,7 @@ process from figures with a linear scale is prone to errors, which
 are specially noticeable in regions of low responsivity.
 
 Manufacturer: Delta-T Devices Ltd, CAMBRIDGE CB25 0EJ, UK
-\url{https://www.delta-t.co.uk/}
+\url{https://delta-t.co.uk/}
 }
 \examples{
 deltat_sensors
