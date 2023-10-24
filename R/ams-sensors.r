@@ -25,7 +25,7 @@
 #' specific sensor unit. Individual sensor units are expected to differ to some
 #' degree in spectral response.
 #'
-#' Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/}
+#' Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/ams-start}
 #'
 #' @references
 #' Data sheet for TSL254R (TAOS, TAOS071C - SEPTEMBER 2007)

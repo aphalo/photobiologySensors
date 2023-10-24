@@ -31,7 +31,7 @@ digitizing process, and because they are either typical values or for a
 specific sensor unit. Individual sensor units are expected to differ to some
 degree in spectral response.
 
-Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/}
+Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/ams-start}
 }
 \examples{
 

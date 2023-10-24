@@ -11,11 +11,15 @@ reference:
   - title: Spectral response
     contents:
     - sensors.mspct
-  - title: Indexing vectors for `sensors.mspct`
+  - title: Indexing vectors by type
     contents:
     - uv_sensors
     - ideal_sensors
+  - title: Indexing vectors by make
+    contents:
+    - ams_sensors
     - analytik_sensors
+    - apogee_sensors
     - berger_sensors
     - deltat_sensors
     - kipp_sensors
@@ -24,7 +28,9 @@ reference:
     - skye_sensors
     - solarlight_sensors
     - solarmeter_sensors
+    - specmeters_sensors
     - thiesclima_sensors
+    - vishay_sensors
     - vitaltech_sensors
   - title: Angular response
     contents:
@@ -50,9 +56,9 @@ navbar:
     articles:
       text: User Guide
       menu:
-      - text: '0 The R for Photobiology Suite'
+      - text: 'The R for Photobiology Suite'
         href: articles/r4p-introduction.html
-      - text: '1 Using the Data'
+      - text: 'Using the Data'
         href: articles/userguide-1.html
     tutorials:
       text: Resources

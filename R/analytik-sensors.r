@@ -20,7 +20,7 @@
 #' spectral response.
 #'
 #' Manufacturer: Analytik Jena US LLC, Upland, CA, USA (former UVP)
-#' \url{https://www.analytik-jena.us/} or \url{www.uvp.com}
+#' \url{https://www.analytik-jena.com/} or \url{https://www.uvp.com/}.
 #'
 #' @references
 #' Product manual: 'UVP UVX Radiometer: Instruction Guide'
