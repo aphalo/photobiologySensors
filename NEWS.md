@@ -4,6 +4,12 @@ editor_options:
     wrap: 72
 ---
 
+photobiologySensors 0.5.2
+=========================
+
+* Data objects rebuilt with 'photobiology' 0.13.1.
+* Add data for the 14-channel AS7343 digital spectral sensor from ams-OSRAM.
+
 photobiologySensors 0.5.1
 =========================
 

@@ -144,6 +144,7 @@ multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR", "apogee_s2_131_R",
                           "Vishay_VEML6075_UVB")
 electronic_components <- grep("TSL|TOCON|VEML", all_sensors, value = TRUE)
 
+
 collected_names <-
   unique(c(skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
            solarlight_sensors, solarmeter_sensors, deltat_sensors,
