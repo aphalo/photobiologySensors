@@ -11,16 +11,16 @@ energy_as_default()
 
 plotting <- TRUE
 
-file.list <- list.files("./data-raw/ams", "AS7343.*\\.csv", full.names = TRUE)
+file.list <- list.files("./data-raw/ams", "AS7331.*\\.csv", full.names = TRUE)
 
-ams_AS7343.mspct <- response_mspct()
+ams_AS7331.mspct <- response_mspct()
 for (file.name in file.list) {
   # data object
   cat(basename(file.name), "\n")
-  df.name <- gsub(pattern = "^AS7343-|\\.csv$",
+  df.name <- gsub(pattern = "^AS7331-|\\.csv$",
                        replacement = "", x = basename(file.name),
                        fixed = FALSE)
-  temp.df <- read.csv(file.name, header = FALSE, skip = 1,
+  temp.df <- read.csv2(file.name, header = FALSE, skip = 1,
                       col.names = c("w.length", "s.e.response"),
                       colClasses = "numeric")
   temp.df <- group_by(temp.df, w.length)
@@ -64,19 +64,19 @@ for (file.name in file.list) {
     }
   }
   print(nrow(temp.dt))
-  ams_AS7343.mspct[[df.name]] <- temp.dt
+  ams_AS7331.mspct[[df.name]] <- temp.dt
 }
 
-ams_AS7343_channels <- names(ams_AS7343.mspct)
-ams_AS7343.spct <- rbindspct(ams_AS7343.mspct, idfactor = "channel")
-autoplot(ams_AS7343.spct)
+ams_AS7331_channels <- names(ams_AS7331.mspct)
+ams_AS7331.spct <- rbindspct(ams_AS7331.mspct, idfactor = "channel")
+autoplot(ams_AS7331.spct)
 
-what_measured(ams_AS7343.spct) <-
-  paste("ams AS7343 Spectral Sensor with 11 VIS channels and 2 NIR channels.",
-        "SMD electronic component from ams-OSRAM. 2023-current.")
-how_measured(ams_AS7343.spct) <-
+what_measured(ams_AS7331.spct) <-
+  paste("ams AS7331 Spectral Sensor with 3 UV channels.",
+        "SMD electronic component from ams-OSRAM. 2022-current.")
+how_measured(ams_AS7331.spct) <-
   "Digitized from plot in data sheet from ams-OSRAM with DigitizeIt."
-comment(ams_AS7343.spct) <-
+comment(ams_AS7331.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
-save(ams_AS7343.spct, file = "./data/ams-AS7343.rda")
+save(ams_AS7331.spct, file = "./data/ams-AS7331.rda")

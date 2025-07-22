@@ -12,10 +12,10 @@ ams_AS7343.spct
 }
 \description{
 AS7343 digital spectral sensor combining an array of photodiodes with
-interference filters deposites diectly on the sensor chip. The sensor
-dgitises the readings and communicates through I2C interface. In addition
+interference filters deposited diröectly on the sensor chip. The sensor
+digitises the readings and communicates through I2C interface. In addition
 to retrieving readings through I2C the analogue gain and integration time
-used for each channel can be programmed. The tolerance for the central
+used by can be programmed. The tolerance for the central
 wavelengths of the channels is \eqn{\pm 10 nm}.
 }
 \note{
@@ -34,7 +34,7 @@ summary(ams_AS7343.spct, expand = "collection")
 }
 \references{
 Data sheet for AS7343, ams-OSRAM. A USB module based on this
-sensor is available from YoctoPuce as the YoctoSpectrum
+sensor is available from YoctoPuce as the Yocto-Spectral
 (\url{https://www.yoctopuce.com}).
 }
 \keyword{datasets}
