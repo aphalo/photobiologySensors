@@ -104,7 +104,7 @@ for (file.name in file.list) {
   sensors.mspct[[df.name]] <- temp.dt
 }
 
-all_sensors <- names(sensors.mspct)
+all_sensors <- sort(names(sensors.mspct))
 
 skye_sensors <- grep("Skye_", all_sensors, value = TRUE)
 sglux_sensors <- grep("sglux_", all_sensors, value = TRUE)
@@ -185,6 +185,7 @@ save(sensors.mspct,
      shortwave_sensors, pyranometer_sensors,
      red_sensors, far_red_sensors, blue_sensors,
      multichannel_sensors,
+     all_sensors,
      file = "./data/sensors.mspct.rda")
 
 tools::resaveRdaFiles("data", compress="auto")

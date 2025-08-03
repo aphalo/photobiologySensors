@@ -29,7 +29,7 @@ An object of class \code{character} of length 2.
 
 An object of class \code{character} of length 6.
 
-An object of class \code{character} of length 9.
+An object of class \code{character} of length 8.
 
 An object of class \code{character} of length 6.
 
@@ -51,9 +51,9 @@ An object of class \code{character} of length 2.
 
 An object of class \code{character} of length 1.
 
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 9.
 
-An object of class \code{character} of length 5.
+An object of class \code{character} of length 8.
 }
 \usage{
 uv_sensors

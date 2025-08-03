@@ -40,7 +40,7 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 51
+#> [1] 55
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -49,10 +49,10 @@ output.
 ``` r
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
-#>  [1] "ams_TSL254R"         "ams_TSL257"          "Analytik_Jena_UVX25"
-#>  [4] "Analytik_Jena_UVX31" "Analytik_Jena_UVX36" "apogee_s2_131_FR"   
-#>  [7] "apogee_s2_131_R"     "apogee_sq_100X"      "apogee_sq_500"      
-#> [10] "apogee_sq_610"
+#>  [1] "ams_AS7331"          "ams_AS7341"          "ams_AS7343"         
+#>  [4] "ams_TSL2591"         "ams_TSL254R"         "ams_TSL257"         
+#>  [7] "Analytik_Jena_UVX25" "Analytik_Jena_UVX31" "Analytik_Jena_UVX36"
+#> [10] "apogee_s2_131_FR"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -74,8 +74,10 @@ sensors.mspct[intersect(kipp_sensors, par_sensors)]
 #> Object: response_spct [202 x 2]
 #> Wavelength range 391.431-717.608 nm, step 0.5010399-4.00832 nm 
 #> Label: KIPP PQS1 light sensor 
-#> Time unit 1s
-#> 
+#> Variables:
+#>  w.length: Wavelength [nm]
+#>  s.e.response: Spectral energy response [W-1 m2 nm] 
+#> --
 #> # A tibble: 202 × 2
 #>    w.length s.e.response
 #>       <dbl>        <dbl>
@@ -106,7 +108,7 @@ q_response(sensors.mspct[["LICOR_LI_190R"]],
            list(waveband(c(400, 700)), waveband(c(700, 800))),
            quantity = "contribution")
 #>  R/Rtot[/q]_range.400.700 R/Rtot[/q]_range.700.800[ 
-#>               0.988216111               0.008700788 
+#>                0.98821737                0.00870119 
 #> attr(,"time.unit")
 #> [1] "second"
 #> attr(,"radiation.unit")
@@ -191,7 +193,7 @@ publications, please cite according to:
 
 ``` r
 citation("photobiologySensors")
-#> To cite package 'photobiologySensors' in publications, please use:
+#> To cite package ‘photobiologySensors’ in publications use:
 #> 
 #>   Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin,
 #>   2015:1, 21-29. DOI:10.19232/uv4pb.2015.1.14
@@ -212,6 +214,6 @@ citation("photobiologySensors")
 
 ## License
 
-© 2012-2023 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
+© 2012-2025 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
 the GPL, version 2 or greater. This software carries no warranty of any
 kind.

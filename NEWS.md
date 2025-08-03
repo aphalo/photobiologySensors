@@ -8,9 +8,10 @@ photobiologySensors 0.5.2
 =========================
 
 * Data objects rebuilt with 'photobiology' 0.13.1.
-* Add data for the 14-channel AS7343 digital spectral sensor from ams-OSRAM.
-* Add data for the 3-channel AS7343 digital ultraviolet sensor from ams-OSRAM.
-* Add data for the TSL2591 digital ambient light sensor from ams-OSRAM.
+* Add data for the 13-channel AS7343 digital spectral sensor from ams-OSRAM.
+* Add data for the 11-channel AS7341 digital spectral sensor from ams-OSRAM.
+* Add data for the 3-channel AS7331 digital ultraviolet sensor from ams-OSRAM.
+* Add data for the 2-channel TSL2591 digital ambient light sensor from ams-OSRAM.
 
 photobiologySensors 0.5.1
 =========================
