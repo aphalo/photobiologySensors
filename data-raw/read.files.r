@@ -185,7 +185,6 @@ save(sensors.mspct,
      shortwave_sensors, pyranometer_sensors,
      red_sensors, far_red_sensors, blue_sensors,
      multichannel_sensors,
-     all_sensors,
      file = "./data/sensors.mspct.rda")
 
 tools::resaveRdaFiles("data", compress="auto")
