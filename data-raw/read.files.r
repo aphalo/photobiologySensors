@@ -19,8 +19,13 @@ energy_as_default()
 
 plotting <- FALSE
 
+# read pre-built objects for complex ICs
+load("data-raw/ic-sensors-mspct.rda")
+
+sensors.mspct <- ic_sensors.mpsct
+
+# read from .csv files data for simpler sensor
 file.list <- list.files("./data-raw", "*.csv", full.names = TRUE)
-sensors.mspct <- response_mspct()
 for (file.name in file.list) {
   # data object
   cat(basename(file.name), "\n")
@@ -126,8 +131,7 @@ erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
                        "SolarLight_501_Biometer_high_UVA",
                        "SolarLight_501_Biometer_low_UVA",
                        "SolarLight_501_Biometer_typical",
-                       "Vital_BW_20", "Berger_UV_Biometer",
-                       "Vishay_VEML6075_UVA")
+                       "Vital_BW_20", "Berger_UV_Biometer")
 uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421",
                  "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
@@ -139,10 +143,12 @@ pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200")
 red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
 far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
-multichannel_sensors <- c("Skye_SKR110_R", "Skye_SKR110_FR", "apogee_s2_131_R",
-                          "apogee_s2_131_FR", "Vishay_VEML6075_UVA",
-                          "Vishay_VEML6075_UVB")
-electronic_components <- grep("TSL|TOCON|VEML", all_sensors, value = TRUE)
+multichannel_sensors <-
+  c("Skye_SKR110_R", "Skye_SKR110_FR",
+    "apogee_s2_131_R", "apogee_s2_131_FR",
+    "Vishay_VEML6075",
+    "ams_AS7331", "ams_AS7341", "ams_AS7343", "ams_TSL2591")
+electronic_components <- grep("^ams_|TOCON|^Vishay_", all_sensors, value = TRUE)
 
 
 collected_names <-

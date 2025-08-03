@@ -12,18 +12,16 @@ energy_as_default()
 
 plotting <- TRUE
 
-file.list <- list.files("./data-raw/ams", "AS7331.*\\.csv", full.names = TRUE)
+file.list <- list.files("./data-raw/vishay", "Vishay-VEML6075-.*\\.csv", full.names = TRUE)
 
-ams_AS7331.mspct <- response_mspct()
+Vishay_VEML6075.mspct <- response_mspct()
 for (file.name in file.list) {
   # data object
   cat(basename(file.name), "\n")
-  df.name <- gsub(pattern = "^AS7331-|\\.csv$",
+  df.name <- gsub(pattern = "^Vishay-VEML6075-|\\.csv$",
                        replacement = "", x = basename(file.name),
                        fixed = FALSE)
-  temp.df <- read.csv(file.name, header = FALSE, skip = 1,
-                      col.names = c("w.length", "s.e.response"),
-                      colClasses = "numeric")
+  temp.df <- read.csv(file.name, header = TRUE, comment.char = "#")
   if (anyNA(temp.df$w.length)) {
     stop("'w.length' NA found at row(s): ", which(is.na(temp.df$w.length)))
   }
@@ -72,38 +70,38 @@ for (file.name in file.list) {
     }
   }
   print(nrow(temp.dt))
-  ams_AS7331.mspct[[df.name]] <- temp.dt
+  Vishay_VEML6075.mspct[[df.name]] <- temp.dt
 }
 
-ams_AS7331_channels <- names(ams_AS7331.mspct)
-ams_AS7331.spct <-
-  rbindspct(normalise(ams_AS7331.mspct), idfactor = "channel")
-autoplot(ams_AS7331.spct, annotations = "wls", facets = 1)
+Vishay_VEML6075_channels <- names(Vishay_VEML6075.mspct)
+Vishay_VEML6075.spct <-
+  rbindspct(normalise(Vishay_VEML6075.mspct), idfactor = "channel")
+autoplot(Vishay_VEML6075.spct, annotations = "wls", facets = 1)
 
 # descriptor of sensor channels
 
-AS7331_channels.tb <-
+VEML6075_channels.tb <-
   data.frame(ch.no = 1:3,
              sensor.ch.name = c("UVA", "UVB", "UVC"),
              ch.wl.peak = c(337, 293, 251),
              ch.fwhm = c(88, 33, 39))
 
 # updating a data.frame column by column drops names!
-AS7331_channels.named_tb <- list()
-for (col in colnames(AS7331_channels.tb)) {
-  temp <- AS7331_channels.tb[[col]]
+VEML6075_channels.named_tb <- list()
+for (col in colnames(VEML6075_channels.tb)) {
+  temp <- VEML6075_channels.tb[[col]]
   if (col == "ch.ic.name") {
-    names(temp) <- AS7331_channels.tb$module.ch.name
+    names(temp) <- VEML6075_channels.tb$module.ch.name
   } else {
-    names(temp) <- AS7331_channels.tb$sensor.ch.name
+    names(temp) <- VEML6075_channels.tb$sensor.ch.name
   }
-  AS7331_channels.named_tb[[col]] <- I(temp)
+  VEML6075_channels.named_tb[[col]] <- I(temp)
 }
-AS7331_channels.named_tb <- as.data.frame(AS7331_channels.named_tb)
-# names(AS7331_channels.named_tb[[2]])
+VEML6075_channels.named_tb <- as.data.frame(VEML6075_channels.named_tb)
+# names(VEML6075_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "AS7331",
-                          sensor.supplier = "ams OSRAM",
+sensor.properties <- list(sensor.name = "VEML6075",
+                          sensor.supplier = "Vishay",
                           sensor.type = "integrated circuit",
                           sensor.io = "I2C",
 #                          module.name = "Yocto-I2C and IC breakout board",
@@ -111,19 +109,22 @@ sensor.properties <- list(sensor.name = "AS7331",
 #                          module.io = "USB",
                           num.channels = 3,
                           output = "digital",
-                          channels = AS7331_channels.named_tb)
+                          channels = VEML6075_channels.named_tb)
 
-attr(ams_AS7331.spct, "sensor.properties") <- sensor.properties
+attr(Vishay_VEML6075.spct, "sensor.properties") <- sensor.properties
 
-what_measured(ams_AS7331.spct) <-
-  paste("ams AS7331 Spectral Sensor with 3 UV channels.",
-        "SMD electronic component from ams-OSRAM. 2022-current.")
-how_measured(ams_AS7331.spct) <-
+what_measured(Vishay_VEML6075.spct) <-
+  paste("VEML6075 UV Sensor with 2 UV channels:",
+        "UV-A1 and UV-A2 but named \"UVA\" and \"UVB\"!",
+        "SMD electronic component from Vishay. 2016-2019 (still available?).",
+        "Manufacturer: VISHAY INTERTECHNOLOGY, INC. Shelton, CT, USA.",
+        "https://www.vishay.com/.")
+how_measured(Vishay_VEML6075.spct) <-
   "Digitized from plot in data sheet from ams-OSRAM with DigitizeIt."
-comment(ams_AS7331.spct) <-
+comment(Vishay_VEML6075.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
-autoplot(ams_AS7331.spct,
+autoplot(Vishay_VEML6075.spct,
          annotations = c("wls.labels", "peak.labels", "colour.guide"))
 
-save(ams_AS7331.spct, file = "./data-raw/ams/ams-AS7331.rda")
+save(Vishay_VEML6075.spct, file = "./data-raw/vishay/Vishay-VEML6075.rda")

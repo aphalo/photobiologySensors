@@ -12,18 +12,19 @@ energy_as_default()
 plotting <- TRUE
 
 # read DigitizeIt CSV file
-file.list <- list.files("./data-raw/ams", "AS7343.*\\.csv", full.names = TRUE)
+file.list <- list.files("./data-raw/ams", "AS7341.*\\.csv", full.names = TRUE)
 
-ams_AS7343.mspct <- response_mspct()
-for (file.name in file.list) {
+ams_AS7341.mspct <- response_mspct()
+for (file.name in rev(file.list)) {
   # data object
   cat(basename(file.name), "\n")
-  df.name <- gsub(pattern = "^AS7343-|\\.csv$",
-                       replacement = "", x = basename(file.name),
-                       fixed = FALSE)
+  df.name <- gsub(pattern = "^AS7341-|\\.csv$",
+                  replacement = "", x = basename(file.name),
+                  fixed = FALSE)
   temp.df <- read.csv(file.name, header = FALSE, skip = 1,
                       col.names = c("w.length", "s.e.response"),
                       colClasses = "numeric")
+  temp.df <- distinct(temp.df)
   temp.df <- group_by(temp.df, w.length)
   temp.dt <- summarize(temp.df, s.e.response = mean(s.e.response))
   setResponseSpct(temp.dt)
@@ -65,59 +66,61 @@ for (file.name in file.list) {
     }
   }
   print(nrow(temp.dt))
-  ams_AS7343.mspct[[df.name]] <- temp.dt
+  ams_AS7341.mspct[[df.name]] <- temp.dt
 }
 
-ams_AS7343_channels <- names(ams_AS7343.mspct)
-ams_AS7343.spct <-
-  rbindspct(normalise(ams_AS7343.mspct), idfactor = "channel")
-autoplot(ams_AS7343.spct)
+ams_AS7341_channels <- names(ams_AS7341.mspct)
+
+ams_AS7341.spct <-
+  rbindspct(ams_AS7341.mspct, idfactor = "channel") |> normalise()
+
+autoplot(ams_AS7341.spct)
 
 # descriptor of sensor channels
 
-AS7343_channels.tb <-
-  data.frame(ch.no = 1:13,
-             module.ch.name = paste("spectralChannel", 1:13, sep = ""),
-             sensor.ch.name = c("F1", "F2", "FZ", "F3", "F4", "FY", "F5", "FXL", "F6", "F7", "F8", "NIR", "VIS"),
-             ch.wl.peak = c(405, 425, 450, 475, 515, 555, 550, 600, 640, 690, 745, 855, 600),
-             ch.fwhm = c(30, 22, 55, 30, 40, 100, 35, 80, 50, 55, 60, 54, NA))
+AS7341_channels.tb <-
+  data.frame(ch.no = 1:10,
+             module.ch.name = paste("spectralChannel", 1:10, sep = ""),
+             sensor.ch.name = c("F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "Clear", "NIR"),
+             ch.wl.peak = c(415, 445, 480, 515, 555, 590, 630, 680, NA, 910),
+             ch.fwhm = c(26, 30, 36, 39, 39, 40, 50, 52, NA, NA))
 
 # updating a data.frame column by column drops names!
-AS7343_channels.named_tb <- list()
-for (col in colnames(AS7343_channels.tb)) {
-  temp <- AS7343_channels.tb[[col]]
+AS7341_channels.named_tb <- list()
+for (col in colnames(AS7341_channels.tb)) {
+  temp <- AS7341_channels.tb[[col]]
   if (col == "ch.ic.name") {
-    names(temp) <- AS7343_channels.tb$module.ch.name
+    names(temp) <- AS7341_channels.tb$module.ch.name
   } else {
-    names(temp) <- AS7343_channels.tb$sensor.ch.name
+    names(temp) <- AS7341_channels.tb$sensor.ch.name
   }
-  AS7343_channels.named_tb[[col]] <- I(temp)
+  AS7341_channels.named_tb[[col]] <- I(temp)
 }
-AS7343_channels.named_tb <- as.data.frame(AS7343_channels.named_tb)
-# names(AS7343_channels.named_tb[[2]])
+AS7341_channels.named_tb <- as.data.frame(AS7341_channels.named_tb)
+# names(AS7341_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "AS7343",
+sensor.properties <- list(sensor.name = "AS7341",
                           sensor.supplier = "ams OSRAM",
                           sensor.type = "integrated circuit",
                           sensor.io = "I2C",
-                          module.name = "Yocto-Spectral",
-                          module.supplier = "YoctoPuce",
-                          module.io = "USB",
-                          num.channels = 13,
+                          # module.name = "Yocto-Spectral",
+                          # module.supplier = "YoctoPuce",
+                          # module.io = "USB",
+                          num.channels = 10,
                           output = "digital",
-                          channels = AS7343_channels.named_tb)
+                          channels = AS7341_channels.named_tb)
 
-attr(ams_AS7343.spct, "sensor.properties") <- sensor.properties
+attr(ams_AS7341.spct, "sensor.properties") <- sensor.properties
 
-what_measured(ams_AS7343.spct) <-
-  paste("ams AS7343 Spectral Sensor with 11 VIS channels and 2 NIR channels.",
+what_measured(ams_AS7341.spct) <-
+  paste("ams AS7341 Spectral Sensor with 11 VIS channels and 2 NIR channels.",
         "SMD electronic component from ams-OSRAM. 2023-current.")
-how_measured(ams_AS7343.spct) <-
+how_measured(ams_AS7341.spct) <-
   "Digitized from plot in data sheet from ams-OSRAM with DigitizeIt."
-comment(ams_AS7343.spct) <-
+comment(ams_AS7341.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
-autoplot(ams_AS7343.spct,
+autoplot(ams_AS7341.spct,
          annotations = c("peak.labels", "colour.guide"))
 
-save(ams_AS7343.spct, file = "./data-raw/ams/ams-AS7343.rda")
+save(ams_AS7341.spct, file = "./data-raw/ams/ams-AS7341.rda")

@@ -68,8 +68,46 @@ for (file.name in file.list) {
 }
 
 ams_TSL2591_channels <- names(ams_TSL2591.mspct)
-ams_TSL2591.spct <- rbindspct(ams_TSL2591.mspct, idfactor = "channel")
-autoplot(ams_TSL2591.spct)
+ams_TSL2591.spct <-
+  rbindspct(normalise(ams_TSL2591.mspct), idfactor = "channel")
+autoplot(ams_TSL2591.spct, annotations = c("+", "wls"))
+
+autoplot(ams_TSL2591.spct,
+         annotations = c("wls.labels", "peak.labels", "colour.guide", "boxes", "labels"))
+# descriptor of sensor channels
+
+TSL2591_channels.tb <-
+  data.frame(ch.no = 1:2,
+             sensor.ch.name = c("ch0", "ch1"),
+             ch.wl.peak = c(650, 818),
+             ch.fwhm = c(400, 290))
+
+# updating a data.frame column by column drops names!
+TSL2591_channels.named_tb <- list()
+for (col in colnames(TSL2591_channels.tb)) {
+  temp <- TSL2591_channels.tb[[col]]
+  if (col == "ch.ic.name") {
+    names(temp) <- TSL2591_channels.tb$module.ch.name
+  } else {
+    names(temp) <- TSL2591_channels.tb$sensor.ch.name
+  }
+  TSL2591_channels.named_tb[[col]] <- I(temp)
+}
+TSL2591_channels.named_tb <- as.data.frame(TSL2591_channels.named_tb)
+# names(TSL2591_channels.named_tb[[2]])
+
+sensor.properties <- list(sensor.name = "TSL2591",
+                          sensor.supplier = "ams OSRAM",
+                          sensor.type = "integrated circuit",
+                          sensor.io = "I2C",
+                          # module.name = "Yocto-I2C and IC breakout board",
+                          # module.supplier = "YoctoPuce",
+                          # module.io = "USB",
+                          num.channels = 2,
+                          output = "digital",
+                          channels = TSL2591_channels.named_tb)
+
+attr(ams_TSL2591.spct, "sensor.properties") <- sensor.properties
 
 what_measured(ams_TSL2591.spct) <-
   paste("ams TSL2591 ambient light sensor.",
@@ -79,4 +117,4 @@ how_measured(ams_TSL2591.spct) <-
 comment(ams_TSL2591.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
-save(ams_TSL2591.spct, file = "./data/ams-TSL2591.rda")
+save(ams_TSL2591.spct, file = "./data-raw/ams/ams-TSL2591.rda")
