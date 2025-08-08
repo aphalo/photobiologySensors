@@ -23,13 +23,22 @@ for type TSL250, TSL251 and TSL252.  (part is no longer in production.)
 TSL257 high-sensitivity low-noise light-to-voltage optical
 converter that combines a photodiode and a transimpedance amplifier,
 sold as electronic components.
+
+AS7263, AS7331, AS7341, AS7343, TSL2501 are miniature multichannel sensors
+in SMD packages. In addition to photodiodes and optical filters they contain
+analogue signal amplifiers and analogue to digital conversion circuits. The
+data are returned digitally through an I2C serial interface. In some of them
+analogue gain and ADC integration time can be set through the I2C interface.
 }
 \note{
 Digitized with 'DigitizeIt' from manufacturers data sheets. This are
-approximate data, both because of the
-digitizing process, and because they are either typical values or for a
-specific sensor unit. Individual sensor units are expected to differ to some
-degree in spectral response.
+approximate data, both because of the digitizing process, and because they
+are either typical values or for a specific sensor unit. Individual sensor
+units are expected to differ to some degree in spectral response. In the case
+of multichannel sensors, the spectra for all channels are plotted in the same
+figure in the data sheets and in out-of-band regions the lines overlap making
+accurate extraction of values very difficult. Variation from unit to unit
+affects both response and center/peak wavelengths.
 
 Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/ams-start}
 }
@@ -41,6 +50,16 @@ ams_sensors
 \references{
 Data sheet for TSL254R (TAOS, TAOS071C - SEPTEMBER 2007)
 
-Data sheet for TSL257 ([v1-00] 2016-Jul-25)
+Data sheet for TSL257 (v1-00, 2016-Jul-25)
+
+Data sheet for TSL2591 (ams DS000338, v3-00, 2023-Feb-08)
+
+Data sheet for AS7263 (ams DS000476, v4-00, 2022-Nov-30)
+
+Data sheet for AS7331 (ams DS001047, v4-00, 2023-Mar-24)
+
+Data sheet for AS7341 (ams DS000504, v3-00, 2020-Jun-25)
+
+Data sheet for AS7343 (ams DS001046, v6-00, 2023-Jun-07)
 }
 \keyword{datasets}

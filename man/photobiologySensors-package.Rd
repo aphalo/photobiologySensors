@@ -79,7 +79,7 @@ Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://www.r4photobiology.info}
+  \item \url{https://docs.r4photobiology.info/photobiologySensors/}
   \item \url{https://github.com/aphalo/photobiologysensors}
   \item Report bugs at \url{https://github.com/aphalo/photobiologysensors/issues}
 }

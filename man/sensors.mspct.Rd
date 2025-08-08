@@ -5,15 +5,24 @@
 \alias{sensors.mspct}
 \title{Spectral response of sensors}
 \format{
-A \code{response_mspct} object containing a
+A \code{response_mspct} object containing
 \code{response_spct} objects as \emph{named} members.
 
-Each member spectrum contains two variables, with responsivity in most cases
-in relative energy units:
+Spectral objects for single channel sensers contain two numeric variables,
+with responsivity in most cases in relative energy units:
 \itemize{
    \item w.length (nm)
    \item s.e.response (r.u.)
 }
+Spectral objects for multichannel sensors contain the spectra in long form
+with two numeric variables, and in addition a factor with channel ids:
+\itemize{
+   \item w.length (nm)
+   \item s.e.response (r.u.)
+   \item channel (factor with names as levels)
+}
+The spectral objects contain, in addition to the spectral data, metadata
+stored in R attributes.
 }
 \usage{
 sensors.mspct
@@ -25,18 +34,19 @@ collection contains two variables, wavelengths (nm) at either regular or
 irregular intervals and spectral responsiveness (in energy units).
 Spectral data are in most cases normalized to one at the wavelength of
 maximum energy responsivity. Absolute calibration values are given only for
-data from a publication which reports on mulstiple units of the same type.
+data from a publication which reports on multiple units of the same type.
 }
 \note{
 In addition to this object containing the spectral data, this package
 provides character vectors useful for subsetting spectra by supplier, type,
-color, etc.
+colour, etc.
 }
 \examples{
 names(sensors.mspct)
 
 }
 \seealso{
-\code{\link[photobiology]{source_spct}} and \code{\link[photobiology]{generic_mspct}}
+\code{\link[photobiology]{source_spct}} and
+\code{\link[photobiology:generic_mspct]{source_mspct}}
 }
 \keyword{datasets}

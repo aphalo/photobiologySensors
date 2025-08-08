@@ -17,13 +17,13 @@
 #' Skye UVI Sensor Sensor SKU440 V. 3.
 #'
 #' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
-#' \url{https://www.skyeinstruments.com/}
+#' Dead URL: \emph{https://www.skyeinstruments.com/}
 #'
 #' @note
 #' Spectral data digitized from figures in manufacturer's manuals.
 #' These are typical measured data, and for specific sensor units the
 #' calibration data supplied with the sensor must be used as individual
-#' may differ in their spectral response. Furthermore, the digigitizing
+#' may differ in their spectral response. Furthermore, the digitizing
 #' process from figures with a linear scale is prone to errors, which
 #' are specially noticeable in regions of low responsivity.
 #'
@@ -40,8 +40,8 @@
 #' Manufacturer's 'SKU 440 UV Index Sensor' V. 3 brochure, not dated, dowloaded on 2015-01-24
 #'
 #' KJ McCree. The action spectrum, absorbance and quantum yield of
-#' photosynthesis in crop plants. Agricultural Meteorology. 1971/72
-#' Vol 9, pp 191-216
+#'   photosynthesis in crop plants. Agricultural Meteorology. 1971/72
+#'   Vol 9, pp 191-216
 #'
 #' @examples
 #' skye_sensors

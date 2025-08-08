@@ -139,7 +139,7 @@ uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
 par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F")
 epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
-pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200")
+pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200", "KIPP_CM21")
 red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
 far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
@@ -147,7 +147,7 @@ multichannel_sensors <-
   c("Skye_SKR110_R", "Skye_SKR110_FR",
     "apogee_s2_131_R", "apogee_s2_131_FR",
     "Vishay_VEML6075",
-    "ams_AS7331", "ams_AS7341", "ams_AS7343", "ams_TSL2591")
+    "ams_AS7263", "ams_AS7331", "ams_AS7341", "ams_AS7343", "ams_TSL2591")
 electronic_components <- grep("^ams_|TOCON|^Vishay_", all_sensors, value = TRUE)
 
 

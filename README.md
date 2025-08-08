@@ -6,9 +6,12 @@
 [![CRAN
 version](https://www.r-pkg.org/badges/version-last-release/photobiologySensors)](https://cran.r-project.org/package=photobiologySensors)
 [![cran
-checks](https://badges.cranchecks.info/worst/photobiologySensors.svg)](https://cran.r-project.org/web/checks/check_results_photobiologySensors.html)
-[![R build
-status](https://github.com/aphalo/photobiologySensors/workflows/R-CMD-check/badge.svg)](https://github.com/aphalo/photobiologySensors/actions)
+checks](https://badges.cranchecks.info/worst/photobiologySensors.svg)](https://cran.r-project.org/web/checks/check_results_photobiology.html)
+[![photobiologySensors status
+badge](https://aphalo.r-universe.dev/badges/photobiologySensors)](https://aphalo.r-universe.dev/photobiologySensors)
+[![R-CMD-check](https://github.com/aphalo/photobiologySensors/workflows/R-CMD-check/badge.svg)](https://github.com/aphalo/photobiologySensors/actions)
+[![Documentation](https://img.shields.io/badge/documentation-photobiologySensors-informational.svg)](https://docs.r4photobiology.info/photobiologySensors/)
+[![doi](https://img.shields.io/badge/doi-10.32614/CRAN.package.photobiologySensors-blue.svg)](https://doi.org/10.32614/CRAN.package.photobiologySensors)
 <!-- badges: end -->
 
 Package **photobiologySensors** is a collection of spectral
@@ -17,15 +20,6 @@ response data for some of the same sensors and for cosine diffusers and
 other entrance optics used with spectrometers. It complements other
 packages in the suite of R packages for photobiology ‘r4photobiology’.
 This package contains only data.
-
-## Code breaking renaming of data objects
-
-In the update to version 0.5.0 several members of the collection of
-filter spectra were renamed to ensure consistency and clarity. As of
-version 0.5.0 all member names start with the name of the manufacturer
-or supplier. In addition, several of the vectors of names of member
-spectra were renamed to include the word “sensors” to avoid possible
-name clashes with other packages and also to improve naming consistency.
 
 ## Examples
 
@@ -50,9 +44,9 @@ output.
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
 #>  [1] "ams_AS7331"          "ams_AS7341"          "ams_AS7343"         
-#>  [4] "ams_TSL2591"         "ams_TSL254R"         "ams_TSL257"         
-#>  [7] "Analytik_Jena_UVX25" "Analytik_Jena_UVX31" "Analytik_Jena_UVX36"
-#> [10] "apogee_s2_131_FR"
+#>  [4] "ams_TSL2591"         "Vishay_VEML6075"     "ams_TSL254R"        
+#>  [7] "ams_TSL257"          "Analytik_Jena_UVX25" "Analytik_Jena_UVX31"
+#> [10] "Analytik_Jena_UVX36"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -127,6 +121,16 @@ autoplot(sensors.mspct[["LICOR_LI_190R"]])
 
 ![](man/figures/README-example-07-1.png)<!-- -->
 
+## Code breaking renaming of data objects in 2020
+
+In the update to version 0.5.0 in October 2020 several members of the
+collection of sensor-response spectra were renamed to ensure consistency
+and clarity. As of version 0.5.0 all member names start with the name of
+the manufacturer or supplier. In addition, several of the vectors of
+names of member spectra were renamed to include the word “sensors” to
+avoid possible name clashes with other packages and also to improve
+naming consistency.
+
 ## Installation
 
 Installation of the most recent stable version from CRAN:
@@ -135,24 +139,48 @@ Installation of the most recent stable version from CRAN:
 install.packages("photobiologySensors")
 ```
 
-Installation of the current unstable version from Bitbucket:
+Installation of the current unstable version from R-Universe CRAN-like
+repository (synchronised with GitHub):
+
+``` r
+install.packages('photobiologySensors', 
+                 repos = c('https://aphalo.r-universe.dev', 
+                           'https://cloud.r-project.org'))
+```
+
+The two approaches above, automatically install dependencies.
+
+Installation of the current unstable version from GitHub sources:
 
 ``` r
 # install.packages("devtools")
-remotes::install_github("aphalo/photobiologySensors")
+devtools::install_github("aphalo/photobiologySensors")
+```
+
+Installation from GitHub sources does not automatically install
+dependencies. Once package ‘photobiology’ is installed, installation of
+the remaining or missing packages in the suite from CRAN (or by adding
+the repository information as above, also from R-Universe):
+
+``` r
+intalled_pkgs <- installed.packages()[ , 1]
+missing_pkgs <- setdiff(photobiology::r4p_pkgs, intalled_pkgs)
+if (length(missing_pkgs) > 0) {
+ install.packages(missing_pkgs)
+}
 ```
 
 ## Documentation
 
 HTML documentation is available at
-(<https://docs.r4photobiology.info/photobiologyFilters/>), including a
+(<https://docs.r4photobiology.info/photobiologySensors/>), including the
 *User Guide*.
 
 News on updates to the different packages of the ‘r4photobiology’ suite
 are regularly posted at (<https://www.r4photobiology.info/>).
 
 Two articles introduce the basic ideas behind the design of the suite
-and its use: Aphalo P. J. (2015)
+and describe its use: Aphalo P. J. (2015)
 (<https://doi.org/10.19232/uv4pb.2015.1.14>) and Aphalo P. J. (2016)
 (<https://doi.org/10.19232/uv4pb.2016.1.15>).
 
@@ -168,18 +196,6 @@ handbook of best practice in plant UV photobiology (1st ed., p. xxx +
 Division of Plant Biology. ISBN 978-952-10-8363-1 (PDF),
 978-952-10-8362-4 (paperback). PDF file available from
 (<https://hdl.handle.net/10138/37558>).
-
-## Support
-
-Use (<https://stackoverflow.com/questions/tagged/r4photobiology>) to
-access existing questions and answers.
-
-(<https://stackoverflow.com/>) using tag \[r4photobiology\] plus any
-other relevant tag to ask new questions.
-
-## Bug reports and suggestions for enhancements
-
-(<https://github.com/aphalo/photobiologySensors/issues>)
 
 ## Contributing
 

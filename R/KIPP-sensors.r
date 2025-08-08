@@ -9,6 +9,8 @@
 #' @keywords datasets
 #'
 #' @details
+#' Kipp CM21 pyranometer. Thermopile-detector based, class A.
+#'
 #' Kipp CUV 5 Broadband UV Radiometer:
 #' Detection system includes optical filters and a photodiode.
 #'
@@ -28,7 +30,8 @@
 #' \url{https://www.kippzonen.com/}
 #'
 #' @note
-#' Digitized with 'enguage' from manufacturers brochures. These are approximate
+#' Digitized with 'enguage' or 'DigitizeIt' from manufacturers brochures or
+#' scientific articles referring to unavailable manuals. These are approximate
 #' data, both because of the digitizing process, and because they are
 #' either typical values or for a particular sensor unit. Individual sensor units
 #' are expected to differ to some degree in spectral response.
@@ -37,6 +40,9 @@
 #' Brochure 'Broadband UV Radiometers',
 #' Brochure 'PQS 1 PAR Quantum Sensor',
 #' Brochure 'Broadband UV Radiometers'.
+#' Rodziewicz, T., Rajfur, M. (2019) Numerical procedures and their practical
+#'   application in PV modules analyses. Part I: air mass. Opto-Electronics
+#'   Review, Vol. 27, No. 1 39-57
 #'
 #' @examples
 #'
