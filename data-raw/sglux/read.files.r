@@ -11,7 +11,7 @@
 # 4) set wd to package home
 #
 rm(list = ls())
-setwd("raw.data/sglux")
+setwd("data-raw/sglux")
 file.list <- shell('ls *.csv', intern=TRUE)
 for (file.name in file.list) {
   # data object

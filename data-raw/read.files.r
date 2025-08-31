@@ -17,7 +17,7 @@ rm(list = ls())
 
 energy_as_default()
 
-plotting <- FALSE
+plotting <- TRUE
 
 # read pre-built objects for complex ICs
 load("data-raw/ic-sensors-mspct.rda")
@@ -135,7 +135,7 @@ erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
 uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421",
                  "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
-                       "sglux_SG01L", "KIPP_CUV_5"))
+                       "sglux_SG01L", "sglux_custom_UVA1", "KIPP_CUV_5"))
 par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F")
 epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
