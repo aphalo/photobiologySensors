@@ -25,11 +25,12 @@
 #' different sensitivity and with different angular responses, and encased
 #' to resist different environmental conditions.
 #'
-#' Manufacturer: sglux GmbH, Richard-Willstätter-Str. 8, 12489 Berlin, Germany.
+#' Manufacturer: sglux GmbH, Berlin, Germany.
 #' \url{https://sglux.de/en/}
 #'
 #' @note
-#' Original data supplied by the manufacturer as a computer readable file.
+#' Original data supplied by the manufacturer as a computer readable file, or
+#' digitized from plots in specifications or other documents.
 #' These are typical measured data. Individual sensor units
 #' are expected to differ to a small degree in spectral response.
 #'

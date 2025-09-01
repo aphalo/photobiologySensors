@@ -2,15 +2,15 @@
 #' @note
 #' Custom-made UVA1 sensor from sglux.
 #' pre-amplified light detector with cosine diffuser.
-#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin.
-#' Digitized with 'enguage' from manufacturers' documentation.
+#' Digitized with 'DigitizeIt' from manufacturers' documentation.
 #' This are approximate data, both because of the digitizing
 #' process, and because they are values for a particular sensor unit.
 #  Other sensor units with identical configuration
 #' are expected to differ to some degree in spectral response.
 #'
+#' Manufacturer: sglux GmbH, Max-Planck-Str. 3, D-12489 Berlin.
+#'
 #' @references
-#' sglux TOCON selection guide Ver 5.0
 #' \url{http://www.sglux.de/}
 #'
 w.length,s.e.response

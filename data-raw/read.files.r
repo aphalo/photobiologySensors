@@ -133,9 +133,10 @@ erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
                        "SolarLight_501_Biometer_typical",
                        "Vital_BW_20", "Berger_UV_Biometer")
 uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421",
-                 "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36")
+                 "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36",
+                 "sglux_custom_UVA1")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
-                       "sglux_SG01L", "sglux_custom_UVA1", "KIPP_CUV_5"))
+                       "sglux_SG01L", "KIPP_CUV_5"))
 par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210", "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F")
 epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210")
@@ -143,6 +144,7 @@ pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200", "K
 red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
 far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
+green_sensors <- "sglux_custom_green"
 multichannel_sensors <-
   c("Skye_SKR110_R", "Skye_SKR110_FR",
     "apogee_s2_131_R", "apogee_s2_131_FR",
@@ -183,7 +185,7 @@ save(sensors.mspct,
      par_sensors, epar_sensors,
      vis_sensors, photometric_sensors,
      shortwave_sensors, pyranometer_sensors,
-     red_sensors, far_red_sensors, blue_sensors,
+     red_sensors, far_red_sensors, blue_sensors, green_sensors,
      multichannel_sensors,
      file = "./data/sensors.mspct.rda")
 

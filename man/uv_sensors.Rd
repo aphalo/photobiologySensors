@@ -19,6 +19,7 @@
 \alias{red_sensors}
 \alias{far_red_sensors}
 \alias{blue_sensors}
+\alias{green_sensors}
 \alias{multichannel_sensors}
 \alias{electronic_components}
 \title{Sensors responsive to different wavebands}
@@ -31,7 +32,7 @@ An object of class \code{character} of length 6.
 
 An object of class \code{character} of length 8.
 
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 7.
 
 An object of class \code{character} of length 8.
 
@@ -48,6 +49,8 @@ An object of class \code{character} of length 3.
 An object of class \code{character} of length 2.
 
 An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 1.
 
@@ -83,6 +86,8 @@ red_sensors
 far_red_sensors
 
 blue_sensors
+
+green_sensors
 
 multichannel_sensors
 

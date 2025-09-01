@@ -71,6 +71,9 @@
 "blue_sensors"
 
 #' @rdname uv_sensors
+"green_sensors"
+
+#' @rdname uv_sensors
 "multichannel_sensors"
 
 #' @rdname uv_sensors

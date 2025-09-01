@@ -6,7 +6,7 @@
 #' This is typical measured data. Individual sensor units
 #' are expected to differ to a small degree in spectral response.
 #'
-#' Manufacturer: sglux SolGel Technologies GmbH, Berlin, Germany
+#' Manufacturer: sglux GmbH, Berlin, Germany
 #' \url{http://www.sglux.com/}
 #'
 #' @references personal communication from Dr.\ Stefan Langer
