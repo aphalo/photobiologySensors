@@ -34,7 +34,7 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 55
+#> [1] 56
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -43,10 +43,10 @@ output.
 ``` r
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
-#>  [1] "ams_AS7331"          "ams_AS7341"          "ams_AS7343"         
-#>  [4] "ams_TSL2591"         "Vishay_VEML6075"     "ams_TSL254R"        
-#>  [7] "ams_TSL257"          "Analytik_Jena_UVX25" "Analytik_Jena_UVX31"
-#> [10] "Analytik_Jena_UVX36"
+#>  [1] "ams_AS7263"          "ams_AS7331"          "ams_AS7341"         
+#>  [4] "ams_AS7343"          "ams_TSL2591"         "Vishay_VEML6075"    
+#>  [7] "ams_TSL254R"         "ams_TSL257"          "Analytik_Jena_UVX25"
+#> [10] "Analytik_Jena_UVX31"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -55,7 +55,8 @@ names of the spectra for sensors from LI-COR.
 
 ``` r
 kipp_sensors
-#> [1] "KIPP_CUV_5" "KIPP_PQS1"  "KIPP_UVS_A" "KIPP_UVS_B" "KIPP_UVS_E"
+#> [1] "KIPP_CM21"  "KIPP_CUV_5" "KIPP_PQS1"  "KIPP_UVS_A" "KIPP_UVS_B"
+#> [6] "KIPP_UVS_E"
 ```
 
 We can use the vector to extract all these spectra as a collection, or

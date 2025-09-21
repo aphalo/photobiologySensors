@@ -81,10 +81,10 @@ autoplot(Vishay_VEML6075.spct, annotations = "wls", facets = 1)
 # descriptor of sensor channels
 
 VEML6075_channels.tb <-
-  data.frame(ch.no = 1:3,
-             sensor.ch.name = c("UVA", "UVB", "UVC"),
-             ch.wl.peak = c(337, 293, 251),
-             ch.fwhm = c(88, 33, 39))
+  data.frame(ch.no = 1:2,
+             sensor.ch.name = c("UVA", "UVB"),
+             ch.wl.peak = c(360, 330),
+             ch.fwhm = c(25, 25))
 
 # updating a data.frame column by column drops names!
 VEML6075_channels.named_tb <- list()
@@ -107,7 +107,7 @@ sensor.properties <- list(sensor.name = "VEML6075",
 #                          module.name = "Yocto-I2C and IC breakout board",
 #                          module.supplier = "YoctoPuce",
 #                          module.io = "USB",
-                          num.channels = 3,
+                          num.channels = 2,
                           output = "digital",
                           channels = VEML6075_channels.named_tb)
 
@@ -120,7 +120,7 @@ what_measured(Vishay_VEML6075.spct) <-
         "Manufacturer: VISHAY INTERTECHNOLOGY, INC. Shelton, CT, USA.",
         "https://www.vishay.com/.")
 how_measured(Vishay_VEML6075.spct) <-
-  "Digitized from plot in data sheet from ams-OSRAM with DigitizeIt."
+  "Digitized from plot in data sheet from VISHAY with DigitizeIt."
 comment(Vishay_VEML6075.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
