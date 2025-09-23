@@ -1,7 +1,7 @@
 Package: photobiologySensors
 Type: Package
 Title: Response Data for Light Sensors
-Version: 0.5.1.9001
+Version: 0.5.2
 Date: 2025-09-23
 Authors@R:
    c(
@@ -18,7 +18,7 @@ Description: Spectral response data for broadband ultraviolet and visible
 License: GPL (>= 2)
 VignetteBuilder: knitr
 Depends:
-    R (>= 4.0.0),
+    R (>= 4.1.0),
     photobiology (>= 0.14.0)
 Suggests:
     knitr (>= 1.50),

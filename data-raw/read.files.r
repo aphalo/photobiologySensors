@@ -94,7 +94,7 @@ for (file.name in file.list) {
   }
   print(nrow(temp.dt))
   if (nrow(temp.dt) > 200) {
-    temp.dt <- thin_wl(temp.dt, max.wl.step = 5, max.slope.delta = 0.002)
+    temp.dt <- thin_wl(temp.dt, max.wl.step = 5, max.slope.delta = 0.0005)
     if (plotting) {
       print(autoplot(temp.dt) + ggtitle(df.name, "Thinned"))
       readline("Next: ")
