@@ -69,7 +69,7 @@ for (file.name in file.list) {
   }
   if (nrow(temp.dt) > 10) {
     temp.dt <- normalize(temp.dt)
-    temp.df <- setNormalised(temp.dt)
+#    temp.df <- setNormalised(temp.dt)
   } else {
     temp.dt <- interpolate_spct(temp.dt, length.out = 50)
   }
