@@ -3,9 +3,6 @@
 \docType{data}
 \name{uv_sensors}
 \alias{uv_sensors}
-\alias{'sensors}
-\alias{by}
-\alias{waveband'}
 \alias{uvc_sensors}
 \alias{uvb_sensors}
 \alias{erythemal_sensors}
@@ -94,8 +91,9 @@ multichannel_sensors
 electronic_components
 }
 \description{
-Names of datasets containing the wavelengths and tabulated values spectral responsivity
-for broadband sensors from various suppliers.
+Vectors of names of members of the collection of spectra
+\code{\link{sensors.mspct}} by the wavelengths or colours they are sensitive
+to.
 }
 \examples{
 uv_sensors # ultraviolet
@@ -119,4 +117,5 @@ sensors.mspct[par_sensors]
 \seealso{
 \code{\link{sensors.mspct}}
 }
+\concept{sensors by waveband or color}
 \keyword{datasets}

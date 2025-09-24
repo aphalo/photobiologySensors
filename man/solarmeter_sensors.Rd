@@ -33,7 +33,7 @@ solarmeter_sensors
 
 }
 \references{
-digitized from SM60graph.gif obtained from
-\url{https://www.solarmeter.com/} on 20 December 2013.
+Digitized from \verb{SM60graph.gif} obtained from
+\verb{https://www.solarmeter.com/} on 20 December 2013.
 }
 \keyword{datasets}

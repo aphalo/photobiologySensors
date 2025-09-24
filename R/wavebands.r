@@ -1,13 +1,14 @@
 #' Sensors responsive to different wavebands
 #'
-#' Names of datasets containing the wavelengths and tabulated values spectral responsivity
-#' for broadband sensors from various suppliers.
+#' Vectors of names of members of the collection of spectra
+#' \code{\link{sensors.mspct}} by the wavelengths or colours they are sensitive
+#' to.
 #'
 #' @docType data
 #' @keywords datasets
 #' @format A vector of character strings.
 #'
-#' @aliases 'sensors by waveband'
+#' @concept sensors by waveband or color
 #'
 #' @examples
 #' uv_sensors # ultraviolet
@@ -78,4 +79,3 @@
 
 #' @rdname uv_sensors
 "electronic_components"
-

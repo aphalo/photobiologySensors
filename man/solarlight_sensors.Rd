@@ -41,6 +41,6 @@ Leszczynski K, Jokela K, Ylianttila L, Visuri R, Blumthaler M. 1998.
 Erythemally weighted radiometers in solar UV monitoring: results from the
 WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
 
-\url{https://solarlight.com/product/uvb-biometer-model-501-radiometer/}
+\url{https://www.solarlight.com/}
 }
 \keyword{datasets}

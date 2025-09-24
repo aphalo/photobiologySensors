@@ -34,7 +34,7 @@
 #' accurate extraction of values very difficult. Variation from unit to unit
 #' affects both response and center/peak wavelengths.
 #'
-#' Manufacturer: ams-OSRAM AG, Austria. \url{https://ams.com/ams-start}
+#' Manufacturer: ams-OSRAM AG, Austria. \url{https://ams-osram.com}
 #'
 #' @references
 #'
