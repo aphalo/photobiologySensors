@@ -9,7 +9,19 @@ eval_ggspectra <- TRUE
 library(ggspectra)
 
 ## -----------------------------------------------------------------------------
+camera.spct <- image_sensors.mspct[[1]]
+str(attr(camera.spct, "sensor.properties"))
+
+## -----------------------------------------------------------------------------
+what_measured(camera.spct)
+how_measured(camera.spct)
+cat(comment(camera.spct))
+
+## -----------------------------------------------------------------------------
 names(sensors.mspct)
+
+## -----------------------------------------------------------------------------
+names(image_sensors.mspct)
 
 ## -----------------------------------------------------------------------------
 sensors.mspct$LICOR_LI_190R

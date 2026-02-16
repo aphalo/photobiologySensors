@@ -8,7 +8,7 @@
 A \code{response_mspct} object containing
 \code{response_spct} objects as \emph{named} members.
 
-Spectral objects for single channel sensers contain two numeric variables,
+Spectral objects for single channel sensors contain two numeric variables,
 with responsivity in most cases in relative energy units:
 \itemize{
    \item w.length (nm)
@@ -29,7 +29,7 @@ sensors.mspct
 }
 \description{
 A collection of response spectra for various broadband sensors
-used for measuring ultraviolet and visible radiation. Each spectrun in the
+used for measuring ultraviolet and visible radiation. Each spectrum in the
 collection contains two variables, wavelengths (nm) at either regular or
 irregular intervals and spectral responsiveness (in energy units).
 Spectral data are in most cases normalized to one at the wavelength of
@@ -38,7 +38,7 @@ data from a publication which reports on multiple units of the same type.
 }
 \note{
 In addition to this object containing the spectral data, this package
-provides character vectors useful for subsetting spectra by supplier, type,
+provides character vectors useful for sub-setting spectra by supplier, type,
 colour, etc.
 }
 \examples{

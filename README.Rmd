@@ -23,10 +23,9 @@ knitr::opts_chunk$set(
 [![doi](https://img.shields.io/badge/doi-10.32614/CRAN.package.photobiologySensors-blue.svg)](https://doi.org/10.32614/CRAN.package.photobiologySensors)
 <!-- badges: end -->
 
-  
 Package **photobiologySensors** is a collection of spectral responsiveness data
-for different broadband sensors and of angular response data for some of the
-same sensors and for cosine diffusers and other entrance optics used with
+for different broadband amd image sensors and of angular response data for some
+of the same sensors and for cosine diffusers and other entrance optics used with
 spectrometers. It complements other packages in the suite of R packages for
 photobiology 'r4photobiology'. This package contains only data.
 
@@ -42,6 +41,7 @@ How many spectra are included in the current version of 'photobiologyFilters'?
 
 ```{r example-03}
 length(sensors.mspct)
+length(image_sensors.mspct)
 ```
 
 What are the names of available spectra? We use `head()` to limit the output.
@@ -178,7 +178,7 @@ citation("photobiologySensors")
 
 ## License
 
-© 2012-2025 Pedro J. Aphalo
+© 2012-2026 Pedro J. Aphalo
 ([pedro.aphalo\@helsinki.fi](mailto:pedro.aphalo@helsinki.fi){.email}). Released
 under the GPL, version 2 or greater. This software carries no warranty of any
 kind.

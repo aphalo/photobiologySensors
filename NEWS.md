@@ -4,6 +4,12 @@ editor_options:
     wrap: 72
 ---
 
+photobiologySensors 0.5.3
+=========================
+
+* Add data for four cameras from LUCID labs: VIS monochrome and RGB, UV and 
+SWIR. These cameras are based on image sensors from Sony.
+
 photobiologySensors 0.5.2
 =========================
 
