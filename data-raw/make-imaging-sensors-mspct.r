@@ -5,55 +5,56 @@ library(dplyr)
 
 rm(list = ls())
 
-energy_as_default()
+photon_as_default()
 
 plotting <- TRUE
 
 # read DigitizeIt CSV file
+# the data in these figures are either actual or normalized quantum efficiencies
 file.list <- list.files("./data-raw/LUCID", ".*\\.csv", full.names = TRUE)
 
 sensor.properties <-
-  list(TR1071S_M = list(sensor.name = "IMX428",
+  list(TRI071S_M = list(sensor.name = "IMX428",
                         sensor.supplier = "Sony",
                         sensor.type = "image sensor",
                         sensor.io = "SLV",
-                        module.name = "Triton TR1071S-M",
+                        module.name = "Triton TRI071S-M",
                         module.supplier = "LUCID",
                         module.type = "VIS camera",
-                        module.io = "Ethernet 10G",
+                        module.io = "Ethernet 1G POE",
                         num.channels = 1,
                         output = "digital",
                         channels = "Monochrome"),
-       TR1033S_WC = list(sensor.name = "IMX992",
+       TRT033S_WC = list(sensor.name = "IMX992",
                          sensor.supplier = "Sony",
                          sensor.type = "image sensor",
                          sensor.io = "SLV",
-                         module.name = "Triton TR1033S-WC",
+                         module.name = "Triton2 TRT033S-WC",
                          module.supplier = "LUCID",
                          module.type = "VIS + SWIR camera",
-                         module.io = "Ethernet 10G",
+                         module.io = "Ethernet 2.5G POE",
                          num.channels = 1,
                          output = "digital",
                          channels = "Monochrome"),
-       ATX081S_UV = list(sensor.name = "IMX487",
+       ATX081S_UC = list(sensor.name = "IMX487",
                          sensor.supplier = "Sony",
                          sensor.type = "image sensor",
                          sensor.io = "SLV",
-                         module.name = "Atlas ATX081S-UV",
+                         module.name = "Atlas ATX081S-UC",
                          module.supplier = "LUCID",
                          module.type = "UV camera",
-                         module.io = "Ethernet 10G",
+                         module.io = "Ethernet 10G POE",
                          num.channels = 1,
                          output = "digital",
                          channels = "Monochrome"),
-       TR1071S_C = list(sensor.name = "IMX428",
+       TRI071S_C = list(sensor.name = "IMX428",
                         sensor.supplier = "Sony",
                         sensor.type = "image sensor",
                         sensor.io = "SLV",
-                        module.name = "Triton TR1071S-C",
+                        module.name = "Triton TRI071S-C",
                         module.supplier = "LUCID",
                         module.type = "RGB camera",
-                        module.io = "Ethernet 10G",
+                        module.io = "Ethernet 1G POE",
                         num.channels = 3,
                         output = "digital",
                         channels = c("R", "G", "B"))
@@ -67,11 +68,11 @@ for (file.name in rev(file.list)) {
                   replacement = "", x = basename(file.name),
                   fixed = FALSE) |> gsub("-", "_", x = _)
   temp.df <- read.csv(file.name, header = FALSE, skip = 1,
-                      col.names = c("w.length", "s.e.response"),
+                      col.names = c("w.length", "s.q.response"),
                       colClasses = "numeric")
   temp.df <- distinct(temp.df)
   temp.df <- group_by(temp.df, w.length)
-  temp.dt <- summarize(temp.df, s.e.response = mean(s.e.response))
+  temp.dt <- summarize(temp.df, s.q.response = mean(s.q.response))
   setResponseSpct(temp.dt)
   cat(class(temp.dt)[1], "\n\n")
   if (plotting) {
@@ -129,23 +130,23 @@ for (file.name in rev(file.list)) {
   image_sensors.mspct[[df.name]] <- temp.dt
 }
 
-LUCID_TR1071S_C.channels <-
-  grepv("LUCID_TR1071S_C_IMX428", names(image_sensors.mspct))
+LUCID_TRI071S_C.channels <-
+  grepv("LUCID_TRI071S_C_IMX428", names(image_sensors.mspct))
 
-LUCID_TR1071S_C.mspct <- image_sensors.mspct[LUCID_TR1071S_C.channels]
-names(LUCID_TR1071S_C.mspct) <-
-  gsub("LUCID_TR1071S_C_IMX428_", "", names(LUCID_TR1071S_C.mspct))
-LUCID_TR1071S_C.spct <- rbindspct(LUCID_TR1071S_C.mspct, idfactor = "channel")
+LUCID_TRI071S_C.mspct <- image_sensors.mspct[LUCID_TRI071S_C.channels]
+names(LUCID_TRI071S_C.mspct) <-
+  gsub("LUCID_TRI071S_C_IMX428_", "", names(LUCID_TRI071S_C.mspct))
+LUCID_TRI071S_C.spct <- rbindspct(LUCID_TRI071S_C.mspct, idfactor = "channel")
 
-autoplot(LUCID_TR1071S_C.spct)
+autoplot(LUCID_TRI071S_C.spct)
 
 image_sensors.mspct <-
   image_sensors.mspct[setdiff(names(image_sensors.mspct),
-                              LUCID_TR1071S_C.channels)]
+                              LUCID_TRI071S_C.channels)]
 autoplot(image_sensors.mspct, norm = "max",
          annotations = c("peak.labels", "colour.guide"))
 
-image_sensors.mspct[["LUCID_TR1071S_C_IMX428"]] <- LUCID_TR1071S_C.spct
+image_sensors.mspct[["LUCID_TRI071S_C_IMX428"]] <- LUCID_TRI071S_C.spct
 
 autoplot(image_sensors.mspct, norm = "max",
          annotations = c("peak.labels", "colour.guide"))

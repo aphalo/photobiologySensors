@@ -22,7 +22,8 @@ with two numeric variables, and in addition a factor with channel ids:
    \item channel (factor with names as levels)
 }
 The spectral objects contain, in addition to the spectral data, metadata
-stored in R attributes.
+stored in R attributes \code{sensor.properties}, \code{what.measured},
+\code{how.measured}, and \code{comment}.
 }
 \usage{
 sensors.mspct

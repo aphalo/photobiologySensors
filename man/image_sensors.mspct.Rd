@@ -9,20 +9,21 @@ A \code{response_mspct} object containing
 \code{response_spct} objects as \emph{named} members.
 
 Spectral objects for monochrome image sensors contain two numeric variables,
-with responsivity in most cases in relative energy units:
+with quantum efficiency in some cases in relative energy units:
 \itemize{
    \item w.length (nm)
-   \item s.e.response (r.u.)
+   \item s.q.response (r.u.)
 }
 Spectral objects for colour image sensors contain the spectra in long form
 with two numeric variables, and in addition a factor with channel ids:
 \itemize{
    \item w.length (nm)
-   \item s.e.response (r.u.)
+   \item s.q.response (r.u.)
    \item channel (factor with names as levels)
 }
 The spectral objects contain, in addition to the spectral data, metadata
-stored in R attributes.
+stored in R attributes \code{sensor.properties}, \code{what.measured},
+\code{how.measured}, and \code{comment}.
 }
 \usage{
 image_sensors.mspct
@@ -32,9 +33,10 @@ A collection of response spectra for various image sensors and
 digital cameras responsive to ultraviolet, visible, NIR and/or SWIR
 radiation. Each spectrum in the collection contains two variables,
 wavelengths (nm) at irregular intervals and spectral responsiveness (in
-energy units).
-Spectral data are in most cases not normalized to one at the wavelength of
-maximum energy responsivity.
+photon units = quantum efficiency).
+Spectral data are normalized to one at the wavelength of
+maximum quantum efficiency only when this is how the original source
+published the data.
 }
 \examples{
 names(image_sensors.mspct)

@@ -6,16 +6,21 @@ template:
 
 reference:
   - title: Package overview
+    desc: Simple use examples and description.
     contents:
     - "photobiologySensors-package"
-  - title: Spectral response
+  - title: Spectral response data
+    desc: Data on the spectral response of light and image sensors.
     contents:
     - sensors.mspct
+    - image_sensors.mspct
   - title: Indexing vectors by type
+    desc: Indexing vectors useful to extract members of `sensors.mspct`.
     contents:
     - uv_sensors
     - ideal_sensors
   - title: Indexing vectors by make
+    desc: Indexing vectors useful to extract members of `sensors.mspct`.
     contents:
     - ams_sensors
     - analytik_sensors
@@ -32,10 +37,12 @@ reference:
     - thiesclima_sensors
     - vishay_sensors
     - vitaltech_sensors
-  - title: Angular response
+  - title: Angular response data
+    desc: Data on the angular response of sensors and of entrance optics for spectrometers.
     contents:
     - diffusers.lst
-  - title: Indexing vectors for `diffusers.lst`
+  - title: Indexing vectors by type of entrance optics
+    desc: Indexing vectors useful to extract members of `diffusers.lst`.
     contents:
     - all_diffusers
 
@@ -66,6 +73,11 @@ navbar:
       menu:
       - text: R for Photobiology web site
         href: https://www.r4photobiology.info/
+      - text: R for Photobiology Suite CRAN releases
+        href: https://www.r4photobiology.info/pages/CRAN-activity.html
+      - text: ------
+      - text: Book 'Learn R - As a Language'
+        href: https://www.learnr-book.info/
       - text: A handbook of methods
         href: https://doi.org/10.31885/9789521083631
       - text: Photobiological Sciences Online
