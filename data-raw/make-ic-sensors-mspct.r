@@ -4,7 +4,9 @@ library(photobiology)
 file.paths <- c(list.files(path = "data-raw/ams/",
                          pattern = "^ams.*\\.[Rr]da$", full.names = TRUE),
                 list.files(path = "data-raw/Vishay/",
-                           pattern = "^Vishay.*\\.[Rr]da$", full.names = TRUE))
+                           pattern = "^Vishay.*\\.[Rr]da$", full.names = TRUE),
+                list.files(path = "data-raw/Liye-On/",
+                           pattern = "^LiteOn.*\\.[Rr]da$", full.names = TRUE))
 
 for (f in file.paths) {
   load(f)

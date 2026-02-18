@@ -1,5 +1,6 @@
 # Spectral and multichannel sensors
 #
+# responsivity in A/W usually normalised, is used by ams-OSRAM in specs!
 
 library(photobiology)
 library(ggspectra)
@@ -69,7 +70,7 @@ for (file.name in file.list) {
 
 ams_TSL2591_channels <- names(ams_TSL2591.mspct)
 ams_TSL2591.spct <-
-  rbindspct(normalise(ams_TSL2591.mspct), idfactor = "channel")
+  rbindspct(normalise(ams_TSL2591.mspct, norm = "max"), idfactor = "channel")
 autoplot(ams_TSL2591.spct, annotations = c("+", "wls"))
 
 autoplot(ams_TSL2591.spct,

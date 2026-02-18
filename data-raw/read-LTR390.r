@@ -14,16 +14,16 @@ energy_as_default()
 
 plotting <- TRUE
 
-file.list <- list.files("./data-raw/vishay", "Vishay-VEML6075-.*\\.csv", full.names = TRUE)
+file.list <- list.files("./data-raw/Lite-On", "LiteOn-LTR390-.*\\.csv", full.names = TRUE)
 
-Vishay_VEML6075.mspct <- response_mspct()
+LiteOn_LTR390.mspct <- response_mspct()
 for (file.name in file.list) {
   # data object
   cat(basename(file.name), "\n")
-  df.name <- gsub(pattern = "^Vishay-VEML6075-|\\.csv$",
+  df.name <- gsub(pattern = "^LiteOn-LTR390-|\\.csv$",
                        replacement = "", x = basename(file.name),
                        fixed = FALSE)
-  temp.df <- read.csv(file.name, header = TRUE, comment.char = "#")
+  temp.df <- read.csv2(file.name, header = TRUE, comment.char = "#")
   if (anyNA(temp.df$w.length)) {
     stop("'w.length' NA found at row(s): ", which(is.na(temp.df$w.length)))
   }
@@ -35,7 +35,7 @@ for (file.name in file.list) {
   temp.dt <- summarize(temp.df, s.e.response = mean(s.e.response))
   setResponseSpct(temp.dt)
   if (nrow(temp.df) > 300) {
-    temp.dt <- smooth_spct(temp.dt, method = "supsmu", strength = 0.4)
+    temp.dt <- smooth_spct(temp.dt, method = "supsmu", strength = 2)
   }
   if (nrow(temp.dt) < 300) {
     temp.dt <- interpolate_spct(temp.dt, length.out = 300, method = "approx")
@@ -72,38 +72,38 @@ for (file.name in file.list) {
     }
   }
   print(nrow(temp.dt))
-  Vishay_VEML6075.mspct[[df.name]] <- temp.dt
+  LiteOn_LTR390.mspct[[df.name]] <- temp.dt
 }
 
-Vishay_VEML6075_channels <- names(Vishay_VEML6075.mspct)
-Vishay_VEML6075.spct <-
-  rbindspct(normalise(Vishay_VEML6075.mspct, norm = "max"), idfactor = "channel")
-autoplot(Vishay_VEML6075.spct, annotations = "wls", facets = 1)
+LiteOn_LTR390_channels <- names(LiteOn_LTR390.mspct)
+LiteOn_LTR390.spct <-
+  rbindspct(normalise(LiteOn_LTR390.mspct, norm = "max"), idfactor = "channel")
+autoplot(LiteOn_LTR390.spct, annotations = "wls", facets = 1)
 
 # descriptor of sensor channels
 
-VEML6075_channels.tb <-
+LTR390_channels.tb <-
   data.frame(ch.no = 1:2,
-             sensor.ch.name = c("UVA", "UVB"),
+             sensor.ch.name = c("UV", "VIS"),
              ch.wl.peak = c(360, 330),
              ch.fwhm = c(25, 25))
 
 # updating a data.frame column by column drops names!
-VEML6075_channels.named_tb <- list()
-for (col in colnames(VEML6075_channels.tb)) {
-  temp <- VEML6075_channels.tb[[col]]
+LTR390_channels.named_tb <- list()
+for (col in colnames(LTR390_channels.tb)) {
+  temp <- LTR390_channels.tb[[col]]
   if (col == "ch.ic.name") {
-    names(temp) <- VEML6075_channels.tb$module.ch.name
+    names(temp) <- LTR390_channels.tb$module.ch.name
   } else {
-    names(temp) <- VEML6075_channels.tb$sensor.ch.name
+    names(temp) <- LTR390_channels.tb$sensor.ch.name
   }
-  VEML6075_channels.named_tb[[col]] <- I(temp)
+  LTR390_channels.named_tb[[col]] <- I(temp)
 }
-VEML6075_channels.named_tb <- as.data.frame(VEML6075_channels.named_tb)
+LTR390_channels.named_tb <- as.data.frame(LTR390_channels.named_tb)
 # names(VEML6075_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "VEML6075",
-                          sensor.supplier = "Vishay",
+sensor.properties <- list(sensor.name = "LTR390UV",
+                          sensor.supplier = "LiteOn",
                           sensor.type = "integrated circuit",
                           sensor.io = "I2C",
 #                          module.name = "Yocto-I2C and IC breakout board",
@@ -111,22 +111,22 @@ sensor.properties <- list(sensor.name = "VEML6075",
 #                          module.io = "USB",
                           num.channels = 2,
                           output = "digital",
-                          channels = VEML6075_channels.named_tb)
+                          channels = LTR390_channels.named_tb)
 
-attr(Vishay_VEML6075.spct, "sensor.properties") <- sensor.properties
+attr(LiteOn_LTR390.spct, "sensor.properties") <- sensor.properties
 
-what_measured(Vishay_VEML6075.spct) <-
-  paste("VEML6075 UV Sensor with 2 UV channels:",
-        "UV-A1 and UV-A2 but named \"UVA\" and \"UVB\"!",
-        "SMD electronic component from Vishay. 2016-2019 (still available?).",
-        "Manufacturer: VISHAY INTERTECHNOLOGY, INC. Shelton, CT, USA.",
-        "https://www.vishay.com/.")
-how_measured(Vishay_VEML6075.spct) <-
-  "Digitized from plot in data sheet from VISHAY with DigitizeIt."
-comment(Vishay_VEML6075.spct) <-
+what_measured(LiteOn_LTR390.spct) <-
+  paste("LTR390 UV Sensor with 1 UV channel and 1 VIS channel:",
+        "named \"UV\" and \"VIS\"",
+        "SMD electronic component from LiteOn.",
+        "Manufacturer: LITE-ON Technology Corp, Taiwan",
+        "https://www.liteon.com/en/")
+how_measured(LiteOn_LTR390.spct) <-
+  "Digitized from plot in data sheet from LiteOn with DigitizeIt."
+comment(LiteOn_LTR390.spct) <-
   "Data are approximate, not specifications. Provided as examples only"
 
-autoplot(Vishay_VEML6075.spct,
+autoplot(LiteOn_LTR390.spct,
          annotations = c("wls.labels", "peak.labels", "colour.guide"))
 
-save(Vishay_VEML6075.spct, file = "./data-raw/vishay/Vishay-VEML6075.rda")
+save(LiteOn_LTR390.spct, file = "./data-raw/Lite-On/LiteOn-LTR390.rda")

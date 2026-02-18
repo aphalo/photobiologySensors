@@ -68,7 +68,7 @@ for (file.name in file.list) {
     temp.dt <- smooth_spct(temp.dt, method = "supsmu")
   }
   if (nrow(temp.dt) > 10) {
-    temp.dt <- normalize(temp.dt)
+    temp.dt <- normalize(temp.dt, norm = "max")
 #    temp.df <- setNormalised(temp.dt)
   } else {
     temp.dt <- interpolate_spct(temp.dt, length.out = 50)

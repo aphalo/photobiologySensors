@@ -7,8 +7,10 @@ editor_options:
 photobiologySensors 0.5.3
 =========================
 
+* Data objects rebuilt with 'photobiology' 0.14.1.
 * Add data for four cameras from LUCID labs: VIS monochrome and RGB, UV and 
 SWIR. These cameras are based on image sensors from Sony.
+* Add data for the 2-channel LTR390UV digital sensor from Lite-On.
 
 photobiologySensors 0.5.2
 =========================
