@@ -97,18 +97,14 @@ for (col in colnames(TSL2591_channels.tb)) {
 TSL2591_channels.named_tb <- as.data.frame(TSL2591_channels.named_tb)
 # names(TSL2591_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "TSL2591",
-                          sensor.supplier = "ams OSRAM",
-                          sensor.type = "integrated circuit",
-                          sensor.io = "I2C",
-                          # module.name = "Yocto-I2C and IC breakout board",
-                          # module.supplier = "YoctoPuce",
-                          # module.io = "USB",
-                          num.channels = 2,
-                          output = "digital",
+sensor.properties <- list(model = "TSL2591",
+                          type = "photodiodes (Si) in integrated circuit",
+                          supplier = "ams OSRAM",
+                          signal.interface = "I2C",
+                          entrance.optics = "wide",
                           channels = TSL2591_channels.named_tb)
 
-attr(ams_TSL2591.spct, "sensor.properties") <- sensor.properties
+sensor_properties(ams_TSL2591.spct) <- sensor.properties
 
 what_measured(ams_TSL2591.spct) <-
   paste("ams TSL2591 ambient light sensor.",

@@ -12,7 +12,7 @@ rm(list = ls())
 
 energy_as_default()
 
-plotting <- TRUE
+plotting <- FALSE
 
 file.list <- list.files("./data-raw/Lite-On", "LiteOn-LTR390-.*\\.csv", full.names = TRUE)
 
@@ -102,18 +102,14 @@ for (col in colnames(LTR390_channels.tb)) {
 LTR390_channels.named_tb <- as.data.frame(LTR390_channels.named_tb)
 # names(VEML6075_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "LTR390UV",
-                          sensor.supplier = "LiteOn",
-                          sensor.type = "integrated circuit",
-                          sensor.io = "I2C",
-#                          module.name = "Yocto-I2C and IC breakout board",
-#                          module.supplier = "YoctoPuce",
-#                          module.io = "USB",
-                          num.channels = 2,
-                          output = "digital",
+sensor.properties <- list(model = "LTR390UV",
+                          type = "photodiodes (Si) in integrated circuit",
+                          supplier = "LiteOn",
+                          signal.interface = "I2C",
+                          entrance.optics = "wide",
                           channels = LTR390_channels.named_tb)
 
-attr(LiteOn_LTR390.spct, "sensor.properties") <- sensor.properties
+sensor_properties(LiteOn_LTR390.spct) <- sensor.properties
 
 what_measured(LiteOn_LTR390.spct) <-
   paste("LTR390 UV Sensor with 1 UV channel and 1 VIS channel:",

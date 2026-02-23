@@ -11,7 +11,7 @@ rm(list = ls())
 
 energy_as_default()
 
-plotting <- TRUE
+plotting <- FALSE
 
 file.list <- list.files("./data-raw/ams", "AS7331.*\\.csv", full.names = TRUE)
 
@@ -103,18 +103,14 @@ for (col in colnames(AS7331_channels.tb)) {
 AS7331_channels.named_tb <- as.data.frame(AS7331_channels.named_tb)
 # names(AS7331_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "AS7331",
-                          sensor.supplier = "ams OSRAM",
-                          sensor.type = "integrated circuit",
-                          sensor.io = "I2C",
-#                          module.name = "Yocto-I2C and IC breakout board",
-#                          module.supplier = "YoctoPuce",
-#                          module.io = "USB",
-                          num.channels = 3,
-                          output = "digital",
+sensor.properties <- list(model = "AS7331",
+                          type = "photodiodes (Si) in integrated circuit",
+                          supplier = "ams OSRAM",
+                          signal.interface = "I2C",
+                          entrance.optics = "narrow",
                           channels = AS7331_channels.named_tb)
 
-attr(ams_AS7331.spct, "sensor.properties") <- sensor.properties
+sensor_properties(ams_AS7331.spct) <- sensor.properties
 
 what_measured(ams_AS7331.spct) <-
   paste("ams AS7331 Spectral Sensor with 3 UV channels.",

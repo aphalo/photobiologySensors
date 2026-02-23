@@ -17,7 +17,7 @@ rm(list = ls())
 
 energy_as_default()
 
-plotting <- TRUE
+plotting <- FALSE
 
 # read pre-built objects for complex ICs
 load("data-raw/ic-sensors-mspct.rda")

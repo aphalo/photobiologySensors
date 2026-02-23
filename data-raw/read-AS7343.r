@@ -10,7 +10,7 @@ rm(list = ls())
 
 energy_as_default()
 
-plotting <- TRUE
+plotting <- FALSE
 
 # read DigitizeIt CSV file
 file.list <- list.files("./data-raw/ams", "AS7343.*\\.csv", full.names = TRUE)
@@ -97,18 +97,17 @@ for (col in colnames(AS7343_channels.tb)) {
 AS7343_channels.named_tb <- as.data.frame(AS7343_channels.named_tb)
 # names(AS7343_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "AS7343",
-                          sensor.supplier = "ams OSRAM",
-                          sensor.type = "integrated circuit",
-                          sensor.io = "I2C",
-                          module.name = "Yocto-Spectral",
+sensor.properties <- list(model = "AS7343",
+                          type = "photodiodes (Si) in integrated circuit",
+                          supplier = "ams OSRAM",
+                          signal.interface = "I2C",
+                          entrance.optics = "narrow",
+                          channels = AS7343_channels.named_tb,
+                          module.model = "Yocto-Spectral",
                           module.supplier = "YoctoPuce",
-                          module.io = "USB",
-                          num.channels = 13,
-                          output = "digital",
-                          channels = AS7343_channels.named_tb)
+                          module.interface = "USB")
 
-attr(ams_AS7343.spct, "sensor.properties") <- sensor.properties
+sensor_properties(ams_AS7343.spct) <- sensor.properties
 
 what_measured(ams_AS7343.spct) <-
   paste("ams AS7343 Spectral Sensor with 11 VIS channels and 2 NIR channels.",

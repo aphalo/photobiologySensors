@@ -7,56 +7,48 @@ rm(list = ls())
 
 photon_as_default()
 
-plotting <- TRUE
+plotting <- FALSE
 
 # read DigitizeIt CSV file
 # the data in these figures are either actual or normalized quantum efficiencies
 file.list <- list.files("./data-raw/LUCID", ".*\\.csv", full.names = TRUE)
 
 sensor.properties <-
-  list(TRI071S_M = list(sensor.name = "IMX428",
-                        sensor.supplier = "Sony",
-                        sensor.type = "image sensor",
-                        sensor.io = "SLV",
-                        module.name = "Triton TRI071S-M",
+  list(TRI071S_M = list(model = "IMX428",
+                        supplier = "Sony",
+                        type = "CMOS image sensor",
+                        signal.interface = "SLV",
+                        module.model = "Triton TRI071S-M",
                         module.supplier = "LUCID",
                         module.type = "VIS camera",
-                        module.io = "Ethernet 1G POE",
-                        num.channels = 1,
-                        output = "digital",
+                        module.interface = "Ethernet 1G POE",
                         channels = "Monochrome"),
-       TRT033S_WC = list(sensor.name = "IMX992",
-                         sensor.supplier = "Sony",
-                         sensor.type = "image sensor",
-                         sensor.io = "SLV",
-                         module.name = "Triton2 TRT033S-WC",
+       TRT033S_WC = list(model = "IMX992",
+                         supplier = "Sony",
+                         type = "image sensor",
+                         signal.interface = "SLV",
+                         module.model = "Triton2 TRT033S-WC",
                          module.supplier = "LUCID",
                          module.type = "VIS + SWIR camera",
-                         module.io = "Ethernet 2.5G POE",
-                         num.channels = 1,
-                         output = "digital",
+                         module.interface = "Ethernet 2.5G POE",
                          channels = "Monochrome"),
-       ATX081S_UC = list(sensor.name = "IMX487",
-                         sensor.supplier = "Sony",
-                         sensor.type = "image sensor",
-                         sensor.io = "SLV",
-                         module.name = "Atlas ATX081S-UC",
+       ATX081S_UC = list(model = "IMX487",
+                         supplier = "Sony",
+                         type = "CMOS image sensor",
+                         signal.interface = "SLV",
+                         module.model = "Atlas ATX081S-UC",
                          module.supplier = "LUCID",
                          module.type = "UV camera",
-                         module.io = "Ethernet 10G POE",
-                         num.channels = 1,
-                         output = "digital",
+                         module.interface = "Ethernet 10G POE",
                          channels = "Monochrome"),
-       TRI071S_C = list(sensor.name = "IMX428",
-                        sensor.supplier = "Sony",
-                        sensor.type = "image sensor",
-                        sensor.io = "SLV",
-                        module.name = "Triton TRI071S-C",
+       TRI071S_C = list(model = "IMX428",
+                        supplier = "Sony",
+                        type = "image sensor",
+                        signal.interface = "SLV",
+                        module.model = "Triton TRI071S-C",
                         module.supplier = "LUCID",
                         module.type = "RGB camera",
-                        module.io = "Ethernet 1G POE",
-                        num.channels = 3,
-                        output = "digital",
+                        module.interface = "Ethernet 1G POE",
                         channels = c("R", "G", "B"))
   )
 
@@ -114,12 +106,12 @@ for (file.name in rev(file.list)) {
   camera.code <-
     paste(strsplit(df.name, "_", fixed = TRUE)[[1]][2:3], collapse = "_")
   this.sensor.properties <- sensor.properties[[camera.code]]
-  attr(temp.dt, "sensor.properties") <- this.sensor.properties
+  sensor_properties(temp.dt) <- this.sensor.properties
 
   what_measured(temp.dt) <-
     with(this.sensor.properties,
-    paste(module.type, module.name, "from", module.supplier,
-          "with", sensor.supplier, "image sensor", sensor.name))
+    paste(module.type, module.model, "from", module.supplier,
+          "with", supplier, "image sensor", model))
 
   how_measured(temp.dt) <-
     "Digitized from on-line plot from LUCID."

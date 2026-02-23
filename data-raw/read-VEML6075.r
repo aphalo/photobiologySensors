@@ -102,18 +102,14 @@ for (col in colnames(VEML6075_channels.tb)) {
 VEML6075_channels.named_tb <- as.data.frame(VEML6075_channels.named_tb)
 # names(VEML6075_channels.named_tb[[2]])
 
-sensor.properties <- list(sensor.name = "VEML6075",
-                          sensor.supplier = "Vishay",
-                          sensor.type = "integrated circuit",
-                          sensor.io = "I2C",
-#                          module.name = "Yocto-I2C and IC breakout board",
-#                          module.supplier = "YoctoPuce",
-#                          module.io = "USB",
-                          num.channels = 2,
-                          output = "digital",
+sensor.properties <- list(model = "VEML6075",
+                          type = "photodiodes (Si) in integrated circuit",
+                          supplier = "Vishay",
+                          signal.interface = "I2C",
+                          entrance.optics = "near cosine",
                           channels = VEML6075_channels.named_tb)
 
-attr(Vishay_VEML6075.spct, "sensor.properties") <- sensor.properties
+sensor_properties(Vishay_VEML6075.spct) <- sensor.properties
 
 what_measured(Vishay_VEML6075.spct) <-
   paste("VEML6075 UV Sensor with 2 UV channels:",
