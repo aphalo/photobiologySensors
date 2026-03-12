@@ -34,21 +34,21 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 58
+#> [1] 63
 length(image_sensors.mspct)
 #> [1] 4
 ```
 
-What are the names of available spectra? We use `head()` to limit the
-output.
+What are the names of available spectra? (We use `head()` to limit the
+output.)
 
 ``` r
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
-#>  [1] "ams_AS7263"          "ams_AS7331"          "ams_AS7341"         
-#>  [4] "ams_AS7343"          "ams_TSL2591"         "Vishay_VEML6075"    
-#>  [7] "ams_TSL254R"         "ams_TSL257"          "Analytik_Jena_UVX25"
-#> [10] "Analytik_Jena_UVX31"
+#>  [1] "ams_AS7263"         "ams_AS7331"         "ams_AS7341"        
+#>  [4] "ams_AS7343"         "ams_TSL2591"        "LiteOn_LTR390"     
+#>  [7] "Vishay_VEML6075"    "ams_TSL254R"        "ams_TSL257"        
+#> [10] "AnalytikJena_UVX25"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -71,7 +71,8 @@ sensors.mspct[intersect(kipp_sensors, par_sensors)]
 #> Object: response_spct [280 x 2]
 #> Wavelength range 391.431-717.608 nm, step 0.5010399-4.00832 nm 
 #> Label: KIPP PQS1 light sensor 
-#> Spectral data in s.e.response normalized to 1 at 673.5 nm (max in 391.43-717.61 nm)
+#> Sensor: PQS1 from KIPP.
+#> Spct: data in s.e.response normalized to 1 at 673.5 nm (max in 391-718 nm)
 #> Variables:
 #>  w.length: Wavelength [nm]
 #>  s.e.response: Spectral energy response [normalized] 

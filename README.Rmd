@@ -44,7 +44,7 @@ length(sensors.mspct)
 length(image_sensors.mspct)
 ```
 
-What are the names of available spectra? We use `head()` to limit the output.
+What are the names of available spectra? (We use `head()` to limit the output.)
 
 ```{r example-04}
 # list names of the first 10 sensors

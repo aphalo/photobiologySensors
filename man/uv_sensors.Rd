@@ -25,7 +25,7 @@ A vector of character strings.
 
 An object of class \code{character} of length 2.
 
-An object of class \code{character} of length 7.
+An object of class \code{character} of length 6.
 
 An object of class \code{character} of length 10.
 
