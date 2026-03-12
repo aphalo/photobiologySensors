@@ -11,7 +11,8 @@ plotting <- FALSE
 
 # read DigitizeIt CSV file
 # the data in these figures are either actual or normalized quantum efficiencies
-file.list <- list.files("./data-raw/LUCID", ".*\\.csv", full.names = TRUE)
+file.list <- c(list.files("./data-raw/LUCID", ".*\\.csv", full.names = TRUE),
+               list.files("./data-raw/Hamamatsu", ".*\\.csv", full.names = TRUE))
 
 sensor.properties <-
   list(TRI071S_M = list(model = "IMX428",
@@ -49,7 +50,11 @@ sensor.properties <-
                         module.supplier = "LUCID",
                         module.type = "RGB camera",
                         module.interface = "Ethernet 1G POE",
-                        channels = c("R", "G", "B"))
+                        channels = c("R", "G", "B")),
+       S10420_01 = list(model = " S10420-01 ",
+                        supplier = "Hamamatsu",
+                        type = "CCD image sensor for spectromtres",
+                        entrance.optics = "none")
   )
 
 image_sensors.mspct <- response_mspct()
@@ -103,15 +108,21 @@ for (file.name in rev(file.list)) {
       readline("Next: ")
     }
   }
-  camera.code <-
+  device.code <-
     paste(strsplit(df.name, "_", fixed = TRUE)[[1]][2:3], collapse = "_")
-  this.sensor.properties <- sensor.properties[[camera.code]]
+  this.sensor.properties <- sensor.properties[[device.code]]
   sensor_properties(temp.dt) <- this.sensor.properties
 
-  what_measured(temp.dt) <-
-    with(this.sensor.properties,
-    paste(module.type, module.model, "from", module.supplier,
-          "with", supplier, "image sensor", model))
+  if ("module.type" %in% names(this.sensor.properties)) {
+    what_measured(temp.dt) <-
+      with(this.sensor.properties,
+           paste(module.type, module.model, "from", module.supplier,
+                 "with", supplier, "image sensor", model))
+  } else {
+    what_measured(temp.dt) <-
+      with(this.sensor.properties,
+           paste(type, model, "from", supplier))
+  }
 
   how_measured(temp.dt) <-
     "Digitized from on-line plot from LUCID."
@@ -131,6 +142,7 @@ names(LUCID_TRI071S_C.mspct) <-
 LUCID_TRI071S_C.spct <- rbindspct(LUCID_TRI071S_C.mspct, idfactor = "channel")
 
 autoplot(LUCID_TRI071S_C.spct)
+autoplot(LUCID_TRI071S_C.spct, norm = "max")
 
 image_sensors.mspct <-
   image_sensors.mspct[setdiff(names(image_sensors.mspct),
@@ -140,7 +152,21 @@ autoplot(image_sensors.mspct, norm = "max",
 
 image_sensors.mspct[["LUCID_TRI071S_C_IMX428"]] <- LUCID_TRI071S_C.spct
 
-autoplot(image_sensors.mspct, norm = "max",
+names(image_sensors.mspct)
+
+autoplot(image_sensors.mspct, norm = "max", facets = 3,
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[[1]], norm = "max",
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[[2]], norm = "max",
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[[3]], norm = "max",
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[[4]], norm = "max",
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[[5]], norm = "max",
+         annotations = c("peak.labels", "colour.guide"))
+autoplot(image_sensors.mspct[5], norm = "max",
          annotations = c("peak.labels", "colour.guide"))
 
 save(image_sensors.mspct, file = "./data/image-sensors-mspct.rda")

@@ -37,6 +37,7 @@ for (file.name in file.list) {
   df.name <- gsub(pattern = "-", replacement = "_", x = df.name)
   df.name <- sub("Solar_Light_501", "SolarLight_501_Biometer", df.name, fixed=TRUE)
   df.name <- sub("LI_COR", "LICOR", df.name, fixed=TRUE)
+  df.name <- sub("Analytik_Jena", "AnalytikJena", df.name, fixed=TRUE)
   # df.name <- sub("Skye_SK", "SK", df.name, fixed=TRUE)
   # df.name <- sub("sglux_SG", "SG", df.name, fixed=TRUE)
   # df.name <- sub("sglux_TOCON", "TOCON", df.name, fixed=TRUE)
@@ -69,12 +70,26 @@ for (file.name in file.list) {
   }
   if (nrow(temp.dt) > 10) {
     temp.dt <- normalize(temp.dt, norm = "max")
-#    temp.df <- setNormalised(temp.dt)
   } else {
     temp.dt <- interpolate_spct(temp.dt, length.out = 50)
   }
   what_measured(temp.dt) <- paste(gsub("_", " ", df.name), "light sensor")
   how_measured(temp.dt) <- "Digitized from plots in suppliers' literature"
+  if (grepl("BPX65|G6262|", df.name)) {
+    sensor_properties(temp.dt) <-
+      list(model = strsplit(df.name, "_")[[1]][-1],
+           type = ifelse(grepl("G6262", df.name),
+                         "GaAsP photodiode",
+                         "Si photodiode"),
+           supplier = strsplit(df.name, "_")[[1]][1],
+           entrance.optics = "none")
+  } else {
+    sensor_properties(temp.dt) <-
+      list(model = strsplit(df.name, "_")[[1]][-1],
+           type = "broadband",
+           supplier = strsplit(df.name, "_")[[1]][1],
+           entrance.optics = "cosine")
+  }
   comment(temp.dt) <-
     "Data are approximate, not specifications. Provided as examples only"
   if (stepsize(temp.dt)[1] < 0.5) {
@@ -126,10 +141,9 @@ ams_sensors <- grep("ams_", all_sensors, value = TRUE)
 vishay_sensors <- grep("Vishay_", all_sensors, value = TRUE)
 liteon_sensors <- grep("LiteOn_", all_sensors, value = TRUE)
 
-uvc_sensors <- c("sglux_SG01D_C", "Analytik_Jena_UVX25")
+uvc_sensors <- c("sglux_SG01D_C", "AnalytikJena_UVX25")
 uvb_sensors <- c("sglux_SG01D_B", "Solarmeter_SM60", "Skye_SKU430a", "KIPP_UVS_B",
-                 "Analytik_Jena_UVX31", "Vishay_VEML6075_UVB",
-                 "Irradian_DA211B2_Cos")
+                 "AnalytikJena_UVX31", "Irradian_DA211B2_Cos")
 erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
                        "SolarLight_501_Biometer_high_UVA",
                        "SolarLight_501_Biometer_low_UVA",
@@ -137,17 +151,17 @@ erythemal_sensors <- c("KIPP_UVS_E", "Thies_E1c", "Skye_SKU440a",
                        "Vital_BW_20", "Berger_UV_Biometer",
                        "Vishay_VEML6075", "LiteOn_LTR390")
 uva_sensors <- c("apogee_su_200", "sglux_SG01D_A", "Skye_SKU421",
-                 "Skye_SKU421a", "KIPP_UVS_A", "Analitik_Jena_UVX36",
-                 "sglux_custom_UVA1", "Irradian_DA211B2-Cos")
+                 "Skye_SKU421a", "KIPP_UVS_A", "AnalytikJena_UVX36",
+                 "sglux_custom_UVA1", "Irradian_DA211B2_Cos")
 uv_sensors <- unique(c(uvc_sensors, uvb_sensors, uva_sensors, erythemal_sensors,
                        "sglux_SG01L", "KIPP_CUV_5"))
 par_sensors <- c("apogee_sq_500", "Skye_SKP215", "Skye_SKE510", "Skye_SKP210",
                  "KIPP_PQS1", "LICOR_LI_190", "DeltaT_BF5", "Specmeters_3415F",
-                 "Irradian_DV211Q-Cos")
+                 "Irradian_DV211Q_Cos")
 epar_sensors <- "apogee_sq_610"
 photometric_sensors <- vis_sensors <- c("Skye_SKL310", "LICOR_LI_210", "LiteOn_LTR390")
 pyranometer_sensors <- shortwave_sensors <- c("Skye_SKS1110", "LICOR_LI_200",
-                                              "KIPP_CM21", "Irradian_DV211E-Cos")
+                                              "KIPP_CM21", "Irradian_DV211E_Cos")
 red_sensors <- c("Skye_SKR110_R", "apogee_s2_131_R")
 far_red_sensors <- c("Skye_SKR110_FR", "apogee_s2_131_FR")
 blue_sensors <- c("sglux_TOCON_blue4")
