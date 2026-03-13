@@ -1,12 +1,6 @@
 #' @title Solarmeter devices
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' SOLARMETER MODEL 6.0 UV METER: Silicon Carbide (SIC) Photodiode packaged
@@ -14,12 +8,6 @@
 #' Interference filter coating (Metal Oxide) blocks most UVA.
 #'
 #' Manufacturer: Solartech, Inc., 26101 Harbour Pointe Dr N., Harrison Twp, MI 48045
-#'
-#' @note
-#' Digitized with 'enguage' from manufacturers brochures. These are approximate
-#' data, both because of the digitizing process, and because they are
-#' either typical values or for a particular sensor unit. Individual sensor units
-#' are expected to differ to some degree in spectral response.
 #'
 #' @references
 #' Digitized from \verb{SM60graph.gif} obtained from

@@ -1,25 +1,12 @@
 #' @title Irradian Sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
-#' Irradian sensor DA211A-Cos, DA211B2-Cos, DV211Q-Cos, DV211E-Cos.
+#' Irradian sensors DA211A-Cos (UV-A), DA211B2-Cos (UV-B), DV211Q-Cos (PAR),
+#' DV211E-Cos (pyranometer).
 #'
-#' Manufacturer: Irradian
-#'
-#' @note
-#' Spectral data digitized from figures in manufacturer's manuals.
-#' These are typical measured data, and for specific sensor units the
-#' calibration data supplied with the sensor must be used as individual
-#' may differ in their spectral response. Furthermore, the digitizing
-#' process from figures with a linear scale is prone to errors, which
-#' are specially noticeable in regions of low responsivity.
+#' Manufacturer: Irradian Ltd., Tranent, East Lothian, Scotalnd, U.K.
 #'
 #' @references
 #' Manufacturer's brochure for 'DA211-v2a' not dated, downloaded on 2026-03-09.

@@ -7,14 +7,15 @@ editor_options:
 photobiologySensors 0.5.3
 =========================
 
-* Data objects rebuilt with 'photobiology' 0.14.1.
-* Add attribute `sensor.descriptor` to all sensor data objects, newly
-implemented in 'photobiology' 0.14.1.
+* Rebuild all spectral data objects with 'photobiology' 0.14.1.
+* Add attribute `sensor.descriptor` to all sensor data objects.
 * Add data for four cameras from LUCID labs: VIS monochrome and RGB, UV and 
-SWIR. These cameras are based on image sensors from Sony.
+SWIR (CMOS and InGaAS image sensors from Sony). These cameras are based on
+image sensors from Sony.
 * Add data for the 2-channel LTR390UV digital sensor from Lite-On.
 * Add data for four broadband sensors from Irradian.
-* Add data for a Hamamatsu CCD image sensor and a GaAsP photodiode.
+* Add data for a Hamamatsu CCD image sensor and GaAsP, InGaAS and Si photodiodes.
+* Add data for Si photodiode BPX65 from ams-OSRAM.
 * **Breaking:** rename spectra supplied by *Analytic Jenna* by replacing 
 `Analytik_Jenna` with `AnalytikJenna` so that for all sensor names, the supplier
 name is delimited by the first underscore.

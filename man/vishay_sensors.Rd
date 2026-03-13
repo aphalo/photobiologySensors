@@ -5,7 +5,7 @@
 \alias{vishay_sensors}
 \title{'Vishay' sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 1.
 }
 \usage{
 vishay_sensors
@@ -17,15 +17,18 @@ A vector of indexes for extracting subsets of spectra from the
 \details{
 Vishay VEML6075 UVA and UVB sensor with I2C digital interface. Two spectra,
 one for each channel.
-}
-\note{
-Digitized with 'DigitizeIt' from manufacturers' electronic component data
-sheet. This are approximate data, both because of the digitizing process,
-and because they are either typical values or for a specific sensor unit.
-Individual sensor units are expected to differ to some
-degree in spectral response.
 
 Manufacturer: VISHAY INTERTECHNOLOGY, INC. Shelton, CT, USA. \url{https://www.vishay.com/}.
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -34,5 +37,8 @@ vishay_sensors
 }
 \references{
 Document Number: 84304, Rev. 1.2, 23-Nov-16; VISHAY INTERTECHNOLOGY, INC.
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

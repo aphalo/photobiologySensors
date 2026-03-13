@@ -1,12 +1,6 @@
 #' @title apogee broadband sensors
 #'
-#' @description A vector of indexes for extracting subsets of spectra from the
-#' \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' apogee SQ-100X-SS: Original Quantum Sensor.
@@ -21,18 +15,10 @@
 #'
 #' apogee S2-131-SS Red and Far-Red Sensor, Far-Red channel, quantum
 #'
-#'
-#' @note
-#' Digitized with 'DigitizeIt' from manufacturers product on-line
-#' specifications. This are approximate data, both because of the digitizing
-#' process from low resolution bitmaps, and because they are either typical
-#' values or for a particular sensor unit. Individual sensor units are expected
-#' to differ to some degree in spectral response.
-#'
 #' Manufacturer: Apogee Instruments, Inc., Logan, UT, USA.
 #'
 #' @references \url{https://www.apogeeinstruments.com/quantum/}
-#' visited on 2023-10-10.
+#' visited on 2023-10-10. (manufacturers product on-line specifications).
 #'
 #' @examples
 #'

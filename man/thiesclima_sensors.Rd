@@ -5,30 +5,53 @@
 \alias{thiesclima_sensors}
 \title{Thies Clima sensors}
 \format{
-A character vector of names of members of the collection of spectra.
-}
-\source{
-Digitized with 'DigitizeIt' from manufacturers manual. These are approximate
-data, both because of the digitizing process, and because they are
-either typical values or for a particular sensor unit. Individual sensor units
-are expected to differ to some degree in spectral response.
+An object of class \code{character} of length 1.
 }
 \usage{
 thiesclima_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 Thies Clima E1.c broadband UVB sensor
 
-Manufacturer: Thies Clima, Göttingen, DE
- \url{https://www.thiesclima.com/}
+Manufacturer: Thies Clima, Göttingen, DE.  \url{https://www.thiesclima.com/}
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
 thiesclima_sensors
 
+}
+\references{
+Data sheet for TSL254R (TAOS, TAOS071C - SEPTEMBER 2007)
+
+Data sheet for TSL257 (v1-00, 2016-Jul-25)
+
+Data sheet for TSL2591 (ams DS000338, v3-00, 2023-Feb-08)
+
+Data sheet for AS7263 (ams DS000476, v4-00, 2022-Nov-30)
+
+Data sheet for AS7331 (ams DS001047, v4-00, 2023-Mar-24)
+
+Data sheet for AS7341 (ams DS000504, v3-00, 2020-Jun-25)
+
+Data sheet for AS7343 (ams DS001046, v6-00, 2023-Jun-07)
+
+Data sheet for BPX65 (Version 1.4, 2023-01-24)
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

@@ -1,12 +1,6 @@
 #' @title sglux broadband sensors
 #'
-#' @description A vector of indexes for extracting subsets of spectra from the
-#' \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' sglux SG01D-A UV-A broadband sensor (filtered SiC sensor).
@@ -27,12 +21,6 @@
 #'
 #' Manufacturer: sglux GmbH, Berlin, Germany.
 #' \url{https://sglux.de/en/}
-#'
-#' @note
-#' Original data supplied by the manufacturer as a computer readable file, or
-#' digitized from plots in specifications or other documents.
-#' These are typical measured data. Individual sensor units
-#' are expected to differ to a small degree in spectral response.
 #'
 #' @references personal communication from Dr.\ Stefan Langer.
 #'

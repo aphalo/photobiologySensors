@@ -5,26 +5,26 @@
 \alias{solarlight_sensors}
 \title{Solar Light sensors}
 \format{
-A character vector of names of members of the collection of spectra.
-}
-\source{
-Data kindly made available by Lasse Ylianttila. These are the responses from
-a unit with higher and lower response to UVA radiation than typical units,
-as well as the response for a typical unit as observed in an instrument
-intercomparison.
+An object of class \code{character} of length 3.
 }
 \usage{
 solarlight_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 Solar Light UVB biometer model 501 (units with high and low UV-A sensitivity,
 and a typical unit). Data from an intercomparison.
 
 Manufacturer: Solar Light Company, Glenside, PA, U.S.A.
+}
+\note{
+Data kindly made available by Lasse Ylianttila. These are the responses from
+a unit with higher and lower response to UVA radiation than typical units,
+as well as the response for a typical unit as observed in an instrument
+intercomparison.
 }
 \examples{
 
@@ -42,5 +42,8 @@ Erythemally weighted radiometers in solar UV monitoring: results from the
 WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
 
 \url{https://www.solarlight.com/}
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

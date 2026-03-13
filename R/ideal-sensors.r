@@ -1,16 +1,12 @@
 #' @title Idealized sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
+#' @inherit ams_sensors
 #'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
-#'
-#' @note
+#' @details
 #' Flat spectral response to spectral energy irradiance and to spectral photon
 #' irradiance.
+#'
+#' @note Exact values based on physical principles.
 #'
 #' @examples
 #' ideal_sensors

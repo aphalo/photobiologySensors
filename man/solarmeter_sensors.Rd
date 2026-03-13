@@ -5,14 +5,14 @@
 \alias{solarmeter_sensors}
 \title{Solarmeter devices}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 1.
 }
 \usage{
 solarmeter_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 SOLARMETER MODEL 6.0 UV METER: Silicon Carbide (SIC) Photodiode packaged
@@ -22,10 +22,14 @@ Interference filter coating (Metal Oxide) blocks most UVA.
 Manufacturer: Solartech, Inc., 26101 Harbour Pointe Dr N., Harrison Twp, MI 48045
 }
 \note{
-Digitized with 'enguage' from manufacturers brochures. These are approximate
-data, both because of the digitizing process, and because they are
-either typical values or for a particular sensor unit. Individual sensor units
-are expected to differ to some degree in spectral response.
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -35,5 +39,8 @@ solarmeter_sensors
 \references{
 Digitized from \verb{SM60graph.gif} obtained from
 \verb{https://www.solarmeter.com/} on 20 December 2013.
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

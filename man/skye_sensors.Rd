@@ -5,14 +5,14 @@
 \alias{skye_sensors}
 \title{Skye-Instruments Sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 11.
 }
 \usage{
 skye_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 Skye PAR quantum Sensor SKP215, Skye PAR energy sensor SKE510, Skye Lux
@@ -26,12 +26,14 @@ Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
 Dead URL: \emph{https://www.skyeinstruments.com/}
 }
 \note{
-Spectral data digitized from figures in manufacturer's manuals.
-These are typical measured data, and for specific sensor units the
-calibration data supplied with the sensor must be used as individual
-may differ in their spectral response. Furthermore, the digitizing
-process from figures with a linear scale is prone to errors, which
-are specially noticeable in regions of low responsivity.
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 skye_sensors
@@ -52,5 +54,8 @@ Manufacturer's 'SKU 440 UV Index Sensor' V. 3 brochure, not dated, dowloaded on 
 KJ McCree. The action spectrum, absorbance and quantum yield of
   photosynthesis in crop plants. Agricultural Meteorology. 1971/72
   Vol 9, pp 191-216
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

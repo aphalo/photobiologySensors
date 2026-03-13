@@ -1,20 +1,12 @@
 #' @title Delta-T sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
+#' @inherit ams_sensors
 #'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
-#'
-#' @note
-#' Spectral data digitized from figure in manufacturer's manual.
-#' These are typical measured data, and for specific sensor units the
-#' calibration data supplied with the sensor must be used as individual
-#' units may differ in their spectral response. Furthermore, the digigitizing
-#' process from figures with a linear scale is prone to errors, which
-#' are specially noticeable in regions of low responsivity.
+#' @details
+#' From figure in manufacturer's manual. The Delta-T BF5 in a broadband
+#' diffuse and total irradiance sensor calibrated for photosynthetically
+#' active radiation (PAR). It is based on seven Si photodiodes as a shading
+#' dome with a custom pattern of openings.
 #'
 #' Manufacturer: Delta-T Devices Ltd, CAMBRIDGE CB25 0EJ, UK
 #' \url{https://delta-t.co.uk/}

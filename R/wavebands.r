@@ -1,12 +1,6 @@
 #' Sensors responsive to different wavebands
 #'
-#' Vectors of names of members of the collection of spectra
-#' \code{\link{sensors.mspct}} by the wavelengths or colours they are sensitive
-#' to.
-#'
-#' @docType data
-#' @keywords datasets
-#' @format A vector of character strings.
+#' @inherit ams_sensors
 #'
 #' @concept sensors by waveband or color
 #'
@@ -23,7 +17,6 @@
 #' far_red_sensors
 #' blue_sensors
 #' multichannel_sensors
-#' electronic_components # native spectral response, sold as parts
 #'
 #' # select PAR sensors
 #' sensors.mspct[par_sensors]
@@ -77,5 +70,13 @@
 #' @rdname uv_sensors
 "multichannel_sensors"
 
-#' @rdname uv_sensors
+#' Types of sensors
+#'
+#' @inherit uv_sensors
+#'
+#' @concept sensors by type
+#'
+#' @examples
+#' electronic_components
+#'
 "electronic_components"

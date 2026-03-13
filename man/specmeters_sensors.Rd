@@ -5,7 +5,7 @@
 \alias{specmeters_sensors}
 \title{Specmeters broadband sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 1.
 }
 \usage{
 specmeters_sensors
@@ -15,16 +15,19 @@ A vector of indexes for extracting subsets of spectra from the
 \code{\link{sensors.mspct}} object.
 }
 \details{
-Specmeters 3415F PAR quantum sensor
-}
-\note{
-Digitized with 'DigitizeIt' from manufacturers product Quantum Light Meters
-PRODUCT MANUAL (R 06/14). This are approximate data, both because of the
-digitizing process, and because they are either typical values or for a
-specific sensor unit. Individual sensor units are expected to differ to some
-degree in spectral response.
+Specmeters 3415F PAR quantum sensor.
 
 Manufacturer: Spectrum Technologies, Inc., Aurora, IL, USA.
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -34,5 +37,8 @@ specmeters_sensors
 \references{
 Quantum Light Meters PRODUCT MANUAL (R 06/14).
 \url{https://www.specmeters.com/}
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

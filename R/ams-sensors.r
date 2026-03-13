@@ -8,6 +8,8 @@
 #' @docType data
 #' @keywords datasets
 #'
+#' @concept sensors by supplier
+#'
 #' @details
 #' TSL254R light-to-voltage optical sensor combining a photodiode
 #' and a transimpedance amplifier, sold as electronic components.
@@ -24,17 +26,19 @@
 #' data are returned digitally through an I2C serial interface. In some of them
 #' analogue gain and ADC integration time can be set through the I2C interface.
 #'
-#' @note
-#' Digitized with 'DigitizeIt' from manufacturers data sheets. This are
-#' approximate data, both because of the digitizing process, and because they
-#' are either typical values or for a specific sensor unit. Individual sensor
-#' units are expected to differ to some degree in spectral response. In the case
-#' of multichannel sensors, the spectra for all channels are plotted in the same
-#' figure in the data sheets and in out-of-band regions the lines overlap making
-#' accurate extraction of values very difficult. Variation from unit to unit
-#' affects both response and center/peak wavelengths.
+#' BPX65 is a silicon (Si) photodiode in T18 can package.
 #'
 #' Manufacturer: ams-OSRAM AG, Austria. \url{https://ams-osram.com}
+#'
+#' @note
+#' Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+#' This are approximate data, both because of the digitizing process, and
+#' because they are either typical values or for a specific sensor unit.
+#' Individual sensor units are expected to differ to some degree in spectral
+#' response. In the case of multichannel sensors, the spectra for all channels
+#' are plotted in the same figure in the data sheets and in out-of-band regions
+#' the lines overlap making accurate extraction of values difficult. Variation
+#' from unit to unit affects both response and center/peak wavelengths.
 #'
 #' @references
 #'
@@ -51,6 +55,10 @@
 #' Data sheet for AS7341 (ams DS000504, v3-00, 2020-Jun-25)
 #'
 #' Data sheet for AS7343 (ams DS001046, v6-00, 2023-Jun-07)
+#'
+#' Data sheet for BPX65 (Version 1.4, 2023-01-24)
+#'
+#' @seealso \code{\link{sensors.mspct}}
 #'
 #' @examples
 #'

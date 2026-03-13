@@ -5,7 +5,7 @@
 \alias{apogee_sensors}
 \title{apogee broadband sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 6.
 }
 \usage{
 apogee_sensors
@@ -26,15 +26,18 @@ apogee SU-200-SS: UV-A Sensor (UV-A, "energy")
 apogee S2-131-SS Red and Far-Red Sensor, Red channel, quantum
 
 apogee S2-131-SS Red and Far-Red Sensor, Far-Red channel, quantum
-}
-\note{
-Digitized with 'DigitizeIt' from manufacturers product on-line
-specifications. This are approximate data, both because of the digitizing
-process from low resolution bitmaps, and because they are either typical
-values or for a particular sensor unit. Individual sensor units are expected
-to differ to some degree in spectral response.
 
 Manufacturer: Apogee Instruments, Inc., Logan, UT, USA.
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -43,6 +46,9 @@ apogee_sensors
 }
 \references{
 \url{https://www.apogeeinstruments.com/quantum/}
-visited on 2023-10-10.
+visited on 2023-10-10. (manufacturers product on-line specifications).
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

@@ -5,27 +5,30 @@
 \alias{irradian_sensors}
 \title{Irradian Sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 4.
 }
 \usage{
 irradian_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
-Irradian sensor DA211A-Cos, DA211B2-Cos, DV211Q-Cos, DV211E-Cos.
+Irradian sensors DA211A-Cos (UV-A), DA211B2-Cos (UV-B), DV211Q-Cos (PAR),
+DV211E-Cos (pyranometer).
 
-Manufacturer: Irradian
+Manufacturer: Irradian Ltd., Tranent, East Lothian, Scotalnd, U.K.
 }
 \note{
-Spectral data digitized from figures in manufacturer's manuals.
-These are typical measured data, and for specific sensor units the
-calibration data supplied with the sensor must be used as individual
-may differ in their spectral response. Furthermore, the digitizing
-process from figures with a linear scale is prone to errors, which
-are specially noticeable in regions of low responsivity.
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 irradian_sensors
@@ -38,5 +41,8 @@ Manufacturer's brochure for 'DV211-v2a'  not dated, downloaded on 2026-03-09.
 KJ McCree. The action spectrum, absorbance and quantum yield of
   photosynthesis in crop plants. Agricultural Meteorology. 1971/72
   Vol 9, pp 191-216
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

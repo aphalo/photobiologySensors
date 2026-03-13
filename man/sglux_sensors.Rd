@@ -5,7 +5,7 @@
 \alias{sglux_sensors}
 \title{sglux broadband sensors}
 \format{
-A character vector of members of the collection of spectra.
+An object of class \code{character} of length 7.
 }
 \usage{
 sglux_sensors
@@ -35,10 +35,14 @@ Manufacturer: sglux GmbH, Berlin, Germany.
 \url{https://sglux.de/en/}
 }
 \note{
-Original data supplied by the manufacturer as a computer readable file, or
-digitized from plots in specifications or other documents.
-These are typical measured data. Individual sensor units
-are expected to differ to a small degree in spectral response.
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -47,5 +51,8 @@ sglux_sensors
 }
 \references{
 personal communication from Dr.\ Stefan Langer.
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

@@ -1,12 +1,6 @@
 #' @title Kipp Radiometers.
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' Kipp CM21 pyranometer. Thermopile-detector based, class A.
@@ -28,13 +22,6 @@
 #'
 #' Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft, Nederlands.
 #' \url{https://www.kippzonen.com/}
-#'
-#' @note
-#' Digitized with 'enguage' or 'DigitizeIt' from manufacturers brochures or
-#' scientific articles referring to unavailable manuals. These are approximate
-#' data, both because of the digitizing process, and because they are
-#' either typical values or for a particular sensor unit. Individual sensor units
-#' are expected to differ to some degree in spectral response.
 #'
 #' @references
 #' Brochure 'Broadband UV Radiometers',

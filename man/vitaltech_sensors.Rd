@@ -5,23 +5,23 @@
 \alias{vitaltech_sensors}
 \title{Vital Technologies sensors}
 \format{
-A character vector of names of members of the collection of spectra.
-}
-\source{
-Data kindly made available by Lasse Ylianttila.
+An object of class \code{character} of length 1.
 }
 \usage{
 vitaltech_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 Vital "Blue Wave" BW-20 UV-B "erythemal" radiometer. Data for a specific
 unit included in a sensor intercomparison event.
 
 Manufacturer: Vital Technologies, Canada. Company no longer in business.
+}
+\note{
+Data kindly made available by Lasse Ylianttila.
 }
 \examples{
 
@@ -34,5 +34,8 @@ of erythemally-weighted solar UV radiometers (Spring/Summer 1995, Helsinki, Finl
 
 Leszczynski K, Jokela K, Ylianttila L, Visuri R, Blumthaler M. 1998. Erythemally weighted radiometers in solar
 UV monitoring: results from the WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

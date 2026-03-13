@@ -1,12 +1,6 @@
 #' @title LI-COR sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' In the LI-190SA and LI-190 PAR quantum sensor (PAR = photosynthetically
@@ -27,13 +21,6 @@
 #'
 #' The LI-210R Photometric Sensor utilizes a filtered silicon photodiode to
 #' provide a spectral response that matches the CIE curve.
-#'
-#' @note
-#' Digitized with 'engauge' or 'DigitizeIt" from manufacturers brochures and
-#' other publications. These are approximate data, both because of the
-#' digitizing process, and because they are either typical values or for a
-#' particular sensor unit. Individual sensor units are expected to differ to
-#' some degree in spectral response.
 #'
 #' Manufacturer: LI-COR Inc., Lincoln, Nebraska
 #' \url{https://www.licor.com/env/}

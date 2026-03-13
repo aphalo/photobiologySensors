@@ -5,14 +5,14 @@
 \alias{kipp_sensors}
 \title{Kipp Radiometers.}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 6.
 }
 \usage{
 kipp_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 Kipp CM21 pyranometer. Thermopile-detector based, class A.
@@ -36,11 +36,14 @@ Manufacturer: Kipp & Zonen B.V., Delftechpark 36, 2628 XH Delft, Nederlands.
 \url{https://www.kippzonen.com/}
 }
 \note{
-Digitized with 'enguage' or 'DigitizeIt' from manufacturers brochures or
-scientific articles referring to unavailable manuals. These are approximate
-data, both because of the digitizing process, and because they are
-either typical values or for a particular sensor unit. Individual sensor units
-are expected to differ to some degree in spectral response.
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 
@@ -54,5 +57,8 @@ Brochure 'Broadband UV Radiometers'.
 Rodziewicz, T., Rajfur, M. (2019) Numerical procedures and their practical
   application in PV modules analyses. Part I: air mass. Opto-Electronics
   Review, Vol. 27, No. 1 39-57
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

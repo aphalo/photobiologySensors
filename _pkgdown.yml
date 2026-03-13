@@ -19,6 +19,7 @@ reference:
     contents:
     - uv_sensors
     - ideal_sensors
+    - electronic_components
   - title: Indexing vectors by make
     desc: Indexing vectors useful to extract members of `sensors.mspct`.
     contents:
@@ -27,6 +28,7 @@ reference:
     - apogee_sensors
     - berger_sensors
     - deltat_sensors
+    - irradian_sensors
     - kipp_sensors
     - licor_sensors
     - sglux_sensors

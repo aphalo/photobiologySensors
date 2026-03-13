@@ -5,17 +5,22 @@
 \alias{berger_sensors}
 \title{'Berger' UV-Biometer}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 1.
 }
 \usage{
 berger_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
+}
+\details{
+One of the early erythemaly-weighted UV broadband sensors. The
+'Berger' UV-Biometer (Fig. 1 in Berger, 1994).
+
+From Solar Light Co., Inc., Philadelphia, USA.
 }
 \note{
-'Berger' UV-Biometer (Fig. 1 in Berger, 1994).
 Digitized with 'enguage' from manufacturers brochures. These are approximate
 data, both because of the digitizing process, and because they are
 either typical values or for a particular sensor unit. Individual sensor units
@@ -28,5 +33,8 @@ berger_sensors
 \references{
 Berger, Daniel (n.d., ca. 1994) A comparison of Spectroradiometers to Radiometers for
 UV Radiation Measurements. Solar Light Co., Inc., Philadelphia.
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

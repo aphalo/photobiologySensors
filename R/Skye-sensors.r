@@ -1,12 +1,6 @@
 #' @title Skye-Instruments Sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' Skye PAR quantum Sensor SKP215, Skye PAR energy sensor SKE510, Skye Lux
@@ -18,14 +12,6 @@
 #'
 #' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
 #' Dead URL: \emph{https://www.skyeinstruments.com/}
-#'
-#' @note
-#' Spectral data digitized from figures in manufacturer's manuals.
-#' These are typical measured data, and for specific sensor units the
-#' calibration data supplied with the sensor must be used as individual
-#' may differ in their spectral response. Furthermore, the digitizing
-#' process from figures with a linear scale is prone to errors, which
-#' are specially noticeable in regions of low responsivity.
 #'
 #' @references
 #' Manufacturer's brochure for 'SKP215' dated 2007-10-03.

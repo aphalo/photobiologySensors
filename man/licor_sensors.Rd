@@ -5,14 +5,14 @@
 \alias{licor_sensors}
 \title{LI-COR sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 6.
 }
 \usage{
 licor_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
 \details{
 In the LI-190SA and LI-190 PAR quantum sensor (PAR = photosynthetically
@@ -33,16 +33,19 @@ light sources.
 
 The LI-210R Photometric Sensor utilizes a filtered silicon photodiode to
 provide a spectral response that matches the CIE curve.
-}
-\note{
-Digitized with 'engauge' or 'DigitizeIt" from manufacturers brochures and
-other publications. These are approximate data, both because of the
-digitizing process, and because they are either typical values or for a
-particular sensor unit. Individual sensor units are expected to differ to
-some degree in spectral response.
 
 Manufacturer: LI-COR Inc., Lincoln, Nebraska
 \url{https://www.licor.com/env/}
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 licor_sensors
@@ -51,5 +54,8 @@ licor_sensors
 \references{
 LI-COR (2005) Instruction Manual 'LI-COR Terrestrial Radiation Sensors'.
 LI-COR (2015) Technical Note 'Why Upgrade to the "R" Light and Radiation Sensors?'
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}

@@ -1,12 +1,6 @@
 #' @title Solar Light sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' Solar Light UVB biometer model 501 (units with high and low UV-A sensitivity,
@@ -14,7 +8,7 @@
 #'
 #' Manufacturer: Solar Light Company, Glenside, PA, U.S.A.
 #'
-#' @source
+#' @note
 #' Data kindly made available by Lasse Ylianttila. These are the responses from
 #' a unit with higher and lower response to UVA radiation than typical units,
 #' as well as the response for a typical unit as observed in an instrument

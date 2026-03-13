@@ -50,7 +50,8 @@ for (file.name in file.list) {
   if (grepl(".old", df.name)) {
     next()
   }
-  temp.df <- read.csv(file.name, header = TRUE, comment.char = "#")
+  temp.df <- read.csv(file.name, header = TRUE, comment.char = "#") |>
+    arrange(w.length)
   if (ncol(temp.df) > 2) {
     temp.df <- temp.df[ , 1:2]
   }
@@ -75,12 +76,24 @@ for (file.name in file.list) {
   }
   what_measured(temp.dt) <- paste(gsub("_", " ", df.name), "light sensor")
   how_measured(temp.dt) <- "Digitized from plots in suppliers' literature"
-  if (grepl("BPX65|G6262|", df.name)) {
+  if (grepl("BPX65|G6262|S1226", df.name)) {
     sensor_properties(temp.dt) <-
       list(model = strsplit(df.name, "_")[[1]][-1],
            type = ifelse(grepl("G6262", df.name),
                          "GaAsP photodiode",
                          "Si photodiode"),
+           supplier = strsplit(df.name, "_")[[1]][1],
+           entrance.optics = "none")
+  } else if (grepl("G1719", df.name)) {
+    sensor_properties(temp.dt) <-
+      list(model = strsplit(df.name, "_")[[1]][-1],
+           type = "InGaAs photodiode",
+           supplier = strsplit(df.name, "_")[[1]][1],
+           entrance.optics = "none")
+  } else if (grepl("R16571", df.name)) {
+    sensor_properties(temp.dt) <-
+      list(model = strsplit(df.name, "_")[[1]][-1],
+           type = "photo-multiplier tube",
            supplier = strsplit(df.name, "_")[[1]][1],
            entrance.optics = "none")
   } else {
@@ -120,7 +133,9 @@ for (file.name in file.list) {
 }
 
 all_sensors <- sort(names(sensors.mspct))
+sensors.mspct <- sensors.mspct[all_sensors]
 
+hamamatsu_sensors <- grep("Hamamatsu_", all_sensors, value = TRUE)
 irradian_sensors <- grep("Irradian_", all_sensors, value = TRUE)
 skye_sensors <- grep("Skye_", all_sensors, value = TRUE)
 sglux_sensors <- grep("sglux_", all_sensors, value = TRUE)
@@ -171,11 +186,10 @@ multichannel_sensors <-
     "apogee_s2_131_R", "apogee_s2_131_FR",
     "Vishay_VEML6075", "LiteOn_LTR390",
     "ams_AS7263", "ams_AS7331", "ams_AS7341", "ams_AS7343", "ams_TSL2591")
-electronic_components <- grep("^ams_|TOCON|^Vishay_", all_sensors, value = TRUE)
-
+electronic_components <- grep("^ams_|TOCON|^Vishay_|^Hamamatsu|^Osram", all_sensors, value = TRUE)
 
 collected_names <-
-  unique(c(irradian_sensors,
+  unique(c(osram_sensors, hamamatsu_sensors, irradian_sensors,
            skye_sensors, sglux_sensors, licor_sensors, kipp_sensors,
            solarlight_sensors, solarmeter_sensors, deltat_sensors,
            vitaltech_sensors, thiesclima_sensors, ideal_sensors,

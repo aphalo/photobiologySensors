@@ -1,12 +1,6 @@
 #' @title Vital Technologies sensors
 #'
-#' @description A vector of names useful for extracting subsets of spectra from
-#'   the \code{\link{sensors.mspct}} object.
-#'
-#' @format A character vector of names of members of the collection of spectra.
-#'
-#' @docType data
-#' @keywords datasets
+#' @inherit ams_sensors
 #'
 #' @details
 #' Vital "Blue Wave" BW-20 UV-B "erythemal" radiometer. Data for a specific
@@ -14,7 +8,7 @@
 #'
 #' Manufacturer: Vital Technologies, Canada. Company no longer in business.
 #'
-#' @source
+#' @note
 #' Data kindly made available by Lasse Ylianttila.
 #'
 #' @references

@@ -5,25 +5,33 @@
 \alias{deltat_sensors}
 \title{Delta-T sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 1.
 }
 \usage{
 deltat_sensors
 }
 \description{
-A vector of names useful for extracting subsets of spectra from
-  the \code{\link{sensors.mspct}} object.
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
 }
-\note{
-Spectral data digitized from figure in manufacturer's manual.
-These are typical measured data, and for specific sensor units the
-calibration data supplied with the sensor must be used as individual
-units may differ in their spectral response. Furthermore, the digigitizing
-process from figures with a linear scale is prone to errors, which
-are specially noticeable in regions of low responsivity.
+\details{
+From figure in manufacturer's manual. The Delta-T BF5 in a broadband
+diffuse and total irradiance sensor calibrated for photosynthetically
+active radiation (PAR). It is based on seven Si photodiodes as a shading
+dome with a custom pattern of openings.
 
 Manufacturer: Delta-T Devices Ltd, CAMBRIDGE CB25 0EJ, UK
 \url{https://delta-t.co.uk/}
+}
+\note{
+Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.
+This are approximate data, both because of the digitizing process, and
+because they are either typical values or for a specific sensor unit.
+Individual sensor units are expected to differ to some degree in spectral
+response. In the case of multichannel sensors, the spectra for all channels
+are plotted in the same figure in the data sheets and in out-of-band regions
+the lines overlap making accurate extraction of values difficult. Variation
+from unit to unit affects both response and center/peak wavelengths.
 }
 \examples{
 deltat_sensors
@@ -31,5 +39,8 @@ deltat_sensors
 }
 \references{
 Manufacturer's User Manual Version: 1.0 dated Nov 2010
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \keyword{datasets}
