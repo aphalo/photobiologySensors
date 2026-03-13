@@ -10,8 +10,8 @@
 #' Skye UV-A Sensor Sensor SKU421 V. 3, Skye UV-B Sensor Sensor SKU430 V. 3,
 #' Skye UVI Sensor Sensor SKU440 V. 3.
 #'
-#' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
-#' Dead URL: \emph{https://www.skyeinstruments.com/}
+#' Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK.
+#' \emph{As of 2026, out of business.}
 #'
 #' @references
 #' Manufacturer's brochure for 'SKP215' dated 2007-10-03.

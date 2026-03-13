@@ -5,7 +5,7 @@
 \alias{ams_sensors}
 \title{'ams' sensors}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 7.
 }
 \usage{
 ams_sensors
@@ -69,5 +69,6 @@ Data sheet for BPX65 (Version 1.4, 2023-01-24)
 \seealso{
 \code{\link{sensors.mspct}}
 }
+\concept{Spectral response data}
 \concept{light sensors}
 \keyword{datasets}

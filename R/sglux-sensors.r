@@ -22,7 +22,7 @@
 #' Manufacturer: sglux GmbH, Berlin, Germany.
 #' \url{https://sglux.de/en/}
 #'
-#' @references personal communication from Dr.\ Stefan Langer.
+#' @references personal communication from Dr. Stefan Langer.
 #'
 #' @examples
 #'

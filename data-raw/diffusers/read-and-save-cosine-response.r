@@ -260,20 +260,28 @@ ideal_sphere <- data.frame(angle.deg = -90:90,
 
 comment(ideal_sphere) <- "Theorical angular response of a sphere."
 
-# Wrong!!!
-#
-# ideal_dome <- data.frame(angle.deg = -90:90) |>
-#   mutate(response = 1 - abs(angle.deg)/90 * 0.5,
-#          response.over.cosine = response / cos(angle.deg / 180 * pi),
-#          response.over.cosine = ifelse(response.over.cosine > 1e15,
-#                                        Inf,
-#                                        response.over.cosine))
+# with help from deepseek with finding correct equation
+dome_prj_area <- function(zenith_angle = 0,
+                          radius = NULL) {
+  z <- abs(zenith_angle) / 180 * pi
 
-ideal_dome <- data.frame(angle.deg = c(-90, 0, 90),
-                         response = c(0.5, 1, 0.5),
-                         response.over.cosine = 1 / cos((c(-90, 0, 90)) / 180 * pi)) |>
-  mutate(response.over.cosine = ifelse(response.over.cosine > 1e15,
-                                       Inf,
+  rel_area <- 0.5 * (1 + cos(z))
+  if (!is.null(radius)) {
+    rel_area * pi * radius^2
+  } else {
+    rel_area
+  }
+}
+
+angle.deg <- -90:90
+
+ideal_dome <- data.frame(angle.deg = angle.deg,
+                         response = dome_prj_area(angle.deg))
+ideal_dome$response.over.cosine <-
+  ideal_dome$response / cos(angle.deg / 180 * pi)
+ideal_dome |>
+  mutate(response.over.cosine = ifelse(abs(response.over.cosine > 1e15),
+                                       Inf * sign(response.over.cosine),
                                        response.over.cosine))
 comment(ideal_dome) <- "Theorical angular response of a dome."
 
@@ -284,30 +292,30 @@ ideal_cosine <- data.frame(angle.deg = -90:90,
 comment(ideal_cosine) <- "Theorical angular response of a flat surface"
 
 
-diffusers.lst <- list(analytik.jena.cosine = analytik_jena_cosine.df,
-                      bentham.D7 = Bentham_D7_cosine.df,
-                      bentham.D7.dome = Bentham_D7_dome.df,
-                      licor.R = LICOR_R_cosine.df,
-                      ocean.optics.4mm = OO4mm_cosine.df,
-                      sglux.uvi.cosine = sglux_cosine_enh.df,
-                      sglux.uv.cosine = sglux_cosine.df,
-                      sglux.TOCON = TOCON_cosine.df,
-                      schreder.J1002 = Schreder_J1002_cosine.df,
+diffusers.lst <- list(analytik_jena_cosine = analytik_jena_cosine.df,
+                      bentham_D7 = Bentham_D7_cosine.df,
+                      bentham_D7_dome = Bentham_D7_dome.df,
+                      licor_R = LICOR_R_cosine.df,
+                      ocean_optics_4mm = OO4mm_cosine.df,
+                      sglux_uvi_cosine = sglux_cosine_enh.df,
+                      sglux_uv_cosine = sglux_cosine.df,
+                      sglux_TOCON = TOCON_cosine.df,
+                      schreder_J1002 = Schreder_J1002_cosine.df,
                       Scintec = Scintec_cosine.df,
-                      Solarlight.501 = SL501_cosine.df,
-                      vishay.VEML6075 = Vishay_VEML6075.df,
-                      vital.BW20 = VitalBW20_cosine.df,
-                      ams.TSL254R = ams_TSL254R.df,
-                      ams.TSL257 = ams_TSL257.df,
-                      ideal.cosine = ideal_cosine,
-                      ideal.dome = ideal_dome,
-                      ideal.sphere = ideal_sphere)
+                      Solarlight_501 = SL501_cosine.df,
+                      vishay_VEML6075 = Vishay_VEML6075.df,
+                      vital_BW20 = VitalBW20_cosine.df,
+                      ams_TSL254R = ams_TSL254R.df,
+                      ams_TSL257 = ams_TSL257.df,
+                      ideal_cosine = ideal_cosine,
+                      ideal_dome = ideal_dome,
+                      ideal_sphere = ideal_sphere)
 
 diffusers.lst <- diffusers.lst[sort(names(diffusers.lst))]
 
 all_diffusers <- names(diffusers.lst)
 dome_diffusers <- grep("dome", all_diffusers, value = TRUE)
-entrance_optics <- grep("benthan", all_diffusers, value = TRUE)
+entrance_optics <- grep("bentham|schreder", all_diffusers, value = TRUE)
 ic_optics <- grep("^ams|^vishay", all_diffusers, value = TRUE)
 ideal_optics <- grep("^ideal", all_diffusers, value = TRUE)
 sensor_optics <- setdiff(all_diffusers,
@@ -345,7 +353,7 @@ ggplot(diffusers.df,
   theme_bw()
 
 ggplot(subset(diffusers.df, diffuser %in%
-                c("analytik.jena.cosine", "bentham.D7", "sglux.uvi.cosine")),
+                c("analytik_jena_cosine", "bentham_D7", "sglux_uvi_cosine")),
 aes(angle.deg, response.over.cosine, color = diffuser)) +
   geom_hline(yintercept = 1) +
   geom_line() +

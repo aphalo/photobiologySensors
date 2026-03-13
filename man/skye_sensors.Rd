@@ -22,8 +22,8 @@ channels), Skye Pyranometer Sensor SKS1110, Skye UV-A Sensor Sensor SKU421,
 Skye UV-A Sensor Sensor SKU421 V. 3, Skye UV-B Sensor Sensor SKU430 V. 3,
 Skye UVI Sensor Sensor SKU440 V. 3.
 
-Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK
-Dead URL: \emph{https://www.skyeinstruments.com/}
+Manufacturer: Skye Instruments, Llandrindod Wells, Powys, UK.
+\emph{As of 2026, out of business.}
 }
 \note{
 Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.

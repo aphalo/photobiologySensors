@@ -18,6 +18,7 @@ A vector of indexes for extracting subsets of spectra from the
 Specmeters 3415F PAR quantum sensor.
 
 Manufacturer: Spectrum Technologies, Inc., Aurora, IL, USA.
+\url{https://www.specmeters.com/}
 }
 \note{
 Digitized with 'DigitizeIt' or 'engauge' from manufacturers publications.

@@ -72,12 +72,17 @@ ggplot(sensors.mspct$LICOR_LI_190R, unit.out = "photon") +
   theme_classic()
 
 ## ----eval=eval_ggspectra------------------------------------------------------
-ggplot(diffusers.lst$bentham.D7, aes(angle.deg, response)) +
+ggplot(diffusers.lst$bentham_D7, aes(angle.deg, response)) +
   geom_line() +
   geom_line(aes(y = cos(angle.deg * pi / 180)), linetype = "dotted", color = "red") +
   scale_x_continuous(name = "Angle (degrees)", breaks = c(-90, -60, -30, 0, 30, 60, 90)) +
   scale_y_continuous(name = "Response (/1)") +
   theme_classic()
+
+## -----------------------------------------------------------------------------
+angular_response(45, "cosine")
+angular_response(45, "dome")
+angular_response(45, "sphere")
 
 ## -----------------------------------------------------------------------------
 head(as.data.frame(sensors.mspct$LICOR_LI_190R))

@@ -11,11 +11,21 @@ An object of class \code{character} of length 15.
 electronic_components
 }
 \description{
-Types of sensors
+A vector of indexes for extracting subsets of spectra from the
+\code{\link{sensors.mspct}} object.
+}
+\details{
+The sensors pointed at by this vector are those sold as electronic
+components and used to construct sensors that can be deployed when interfaced
+to other electronic components, possibly combined with optical filters and
+entrance optics and protected inside a case or enclosure.
 }
 \examples{
 electronic_components
 
+}
+\seealso{
+\code{\link{sensors.mspct}}
 }
 \concept{sensors by type}
 \keyword{datasets}

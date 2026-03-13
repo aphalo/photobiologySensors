@@ -34,9 +34,9 @@ How many spectra are included in the current version of
 
 ``` r
 length(sensors.mspct)
-#> [1] 63
+#> [1] 69
 length(image_sensors.mspct)
-#> [1] 4
+#> [1] 5
 ```
 
 What are the names of available spectra? (We use `head()` to limit the
@@ -46,9 +46,9 @@ output.)
 # list names of the first 10 sensors
 head(names(sensors.mspct), 10)
 #>  [1] "ams_AS7263"         "ams_AS7331"         "ams_AS7341"        
-#>  [4] "ams_AS7343"         "ams_TSL2591"        "LiteOn_LTR390"     
-#>  [7] "Vishay_VEML6075"    "ams_TSL254R"        "ams_TSL257"        
-#> [10] "AnalytikJena_UVX25"
+#>  [4] "ams_AS7343"         "ams_TSL254R"        "ams_TSL257"        
+#>  [7] "ams_TSL2591"        "AnalytikJena_UVX25" "AnalytikJena_UVX31"
+#> [10] "AnalytikJena_UVX36"
 ```
 
 To subset based on different criteria we can use predefined character
@@ -129,15 +129,24 @@ autoplot(sensors.mspct[["LICOR_LI_190R"]])
 
 ![](man/figures/README-example-07-1.png)<!-- -->
 
-## Code breaking renaming of data objects in 2020
+In addition to spectral response data, the package includes angular
+response data for some of the same sensors and for entrance optics used
+with spectrometers.
 
-In the update to version 0.5.0 in October 2020 several members of the
-collection of sensor-response spectra were renamed to ensure consistency
-and clarity. As of version 0.5.0 all member names start with the name of
-the manufacturer or supplier. In addition, several of the vectors of
-names of member spectra were renamed to include the word “sensors” to
-avoid possible name clashes with other packages and also to improve
-naming consistency.
+``` r
+names(diffusers.lst)
+#>  [1] "ams_TSL254R"          "ams_TSL257"           "analytik_jena_cosine"
+#>  [4] "bentham_D7"           "bentham_D7_dome"      "ideal_cosine"        
+#>  [7] "ideal_dome"           "ideal_sphere"         "licor_R"             
+#> [10] "ocean_optics_4mm"     "schreder_J1002"       "Scintec"             
+#> [13] "sglux_TOCON"          "sglux_uv_cosine"      "sglux_uvi_cosine"    
+#> [16] "Solarlight_501"       "vishay_VEML6075"      "vital_BW20"
+```
+
+``` r
+dome_diffusers
+#> [1] "bentham_D7_dome" "ideal_dome"
+```
 
 ## Installation
 

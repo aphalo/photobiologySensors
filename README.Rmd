@@ -88,14 +88,16 @@ functions and methods from base R and various packages.
 autoplot(sensors.mspct[["LICOR_LI_190R"]])
 ```
 
-## Code breaking renaming of data objects in 2020
+In addition to spectral response data, the package includes angular response
+data for some of the same sensors and for entrance optics used with
+spectrometers.
 
-In the update to version 0.5.0 in October 2020 several members of the collection
-of sensor-response spectra were renamed to ensure consistency and clarity. As of
-version 0.5.0 all member names start with the name of the manufacturer or
-supplier. In addition, several of the vectors of names of member spectra were
-renamed to include the word "sensors" to avoid possible name clashes with other
-packages and also to improve naming consistency.
+```{r example-diff-01}
+names(diffusers.lst)
+```
+```{r}
+dome_diffusers
+```
 
 ## Installation
 

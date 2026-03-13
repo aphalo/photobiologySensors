@@ -2,8 +2,6 @@
 #'
 #' @inherit ams_sensors description format seealso
 #'
-#' @format A character vector of names of members of the collection of spectra.
-#'
 #' @docType data
 #' @keywords datasets
 #'
@@ -11,6 +9,10 @@
 #'
 #' @rdname sensors-by-waveband
 #' @aliases sensors-by-waveband uvc_sensors uvb_sensors uva_sensors epar_sensors par_sensors vis_sensors shortwave_sensors red_sensors far_red_sensors blue_sensors
+#'
+#' @details The sensors pointed at by each of these vectors are sensitive to
+#'   light of a certain colour within visible radiation (VIS) or to different
+#'   bands of ultraviolet (UV) or infrared (IR) radiation.
 #'
 #' @examples
 #' uv_sensors # ultraviolet
@@ -78,9 +80,14 @@
 
 #' Types of sensors
 #'
-#' @inherit sensors-by-waveband
+#' @inherit uv_sensors
 #'
 #' @concept sensors by type
+#'
+#' @details The sensors pointed at by this vector are those sold as electronic
+#' components and used to construct sensors that can be deployed when interfaced
+#' to other electronic components, possibly combined with optical filters and
+#' entrance optics and protected inside a case or enclosure.
 #'
 #' @examples
 #' electronic_components

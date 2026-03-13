@@ -3,6 +3,7 @@ url: https://docs.r4photobiology.info/photobiologySensors/
 
 template:
   bootstrap: 5
+  math-rendering: katex
 
 reference:
   - title: Package overview
@@ -39,6 +40,10 @@ reference:
     - thiesclima_sensors
     - vishay_sensors
     - vitaltech_sensors
+  - title: Angular response computation
+    desc: Function for computation of the theoretical angular response of diffusers with different shapes.
+    contents:
+    - angular_response
   - title: Angular response data
     desc: Data on the angular response of sensors and of entrance optics for spectrometers.
     contents:
@@ -84,5 +89,4 @@ navbar:
         href: https://doi.org/10.31885/9789521083631
       - text: Photobiological Sciences Online
         href: http://photobiology.info/
-
 

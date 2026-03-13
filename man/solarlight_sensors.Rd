@@ -19,6 +19,7 @@ Solar Light UVB biometer model 501 (units with high and low UV-A sensitivity,
 and a typical unit). Data from an intercomparison.
 
 Manufacturer: Solar Light Company, Glenside, PA, U.S.A.
+\url{https://www.solarlight.com/}
 }
 \note{
 Data kindly made available by Lasse Ylianttila. These are the responses from
@@ -40,8 +41,6 @@ radiometers (Spring/Summer 1995, Helsinki, Finland). WMO-GAW Report No. 112,
 Leszczynski K, Jokela K, Ylianttila L, Visuri R, Blumthaler M. 1998.
 Erythemally weighted radiometers in solar UV monitoring: results from the
 WMO/STUK Intercomparison. Photochem. Photobiol. 67(2):212-221.
-
-\url{https://www.solarlight.com/}
 }
 \seealso{
 \code{\link{sensors.mspct}}

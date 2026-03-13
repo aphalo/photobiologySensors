@@ -3,12 +3,12 @@
 #' @description A vector of indexes for extracting subsets of spectra from the
 #' \code{\link{sensors.mspct}} object.
 #'
-#' @format A character vector of names of members of the collection of spectra.
-#'
 #' @docType data
 #' @keywords datasets
 #'
 #' @concept light sensors
+#'
+#' @family Spectral response data
 #'
 #' @details
 #' TSL254R light-to-voltage optical sensor combining a photodiode

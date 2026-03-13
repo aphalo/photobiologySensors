@@ -50,7 +50,7 @@ sglux_sensors
 
 }
 \references{
-personal communication from Dr.\ Stefan Langer.
+personal communication from Dr. Stefan Langer.
 }
 \seealso{
 \code{\link{sensors.mspct}}

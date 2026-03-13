@@ -7,7 +7,7 @@ editor_options:
 photobiologySensors 0.5.3
 =========================
 
-* Rebuild all spectral data objects with 'photobiology' 0.14.1.
+* Rebuild all spectral data objects with 'photobiology' 0.14.2.
 * Add attribute `sensor.descriptor` to all sensor data objects.
 * Add data for four cameras from LUCID labs: VIS monochrome and RGB, UV and 
 SWIR (CMOS and InGaAS image sensors from Sony). These cameras are based on
@@ -16,9 +16,14 @@ image sensors from Sony.
 * Add data for four broadband sensors from Irradian.
 * Add data for a Hamamatsu CCD image sensor and GaAsP, InGaAS and Si photodiodes.
 * Add data for Si photodiode BPX65 from ams-OSRAM.
+* Add function `angular_response()` for the computation of the expected response
+of disk-, dome- and ball-shaped diffusers.
 * **Breaking:** rename spectra supplied by *Analytic Jenna* by replacing 
 `Analytik_Jenna` with `AnalytikJenna` so that for all sensor names, the supplier
 name is delimited by the first underscore.
+* **Breaking:** rename members of `diffusers.lst` for consistency with members
+of `sensors.mspct`, by replacing dots by underscores.
+* Update documentation of data objects.
 
 photobiologySensors 0.5.2
 =========================
@@ -33,7 +38,7 @@ photobiologySensors 0.5.2
 photobiologySensors 0.5.1
 =========================
 
-** Data have changed, with vectors in many cases being shorter and wavelength
+**Data have changed, with vectors in many cases being shorter and wavelength
 steps of irregular size, but with minimal change in the information.**
 
 * Rebuild all spectral data objects with 'photobiology' (== 0.11.0) adding

@@ -5,8 +5,8 @@
 \alias{diffusers.lst}
 \title{Angular response of sensors}
 \format{
-A \code{response_mspct} object containing a
-\code{response_spct} objects as \emph{named} members.
+A \code{list} object containing \code{data.frame}
+  objects as \emph{named} members.
 
 Each member spectrum contains three variables:
 \itemize{
@@ -20,13 +20,16 @@ diffusers.lst
 }
 \description{
 A collection of angular response data for selected broadband
-sensors used for measuring ultraviolet and visible radiation and of cosine
-diffusers used with spectrometers. Each data frame in the
-collection contains three variables, angle.deg (degrees) at either regular or
-irregular intervals, response relative to the maximum (as a fraction of one)
-and response relative to a perfect cosine response (as a fraction of one).
-Data are either from manufacturer specifications or independent measurements
-reported in the scientific literature.
+  sensors used for measuring ultraviolet and visible radiation and of cosine
+  diffusers used with spectrometers.
+}
+\details{
+Each data frame in the list contains three variables, angle.deg
+  (degrees) at either regular or irregular intervals, response relative to
+  the maximum (as a fraction of one) and response relative to a perfect
+  cosine response (as a fraction of one). Data are either from manufacturer
+  specifications or independent measurements reported in the scientific
+  literature.
 }
 \note{
 Values are only good as reference, as individual sensors and diffusers
@@ -37,5 +40,9 @@ Values are only good as reference, as individual sensors and diffusers
 \examples{
 names(diffusers.lst)
 
+}
+\seealso{
+Vectors of names in \code{\link{all_diffusers}} and function
+  \code{\link{angular_response}()}.
 }
 \keyword{datasets}

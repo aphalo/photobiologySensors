@@ -21,7 +21,7 @@
 \alias{multichannel_sensors}
 \title{Sensors responsive to different wavebands}
 \format{
-A character vector of names of members of the collection of spectra.
+An object of class \code{character} of length 27.
 
 An object of class \code{character} of length 2.
 
@@ -89,6 +89,11 @@ multichannel_sensors
 \description{
 A vector of indexes for extracting subsets of spectra from the
 \code{\link{sensors.mspct}} object.
+}
+\details{
+The sensors pointed at by each of these vectors are sensitive to
+  light of a certain colour within visible radiation (VIS) or to different
+  bands of ultraviolet (UV) or infrared (IR) radiation.
 }
 \examples{
 uv_sensors # ultraviolet
