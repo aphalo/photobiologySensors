@@ -69,5 +69,5 @@ Data sheet for BPX65 (Version 1.4, 2023-01-24)
 \seealso{
 \code{\link{sensors.mspct}}
 }
-\concept{sensors by supplier}
+\concept{light sensors}
 \keyword{datasets}

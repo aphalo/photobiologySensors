@@ -8,7 +8,7 @@
 #' @docType data
 #' @keywords datasets
 #'
-#' @concept sensors by supplier
+#' @concept light sensors
 #'
 #' @details
 #' TSL254R light-to-voltage optical sensor combining a photodiode
