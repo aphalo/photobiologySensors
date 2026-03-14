@@ -22,6 +22,13 @@ a point light source such as the sun or its zenith angle [degrees].}
 \item{diameter}{numeric The diameter of the entrance optics. If \code{NULL},
 the default, a relative value is returned.}
 }
+\value{
+A numeric vector of the same length as the numeric arguments following
+the recycling rules of R expressions. With \code{diameter = NULL}, the
+returned values are positive fractions or one, and otherwise the projected
+area expressed in the area units matching the length unit in which the
+argument passed to \code{diameter} is expressed.
+}
 \description{
 Angular response of idealized entrance optics used in light measurements.
 }

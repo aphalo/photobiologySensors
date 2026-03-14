@@ -70,5 +70,4 @@ Data sheet for BPX65 (Version 1.4, 2023-01-24)
 \code{\link{sensors.mspct}}
 }
 \concept{Spectral response data}
-\concept{light sensors}
 \keyword{datasets}

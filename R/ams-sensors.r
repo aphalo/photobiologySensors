@@ -3,11 +3,6 @@
 #' @description A vector of indexes for extracting subsets of spectra from the
 #' \code{\link{sensors.mspct}} object.
 #'
-#' @docType data
-#' @keywords datasets
-#'
-#' @concept light sensors
-#'
 #' @family Spectral response data
 #'
 #' @details

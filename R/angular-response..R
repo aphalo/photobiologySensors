@@ -24,7 +24,7 @@
 #' The \emph{spherical response} for a \emph{"ball"} is computed as
 #' \deqn{A_\mathrm{p} = A_\mathrm{max} \times 1}
 #'
-#' @value A numeric vector of the same length as the numeric arguments following
+#' @return A numeric vector of the same length as the numeric arguments following
 #' the recycling rules of R expressions. With \code{diameter = NULL}, the
 #' returned values are positive fractions or one, and otherwise the projected
 #' area expressed in the area units matching the length unit in which the
